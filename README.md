@@ -1,2 +1,3 @@
 # m
-Functional utility ... functions
+
+> Functional library for Javascript

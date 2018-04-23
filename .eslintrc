@@ -1,0 +1,12 @@
+{
+  "root"    : true,
+  "extends" : [
+    "@codemachiner/eslint-config/rules/backend",
+  ],
+  "settings": {
+    "import/resolver": "node",
+  },
+  "rules": {
+    "indent": [ "error", 2 ]
+  },
+}

@@ -1,0 +1,49 @@
+{
+  "name": "@codemachiner/m",
+  "version": "0.1.0",
+  "description": "Functional library",
+  "homepage": "https://github.com/andreidcm/m",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreidcm/m.git"
+  },
+  "bugs": {
+    "url": "https://github.com/andreidcm/m/issues"
+  },
+  "author": {
+    "name": "Andrei Dumitrescu",
+    "email": "andrei@codemachiner.com"
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "----UTILS------------------------------------": "",
+    "setup": "rm -rf ./node_modules && npm i",
+    "check:update": "npm-check -u",
+    "check:security": "nsp check",
+    "----BUNDLE-----------------------------------": "",
+    "prepublish": "npm run lint && npm run test && npm run check:security",
+    "----LINTING----------------------------------": "",
+    "lint": "eslint --fix ./src",
+    "----TESTS------------------------------------": "",
+    "test": "tape src/**/*.test.js | tap-diff",
+    "test-watch": "nodemon --watch src --exec \"npm run test\""
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@codemachiner/eslint-config": "2.9.5",
+    "eslint": "4.19.1",
+    "eslint-plugin-import": "2.10.0",
+    "eslint-plugin-json": "1.2.0",
+    "eslint-plugin-no-inferred-method-name": "1.0.2",
+    "eslint-plugin-promise": "3.7.0",
+    "eslint-plugin-unicorn": "4.0.2",
+    "markdownlint-cli": "0.8.1",
+    "nodemon": "1.17.3",
+    "npm-check": "5.6.0",
+    "nsp": "3.2.1",
+    "tap-diff": "0.1.1",
+    "tape": "4.9.0"
+  },
+  "license": "MIT"
+}
