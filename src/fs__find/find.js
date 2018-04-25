@@ -2,12 +2,12 @@
 
 const path = require( "path" )
 const fs = require( "fs" )
-const { pipe } = require( "../core__pipe/pipe" )
-const { map } = require( "../array__map/map" )
-const { push } = require( "../array__push/push" )
-const { flatten } = require( "../array__flatten/flatten" )
-const { reduce } = require( "../array__reduce/reduce" )
-const { type } = require( "../type/type" )
+const pipe = require( "../core__pipe/pipe" )
+const map = require( "../array__map/map" )
+const push = require( "../array__push/push" )
+const flatten = require( "../array__flatten/flatten" )
+const reduce = require( "../array__reduce/reduce" )
+const type = require( "../core__type/type" )
 
 /**
  * Determines if file name valid.
@@ -54,11 +54,9 @@ const isDir = dirPath =>
  * @param  {Object}           arg1             Function props
  * @param  {Function|RegExp}  arg1.test        Test function or RegExp to match
  *                                             file name agains
- * @param  {boolean}          arg1.isAbsolute  With absolute paths
- *
  * @return {string[]}         Array of files paths
  */
-const find = ( { test = /.*/ } = {} ) => {
+module.exports = ( { test = /.*/ } = {} ) => {
   const matchInDir = pipe(
     readDir,
     reduce( ( acc, filePath ) =>
@@ -74,10 +72,4 @@ const find = ( { test = /.*/ } = {} ) => {
     matchInDir,
     flatten
   )
-}
-
-module.exports = {
-  readDir,
-  isDir,
-  find,
 }

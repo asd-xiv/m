@@ -1,5 +1,5 @@
 const test = require( "tape" )
-const { push } = require( "./push" )
+const push = require( "./push" )
 
 /**
  * Add element at end of array
@@ -9,7 +9,7 @@ const { push } = require( "./push" )
  *
  * @return {Array}  New array with added element
  */
-test( "push ( element: mixed ) ( input: Array[mixed] ): Array ", t => {
+test( "array::push ( element: mixed ) ( input: Array[mixed] ): Array ", t => {
   t.deepEqual(
     push( null )( [] ),
     [ null ],

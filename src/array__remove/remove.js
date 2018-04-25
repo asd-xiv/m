@@ -1,4 +1,4 @@
-const { filter } = require( "../array__filter/filter" )
+const filter = require( "../array__filter/filter" )
 
 /**
  * { lambda_description }
@@ -8,9 +8,5 @@ const { filter } = require( "../array__filter/filter" )
  *
  * @return {Array}
  */
-const remove = value =>
+module.exports = value =>
   filter( element => element !== value )
-
-module.exports = {
-  remove,
-}

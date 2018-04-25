@@ -5,7 +5,7 @@
  *
  * @return {Array}     { description_of_the_return_value }
  */
-const filter = fn => array => {
+module.exports = fn => array => {
   const filteredArray = []
 
   for ( let i = 0, length = array.length; i < length; i++ ) {
@@ -13,8 +13,4 @@ const filter = fn => array => {
   }
 
   return filteredArray
-}
-
-module.exports = {
-  filter,
 }

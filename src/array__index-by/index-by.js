@@ -1,25 +1,23 @@
-const { is } = require( "../type/type" )
-
 /**
- * Transform array into a indexed object
+ * Group an array of objects by field. Only truthy fields will be indexed.
  *
  * @param  {string}  field  The field to index by
  * @param  {Array}   array  Input
  *
  * @return {Object}
  */
-const indexBy = field => array => {
+module.exports = field => array => {
   const result = {}
 
   for ( let i = 0, length = array.length; i < length; i++ ) {
-    if ( is( array[ i ][ field ] ) ) {
-      result[ array[ i ][ field ] ] = array[ i ]
+    if ( !!array[ i ][ field ] ) {
+      const groupKey = String( array[ i ][ field ] )
+
+      result[ groupKey ] = result[ groupKey ]
+        ? [ ...result[ groupKey ], array[ i ] ]
+        : [ array[ i ] ]
     }
   }
 
   return result
-}
-
-module.exports = {
-  indexBy,
 }

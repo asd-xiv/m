@@ -6,7 +6,7 @@
  *
  * @return {Any}
  */
-const pipe = ( ...fns ) => ( ...input ) => {
+module.exports = ( ...fns ) => ( ...input ) => {
   const [ firstFn, ...restFn ] = fns
   let acc = firstFn.apply( null, input )
 
@@ -15,8 +15,4 @@ const pipe = ( ...fns ) => ( ...input ) => {
   }
 
   return acc
-}
-
-module.exports = {
-  pipe,
 }

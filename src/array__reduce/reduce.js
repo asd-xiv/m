@@ -7,7 +7,7 @@
  *
  * @return {Function}  { description_of_the_return_value }
  */
-const reduce = ( fn, defaultAcc = {} ) => input => {
+module.exports = ( fn, defaultAcc = {} ) => input => {
   let acc = defaultAcc
 
   for ( let i = 0, length = input.length; i < length; i++ ) {
@@ -15,8 +15,4 @@ const reduce = ( fn, defaultAcc = {} ) => input => {
   }
 
   return acc
-}
-
-module.exports = {
-  reduce,
 }

@@ -7,7 +7,7 @@
  *
  * @return {Array}
  */
-const map = fn => input => {
+module.exports = fn => input => {
   const newArray = []
 
   for ( let i = 0, length = input.length; i < length; i++ ) {
@@ -15,8 +15,4 @@ const map = fn => input => {
   }
 
   return newArray
-}
-
-module.exports = {
-  map,
 }

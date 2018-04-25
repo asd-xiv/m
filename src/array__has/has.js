@@ -11,9 +11,5 @@
  * has( 2 )( [ 1, 2 ] ) // true
  * has( 3 )( [ 1, 2 ] ) // false
  */
-const has = value => array =>
+module.exports = value => array =>
   array.indexOf( value ) !== -1
-
-module.exports = {
-  has,
-}

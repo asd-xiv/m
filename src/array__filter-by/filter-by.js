@@ -1,5 +1,5 @@
-const { filter } = require( "../array__filter/filter" )
-const { reduce } = require( "../array__reduce/reduce" )
+const filter = require( "../array__filter/filter" )
+const reduce = require( "../array__reduce/reduce" )
 
 /**
  * Determines one object is part of another
@@ -32,9 +32,5 @@ const isMatch = alice => bob =>
  * filterBy( { "!id": 2 } )( [ { lorem: 2 }, { lorem: 3 }, { id: 2 } ] )
  * // [ { lorem: 2 }, { lorem: 3 } ]
  */
-const filterBy = filterObj =>
+module.exports = filterObj =>
   filter( isMatch( filterObj ) )
-
-module.exports = {
-  filterBy,
-}

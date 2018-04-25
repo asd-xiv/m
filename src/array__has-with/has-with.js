@@ -11,7 +11,7 @@
  * hasWith( { id: 2 } )( [ { id: 2, title: "todo #1"} ] ) // true
  * hasWith( { id: 2 } )( [ { id: 3, title: "todo #2"} ] ) // false
  */
-const hasWith = filters => input => {
+module.exports = filters => input => {
   const filterEntries = Object.entries( filters )
 
   for ( let i = 0, length = filterEntries.length; i < length; i++ ) {
@@ -23,8 +23,4 @@ const hasWith = filters => input => {
   }
 
   return true
-}
-
-module.exports = {
-  hasWith,
 }

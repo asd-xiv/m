@@ -1,4 +1,4 @@
-const { isFn } = require( "../type/type" )
+const type = require( "../core__type/type" )
 
 /**
  * Functional if-then-else
@@ -10,13 +10,9 @@ const { isFn } = require( "../type/type" )
  *
  * @return {mixed}
  */
-const ifThen = ( conditionFn, thenFn, elseFn ) => input =>
+module.exports = ( conditionFn, thenFn, elseFn ) => input =>
   conditionFn( input )
     ? thenFn( input )
-    : isFn( elseFn )
+    : type( elseFn ) === "Function"
       ? elseFn( input )
       : input
-
-module.exports = {
-  ifThen,
-}

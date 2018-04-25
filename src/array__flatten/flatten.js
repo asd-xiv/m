@@ -1,5 +1,5 @@
-const { isType } = require( "../type/type" )
-const { reduce } = require( "../array__reduce/reduce" )
+const type = require( "../core__type/type" )
+const reduce = require( "../array__reduce/reduce" )
 
 /**
  * Recursively concat all arrays intro a single array
@@ -9,10 +9,8 @@ const { reduce } = require( "../array__reduce/reduce" )
  * @return {Array}  1 level deep array
  */
 const flatten = reduce( ( acc, item ) =>
-  isType( "Array" )( item )
+  type( item ) === "Array"
     ? [ ...acc, ...flatten( item ) ]
     : [ ...acc, item ], [] )
 
-module.exports = {
-  flatten,
-}
+module.exports = flatten

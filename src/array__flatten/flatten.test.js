@@ -1,5 +1,5 @@
 const test = require( "tape" )
-const { flatten } = require( "./flatten" )
+const flatten = require( "./flatten" )
 
 /**
  * Recursively concat all arrays intro a single array
@@ -8,7 +8,7 @@ const { flatten } = require( "./flatten" )
  *
  * @return {Array}  1 level deep array
  */
-test( "flatten ( input: Array[mixed] ): Array ", t => {
+test( "array::flatten ( input: Array[mixed] ): Array ", t => {
   t.deepEqual(
     flatten( [] ),
     [],

@@ -6,9 +6,5 @@
  *
  * @return {Array}  New array with added element
  */
-const push = ( ...elements ) => input =>
+module.exports = ( ...elements ) => input =>
   input.concat( elements )
-
-module.exports = {
-  push,
-}

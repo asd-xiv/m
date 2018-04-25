@@ -6,12 +6,8 @@
  *
  * @return {undefined}  { description_of_the_return_value }
  */
-const forEach = fn => array => {
+module.exports = fn => array => {
   for ( let i = 0, length = array.length; i < length; i++ ) {
     fn.call( null, array[ i ], i, array )
   }
-}
-
-module.exports = {
-  forEach,
 }

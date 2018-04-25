@@ -7,18 +7,5 @@
  *
  * @return {integer}
  */
-const random = ( { min, max } ) =>
+module.exports = ( { min, max } ) =>
   Math.floor( ( Math.random() * ( max - min + 1 ) ) + min )
-
-/**
- * Simulate coin toss
- *
- * @return {boolean}  True for heads, false for tails
- */
-const coinToss = () =>
-  Math.random() > 0.5
-
-module.exports = {
-  random,
-  coinToss,
-}
