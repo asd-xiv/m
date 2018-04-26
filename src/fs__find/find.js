@@ -61,7 +61,7 @@ module.exports = ( { test = /.*/ } = {} ) => {
     readDir,
     reduce( ( acc, filePath ) =>
       isDir( filePath )
-        ? push( matchInDir( filePath ), acc )
+        ? push( matchInDir( filePath ) )( acc )
         : isFileNameValid( test )( path.basename( filePath ) )
           ? push( filePath )( acc )
           : acc,

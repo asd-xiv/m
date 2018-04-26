@@ -12,12 +12,17 @@ const find = require( "./find" )
  * @return {string[]}         Array of files paths
  */
 test( "fs::find( { test } )( folder: string )", t => {
-  t.equal(
-    find( {
+  const files = find( {
       test: /.*\.test\.js/,
-    } )( __dirname ).length,
-    1,
+    } )( __dirname )
+
+  t.equal(
+    files.length, 1,
     "folder should contain 1 file that ends with \".test.js\"" )
+
+  t.notEqual(
+    files[0].indexOf( ".test.js" ), -1,
+    "file name should match \".test.js\"" )
 
   t.end()
 } )
