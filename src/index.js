@@ -13,6 +13,7 @@ module.exports = {
   toggle  : require( "./array__toggle/toggle" ),
   I       : require( "./core__I/I" ),
   ifThen  : require( "./core__if-then/if-then" ),
+  isEmpty : require( "./core__is-empty/is-empty" ),
   pipe    : require( "./core__pipe/pipe" ),
   type    : require( "./core__type/type" ),
   coinToss: require( "./number__coin-toss/coin-toss" ),
