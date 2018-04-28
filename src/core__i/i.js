@@ -5,4 +5,4 @@
  *
  * @return {mixed}
  */
-module.exports = input => () => input
+module.exports = input => input

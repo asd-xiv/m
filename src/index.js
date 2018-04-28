@@ -11,7 +11,7 @@ module.exports = {
   reduce  : require( "./array__reduce/reduce" ),
   remove  : require( "./array__remove/remove" ),
   toggle  : require( "./array__toggle/toggle" ),
-  I       : require( "./core__I/I" ),
+  i       : require( "./core__i/i" ),
   ifThen  : require( "./core__if-then/if-then" ),
   isEmpty : require( "./core__is-empty/is-empty" ),
   pipe    : require( "./core__pipe/pipe" ),
