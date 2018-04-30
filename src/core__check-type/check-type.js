@@ -13,13 +13,21 @@ const type = require( "../core__type/type" )
  * @return {undefined}  { description_of_the_return_value }
  */
 module.exports = ( { schema, context } ) => input => {
-  const fieldPairs = Object.entries( schema )
+  if ( type( schema ) === "String" && type( input ) !== schema ) {
+    throw new TypeError( `Expected input to be "${schema}" in "${context}". Received "${input}", type "${type( input )}".` )
+  }
 
-  for ( let i = 0, length = fieldPairs.length; i < length; i++ ) {
-    const [ field, expectedType ] = fieldPairs[ i ]
+  if ( type( schema ) === "Object" ) {
+    const fieldPairs = Object.entries( schema )
 
-    if ( type( input[ field ] ) !== expectedType ) {
-      throw new TypeError( `Expected "${field}" to be "${expectedType}" in "${context}". Received "${input[ field ]}", type "${type( input[ field ] )}".` )
+    for ( let i = 0, length = fieldPairs.length; i < length; i++ ) {
+      const [ field, expectedType ] = fieldPairs[ i ]
+
+      if ( type( input[ field ] ) !== expectedType ) {
+        throw new TypeError( `Expected "${field}" to be "${expectedType}" in "${context}". Received "${input[ field ]}", type "${type( input[ field ] )}".` )
+      }
     }
   }
+
+  return input
 }
