@@ -28,7 +28,10 @@
     "test": "tape src/**/*.test.js | tap-diff",
     "test-watch": "nodemon --watch src --exec \"npm run test\""
   },
-  "dependencies": {},
+  "dependencies": {
+    "tap-diff": "0.1.1",
+    "tape": "4.9.0"
+  },
   "devDependencies": {
     "@codemachiner/eslint-config": "2.9.5",
     "eslint": "4.19.1",
@@ -40,9 +43,7 @@
     "markdownlint-cli": "0.8.1",
     "nodemon": "1.17.3",
     "npm-check": "5.6.0",
-    "nsp": "3.2.1",
-    "tap-diff": "0.1.1",
-    "tape": "4.9.0"
+    "nsp": "3.2.1"
   },
   "license": "MIT"
 }
