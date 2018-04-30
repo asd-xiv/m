@@ -7,6 +7,10 @@ const reduce = require( "../array__reduce/reduce" )
  * @param  {Array}  input  Array with nested arrays
  *
  * @return {Array}  1 level deep array
+ *
+ * @example
+ * flatten( [ 1, [ 2 ], [ 3, [ 4 ] ] ] )
+ * // => [ 1, 2, 3, 4 ]
  */
 const flatten = reduce( ( acc, item ) =>
   type( item ) === "Array"

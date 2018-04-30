@@ -4,29 +4,25 @@ const flatten = require( "./flatten" )
 /**
  * Recursively concat all arrays intro a single array
  *
- * @param  {Array}  input  Array with nested arrays
- *
- * @return {Array}  1 level deep array
+ * @example
+ * flatten( [ 1, [ 2 ], [ 3, [ 4 ] ] ] )
+ * // => [ 1, 2, 3, 4 ]
  */
-test( "array::flatten ( input: Array[mixed] ): Array ", t => {
+test( "array::flatten", t => {
   t.deepEqual(
-    flatten( [] ),
-    [],
+    flatten( [] ), [],
     "[] should equal []" )
 
   t.deepEqual(
-    flatten( [ [ [] ] ] ),
-    [],
+    flatten( [ [ [] ] ] ), [],
     "[ [ [] ] ] should equal []" )
 
   t.deepEqual(
-    flatten( [ [ [ 1 ] ] ] ),
-    [ 1 ],
+    flatten( [ [ [ 1 ] ] ] ), [ 1 ],
     "[ [ [1] ] ] should equal [ 1 ]" )
 
   t.deepEqual(
-    flatten( [ 1, [ 2 ], [ 3, [ 4 ] ] ] ),
-    [ 1, 2, 3, 4 ],
+    flatten( [ 1, [ 2 ], [ 3, [ 4 ] ] ] ), [ 1, 2, 3, 4 ],
     "[ 1, [2], [3, [4]], [] ] should equal [ 1, 2, 3, 4 ]" )
 
   t.end()
