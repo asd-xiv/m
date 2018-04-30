@@ -1,3 +1,5 @@
+const checkType = require( "../core__check-type/check-type" )
+
 /**
  * Add element at end of array
  *
@@ -6,5 +8,13 @@
  *
  * @return {Array}  New array with added element
  */
-module.exports = ( ...elements ) => input =>
-  input.concat( elements )
+module.exports = ( ...elements ) => input => {
+  checkType( {
+    schema: {
+      input: "Array",
+    },
+    context: "push( ...elements )( input )",
+  } )( { input } )
+
+  return input.concat( elements )
+}

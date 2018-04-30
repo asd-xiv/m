@@ -4,31 +4,31 @@ const push = require( "./push" )
 /**
  * Add element at end of array
  *
- * @param  {mixed}  element  Element to be added
- * @param  {Array}  input    Array to add to
- *
- * @return {Array}  New array with added element
+ * @example
+ * push( 2 )( [ 1 ] )
+ * // => [ 1, 2 ]
  */
-test( "array::push ( element: mixed ) ( input: Array[mixed] ): Array ", t => {
+test( "array::push( ...elements )( input )", t => {
   t.deepEqual(
-    push( null )( [] ),
-    [ null ],
+    push( null )( [ 1 ] ), [ 1, null ],
     "(null)([]) should equal [null]" )
 
   t.deepEqual(
-    push( undefined )( [] ),
-    [ undefined ],
+    push( undefined )( [] ), [ undefined ],
     "(undefined)([]) should equal [undefined]" )
 
   t.deepEqual(
-    push( [] )( [] ),
-    [ [] ],
+    push( [] )( [] ), [ [] ],
     "([])([]) should equal [[]]" )
 
   t.deepEqual(
-    push( 1, null, undefined )( [] ),
-    [ 1, null, undefined ],
+    push( 1, null, undefined )( [] ), [ 1, null, undefined ],
     "(1, null, undefined)([]) should equal [1, null, undefined]" )
+
+  t.throws( () => {
+    push( "new element at the back" )( 2 )
+  }, /^TypeError: Expected "input" to be "Array"/,
+  "parameter \"input\" should be of type \"Array\"" )
 
   t.end()
 } )
