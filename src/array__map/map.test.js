@@ -5,18 +5,30 @@ const map = require( "./map" )
  * Iterate over an input list, calling `fn` for each element, return a new
  * array
  *
- * @param  {Function}  fn     The function
- * @param  {Array}     input  Input array
- *
- * @return {Array}
+ * @example
+ * map( x => x * x )( [ 1, 2, 3 ] )
+ * // => [ 1, 4, 9 ]
  */
-test( "array::map ( ...Fn )( ar ): Array ", t => {
+test( "array::map( fn )( input )", t => {
   const squared = value => value * value
 
   t.deepEqual(
-    map( squared )( [ 1, 2, 3 ] ),
-    [ 1, 4, 9 ],
+    map( squared )( [ 1, 2, 3 ] ), [ 1, 4, 9 ],
     "square of [1,2,3] should equal [1,4,9]" )
+
+  t.deepEqual(
+    map( squared )( [] ), [],
+    "iteration over [] should equal []" )
+
+  t.throws( () => {
+    map( "asd" )( [] )
+  }, TypeError,
+  "parameter \"fn\" should be of type \"Function\"" )
+
+  t.throws( () => {
+    map( () => {} )( {} )
+  }, TypeError,
+  "parameter \"input\" should be of type \"Array\"" )
 
   t.end()
 } )
