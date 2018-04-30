@@ -19,7 +19,7 @@ module.exports = ( { schema, context } ) => input => {
     const [ field, expectedType ] = fieldPairs[ i ]
 
     if ( type( input[ field ] ) !== expectedType ) {
-      throw new TypeError( `Expected type of "${field}" to be "${expectedType}" in "${context}". Received value: "${input[ field ]}" with type "${type( input[ field ] )}".` )
+      throw new TypeError( `Expected "${field}" to be "${expectedType}" in "${context}". Received "${input[ field ]}", type "${type( input[ field ] )}".` )
     }
   }
 }
