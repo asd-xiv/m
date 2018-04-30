@@ -1,14 +1,14 @@
 {
   "name": "@codemachiner/m",
   "version": "0.1.2",
-  "description": "Functional library",
-  "homepage": "https://github.com/andreidcm/m",
+  "description": "Functional library for Javascript",
+  "homepage": "https://github.com/codemachiner/m",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andreidcm/m.git"
+    "url": "git+https://github.com/codemachiner/m.git"
   },
   "bugs": {
-    "url": "https://github.com/andreidcm/m/issues"
+    "url": "https://github.com/codemachiner/m/issues"
   },
   "author": {
     "name": "Andrei Dumitrescu",
