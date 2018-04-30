@@ -14,7 +14,7 @@ const type = require( "../core__type/type" )
  */
 module.exports = ( { schema, context } ) => input => {
   if ( type( schema ) === "String" && type( input ) !== schema ) {
-    throw new TypeError( `Expected input to be "${schema}" in "${context}". Received "${input}", type "${type( input )}".` )
+    throw new TypeError( `Expected "input" to be "${schema}" in "${context}". Received "${input}", type "${type( input )}".` )
   }
 
   if ( type( schema ) === "Object" ) {
