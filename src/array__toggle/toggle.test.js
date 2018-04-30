@@ -2,22 +2,28 @@ const test = require( "tape" )
 const toggle = require( "./toggle" )
 
 /**
- * Add element if not exists, remove otherwise
+ * Push element if not exists, remove otherwise
  *
- * @param  {mixed}  element  Toggable value
+ * @example
+ * toggle( 2 )( [ 1, 2, 3 ] )
+ * // => [ 1, 3 ]
  *
- * @return {Array}  New array with toggled element
+ * toggle( 2 )( [ 1, "2", 3 ] )
+ * // => [ 1, "2", 3, 2 ]
  */
-test( "array::toggle( element: mixed )( input: Array[mixed] ): Array", t => {
+test( "array::toggle( element )( input )", t => {
   t.deepEqual(
-    toggle( 2 )( [ 1, 2, 3 ] ),
-    [ 1, 3 ],
-    "should remove element" )
+    toggle( 2 )( [ 1, 2, 3 ] ), [ 1, 3 ],
+    "(2)([1,2,3]) // should remove element" )
 
   t.deepEqual(
-    toggle( 2 )( [ 1, "2", 3 ] ),
-    [ 1, "2", 3, 2 ],
-    "should add element" )
+    toggle( 2 )( [ 1, "2", 3 ] ), [ 1, "2", 3, 2 ],
+    "(2)([1,\"2\",3]) // should push element" )
+
+  t.throws( () => {
+    toggle( 2 )( {} )
+  }, /^TypeError: Expected "input" to be "Array"/,
+  "(2)({}) // parameter \"input\" should be of type \"Array\"" )
 
   t.end()
 } )
