@@ -23,7 +23,7 @@ const isEmpty = require( "./is-empty" )
  * isEmpty(() => {})         // false
  * isEmpty(Promise.resolve() // false
  */
-test( "core::isEmpty ( input: mixed ): boolean", t => {
+test( "core::isEmpty( input ): boolean", t => {
   t.equal( isEmpty( {} ), true, "{} should equal true" )
   t.equal( isEmpty( { a: 2 } ), false, "{a:2} should equal false" )
   t.equal( isEmpty( [] ), true, "[] should equal true" )
@@ -37,6 +37,5 @@ test( "core::isEmpty ( input: mixed ): boolean", t => {
   t.equal( isEmpty( () => {} ), false, "() => {} should equal false" )
   t.equal( isEmpty( new Date() ), false, "Date() should equal false" )
   t.equal( isEmpty( Promise.resolve( 2 ) ), false, "Promise() should equal false" )
-
   t.end()
 } )

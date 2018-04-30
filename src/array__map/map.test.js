@@ -9,7 +9,7 @@ const map = require( "./map" )
  * map( x => x * x )( [ 1, 2, 3 ] )
  * // => [ 1, 4, 9 ]
  */
-test( "array::map( fn )( input )", t => {
+test( "array::map( fn )( input ): Array", t => {
   const squared = value => value * value
 
   t.deepEqual(
@@ -22,12 +22,12 @@ test( "array::map( fn )( input )", t => {
 
   t.throws( () => {
     map( "asd" )( [] )
-  }, TypeError,
+  }, /^TypeError: Expected "fn" to be "Function"/,
   "parameter \"fn\" should be of type \"Function\"" )
 
   t.throws( () => {
     map( () => {} )( {} )
-  }, TypeError,
+  }, /^TypeError: Expected "input" to be "Array"/,
   "parameter \"input\" should be of type \"Array\"" )
 
   t.end()

@@ -16,7 +16,7 @@ const indexBy = require( "./index-by" )
  * //   3: [ { id: 2, user_id: 3 } ],
  * // }
  */
-test( "array::indexBy( field )( input )", t => {
+test( "array::indexBy( field )( input ): Object", t => {
   const comments = [
     { id: 1, user_id: 2 },
     { id: 2, user_id: 3 },
@@ -37,7 +37,7 @@ test( "array::indexBy( field )( input )", t => {
 
   t.throws( () => {
     indexBy( "user_id" )( {} )
-  }, TypeError,
+  }, /^TypeError: Expected "input" to be "Array"/,
   "parameter \"input\" should be of type \"Array\"" )
 
   t.end()

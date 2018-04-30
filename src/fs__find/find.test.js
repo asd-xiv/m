@@ -11,7 +11,7 @@ const find = require( "./find" )
  *
  * @return {string[]}         Array of files paths
  */
-test( "fs::find( { test } )( folder: string )", t => {
+test( "fs::find( { test, isAbsolute } )( folder ): string[]", t => {
   const files = find( {
     test: /.*\.test\.js/,
   } )( __dirname )

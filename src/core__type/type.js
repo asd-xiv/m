@@ -10,7 +10,6 @@
  * @return {string}
  *
  * @example
- *
  * type({})                // "Object"
  * type(1)                 // "Number"
  * type(false)             // "Boolean"
