@@ -9,16 +9,24 @@ const map = require( "./map" )
  * map( x => x * x )( [ 1, 2, 3 ] )
  * // => [ 1, 4, 9 ]
  */
-test( "array::map( fn )( input ): Array", t => {
-  const squared = value => value * value
+test( "array::map( fn(currentValue, index, array) )( input ): Array", t => {
+  const square = value => value * value
 
   t.deepEqual(
-    map( squared )( [ 1, 2, 3 ] ), [ 1, 4, 9 ],
+    map( square )( [ 1,2,3 ] ), [ 1, 4, 9 ],
     "square of [1,2,3] should equal [1,4,9]" )
 
   t.deepEqual(
-    map( squared )( [] ), [],
+    map( square )( [] ), [],
     "iteration over [] should equal []" )
+
+  map( ( currentValue, index, array ) => {
+    t.equal(
+      currentValue, array[ index ],
+      `callback element "${currentValue}" should equal [${array}][${index}]` )
+
+    return currentValue * currentValue
+  } )( [ 1, 2 ] )
 
   t.throws( () => {
     map( "asd" )( [] )

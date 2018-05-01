@@ -21,7 +21,7 @@ module.exports = fn => input => {
   const newArray = []
 
   for ( let i = 0, length = input.length; i < length; i++ ) {
-    newArray.push( fn.call( null, input[ i ], i ) )
+    newArray.push( fn.call( null, input[ i ], i, input ) )
   }
 
   return newArray
