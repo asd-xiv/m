@@ -1,5 +1,3 @@
-const checkType = require( "../core__check-type/check-type" )
-
 /**
  * Iterate over an input list, calling `fn` for each element, return a new
  * array
@@ -9,19 +7,18 @@ const checkType = require( "../core__check-type/check-type" )
  *
  * @return {Array}
  */
-module.exports = fn => input => {
-  checkType( {
-    schema: {
-      fn   : "Function",
-      input: "Array",
-    },
-    context: "map( fn )( input )",
-  } )( { fn, input } )
-
+module.exports = ( ...fn ) => input => {
   const newArray = []
 
-  for ( let i = 0, length = input.length; i < length; i++ ) {
-    newArray.push( fn.call( null, input[ i ], i, input ) )
+  for ( let i = 0, valuesCount = input.length; i < valuesCount; i++ ) {
+    let value = input[ i ]
+
+    // pipe functions through each value
+    for ( let j = 0, fnCount = fn.length; j < fnCount; j++ ) {
+      value = fn[ j ].call( null, value, i, input )
+    }
+
+    newArray.push( value )
   }
 
   return newArray
