@@ -19,6 +19,7 @@ module.exports = {
   type    : require( "./core__type/type" ),
   coinToss: require( "./number__coin-toss/coin-toss" ),
   random  : require( "./number__random/random" ),
+  hasKey  : require( "./object__has-key/has-key" ),
   merge   : require( "./object__merge/merge" ),
   resolve : require( "./promise__resolve/resolve" ),
 }
