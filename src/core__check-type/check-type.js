@@ -1,6 +1,6 @@
 const type = require( "../core__type/type" )
 
-const ARRAY_REG = /^Array<(String|Object|Function|Number)?>$/
+// const ARRAY_REG = /^Array<(String|Object|Function|Number)?>$/
 
 const isOfType = ( value, ofType ) => {
   const ofTypeArray = ofType.split( "|" )
