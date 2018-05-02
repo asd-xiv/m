@@ -1,5 +1,20 @@
 const type = require( "../core__type/type" )
 
+const ARRAY_REG = /^Array<(String|Object|Function|Number)?>$/
+
+const isOfType = ( value, ofType ) => {
+  const ofTypeArray = ofType.split( "|" )
+  const valueType = type( value )
+
+  for ( let i = 0, length = ofTypeArray.length; i < length; i++ ) {
+    if ( valueType === ofTypeArray[ i ] ) {
+      return true
+    }
+  }
+
+  return false
+}
+
 /**
  * Validate field types
  *
@@ -12,7 +27,7 @@ const type = require( "../core__type/type" )
  *
  * @return {undefined}  { description_of_the_return_value }
  */
-module.exports = ( { schema, context } ) => input => {
+module.exports = ( { schema, context = "" } ) => input => {
   if ( type( schema ) === "String" && type( input ) !== schema ) {
     throw new TypeError( `Expected "input" to be "${schema}" in "${context}". Received "${input}", type "${type( input )}".` )
   }
@@ -23,7 +38,7 @@ module.exports = ( { schema, context } ) => input => {
     for ( let i = 0, length = fieldPairs.length; i < length; i++ ) {
       const [ field, expectedType ] = fieldPairs[ i ]
 
-      if ( type( input[ field ] ) !== expectedType ) {
+      if ( !isOfType( input[ field ], expectedType ) ) {
         throw new TypeError( `Expected "${field}" to be "${expectedType}" in "${context}". Received "${input[ field ]}", type "${type( input[ field ] )}".` )
       }
     }
