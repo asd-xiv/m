@@ -1,5 +1,3 @@
-const checkType = require( "../core__check-type/check-type" )
-
 /**
  * Check if an object has a key defined
  *
@@ -7,15 +5,13 @@ const checkType = require( "../core__check-type/check-type" )
  * @param  {object}  input  Test object
  *
  * @return {boolean}
+ *
+ * @tag Object
+ * @signature ( key: string ) => ( input: Object ): boolean
+ *
+ * @example
+ * has( "lorem" )( { lorem: null } ) // => true
+ * has( "toString" )( { lorem: "ipsum" } ) // => false
  */
-module.exports = key => input => {
-  checkType( {
-    schema: {
-      key  : "String",
-      input: "Object",
-    },
-    context: "hasKey(key)(input)",
-  } )( { key, input } )
-
-  return Object.prototype.hasOwnProperty.call( input, key )
-}
+module.exports = key => input =>
+  Object.prototype.hasOwnProperty.call( input, key )

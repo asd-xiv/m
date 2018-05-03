@@ -1,5 +1,3 @@
-const checkType = require( "../core__check-type/check-type" )
-
 /**
  * Group an array of objects by field. Only truthy fields will be indexed.
  *
@@ -21,13 +19,6 @@ const checkType = require( "../core__check-type/check-type" )
  * // }
  */
 module.exports = field => input => {
-  checkType( {
-    schema: {
-      input: "Array",
-    },
-    context: "indexBy( field )( input )",
-  } )( { input } )
-
   const result = {}
 
   for ( let i = 0, length = input.length; i < length; i++ ) {

@@ -1,21 +1,21 @@
-const pipe = require( "../core__pipe/pipe" )
-const checkType = require( "../core__check-type/check-type" )
+const ifThen = require( "../core__if-then/if-then" )
 const has = require( "../array__has/has" )
 const remove = require( "../array__remove/remove" )
 const push = require( "../array__push/push" )
-const ifThen = require( "../core__if-then/if-then" )
 
 /**
  * Add element if not exists, remove otherwise
  *
  * @param  {mixed}  element  Toggable value
  *
- * @return {Array}  New array with toggled element
+ * @return {Array}
+ *
+ * @tag Array
+ * @signature ( element: mixed ) => ( input: Array ): Array
+ *
+ * @example
+ * toggle( 1 )( [ 1, 2 ] ) // => [ 2 ]
+ * toggle( 1 )( [ 2 ] ) // => [ 1, 2 ]
  */
 module.exports = element =>
-  pipe(
-    checkType( {
-      schema: "Array",
-    } ),
-    ifThen( has( element ), remove( element ), push( element ) )
-  )
+  ifThen( has( element ), remove( element ), push( element ) )

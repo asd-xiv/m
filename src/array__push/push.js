@@ -1,20 +1,17 @@
-const checkType = require( "../core__check-type/check-type" )
-
 /**
  * Add element at end of array
  *
  * @param  {mixed}  element  Element to be added
  * @param  {Array}  input    Array to add to
  *
- * @return {Array}  New array with added element
+ * @return {Array}
+ *
+ * @tag Array
+ * @signature ( ...elements: mixed ) => ( input: Array ): Array
+ *
+ * @example
+ * push( 2 )( [ 1 ] ) // => [ 1, 2 ]
+ * push( 2, 4 )( [ 1 ] ) // => [ 1, 2, 4 ]
  */
-module.exports = ( ...elements ) => input => {
-  checkType( {
-    schema: {
-      input: "Array",
-    },
-    context: "push( ...elements )( input )",
-  } )( { input } )
-
-  return input.concat( elements )
-}
+module.exports = ( ...elements ) => input =>
+  input.concat( elements )

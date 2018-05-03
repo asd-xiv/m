@@ -1,5 +1,4 @@
 const reduce = require( "../array__reduce/reduce" )
-const checkType = require( "../core__check-type/check-type" )
 
 /**
  * Determines 2 objects match.
@@ -34,15 +33,5 @@ const isMatch = alice => bob =>
  * findBy( { id: 2 } )( comments )
  * // => { id: 2, body: "dolor" }
  */
-module.exports = filter => input => {
-  checkType( {
-    schema: {
-      filter: "Object",
-      input : "Array",
-    },
-    context: "findBy( filter )( input )",
-  } )( { filter, input } )
-
-
-  return input.find( isMatch( filter ) )
-}
+module.exports = filter => input =>
+  input.find( isMatch( filter ) )

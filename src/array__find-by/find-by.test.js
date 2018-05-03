@@ -1,6 +1,15 @@
 const test = require( "tape" )
 const findBy = require( "./find-by" )
 
+/**
+ * Find the first element that matches the filter criteria
+ *
+ * @example
+ * const comments = [ { id: 1, body: "" }, { id: 2, body: "dolor" } ]
+ *
+ * findBy( { id: 2 } )( comments )
+ * // => { id: 2, body: "dolor" }
+ */
 test( "array::findBy( filter: Object )( input: Array ): mixed", t => {
   const comments = [
     { id: 1, body: "" },
@@ -16,16 +25,6 @@ test( "array::findBy( filter: Object )( input: Array ): mixed", t => {
     findBy( { id: 3 } )( comments ),
     undefined,
     "find with id:3 should return undefined (not found)" )
-
-  t.throws( () => {
-    findBy( "wrong" )( [] )
-  }, /^TypeError: Expected "filter" to be "Object"/,
-  "parameter \"filter\" should be of type \"Object\"" )
-
-  t.throws( () => {
-    findBy( { id: 2 } )( {} )
-  }, /^TypeError: Expected "input" to be "Array"/,
-  "parameter \"input\" should be of type \"Array\"" )
 
   t.end()
 } )

@@ -1,6 +1,14 @@
 const test = require( "tape" )
 const zipToObj = require( "./zip-to-obj" )
 
+/**
+ * Create an object from two arrays, one containing keys, the other values.
+ * Bost arrays will be trimmed to the smallest length.
+ *
+ * @example
+ * zipToObj( [ a, b ] )( [ 1, 2 ] ) // => { a: 1, b: 2 }
+ * zipToObj( [ a ] )( [ 1, 2 ] ) // => { a: 1 }
+ */
 test( "array::zipToObj", t => {
   t.deepEquals(
     zipToObj( [ "a", "b" ] )( [ 1, 2 ] ), { a: 1, b: 2 },

@@ -35,10 +35,5 @@ test( "array::indexBy( field )( input ): Object", t => {
     commentsByUserId[ 3 ][ 0 ], comments[ 1 ],
     "first comment with user_id:3 should equal source array one" )
 
-  t.throws( () => {
-    indexBy( "user_id" )( {} )
-  }, /^TypeError: Expected "input" to be "Array"/,
-  "parameter \"input\" should be of type \"Array\"" )
-
   t.end()
 } )

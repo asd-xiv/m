@@ -1,5 +1,6 @@
 /**
  * Create an object from two arrays, one containing keys, the other values.
+ * Bost arrays will be trimmed to the smallest length.
  *
  * @param  {Array}  keys    Array with keys
  * @param  {Array}  values  Array with values
