@@ -25,6 +25,7 @@
     "----LINTING----------------------------------": "",
     "lint": "eslint --fix ./src",
     "----TESTS------------------------------------": "",
+    "bench": "node src/fs__find/find.bench.js",
     "test": "tape src/**/*.test.js | tap-diff",
     "tdd": "nodemon --watch src --exec \"npm run test\""
   },
@@ -33,16 +34,17 @@
     "tape": "4.9.0"
   },
   "devDependencies": {
-    "@codemachiner/eslint-config": "2.9.5",
+    "@codemachiner/eslint-config": "2.9.6",
+    "benchmark": "2.1.4",
     "eslint": "4.19.1",
-    "eslint-plugin-import": "2.10.0",
+    "eslint-plugin-import": "2.11.0",
     "eslint-plugin-json": "1.2.0",
     "eslint-plugin-no-inferred-method-name": "1.0.2",
     "eslint-plugin-promise": "3.7.0",
-    "eslint-plugin-unicorn": "4.0.2",
+    "eslint-plugin-unicorn": "4.0.3",
     "markdownlint-cli": "0.8.1",
     "nodemon": "1.17.3",
-    "npm-check": "5.6.0",
+    "npm-check": "5.7.0",
     "nsp": "3.2.1"
   },
   "license": "MIT"
