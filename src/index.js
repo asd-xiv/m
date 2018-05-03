@@ -12,6 +12,7 @@ module.exports = {
   reduce  : require( "./array__reduce/reduce" ),
   remove  : require( "./array__remove/remove" ),
   toggle  : require( "./array__toggle/toggle" ),
+  zipToObj: require( "./array__zip-to-obj/zip-to-obj" ),
   i       : require( "./core__i/i" ),
   ifThen  : require( "./core__if-then/if-then" ),
   isEmpty : require( "./core__is-empty/is-empty" ),

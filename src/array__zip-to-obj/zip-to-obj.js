@@ -7,6 +7,9 @@
  *
  * @return {Object}
  *
+ * @tag Array
+ * @signature ( keys: Array ) => ( values: Array ): Object
+ *
  * @example
  * zipToObj( [ a, b ] )( [ 1, 2 ] ) // => { a: 1, b: 2 }
  * zipToObj( [ a ] )( [ 1, 2 ] ) // => { a: 1 }

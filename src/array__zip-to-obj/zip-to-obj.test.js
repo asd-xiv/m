@@ -5,6 +5,9 @@ const zipToObj = require( "./zip-to-obj" )
  * Create an object from two arrays, one containing keys, the other values.
  * Bost arrays will be trimmed to the smallest length.
  *
+ * @tag Array
+ * @signature ( keys: Array ) => ( values: Array ): Object
+ *
  * @example
  * zipToObj( [ a, b ] )( [ 1, 2 ] ) // => { a: 1, b: 2 }
  * zipToObj( [ a ] )( [ 1, 2 ] ) // => { a: 1 }
