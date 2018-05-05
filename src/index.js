@@ -17,6 +17,7 @@ module.exports = {
   ifThen  : require( "./core__if-then/if-then" ),
   isEmpty : require( "./core__is-empty/is-empty" ),
   pipe    : require( "./core__pipe/pipe" ),
+  raise   : require( "./core__raise/raise" ),
   type    : require( "./core__type/type" ),
   coinToss: require( "./number__coin-toss/coin-toss" ),
   random  : require( "./number__random/random" ),
