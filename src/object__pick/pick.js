@@ -3,9 +3,9 @@
  * If the key does not exist, the property is ignored.
  *
  * @tag Object
- * @signature ( keys: Array[string] ) => ( source: Object ): Object
+ * @signature ( keys: string[] ) => ( source: Object ): Object
  *
- * @param      {Array<string>}  keys   The properties to be filtered out
+ * @param      {string[]}  keys   The properties to be filtered out
  * @param      {Object}         source  The source object
  *
  * @return     {Object}

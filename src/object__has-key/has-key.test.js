@@ -2,10 +2,15 @@ const test = require( "tape" )
 const hasKey = require( "./has-key" )
 
 /**
- * Check if an object has a key defined
+ * Check if property exists on a given object
+ *
+ * @param  {string}  key     Property name
+ * @param  {object}  source  Source object
+ *
+ * @return {boolean}
  *
  * @tag Object
- * @signature ( key: string ) => ( input: Object ): boolean
+ * @signature ( key: string ) => ( source: Object ): boolean
  *
  * @example
  * has( "lorem" )( { lorem: null } ) // => true
