@@ -9,6 +9,10 @@
  * @param      {Object}         source  The source object
  *
  * @return     {Object}
+ *
+ * @example
+ * pick(["id", "name"])({id: 2, name: "lorem", description: "lorem ipsum"})
+ * // => {id: 2, name: lorem}
  */
 module.exports = keys => source => {
   const result = {}
