@@ -7,7 +7,6 @@
  * @return {mixed|undefined}  First element
  *
  * @example
- *
  */
 module.exports = matchFn => source => {
   for ( let i = 0,length = source.length; i < length; i++ ) {

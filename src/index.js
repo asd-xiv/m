@@ -1,6 +1,7 @@
 module.exports = {
   filter  : require( "./array__filter/filter" ),
   filterBy: require( "./array__filter-by/filter-by" ),
+  find    : require( "./array__find/find" ),
   findBy  : require( "./array__find-by/find-by" ),
   flatten : require( "./array__flatten/flatten" ),
   forEach : require( "./array__for-each/for-each" ),

@@ -10,8 +10,8 @@ const find = require( "./find" )
  * @return {mixed|undefined}  First element
  *
  * @example
- *
- */test( "array::find( matchFn: Function )( source: Array ): mixed", t => {
+ */
+test( "array::find( matchFn: Function )( source: Array ): mixed", t => {
   const comments = [
     { id: 1, body: "" },
     { id: 2, body: "dolor" },
