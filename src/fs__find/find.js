@@ -55,6 +55,9 @@ const isDir = dirPath =>
  * @param  {Function|RegExp}  arg1.test        Test function or RegExp to match
  *                                             file name agains
  * @return {string[]}         Array of files paths
+ *
+ * @example
+ * find({test: /*.\.plugin\.js/})("./root-folder")
  */
 module.exports = ( { test = /.*/ } = {} ) => {
   const matchInDir = pipe(

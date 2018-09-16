@@ -11,8 +11,24 @@
  * @return  {Object}
  *
  * @example
- * merge({a: "lorem"}, {b: "ipsum", c: 41}, {c: 42})
+ * merge({a: "lorem"}, {b: "ipsum", c: 41}, {c: 42, b: undefined})
  * // => { a: "lorem", b: "ipsum", c: 42 }
  */
-module.exports = ( ...source ) =>
-  Object.assign( {}, ...source )
+module.exports = ( ...sources ) => {
+  const result = {}
+
+  for ( let i = 0, length = sources.length; i < length; i++ ) {
+    const sourceEntries = Object.entries( sources[ i ] )
+
+    for ( let j = 0, sourceEntriesLength = sourceEntries.length; j < sourceEntriesLength; j++ ) {
+      const [ key, value ] = sourceEntries[ j ]
+
+      if ( value !== undefined ) {
+        result[ key ] = value
+      }
+    }
+  }
+
+  return result
+}
+

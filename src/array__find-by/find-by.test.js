@@ -17,6 +17,11 @@ test( "array::findBy( filter: Object )( input: Array ): mixed", t => {
   ]
 
   t.deepEqual(
+    findBy( { id: 2 } )( [] ),
+    undefined,
+    "find with id:2 in empty array should return undefined" )
+
+  t.deepEqual(
     findBy( { id: 2 } )( comments ),
     { id: 2, body: "dolor" },
     "find with id:2 should return found object" )

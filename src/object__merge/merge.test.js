@@ -17,10 +17,10 @@ const merge = require( "./merge" )
  * merge({a: "lorem"}, {b: "ipsum", c: 41}, {c: 42})
  * // => { a: "lorem", b: "ipsum", c: 42 }
  */
-test( "object::merge( ...source: Object[] ): Object", t => {
-  const obj1 = { a: "lorem" }
-  const obj2 = { b: "ipsum", c: 41 }
-  const obj3 = { c: 42 }
+test( "object::merge( ...sources: Object[] ): Object", t => {
+  const obj1 = { a: undefined }
+  const obj2 = { a: "lorem", b: "ipsum", c: 41 }
+  const obj3 = { c: 42, b: undefined }
   const result = merge( obj1, obj2, obj3 )
 
   t.deepEqual(
