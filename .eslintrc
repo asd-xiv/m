@@ -1,12 +1,14 @@
 {
+  "parser": "babel-eslint",
   "root"    : true,
   "extends" : [
-    "@codemachiner/eslint-config/rules/backend",
+    "@codemachiner/eslint-config/rules/backend.js",
+    "@codemachiner/eslint-config/rules/flow.js"
   ],
   "settings": {
-    "import/resolver": "node",
+    "import/resolver": "node"
   },
   "rules": {
     "indent": [ "error", 2 ]
-  },
+  }
 }
