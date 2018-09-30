@@ -16,16 +16,31 @@ const get = require( "./get" )
  * get( "lorem" )( { lorem: "ipsum" } ) // => "ipsum"
  * get( "not-exist" )( { lorem: "ipsum" } ) // => undefined
  */
-test( "object::get( key: string ) => ( source: Object ) => mixed", t => {
-  const source = { lorem: "ipsum" }
+test( "object::get(key: string) => (source: Object) => mixed", t => {
 
   t.equal(
-    get( "lorem" )( source ), "ipsum",
+    get( "lorem" )( {
+      lorem: "ipsum",
+    } ),
+    "ipsum",
     "Get existing property" )
 
   t.equal(
-    get( "no-lorem" )( source ), undefined,
+    get( "not-exist" )( {
+      lorem: "ipsum",
+    } ),
+    undefined,
     "Get non-existing property // undefined" )
+
+  t.equal(
+    get( "not-exist" )( undefined ),
+    undefined,
+    "Get prop from undefined // undefined" )
+
+  t.equal(
+    get( "not-exist" )( 2 ),
+    undefined,
+    "Get prop from non object // undefined" )
 
   t.end()
 } )

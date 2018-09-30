@@ -14,4 +14,4 @@
  * get( "not-exist" )( { lorem: "ipsum" } ) // => undefined
  */
 module.exports = key => source =>
-  source[ key ]
+  typeof source === "object" ? source[ key ] : undefined
