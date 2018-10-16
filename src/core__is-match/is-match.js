@@ -34,17 +34,17 @@
  * // false
  */
 module.exports = subset => source => {
-  const subsetEntries = Object.entries( subset )
+  const subsetEntries = Object.entries(subset)
 
-  for ( let i = 0, length = subsetEntries.length; i < length; i++ ) {
-    const [ key, value ] = subsetEntries[ i ]
-    const shouldTestNegation = key[ 0 ] === "!"
-    const cleanKey = key.replace( "!", "" )
+  for (let i = 0, length = subsetEntries.length; i < length; i++) {
+    const [key, value] = subsetEntries[i]
+    const shouldTestNegation = key[0] === "!"
+    const cleanKey = key.replace("!", "")
     const isFieldMatch = shouldTestNegation
-      ? source[ cleanKey ] !== value
-      : source[ cleanKey ] === value
+      ? source[cleanKey] !== value
+      : source[cleanKey] === value
 
-    if ( isFieldMatch === false ) {
+    if (isFieldMatch === false) {
       return false
     }
   }

@@ -1,4 +1,4 @@
-const isMatch = require( "../core__is-match/is-match" )
+const isMatch = require("../core__is-match/is-match")
 
 /**
  * Count the number of objects that match a criteria
@@ -34,8 +34,8 @@ const isMatch = require( "../core__is-match/is-match" )
 module.exports = matchObject => source => {
   let result = 0
 
-  for ( let i = 0, length = source.length; i < length; i++ ) {
-    if ( isMatch( matchObject )( source[ i ] ) ) {
+  for (let i = 0, length = source.length; i < length; i++) {
+    if (isMatch(matchObject)(source[i])) {
       result = result + 1
     }
   }

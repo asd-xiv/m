@@ -1,13 +1,13 @@
 const sortNumeric = source => {
-  if ( source.length === 0 ) {
+  if (source.length === 0) {
     return 0
   }
 
   let maxValue = 0
 
-  for ( let i = 0, length = source.length; i < length; i++ ) {
-    if ( maxValue < source[ i ] ) {
-      maxValue = source[ i ]
+  for (let i = 0, length = source.length; i < length; i++) {
+    if (maxValue < source[i]) {
+      maxValue = source[i]
     }
   }
 
@@ -15,17 +15,17 @@ const sortNumeric = source => {
 }
 
 const sortFn = fn => source => {
-  if ( source.length === 0 ) {
+  if (source.length === 0) {
     return 0
   }
 
-  let [ maxItem ] = source
+  let [maxItem] = source
   let maxValue = 0
 
-  for ( let i = 1, length = source.length; i < length; i++ ) {
-    if ( maxValue < fn.call( null, source[ i ] ) ) {
-      maxItem = source[ i ]
-      maxValue = fn.call( null, maxItem )
+  for (let i = 1, length = source.length; i < length; i++) {
+    if (maxValue < fn.call(null, source[i])) {
+      maxItem = source[i]
+      maxValue = fn.call(null, maxItem)
     }
   }
 
@@ -58,6 +58,4 @@ const sortFn = fn => source => {
  * // => {time: "2018-06-11T09:01:54.337344Z"}
  */
 module.exports = arg1 =>
-  Array.isArray( arg1 )
-    ? sortNumeric( arg1 )
-    : sortFn( arg1 )
+  Array.isArray(arg1) ? sortNumeric(arg1) : sortFn(arg1)

@@ -1,5 +1,5 @@
-const test = require( "tape" )
-const hasKey = require( "./has-key" )
+const test = require("tape")
+const hasKey = require("./has-key")
 
 /**
  * Check if property exists on a given object
@@ -16,38 +16,42 @@ const hasKey = require( "./has-key" )
  * has( "lorem" )( { lorem: null } ) // => true
  * has( "toString" )( { lorem: "ipsum" } ) // => false
  */
-test( "object::has( key: string ) => ( input: Object ): boolean", t => {
-  t.equal(
-    hasKey( "lorem" )( { lorem: "ipsum" } ), true,
-    "Key exists" )
+test("object::has( key: string ) => ( input: Object ): boolean", t => {
+  t.equal(hasKey("lorem")({ lorem: "ipsum" }), true, "Key exists")
+
+  t.equal(hasKey("lorem")({}), false, "Key does not exist")
 
   t.equal(
-    hasKey( "lorem" )( {} ), false,
-    "Key does not exist" )
+    hasKey("toString")({}),
+    false,
+    'Prototype key "toString" does not return false-positive'
+  )
 
   t.equal(
-    hasKey( "toString" )( {} ), false,
-    "Prototype key \"toString\" does not return false-positive" )
+    hasKey("toString")(Object.create(null)),
+    false,
+    'Key "toString" does not exist on object without prototype'
+  )
 
   t.equal(
-    hasKey( "toString" )( Object.create( null ) ), false,
-    "Key \"toString\" does not exist on object without prototype" )
+    hasKey("lorem")({ lorem: undefined }),
+    true,
+    'Key exists when value is "undefined"'
+  )
 
   t.equal(
-    hasKey( "lorem" )( { lorem: undefined } ), true,
-    "Key exists when value is \"undefined\"" )
+    hasKey("lorem")({ lorem: NaN }),
+    true,
+    'Key exists when value is "NaN"'
+  )
 
   t.equal(
-    hasKey( "lorem" )( { lorem: NaN } ), true,
-    "Key exists when value is \"NaN\"" )
+    hasKey("lorem")({ lorem: null }),
+    true,
+    'Key exists when value is "null"'
+  )
 
-  t.equal(
-    hasKey( "lorem" )( { lorem: null } ), true,
-    "Key exists when value is \"null\"" )
-
-  t.equal(
-    hasKey( "lorem" )( { lorem: 0 } ), true,
-    "Key exists when value is \"0\"" )
+  t.equal(hasKey("lorem")({ lorem: 0 }), true, 'Key exists when value is "0"')
 
   t.end()
-} )
+})

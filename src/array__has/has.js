@@ -6,9 +6,9 @@
  *
  * @return {boolean}   True if has by function, False otherwise.
  */
-const hasByFunction = ( fn, source ) => {
-  for ( let i = 0, length = source.length; i < length; i++ ) {
-    if ( fn.call( null, source[ i ] ) === true ) {
+const hasByFunction = (fn, source) => {
+  for (let i = 0, length = source.length; i < length; i++) {
+    if (fn.call(null, source[i]) === true) {
       return true
     }
   }
@@ -24,9 +24,9 @@ const hasByFunction = ( fn, source ) => {
  *
  * @return {boolean}  True if has by value, False otherwise.
  */
-const hasByValue = ( value, source ) => {
-  for ( let i = 0, length = source.length; i < length; i++ ) {
-    if ( value === source[ i ] ) {
+const hasByValue = (value, source) => {
+  for (let i = 0, length = source.length; i < length; i++) {
+    if (value === source[i]) {
       return true
     }
   }
@@ -55,5 +55,5 @@ const hasByValue = ( value, source ) => {
  */
 module.exports = value => source =>
   typeof value === "function"
-    ? hasByFunction( value, source )
-    : hasByValue( value, source )
+    ? hasByFunction(value, source)
+    : hasByValue(value, source)

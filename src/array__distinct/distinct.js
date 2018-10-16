@@ -1,4 +1,4 @@
-const deepEqual = require( "../core__deep-equal/deep-equal" )
+const deepEqual = require("../core__deep-equal/deep-equal")
 
 /**
  * Remove repeating values
@@ -17,20 +17,20 @@ const deepEqual = require( "../core__deep-equal/deep-equal" )
 module.exports = source => {
   const result = []
 
-  for ( let i = 0, length = source.length; i < length; i++ ) {
-    const newElement = source[ i ]
+  for (let i = 0, length = source.length; i < length; i++) {
+    const newElement = source[i]
     let shouldAdd = true
 
-    for ( let j = 0, resLength = result.length; j < resLength; j++ ) {
-      const resElement = result[ j ]
+    for (let j = 0, resLength = result.length; j < resLength; j++) {
+      const resElement = result[j]
 
-      if ( deepEqual( newElement )( resElement ) ) {
+      if (deepEqual(newElement)(resElement)) {
         shouldAdd = false
         break
       }
     }
 
-    shouldAdd && result.push( newElement )
+    shouldAdd && result.push(newElement)
   }
 
   return result

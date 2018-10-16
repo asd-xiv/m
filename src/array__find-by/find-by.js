@@ -1,4 +1,4 @@
-const isMatch = require( "../core__is-match/is-match" )
+const isMatch = require("../core__is-match/is-match")
 
 /**
  * Find the first element that matches the filter criteria
@@ -14,5 +14,4 @@ const isMatch = require( "../core__is-match/is-match" )
  * findBy( { id: 2 } )( comments )
  * // => { id: 2, body: "dolor" }
  */
-module.exports = filter => input =>
-  input.find( isMatch( filter ) )
+module.exports = filter => input => input.find(x => isMatch(filter)(x))

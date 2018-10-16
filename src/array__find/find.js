@@ -9,14 +9,13 @@
  * @example
  */
 module.exports = matchFn => source => {
-  for ( let i = 0,length = source.length; i < length; i++ ) {
-    const found = matchFn( source[ i ], i, source )
+  for (let i = 0, length = source.length; i < length; i++) {
+    const found = matchFn(source[i], i, source)
 
-    if ( found === true ) {
-      return source[ i ]
+    if (found === true) {
+      return source[i]
     }
   }
 
   return undefined
 }
-

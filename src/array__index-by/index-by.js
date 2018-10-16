@@ -21,13 +21,13 @@
 module.exports = field => input => {
   const result = {}
 
-  for ( let i = 0, length = input.length; i < length; i++ ) {
-    if ( !!input[ i ][ field ] ) {
-      const groupKey = String( input[ i ][ field ] )
+  for (let i = 0, length = input.length; i < length; i++) {
+    if (!!input[i][field]) {
+      const groupKey = String(input[i][field])
 
-      result[ groupKey ] = result[ groupKey ]
-        ? [ ...result[ groupKey ], input[ i ] ]
-        : [ input[ i ] ]
+      result[groupKey] = result[groupKey]
+        ? [...result[groupKey], input[i]]
+        : [input[i]]
     }
   }
 

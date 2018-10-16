@@ -1,5 +1,5 @@
-const test = require( "tape" )
-const find = require( "./find" )
+const test = require("tape")
+const find = require("./find")
 
 /**
  * Recursive dir walk with regular expression matching on file name
@@ -11,18 +11,22 @@ const find = require( "./find" )
  *
  * @return {string[]}         Array of files paths
  */
-test( "fs::find( { test, isAbsolute } )( folder ): string[]", t => {
-  const files = find( {
+test("fs::find( { test, isAbsolute } )( folder ): string[]", t => {
+  const files = find({
     test: /.*\.test\.js/,
-  } )( __dirname )
+  })(__dirname)
 
   t.equal(
-    files.length, 1,
-    "folder should contain 1 file that ends with \".test.js\"" )
+    files.length,
+    1,
+    'folder should contain 1 file that ends with ".test.js"'
+  )
 
   t.notEqual(
-    files[ 0 ].indexOf( ".test.js" ), -1,
-    "file name should match \".test.js\"" )
+    files[0].indexOf(".test.js"),
+    -1,
+    'file name should match ".test.js"'
+  )
 
   t.end()
-} )
+})

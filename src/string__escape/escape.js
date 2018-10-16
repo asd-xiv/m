@@ -1,2 +1,1 @@
-module.exports = match => source =>
-  source.replace( match, "\\$&" )
+module.exports = match => source => source.replace(match, "\\$&")

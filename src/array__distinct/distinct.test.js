@@ -1,5 +1,5 @@
-const test = require( "tape" )
-const distinct = require( "./distinct" )
+const test = require("tape")
+const distinct = require("./distinct")
 
 /**
  * Remove repeating values
@@ -15,21 +15,24 @@ const distinct = require( "./distinct" )
  * distinct( [1, 1, 2] ) // => [1, 2]
  * distinct( [1, {a: 2}, {a: 2}] ) // => [1, {a: 2}]
  */
-test( "array::distinct( source: Array ): Array", t => {
+test("array::distinct( source: Array ): Array", t => {
   t.deepEqual(
-    distinct( [ 1, 1 ,3 ] ),
-    [ 1,3 ],
-    "Primitives: ([1, 1 ,3]) // => [1, 3]" )
+    distinct([1, 1, 3]),
+    [1, 3],
+    "Primitives: ([1, 1 ,3]) // => [1, 3]"
+  )
 
   t.deepEqual(
-    distinct( [ 1, "1" ,3 ] ),
-    [ 1,"1",3 ],
-    "Primitives: ([ 1, \"1\" ,3 ]) // => [ 1, \"1\" ,3 ]" )
+    distinct([1, "1", 3]),
+    [1, "1", 3],
+    'Primitives: ([ 1, "1" ,3 ]) // => [ 1, "1" ,3 ]'
+  )
 
   t.deepEqual(
-    distinct( [ 1, { a: 2 }, { a: 2 } ] ),
-    [ 1, { a: 2 } ],
-    "Recursive: ([1, {a: 2}, {a: 2}]) // => [1, {a: 2}]" )
+    distinct([1, { a: 2 }, { a: 2 }]),
+    [1, { a: 2 }],
+    "Recursive: ([1, {a: 2}, {a: 2}]) // => [1, {a: 2}]"
+  )
 
   t.end()
-} )
+})

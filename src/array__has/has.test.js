@@ -1,5 +1,5 @@
-const test = require( "tape" )
-const has = require( "./has" )
+const test = require("tape")
+const has = require("./has")
 
 /**
  * Check if value is in array
@@ -20,22 +20,26 @@ const has = require( "./has" )
  * has( elm => elm.id === 1 )([{}, {id: 1}])
  * // => true
  */
-test( "array::has( value: Function|mixed )( source: Array ): boolean", t => {
-  t.deepEqual(
-    has( 2 )( [ 1, 2 ] ), true,
-    "primitive is in array should return true" )
+test("array::has( value: Function|mixed )( source: Array ): boolean", t => {
+  t.deepEqual(has(2)([1, 2]), true, "primitive is in array should return true")
 
   t.deepEqual(
-    has( 2 )( [ 1, "2" ] ), false,
-    "primitive not in array should return false" )
+    has(2)([1, "2"]),
+    false,
+    "primitive not in array should return false"
+  )
 
   t.equal(
-    has( elm => elm.id === 1 )( [ {}, { id: 1 } ] ), true,
-    "if iterator function returns \"true\" than should return true" )
+    has(elm => elm.id === 1)([{}, { id: 1 }]),
+    true,
+    'if iterator function returns "true" than should return true'
+  )
 
   t.equal(
-    has( elm => elm.id )( [ {}, { id: "1" } ] ), false,
-    "if iterator function returns anything but \"true\" than should return false" )
+    has(elm => elm.id)([{}, { id: "1" }]),
+    false,
+    'if iterator function returns anything but "true" than should return false'
+  )
 
   t.end()
-} )
+})

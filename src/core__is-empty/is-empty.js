@@ -1,4 +1,4 @@
-const type = require( "../core__type/type" )
+const type = require("../core__type/type")
 
 /**
  * Determines something is empty
@@ -23,15 +23,15 @@ const type = require( "../core__type/type" )
  * isEmpty(Promise.resolve() // false
  */
 module.exports = input => {
-  const inputType = type( input )
+  const inputType = type(input)
   const byType = {
-    Null     : () => true,
+    Null: () => true,
     Undefined: () => true,
-    Number   : () => Number.isNaN( input ),
-    String   : () => input === "",
-    Array    : () => input.length === 0,
-    Object   : () => Object.keys( input ).length === 0,
+    Number: () => Number.isNaN(input),
+    String: () => input === "",
+    Array: () => input.length === 0,
+    Object: () => Object.keys(input).length === 0,
   }
 
-  return byType[ inputType ] ? byType[ inputType ]() : false
+  return byType[inputType] ? byType[inputType]() : false
 }

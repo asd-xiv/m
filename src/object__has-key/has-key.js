@@ -14,4 +14,4 @@
  * has( "toString" )( { lorem: "ipsum" } ) // => false
  */
 module.exports = key => source =>
-  Object.prototype.hasOwnProperty.call( source, key )
+  Object.prototype.hasOwnProperty.call(source, key)

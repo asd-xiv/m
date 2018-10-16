@@ -1,5 +1,5 @@
-const i = require( "../core__i/i" )
-const type = require( "../core__type/type" )
+const i = require("../core__i/i")
+const type = require("../core__type/type")
 
 /**
  * Creates a new instance of the object with same properties than original.
@@ -11,26 +11,25 @@ const type = require( "../core__type/type" )
  * @example { example }
  */
 const clone = toBeCloned => {
-
   const byType = {
-    Null     : () => null,
+    Null: () => null,
     Undefined: () => undefined,
-    Number   : i,
-    String   : i,
-    Boolean  : i,
-    Function : i,
-    Array    : input => input.map( elm => clone( elm ) ),
-    Date     : input => new Date( input.getTime() ),
-    Object   : input => {
+    Number: i,
+    String: i,
+    Boolean: i,
+    Function: i,
+    Array: input => input.map(elm => clone(elm)),
+    Date: input => new Date(input.getTime()),
+    Object: input => {
       const newObj = {}
 
-      Object.keys( input ).forEach( property => {
-        newObj[ property ] = clone( input[ property ] )
-      } )
+      Object.keys(input).forEach(property => {
+        newObj[property] = clone(input[property])
+      })
 
       return newObj
     },
   }
 
-  return byType[ type( toBeCloned ) ]( toBeCloned )
+  return byType[type(toBeCloned)](toBeCloned)
 }

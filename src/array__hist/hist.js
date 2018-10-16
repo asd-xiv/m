@@ -32,13 +32,11 @@
 module.exports = field => source => {
   const result = {}
 
-  for ( let i = 0, length = source.length; i < length; i++ ) {
-    if ( !!source[ i ][ field ] ) {
-      const groupKey = String( source[ i ][ field ] )
+  for (let i = 0, length = source.length; i < length; i++) {
+    if (!!source[i][field]) {
+      const groupKey = String(source[i][field])
 
-      result[ groupKey ] = result[ groupKey ]
-        ? result[ groupKey ] + 1
-        : 1
+      result[groupKey] = result[groupKey] ? result[groupKey] + 1 : 1
     }
   }
 

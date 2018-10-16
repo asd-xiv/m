@@ -14,21 +14,24 @@
  * merge({a: "lorem"}, {b: "ipsum", c: 41}, {c: 42, b: undefined})
  * // => { a: "lorem", b: "ipsum", c: 42 }
  */
-module.exports = ( ...sources ) => {
+module.exports = (...sources) => {
   const result = {}
 
-  for ( let i = 0, length = sources.length; i < length; i++ ) {
-    const sourceEntries = Object.entries( sources[ i ] )
+  for (let i = 0, length = sources.length; i < length; i++) {
+    const sourceEntries = Object.entries(sources[i])
 
-    for ( let j = 0, sourceEntriesLength = sourceEntries.length; j < sourceEntriesLength; j++ ) {
-      const [ key, value ] = sourceEntries[ j ]
+    for (
+      let j = 0, sourceEntriesLength = sourceEntries.length;
+      j < sourceEntriesLength;
+      j++
+    ) {
+      const [key, value] = sourceEntries[j]
 
-      if ( value !== undefined ) {
-        result[ key ] = value
+      if (value !== undefined) {
+        result[key] = value
       }
     }
   }
 
   return result
 }
-

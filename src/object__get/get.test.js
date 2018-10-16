@@ -1,5 +1,5 @@
-const test = require( "tape" )
-const get = require( "./get" )
+const test = require("tape")
+const get = require("./get")
 
 /**
  * Get value from obj property
@@ -16,31 +16,34 @@ const get = require( "./get" )
  * get( "lorem" )( { lorem: "ipsum" } ) // => "ipsum"
  * get( "not-exist" )( { lorem: "ipsum" } ) // => undefined
  */
-test( "object::get(key: string) => (source: Object) => mixed", t => {
-
+test("object::get(key: string) => (source: Object) => mixed", t => {
   t.equal(
-    get( "lorem" )( {
+    get("lorem")({
       lorem: "ipsum",
-    } ),
+    }),
     "ipsum",
-    "Get existing property" )
+    "Get existing property"
+  )
 
   t.equal(
-    get( "not-exist" )( {
+    get("not-exist")({
       lorem: "ipsum",
-    } ),
+    }),
     undefined,
-    "Get non-existing property // undefined" )
+    "Get non-existing property // undefined"
+  )
 
   t.equal(
-    get( "not-exist" )( undefined ),
+    get("not-exist")(undefined),
     undefined,
-    "Get prop from undefined // undefined" )
+    "Get prop from undefined // undefined"
+  )
 
   t.equal(
-    get( "not-exist" )( 2 ),
+    get("not-exist")(2),
     undefined,
-    "Get prop from non object // undefined" )
+    "Get prop from non object // undefined"
+  )
 
   t.end()
-} )
+})

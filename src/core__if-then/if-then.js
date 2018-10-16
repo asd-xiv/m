@@ -1,4 +1,4 @@
-const type = require( "../core__type/type" )
+const type = require("../core__type/type")
 
 /**
  * Functional if-then-else
@@ -10,9 +10,9 @@ const type = require( "../core__type/type" )
  *
  * @return {mixed}
  */
-module.exports = ( conditionFn, thenFn, elseFn ) => input =>
-  conditionFn( input )
-    ? thenFn( input )
-    : type( elseFn ) === "Function"
-      ? elseFn( input )
+module.exports = (conditionFn, thenFn, elseFn) => input =>
+  conditionFn(input)
+    ? thenFn(input)
+    : type(elseFn) === "Function"
+      ? elseFn(input)
       : input

@@ -1,5 +1,5 @@
-const test = require( "tape" )
-const max = require( "./max" )
+const test = require("tape")
+const max = require("./max")
 
 /**
  * Find the maximum value in a source array
@@ -26,16 +26,12 @@ const max = require( "./max" )
  * max(fn)(source)
  * // => {time: "2018-06-11T09:01:54.337344Z"}
  */
-test( "array::max( source: Number[] ): Number", t => {
-  t.deepEqual(
-    max( [ -1, 1, 10, 3 ] ), 10,
-    "max([-1, 1, 10, 3]) // => 10" )
+test("array::max( source: Number[] ): Number", t => {
+  t.deepEqual(max([-1, 1, 10, 3]), 10, "max([-1, 1, 10, 3]) // => 10")
 
-  t.deepEqual(
-    max( [] ), 0,
-    "max([]) // => 0 (neutral element)" )
+  t.deepEqual(max([]), 0, "max([]) // => 0 (neutral element)")
 
-  const fn = element => new Date( element.time )
+  const fn = element => new Date(element.time)
   const source = [
     { time: "2018-05-15T11:20:07.754110Z" },
     { time: "2018-06-11T09:01:54.337344Z" },
@@ -43,8 +39,10 @@ test( "array::max( source: Number[] ): Number", t => {
   ]
 
   t.deepEqual(
-    max( fn )( source ), { time: "2018-06-11T09:01:54.337344Z" },
-    "Custom transform function" )
+    max(fn)(source),
+    { time: "2018-06-11T09:01:54.337344Z" },
+    "Custom transform function"
+  )
 
   t.end()
-} )
+})

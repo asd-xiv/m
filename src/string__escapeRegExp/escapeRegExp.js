@@ -1,4 +1,4 @@
-const escape = require( "../string__escape/escape" )
+const escape = require("../string__escape/escape")
 
 /**
  * Make safe for RegExp'ing
@@ -15,5 +15,4 @@ const escape = require( "../string__escape/escape" )
  * escapeRegExp( "lorem. ipsum [dolor]" )
  * // => "lorem \\. ipsum \\[dolor\\]"
  */
-module.exports =
-  escape( /[|\\{}<>()[\]^$+*?.]/g )
+module.exports = escape(/[|\\{}<>()[\]^$+*?.]/g)

@@ -13,5 +13,4 @@
  * push( 2 )( [ 1 ] ) // => [ 1, 2 ]
  * push( 2, 4 )( [ 1 ] ) // => [ 1, 2, 4 ]
  */
-module.exports = ( ...elements ) => input =>
-  input.concat( elements )
+module.exports = (...elements) => input => input.concat(elements)

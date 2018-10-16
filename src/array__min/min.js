@@ -15,16 +15,15 @@
 module.exports = source => {
   let minValue = 0
 
-  if ( source.length === 0 ) {
+  if (source.length === 0) {
     return 0
   }
 
-  for ( let i = 0, length = source.length; i < length; i++ ) {
-    if ( minValue > source[ i ] ) {
-      minValue = source[ i ]
+  for (let i = 0, length = source.length; i < length; i++) {
+    if (minValue > source[i]) {
+      minValue = source[i]
     }
   }
 
   return minValue
 }
-

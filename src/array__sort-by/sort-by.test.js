@@ -1,5 +1,5 @@
-const test = require( "tape" )
-const sortBy = require( "./sort-by" )
+const test = require("tape")
+const sortBy = require("./sort-by")
 
 /**
  * Sort an array of objects by a custom field
@@ -29,7 +29,7 @@ const sortBy = require( "./sort-by" )
  * //  { id: 3 },
  * //]
  */
-test( "array::sortBy( field: string, direction: string ) => ( source: Array ): Array", t => {
+test("array::sortBy( field: string, direction: string ) => ( source: Array ): Array", t => {
   const source = [
     { id: 5, position: null },
     { id: 3 },
@@ -46,12 +46,16 @@ test( "array::sortBy( field: string, direction: string ) => ( source: Array ): A
   ]
 
   t.notEqual(
-    sortBy( "position" )( source ), source,
-    "Does not mutate initial object" )
+    sortBy("position")(source),
+    source,
+    "Does not mutate initial object"
+  )
 
   t.deepEqual(
-    sortBy( "position" )( source ), expected,
-    "Sort by field with undefined at bottom" )
+    sortBy("position")(source),
+    expected,
+    "Sort by field with undefined at bottom"
+  )
 
   t.end()
-} )
+})

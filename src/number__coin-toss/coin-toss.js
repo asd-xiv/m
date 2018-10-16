@@ -3,5 +3,4 @@
  *
  * @return {boolean}  True for heads, false for tails
  */
-module.exports = () =>
-  Math.random() > 0.5
+module.exports = () => Math.random() > 0.5

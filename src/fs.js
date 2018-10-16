@@ -1,3 +1,3 @@
 module.exports = {
-  find: require( "./fs__find/find" ),
+  find: require("./fs__find/find"),
 }

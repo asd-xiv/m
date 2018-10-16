@@ -1,1 +1,3 @@
-module.exports = error => {throw error}
+module.exports = error => {
+  throw error
+}

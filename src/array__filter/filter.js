@@ -11,8 +11,8 @@
 module.exports = fn => source => {
   const filteredArray = []
 
-  for ( let i = 0, length = source.length; i < length; i++ ) {
-    fn.call( null, source[ i ] ) === true && filteredArray.push( source[ i ] )
+  for (let i = 0, length = source.length; i < length; i++) {
+    fn.call(null, source[i]) === true && filteredArray.push(source[i])
   }
 
   return filteredArray

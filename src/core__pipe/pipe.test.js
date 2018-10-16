@@ -1,5 +1,5 @@
-const test = require( "tape" )
-const pipe = require( "./pipe" )
+const test = require("tape")
+const pipe = require("./pipe")
 
 /**
  * Performs left-to-right function composition. The leftmost function may have
@@ -9,17 +9,27 @@ const pipe = require( "./pipe" )
  * pipe( inc, inc )( 2 )
  * // => 4
  */
-test( "core::pipe( ...fn )( ...input )", t => {
+test("core::pipe( ...fn )( ...input )", t => {
   const inc = input => input + 1
-  const sum = ( a, b ) => a + b
+  const sum = (a, b) => a + b
 
   t.deepEqual(
-    pipe( inc, inc )( 2 ), 4,
-    "first input arity 1" )
+    pipe(
+      inc,
+      inc
+    )(2),
+    4,
+    "first input arity 1"
+  )
 
   t.deepEqual(
-    pipe( sum,inc )( 2, 2 ), 5,
-    "first input arity 2" )
+    pipe(
+      sum,
+      inc
+    )(2, 2),
+    5,
+    "first input arity 2"
+  )
 
   t.end()
-} )
+})

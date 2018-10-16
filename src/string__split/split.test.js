@@ -1,5 +1,5 @@
-const test = require( "tape" )
-const split = require( "./split" )
+const test = require("tape")
+const split = require("./split")
 
 /**
  * Splits a String object into an array of strings by separating the string
@@ -18,12 +18,14 @@ const split = require( "./split" )
  * const scores = split(",")("lorem,ipsum")
  * // ["lorem", "ipsum"]
  */
-test( "string::split( separator: string|RegExp )( source: string ): Array", t => {
+test("string::split( separator: string|RegExp )( source: string ): Array", t => {
   const source = "lorem,ipsum"
 
   t.deepEqual(
-    split( "," )( source ), [ "lorem", "ipsum" ],
-    "Split string into an array of 2 substrings" )
+    split(",")(source),
+    ["lorem", "ipsum"],
+    "Split string into an array of 2 substrings"
+  )
 
   t.end()
-} )
+})

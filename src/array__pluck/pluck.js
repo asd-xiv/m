@@ -17,8 +17,8 @@
 module.exports = field => source => {
   const result = []
 
-  for ( let i = 0, length = source.length; i < length; i++ ) {
-    result.push( source[ i ][ field ] )
+  for (let i = 0, length = source.length; i < length; i++) {
+    result.push(source[i][field])
   }
 
   return result

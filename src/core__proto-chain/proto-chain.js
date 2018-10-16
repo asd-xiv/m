@@ -6,10 +6,8 @@
  *
  * @returns {string[]}
  */
-const protoChain = ( obj, acc = [] ) => {
-  const proto = Object.getPrototypeOf( obj )
+const protoChain = (obj, acc = []) => {
+  const proto = Object.getPrototypeOf(obj)
 
-  return proto
-    ? protoChain( proto, [ ...acc, proto.constructor.name ] )
-    : acc
+  return proto ? protoChain(proto, [...acc, proto.constructor.name]) : acc
 }

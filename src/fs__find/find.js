@@ -1,13 +1,13 @@
 /* eslint-disable no-sync */
 
-const path = require( "path" )
-const fs = require( "fs" )
-const pipe = require( "../core__pipe/pipe" )
-const map = require( "../array__map/map" )
-const push = require( "../array__push/push" )
-const flatten = require( "../array__flatten/flatten" )
-const reduce = require( "../array__reduce/reduce" )
-const type = require( "../core__type/type" )
+const path = require("path")
+const fs = require("fs")
+const pipe = require("../core__pipe/pipe")
+const map = require("../array__map/map")
+const push = require("../array__push/push")
+const flatten = require("../array__flatten/flatten")
+const reduce = require("../array__reduce/reduce")
+const type = require("../core__type/type")
 
 /**
  * Determines if file name valid.
@@ -18,11 +18,11 @@ const type = require( "../core__type/type" )
  */
 const isFileNameValid = match => fileName => {
   const byType = {
-    Function: () => match.call( null, fileName ),
-    RegExp  : () => match.test( fileName ),
+    Function: () => match.call(null, fileName),
+    RegExp: () => match.test(fileName),
   }
 
-  return byType[ type( match ) ]()
+  return byType[type(match)]()
 }
 
 /**
@@ -35,8 +35,8 @@ const isFileNameValid = match => fileName => {
 const readDir = dir =>
   pipe(
     fs.readdirSync,
-    map( file => path.resolve( dir, file ) )
-  )( dir )
+    map(file => path.resolve(dir, file))
+  )(dir)
 
 /**
  * Determines if dir.
@@ -45,8 +45,7 @@ const readDir = dir =>
  *
  * @return {boolean}  True if dir, False otherwise.
  */
-const isDir = dirPath =>
-  fs.statSync( dirPath ).isDirectory()
+const isDir = dirPath => fs.statSync(dirPath).isDirectory()
 
 /**
  * Recursive dir walk with regular expression matching on file name
@@ -59,16 +58,18 @@ const isDir = dirPath =>
  * @example
  * find({test: /*.\.plugin\.js/})("./root-folder")
  */
-module.exports = ( { test = /.*/ } = {} ) => {
+module.exports = ({ test = /.*/ } = {}) => {
   const matchInDir = pipe(
     readDir,
-    reduce( ( acc, filePath ) =>
-      isDir( filePath )
-        ? push( matchInDir( filePath ) )( acc )
-        : isFileNameValid( test )( path.basename( filePath ) )
-          ? push( filePath )( acc )
-          : acc,
-    [] ),
+    reduce(
+      (acc, filePath) =>
+        isDir(filePath)
+          ? push(matchInDir(filePath))(acc)
+          : isFileNameValid(test)(path.basename(filePath))
+            ? push(filePath)(acc)
+            : acc,
+      []
+    )
   )
 
   return pipe(

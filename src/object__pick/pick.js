@@ -17,12 +17,12 @@
 module.exports = keys => source => {
   const result = {}
 
-  for ( let i = 0, length = keys.length; i < length; i++ ) {
-    const key = keys[ i ]
-    const value = source[ key ]
+  for (let i = 0, length = keys.length; i < length; i++) {
+    const key = keys[i]
+    const value = source[key]
 
-    if ( Object.hasOwnProperty.call( source, key ) ) {
-      result[ key ] = value
+    if (Object.hasOwnProperty.call(source, key)) {
+      result[key] = value
     }
   }
 

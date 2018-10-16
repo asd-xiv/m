@@ -9,13 +9,13 @@ const byType = {
    *
    * @return {boolean}
    */
-  Array: ( alice, bob ) => {
-    if ( alice.length !== bob.length ) {
+  Array: (alice, bob) => {
+    if (alice.length !== bob.length) {
       return false
     }
 
-    for ( let i = 0, length = alice.length; i < length; i++ ) {
-      if ( !deepEqual( alice[ i ] )( bob[ i ] ) ) {
+    for (let i = 0, length = alice.length; i < length; i++) {
+      if (!deepEqual(alice[i])(bob[i])) {
         return false
       }
     }
@@ -31,18 +31,18 @@ const byType = {
    *
    * @return {boolean}
    */
-  Object: ( alice, bob ) => {
-    const aliceEntries = Object.entries( alice )
-    const bobEntries = Object.entries( bob )
+  Object: (alice, bob) => {
+    const aliceEntries = Object.entries(alice)
+    const bobEntries = Object.entries(bob)
 
-    if ( aliceEntries.length !== bobEntries.length ) {
+    if (aliceEntries.length !== bobEntries.length) {
       return false
     }
 
-    for ( let i = 0, length = aliceEntries.length; i < length; i++ ) {
-      const [ aliceKey, aliceValue ] = aliceEntries[ i ]
+    for (let i = 0, length = aliceEntries.length; i < length; i++) {
+      const [aliceKey, aliceValue] = aliceEntries[i]
 
-      if ( !deepEqual( bob[ aliceKey ] )( aliceValue ) ) {
+      if (!deepEqual(bob[aliceKey])(aliceValue)) {
         return false
       }
     }
@@ -58,9 +58,7 @@ const byType = {
    *
    * @return {boolean}
    */
-  RegExp: ( alice, bob ) =>
-    alice.toString() === bob.toString(),
-
+  RegExp: (alice, bob) => alice.toString() === bob.toString(),
 
   /**
    * Shallow equal
@@ -70,8 +68,7 @@ const byType = {
    *
    * @return {boolean}
    */
-  Primitive: ( alice, bob ) =>
-    alice === bob,
+  Primitive: (alice, bob) => alice === bob,
 }
 
 /**
@@ -85,7 +82,7 @@ const byType = {
  * @return {string}
  */
 const type = source =>
-  Array.isArray( source )
+  Array.isArray(source)
     ? "Array"
     : source instanceof RegExp
       ? "RegExp"
@@ -103,18 +100,18 @@ const type = source =>
  */
 const deepEqual = alice => bob => {
   // added 100k ops/sec
-  if ( alice === bob ) {
+  if (alice === bob) {
     return true
   }
 
-  const aliceType = type( alice )
-  const bobType = type( bob )
+  const aliceType = type(alice)
+  const bobType = type(bob)
 
-  if ( aliceType !== bobType ) {
+  if (aliceType !== bobType) {
     return false
   }
 
-  return byType[ aliceType ]( alice, bob )
+  return byType[aliceType](alice, bob)
 }
 
 module.exports = deepEqual

@@ -29,11 +29,13 @@
  * count( element => element.score === 10 )( scores )
  * // => 2
  */
-module.exports = ( fn: Function ) => ( source: Array <Object> ) => {
+module.exports = (fn: Function): Function => (
+  source: Array<Object>
+): number => {
   let count = 0
 
-  for ( let i = 0, length = source.length; i < length; i++ ) {
-    if ( fn.call( null, source[ i ] ) === true ) {
+  for (let i = 0, length = source.length; i < length; i++) {
+    if (fn.call(null, source[i]) === true) {
       count = count + 1
     }
   }

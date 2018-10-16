@@ -1,5 +1,5 @@
-const test = require( "tape" )
-const countBy = require( "./count-by" )
+const test = require("tape")
+const countBy = require("./count-by")
 
 /**
  * Count the number of objects that match a criteria
@@ -32,40 +32,47 @@ const countBy = require( "./count-by" )
  * })(scores)
  * // => 2
  */
-test( "array::countBy(matchObject: Object)(source: Object[]): number", t => {
-  const scores = [ {
-    name : "Bob",
-    score: 1,
-  }, {
-    name   : "Alice",
-    score  : 10,
-    subject: "Math",
-  }, {
-    name   : "Hatter",
-    score  : 10,
-    subject: "Math",
-  } ]
-
-  t.equal(
-    countBy( {
+test("array::countBy(matchObject: Object)(source: Object[]): number", t => {
+  const scores = [
+    {
+      name: "Bob",
+      score: 1,
+    },
+    {
+      name: "Alice",
+      score: 10,
       subject: "Math",
-    } )( scores ),
+    },
+    {
+      name: "Hatter",
+      score: 10,
+      subject: "Math",
+    },
+  ]
+
+  t.equal(
+    countBy({
+      subject: "Math",
+    })(scores),
     2,
-    "Count items that match fields" )
+    "Count items that match fields"
+  )
 
   t.equal(
-    countBy( {
+    countBy({
       subject: "NotExist",
-    } )( scores ),
+    })(scores),
     0,
-    "No items in source match criteria (missing value)" )
+    "No items in source match criteria (missing value)"
+  )
 
   t.equal(
-    countBy( {
+    countBy({
       notExist: "StillNotExist",
-    } )( scores ),
+    })(scores),
     0,
-    "No items in source match criteria (missing field)" )
+    "No items in source match criteria (missing field)"
+  )
 
   t.end()
-} )
+})

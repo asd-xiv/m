@@ -2,13 +2,13 @@
   "parser": "babel-eslint",
   "root"    : true,
   "extends" : [
-    "@codemachiner/eslint-config/rules/backend.js",
-    "@codemachiner/eslint-config/rules/flow.js"
+    "@codemachiner/eslint-config/targets/node",
+    // "@codemachiner/eslint-config/rules/flow"
   ],
   "settings": {
     "import/resolver": "node"
   },
   "rules": {
-    "indent": [ "error", 2 ]
+    "unicorn/filename-case": "off"
   }
 }

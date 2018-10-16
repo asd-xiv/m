@@ -1,5 +1,5 @@
-const test = require( "tape" )
-const filterBy = require( "./filter-by" )
+const test = require("tape")
+const filterBy = require("./filter-by")
 
 /**
  * Filter an array of objects
@@ -33,35 +33,22 @@ const filterBy = require( "./filter-by" )
  * // { id: 4, items: 2 }
  * // ]
  */
-test( "filterBy::(matchObject: Object) => (source: Object[]): Object[]", t => {
-
+test("filterBy::(matchObject: Object) => (source: Object[]): Object[]", t => {
   t.deepEqual(
-    filterBy( {
+    filterBy({
       items: 2,
-    } )( [
-      { id: 2, items: 2 },
-      { id: 3, items: 1 },
-      { id: 4, items: 2 },
-    ] ),
-    [
-      { id: 2, items: 2 },
-      { id: 4, items: 2 },
-    ],
-    "Keep items in array that have properties that equal" )
+    })([{ id: 2, items: 2 }, { id: 3, items: 1 }, { id: 4, items: 2 }]),
+    [{ id: 2, items: 2 }, { id: 4, items: 2 }],
+    "Keep items in array that have properties that equal"
+  )
 
   t.deepEqual(
-    filterBy( {
+    filterBy({
       "!id": 2,
-    } )( [
-      { lorem: 2 },
-      { lorem: 3 },
-      { id: 2 },
-    ] ),
-    [
-      { lorem: 2 },
-      { lorem: 3 },
-    ],
-    "Keep items in array that have properties that dont equal" )
+    })([{ lorem: 2 }, { lorem: 3 }, { id: 2 }]),
+    [{ lorem: 2 }, { lorem: 3 }],
+    "Keep items in array that have properties that dont equal"
+  )
 
   t.end()
-} )
+})

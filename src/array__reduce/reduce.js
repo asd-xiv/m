@@ -7,11 +7,11 @@
  *
  * @return {Function}  { description_of_the_return_value }
  */
-module.exports = ( fn, defaultAcc = {} ) => input => {
+module.exports = (fn, defaultAcc = {}) => input => {
   let acc = defaultAcc
 
-  for ( let i = 0, length = input.length; i < length; i++ ) {
-    acc = fn( acc, input[ i ], i, input )
+  for (let i = 0, length = input.length; i < length; i++) {
+    acc = fn(acc, input[i], i, input)
   }
 
   return acc

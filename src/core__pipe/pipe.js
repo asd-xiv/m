@@ -12,12 +12,12 @@
  * pipe( inc, inc )( 2 )
  * // => 4
  */
-module.exports = ( ...fn ) => ( ...input ) => {
-  const [ firstFn, ...restFn ] = fn
-  let acc = firstFn.apply( null, input )
+module.exports = (...fn) => (...input) => {
+  const [firstFn, ...restFn] = fn
+  let acc = firstFn.apply(null, input)
 
-  for ( let i = 0, length = restFn.length; i < length; i++ ) {
-    acc = restFn[ i ]( acc, input[ i ], i, input )
+  for (let i = 0, length = restFn.length; i < length; i++) {
+    acc = restFn[i](acc, input[i], i, input)
   }
 
   return acc

@@ -26,26 +26,31 @@
  * //  { id: 3 },
  * //]
  */
-module.exports = ( field, direction = "asc" ) => source => {
-
+module.exports = (field, direction = "asc") => source => {
   // dont mutate
-  const result = Array.isArray( source ) ? new Array( ...source ) : [ source ]
+  const result = Array.isArray(source) ? new Array(...source) : [source]
 
-  return result.sort( ( alice, bob ) => {
-    const aliceValue = alice[ field ] || ( direction === "asc"
-      ? Number.POSITIVE_INFINITY
-      : Number.NEGATIVE_INFINITY )
+  return result.sort((alice, bob) => {
+    const aliceValue =
+      alice[field] ||
+      (direction === "asc"
+        ? Number.POSITIVE_INFINITY
+        : Number.NEGATIVE_INFINITY)
 
-    const bobValue = bob[ field ] || ( direction === "asc"
-      ? Number.POSITIVE_INFINITY
-      : Number.NEGATIVE_INFINITY )
+    const bobValue =
+      bob[field] ||
+      (direction === "asc"
+        ? Number.POSITIVE_INFINITY
+        : Number.NEGATIVE_INFINITY)
 
-
-    return alice[ field ] === null && typeof bob[ field ] === "undefined"
+    return alice[field] === null && typeof bob[field] === "undefined"
       ? -1
       : aliceValue < bobValue
-        ? direction === "asc" ? -1 : 1
-        : direction === "asc" ? 1 : -1
-  }
-  )
+        ? direction === "asc"
+          ? -1
+          : 1
+        : direction === "asc"
+          ? 1
+          : -1
+  })
 }

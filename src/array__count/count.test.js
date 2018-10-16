@@ -1,5 +1,5 @@
-const test = require( "tape" )
-const count = require( "./count" )
+const test = require("tape")
+const count = require("./count")
 
 /**
  * Count the number of elements that satisfies a function
@@ -30,24 +30,29 @@ const count = require( "./count" )
  * count( element => element.score === 10 )( scores )
  * // => 2
  */
-test( "array::count", t => {
-  const scores = [ {
-    name : "Bob",
-    score: 1,
-  }, {
-    name   : "Alice",
-    score  : 10,
-    subject: "Math",
-  }, {
-    name   : "Hatter",
-    score  : 10,
-    subject: "Math",
-  } ]
+test("array::count", t => {
+  const scores = [
+    {
+      name: "Bob",
+      score: 1,
+    },
+    {
+      name: "Alice",
+      score: 10,
+      subject: "Math",
+    },
+    {
+      name: "Hatter",
+      score: 10,
+      subject: "Math",
+    },
+  ]
 
   t.equal(
-    count( element => element.score === 10 )( scores ),
+    count(element => element.score === 10)(scores),
     2,
-    "count elements that satisfy function" )
+    "count elements that satisfy function"
+  )
 
   t.end()
-} )
+})

@@ -23,6 +23,8 @@
  * type(Promise.resolve()) // "Promise"
  */
 module.exports = input =>
-  input === null ? "Null"
-    : input === undefined ? "Undefined"
-      : Object.prototype.toString.call( input ).slice( 8, -1 )
+  input === null
+    ? "Null"
+    : input === undefined
+      ? "Undefined"
+      : Object.prototype.toString.call(input).slice(8, -1)
