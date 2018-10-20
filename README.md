@@ -31,11 +31,7 @@ git clone git@github.com:codemachiner/m.git && \
 
 ## Develop
 
-Using [tape] with babel support to run tests inside all `*.test.js` files. 
-
-[tape]: https://github.com/substack/tape
-
-Use `npm test` to run tests onces or `npm run tdd` to watch `src` folder for changes and run test automatically 
+Use `npm test` to run tests (any `*.test.js`) once or `npm run tdd` to watch `src` folder for changes and run test automatically.
 
 ## Changelog
 
