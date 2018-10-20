@@ -11,7 +11,7 @@
 - [Install](#install)
 - [Develop](#develop)
 - [Changelog](#changelog)
-	- [0.5.2 - 20 October 2018](#052-20-october-2018)
+	- [0.6.0 - 20 October 2018](#060-20-october-2018)
 
 <!-- /TOC -->
 
@@ -41,7 +41,7 @@ Use `npm test` to run tests onces or `npm run tdd` to watch `src` folder for cha
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-### 0.5.2 - 20 October 2018
+### 0.6.0 - 20 October 2018
 
 #### Added
 
