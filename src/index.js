@@ -21,6 +21,7 @@ module.exports = {
   push: require("./array__push/push"),
   reduce: require("./array__reduce/reduce"),
   remove: require("./array__remove/remove"),
+  repeat: require("./array__repeat/repeat"),
   sort: require("./array__sort/sort"),
   tail: require("./array__tail/tail"),
   toggle: require("./array__toggle/toggle"),
