@@ -6,22 +6,11 @@
        "targets": {
          "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
        },
-       "modules": false
-     } ],
-
-    "@babel/preset-flow"
+     } ]
   ],
 
   "plugins": [
-
-    // let n = { x, y, ...z };
     "@babel/plugin-proposal-object-rest-spread",
-
-    // let result = "hello"
-    //   |> doubleSay
-    //   |> capitalize
-    //   |> exclaim;
-    // result //=> "Hello, hello!"
     [ "@babel/plugin-proposal-pipeline-operator", {
       "proposal": "minimal"
     } ]
