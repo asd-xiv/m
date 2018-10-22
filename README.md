@@ -37,12 +37,8 @@ Use `npm test` to run tests (any `*.test.js`) once or `npm run tdd` to watch `sr
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-### 0.6.0 - 20 October 2018
+### 0.7.0 - 22 October 2018
 
 #### Added
 
-- Add `array_repeat` to generate an array of fixed size containing a specified value or function result
-
-#### Removed
-
-- Remove `flow` support
+- Add `array__replace-by` - Find and replace object in array

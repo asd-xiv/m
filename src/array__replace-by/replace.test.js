@@ -2,7 +2,7 @@ const test = require("tape")
 const replaceBy = require("./replace-by")
 
 /**
- * Find and replace an object inside an array
+ * Find and replace object in array
  *
  * @tag Array
  * @signature (filter: Object, newElm: Object) => (source: Object[]): Object[]
