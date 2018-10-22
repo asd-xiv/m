@@ -22,6 +22,7 @@ module.exports = {
   reduce: require("./array__reduce/reduce"),
   remove: require("./array__remove/remove"),
   repeat: require("./array__repeat/repeat"),
+  replaceBy: require("./array__replace-by/replace-by"),
   sort: require("./array__sort/sort"),
   tail: require("./array__tail/tail"),
   toggle: require("./array__toggle/toggle"),
