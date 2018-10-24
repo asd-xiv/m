@@ -37,8 +37,9 @@ Use `npm test` to run tests (any `*.test.js`) once or `npm run tdd` to watch `sr
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-### 0.7.0 - 22 October 2018
+### 0.8.0 - 24 October 2018
 
 #### Added
 
-- Add `array__replace-by` - Find and replace object in array
+- Add `string__contains` - Test if string contains substring
+- Add `string__endsWith` - Test if string ends with substring
