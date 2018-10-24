@@ -5,15 +5,15 @@
 
 > Functional library for Javascript
 
-<!-- TOC depthFrom:2 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
+<!-- MarkdownTOC levels="2,3" autolink="true" autoanchor="false" -->
 
 - [Use](#use)
 - [Install](#install)
 - [Develop](#develop)
 - [Changelog](#changelog)
-	- [0.6.0 - 20 October 2018](#060-20-october-2018)
+    - [0.8.1 - 24 October 2018](#081---24-october-2018)
 
-<!-- /TOC -->
+<!-- /MarkdownTOC -->
 
 ## Use
 
@@ -37,9 +37,8 @@ Use `npm test` to run tests (any `*.test.js`) once or `npm run tdd` to watch `sr
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-### 0.8.0 - 24 October 2018
+### 0.8.1 - 24 October 2018
 
-#### Added
+#### Changed
 
-- Add `string__contains` - Test if string contains substring
-- Add `string__endsWith` - Test if string ends with substring
+- Write tests for and update `array__remove` - to accept primitive value or filter function

@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.8.1] - 24 October 2018
+
+### Changed
+
+- Write tests for and update `array__remove` - to accept primitive value or filter function
+
 ## [0.8.0] - 24 October 2018
 
 ### Added
@@ -33,8 +39,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Removed `flow` support
 
-[Unreleased]: https://github.com/codemachiner/m/compare/v0.8.0...HEAD
+[Unreleased]: https://github.com/codemachiner/m/compare/v0.8.1...HEAD
 
+[0.8.1]: https://github.com/codemachiner/m/compare/v0.8.0...v0.8.1
 [0.8.0]: https://github.com/codemachiner/m/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/codemachiner/m/compare/v0.6.0...v0.7.0
 [0.6.0]: https://github.com/codemachiner/m/compare/v0.5.1...v0.6.0
