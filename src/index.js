@@ -49,4 +49,5 @@ module.exports = {
   escapeRegExp: require("./string__escapeRegExp/escapeRegExp"),
   split: require("./string__split/split"),
   toLower: require("./string__to-lower/to-lower"),
+  trim: require("./string__trim/trim"),
 }
