@@ -4,7 +4,7 @@ const benchmark = require("benchmark")
 const path = require("path")
 const fs = require("fs")
 
-const find = require("./find")
+const findFiles = require("./find-files")
 
 /**
  * Recursive dir walk with regular expression matching on file name
@@ -13,7 +13,7 @@ const find = require("./find")
  * @param      {string[]}  acc     Filelist accumulator
  * @return     {string[]}  Array of files paths
  */
-const findFiles = (regExp = /.*\.test\.js/) => {
+const findFilesRec = (regExp = /.*\.test\.js/) => {
   const scan = (dirPath = "./", acc = []) => {
     fs.readdirSync(dirPath).forEach(file => {
       const filePath = path.join(dirPath, file)
@@ -33,10 +33,10 @@ const findFiles = (regExp = /.*\.test\.js/) => {
 
 new benchmark.Suite()
   .add("#non-functional", () => {
-    findFiles()("./src")
+    findFilesRec()("./src")
   })
   .add("#functional", () => {
-    find({
+    findFiles({
       test: /.*\.test\.js/,
     })("./src")
   })
