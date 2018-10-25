@@ -1,7 +1,7 @@
 const isMatch = require("../core__is-match/is-match")
 
 /**
- * Find and replace object in array
+ * Replace object element in array using filter object
  *
  * @tag Array
  * @signature (filter: Object, newElm: Object) => (source: Object[]): Object[]
