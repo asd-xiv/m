@@ -9,6 +9,21 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.9.0] - 26 October 2018
+
+### Add
+
+- Add [`replace`](/src/replace/replace.js) - Replace substring if source is string, replace element (shallow equal) if source is Array.
+- Add [`string__trim`](/src/string__trim/trim.js) - Remove char from beginning and end of string
+- Add [`array__drop-last`](/src/array__drop-last/drop-last.js) - Remove elements from end of array
+- Add [`fs__rename-file`](/src/fs__rename-file/rename-file.js) - Rename a file given a path string
+
+### Remove
+
+- Remove `src/fs.js` entry point
+  - rename `fs__find` -> `fs__find-files` and add to main index
+  - load `findFiles` like `const { findFiles } = require("m")`, oposed to `const { find } = require("m/src/fs")`
+
 ## [0.8.1] - 24 October 2018
 
 ### Changed
@@ -20,7 +35,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 
 - Add `string__contains` - Test if string contains substring
-- Add `string__endsWith` - Test if string ends with substring
+- Add `string__ends-with` - Test if string ends with substring
 
 ## [0.7.0] - 22 October 2018
 
@@ -39,8 +54,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Removed `flow` support
 
-[Unreleased]: https://github.com/codemachiner/m/compare/v0.8.1...HEAD
+[Unreleased]: https://github.com/codemachiner/m/compare/v0.9.0...HEAD
 
+[0.8.1]: https://github.com/codemachiner/m/compare/v0.8.1...v0.9.0
 [0.8.1]: https://github.com/codemachiner/m/compare/v0.8.0...v0.8.1
 [0.8.0]: https://github.com/codemachiner/m/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/codemachiner/m/compare/v0.6.0...v0.7.0

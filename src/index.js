@@ -1,7 +1,11 @@
 module.exports = {
+  replace: require("./replace/replace"),
+  replaceBy: require("./replace-by/replace-by"),
+
   count: require("./array__count/count"),
   countBy: require("./array__count-by/count-by"),
   distinct: require("./array__distinct/distinct"),
+  dropLast: require("./array__drop-last/drop-last"),
   filter: require("./array__filter/filter"),
   filterBy: require("./array__filter-by/filter-by"),
   find: require("./array__find/find"),
@@ -22,11 +26,11 @@ module.exports = {
   reduce: require("./array__reduce/reduce"),
   remove: require("./array__remove/remove"),
   repeat: require("./array__repeat/repeat"),
-  replaceBy: require("./array__replace-by/replace-by"),
   sort: require("./array__sort/sort"),
   tail: require("./array__tail/tail"),
   toggle: require("./array__toggle/toggle"),
   zipToObj: require("./array__zip-to-obj/zip-to-obj"),
+
   deepEqual: require("./core__deep-equal/deep-equal"),
   i: require("./core__i/i"),
   ifThen: require("./core__if-then/if-then"),
@@ -36,13 +40,19 @@ module.exports = {
   raise: require("./core__raise/raise"),
   throttle: require("./core__throttle/throttle"),
   type: require("./core__type/type"),
+
+  findFiles: require("./fs__find-files/find-files"),
+  renameFile: require("./fs__rename-file/rename-file"),
+
   coinToss: require("./number__coin-toss/coin-toss"),
   random: require("./number__random/random"),
+
   get: require("./object__get/get"),
   hasKey: require("./object__has-key/has-key"),
   merge: require("./object__merge/merge"),
   pick: require("./object__pick/pick"),
   set: require("./object__set/set"),
+
   contains: require("./string__contains/contains"),
   endsWith: require("./string__ends-with/ends-with"),
   escapeHTML: require("./string__escapeHTML/escapeHTML"),
