@@ -22,11 +22,11 @@ There is no _structure_ difference between `pipe` and `compose`, both will use t
 
 > A series of transformations over an initial input can be written as `x -> f -> g -> result`, _piping_, or as `result = g(f(x))`, _composing_. The difference is only _syntactic_. Input is the same, transformations **and** order of application are the same, the result will be the same.
 
-Syntax is the thing we see, parse and write everyday and is the difference between _"Aah, right"_ and _"Why is he doing -1 two times?"_.
+Syntax is the thing we look at, reason with and write ourselves everyday and is the difference between _"Aah, right"_ and _"Why is he doing -1 two times?"_.
 
 There are reasons for why some use the `compose` notation and others the `pipe`. Math people will know more.
 
-In ["Settings are evil"](https://www.youtube.com/watch?v=glZ1C-Yu5tw), Mattias makes the point of product decisions and why adding a toggle in the settings page just adds maintenance overhead and useless complexity. While a measly Twitter flag does not compare to _Function Composition_, I think there is a decision to be made.
+In [Settings are evil](https://www.youtube.com/watch?v=glZ1C-Yu5tw), Mattias makes the point of product decisions and why adding a toggle in the settings page just adds maintenance overhead and useless complexity. While a measly Twitter flag does not compare to _Function Composition_, I think there is a decision to be made.
 
 > Given a set of functions/transformations/verbs, what is the best way of arranging them so that people with little to no knowledge of the overall context can understand it in the smallest amount of time and with least amount off cognitive overhead?
 
@@ -34,7 +34,7 @@ Given that we read from left to right, [left/back is in the past, right/forward 
 
 ```js
 const { sep } = require("path")
-const { pipe, compose, join, push, dropLast, split } = {../index}
+const { pipe, compose, join, push, dropLast, split } = require("../index")
 
 //
 // Compose - g(f(x))
@@ -53,7 +53,7 @@ const renameFile = newName => filePath =>
   )(filePath)
 
 //
-// When using the pipeline operator, things are even more expressive
+// When using the new pipeline operator, things are even more expressive
 //
 const renameFile = newName => filePath =>
   filePath |> split(sep) |> dropLast |> push(newName) |> join(sep)
