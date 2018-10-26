@@ -3,7 +3,9 @@
 
 # m
 
-> Functional library for Javascript
+> Functional library for Javascript.
+
+I started writing this as a way to learn functional programming. It changes a lot and it's incomplete. Use [Ramda](https://github.com/ramda/ramda) to be on the safe side.
 
 <!-- MarkdownTOC levels="2,3" autolink="true" autoanchor="false" -->
 
@@ -28,7 +30,7 @@ There are [reasons](https://en.wikipedia.org/wiki/Function_composition#Alternati
 
 In [Settings are evil](https://www.youtube.com/watch?v=glZ1C-Yu5tw), Mattias Petter Johansson makes the point of product decisions and why adding a toggle in the settings page just adds maintenance overhead and useless complexity. While a measly Twitter flag does not compare to _Function Composition_, I think there is a decision to be made.
 
-> Having a set of functions/transformations/verbs, what is the best way of arranging them so that people with little to no knowledge of the overall context can understand it in the smallest amount of time and with least amount of cognitive overhead?
+> Having a set of functions/transformations/verbs, what is the best way of presenting them so that people with little to no knowledge of the overall context can understand it in the least amount of time and with smallest amount of cognitive overhead?
 
 Given that:
 
