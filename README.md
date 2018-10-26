@@ -96,8 +96,8 @@ History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
 - Add [`replace`](/src/replace/replace.js) - Replace substring if source is string, replace element (shallow equal) if source is Array.
 - Add [`string__trim`](/src/string__trim/trim.js) - Remove char from beginning and end of string
-- Add [`array__dropLast`](/src/array__drop-last/drop-last.js) - Remove elements from end of array
-- Add [`fs__renameFile`](/src/fs__rename-file/rename-file.js) - Rename a file given a path string
+- Add [`array__drop-last`](/src/array__drop-last/drop-last.js) - Remove elements from end of array
+- Add [`fs__rename-file`](/src/fs__rename-file/rename-file.js) - Rename a file given a path string
 
 #### Remove
 
