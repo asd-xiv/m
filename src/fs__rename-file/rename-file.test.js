@@ -1,0 +1,29 @@
+const test = require("tape")
+const renameFile = require("./rename-file")
+
+test("fs::renameFile", t => {
+  t.equals(
+    renameFile("ipsum")("/home/user/lorem"),
+    "/home/user/ipsum",
+    "Rename file with full path"
+  )
+
+  t.equals(
+    renameFile("ipsum")("/home/user/lorem/"),
+    "/home/user/ipsum",
+    "Rename file with trailing slash"
+  )
+
+  t.equals(
+    renameFile("ipsum")("lorem"),
+    "ipsum",
+    "Rename file with only fileName"
+  )
+
+  t.equals(
+    renameFile("ipsum")(renameFile("ipsum")("/lorem/test")),
+    "/lorem/ipsum",
+    "Idempotent"
+  )
+  t.end()
+})
