@@ -11,7 +11,19 @@ test("fs::renameFile", t => {
   t.equals(
     renameFile("ipsum")("/home/user/lorem/"),
     "/home/user/ipsum",
-    "Rename file with trailing slash"
+    "Rename file with trailing slash in path"
+  )
+
+  t.equals(
+    renameFile("ipsum/")("/home/user/lorem/"),
+    "/home/user/ipsum",
+    "Rename file with trailing slash in path and new file name"
+  )
+
+  t.equals(
+    renameFile("/ipsum")("/home/user/lorem"),
+    "/home/user/ipsum",
+    "Rename file with trailing slash in new file name"
   )
 
   t.equals(

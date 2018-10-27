@@ -1,5 +1,6 @@
 const { sep } = require("path")
 
+const trim = require("../string__trim/trim")
 const split = require("../string__split/split")
 const push = require("../array__push/push")
 const join = require("../array__join/join")
@@ -21,5 +22,5 @@ module.exports = newName => filePath =>
   |> removeTrailingSlash
   |> split(sep)
   |> dropLast
-  |> push(newName)
+  |> push(trim(sep)(newName))
   |> join(sep)
