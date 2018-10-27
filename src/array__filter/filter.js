@@ -6,7 +6,7 @@
  * @return {Array}
  *
  * @tag Array
- * @signature ( fn: Function ) => ( source: Array): Array
+ * @signature (fn: Function) => (source: Array): Array
  */
 module.exports = fn => source => {
   const filteredArray = []

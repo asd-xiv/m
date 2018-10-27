@@ -19,7 +19,7 @@ Use [Ramda](https://github.com/ramda/ramda) to be safe.
 - [Install](#install)
 - [Develop](#develop)
 - [Changelog](#changelog)
-    - [0.10.0 - 27 October 2018](#0100---27-october-2018)
+    - [0.10.1 - 27 October 2018](#0101---27-october-2018)
 
 <!-- /MarkdownTOC -->
 
@@ -97,8 +97,8 @@ Use `npm test` to run tests (any `*.test.js`) once or `npm run tdd` to watch `sr
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-### 0.10.0 - 27 October 2018
+### 0.10.1 - 27 October 2018
 
 #### Add
 
-- Add test coverage and [coveralls](https://coveralls.io/github/codemachiner/m) badge
+- Add test for [`array__filter`](/src/array__filter/filter.js)
