@@ -102,3 +102,9 @@ History of all changes in [CHANGELOG.md](CHANGELOG.md)
 #### Add
 
 - Add test for [`tail`](/src/tail/tail.js)
+- Add test for [`head`](/src/head/head.js)
+- Add test for [`equals`](/src/core__equals/core__equals.js)
+
+#### Change
+
+- Change [`equals`](/src/core__equals/core__equals.js) to handle equality between NaN values

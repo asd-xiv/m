@@ -9,6 +9,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.10.2] - 27 October 2018
+
+### Add
+
+- Add test for [`tail`](/src/tail/tail.js)
+- Add test for [`head`](/src/head/head.js)
+- Add test for [`equals`](/src/core__equals/core__equals.js)
+
+### Change
+
+- Change [`equals`](/src/core__equals/core__equals.js) to handle equality between NaN values
+
 ## [0.10.1] - 27 October 2018
 
 ### Add
@@ -66,8 +78,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Removed `flow` support
 
-[Unreleased]: https://github.com/codemachiner/m/compare/v0.10.1...HEAD
+[Unreleased]: https://github.com/codemachiner/m/compare/v0.10.2...HEAD
 
+[0.10.2]: https://github.com/codemachiner/m/compare/v0.10.1...v0.10.2
 [0.10.1]: https://github.com/codemachiner/m/compare/v0.10.0...v0.10.1
 [0.10.0]: https://github.com/codemachiner/m/compare/v0.9.0...v0.10.0
 [0.9.0]: https://github.com/codemachiner/m/compare/v0.8.1...v0.9.0
