@@ -7,7 +7,6 @@
     "src/**/*.js"
   ],
   "exclude": [
-    "src/index.js",
     "src/**/*.test.js",
     "src/**/*.bench.js"
   ],

@@ -2,34 +2,54 @@ const i = require("../core__i/i")
 const type = require("../core__type/type")
 
 /**
- * Creates a new instance of the object with same properties than original.
+ * Creates a new instance of the object with same properties than original
  *
- * @param {T}  toBeCloned  To be cloned
- * @return {T}  Copy of this object.
+ * @param  {T}  source  Variable to clone
  *
- * @type    {T}
- * @example { example }
+ * @return {T}
+ *
+ * @tag Coore
+ * @signature (source: T): T
+ *
+ * @example
+ * clone([1])
+ * // => [1]
+ * clone({a: [1]})
+ * // => {a: [1]}
  */
-const clone = toBeCloned => {
+const clone = source => {
   const byType = {
-    Null: () => null,
-    Undefined: () => undefined,
     Number: i,
     String: i,
     Boolean: i,
     Function: i,
-    Array: input => input.map(elm => clone(elm)),
-    Date: input => new Date(input.getTime()),
-    Object: input => {
-      const newObj = {}
+    Null: () => null,
+    Undefined: () => undefined,
+    Date: () => new Date(source.getTime()),
+    Array: () => {
+      const result = []
 
-      Object.keys(input).forEach(property => {
-        newObj[property] = clone(input[property])
-      })
+      for (let j = 0, length = source.length - 1; j <= length; j++) {
+        result.push(clone(source[j]))
+      }
 
-      return newObj
+      return result
+    },
+    Object: () => {
+      const result = {}
+      const sourceEntries = Object.entries(source)
+
+      for (let j = 0, length = sourceEntries.length - 1; j <= length; j++) {
+        const [key, value] = sourceEntries[j]
+
+        result[key] = clone(value)
+      }
+
+      return result
     },
   }
 
-  return byType[type(toBeCloned)](toBeCloned)
+  return byType[type(source)](source)
 }
+
+module.exports = clone

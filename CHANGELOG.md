@@ -13,12 +13,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Add
 
-- Add test for [`tail`](/src/tail/tail.js), [`head`](/src/head/head.js), [`equals`](/src/core__equals/core__equals.js)
+- Add test for [`tail`](/src/tail/tail.js), [`head`](/src/head/head.js), [`equals`](/src/core__equals/equals.js), [`clone`](/src/core__clone/clone.js)
 - Add test for main [`index.js`](/src/index.js) file
 
 ### Change
 
-- Change [`equals`](/src/core__equals/core__equals.js) to handle equality between NaN values
+- Change [`equals`](/src/core__equals/equals.js) to handle equality between NaN values
 
 ## [0.10.1] - 27 October 2018
 

@@ -44,7 +44,7 @@ Given that:
 - [left/back is in the past, right/front is the future](https://medium.com/@cwodtke/the-intuitive-and-the-unlearnable-cccffd9a762)
 - a lot of piping going on in your terminal
 
-it makes sense to choose the _syntactic_ that is more aligned with our intuition and context. The transformations are applied in a certain order with time as a medium, from `input -> t0 -> t1 -> tn -> output`. The way is forward.
+it makes sense to choose the _syntactic_ that is more aligned with our intuition and context. The transformations are applied in a certain order with time as a medium - `input -> t0 -> t1 -> tn -> output`. The way is forward.
 
 ```js
 const { sep } = require("path")
@@ -123,9 +123,9 @@ History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
 #### Add
 
-- Add test for [`tail`](/src/tail/tail.js), [`head`](/src/head/head.js), [`equals`](/src/core__equals/core__equals.js)
+- Add test for [`tail`](/src/tail/tail.js), [`head`](/src/head/head.js), [`equals`](/src/core__equals/equals.js), [`clone`](/src/core__clone/clone.js)
 - Add test for main [`index.js`](/src/index.js) file
 
 #### Change
 
-- Change [`equals`](/src/core__equals/core__equals.js) to handle equality between NaN values
+- Change [`equals`](/src/core__equals/equals.js) to handle equality between NaN values
