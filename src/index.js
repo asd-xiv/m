@@ -1,6 +1,8 @@
 module.exports = {
   replace: require("./replace/replace"),
   replaceBy: require("./replace-by/replace-by"),
+  head: require("./head/head"),
+  tail: require("./tail/tail"),
 
   count: require("./array__count/count"),
   countBy: require("./array__count-by/count-by"),
@@ -14,7 +16,6 @@ module.exports = {
   forEach: require("./array__for-each/for-each"),
   has: require("./array__has/has"),
   hasWith: require("./array__has-with/has-with"),
-  head: require("./array__head/head"),
   hist: require("./array__hist/hist"),
   indexBy: require("./array__index-by/index-by"),
   join: require("./array__join/join"),
@@ -27,7 +28,6 @@ module.exports = {
   remove: require("./array__remove/remove"),
   repeat: require("./array__repeat/repeat"),
   sort: require("./array__sort/sort"),
-  tail: require("./array__tail/tail"),
   toggle: require("./array__toggle/toggle"),
   zipToObj: require("./array__zip-to-obj/zip-to-obj"),
 
