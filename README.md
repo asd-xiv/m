@@ -18,6 +18,7 @@ Use [Ramda](https://github.com/ramda/ramda) to be safe.
     - [Links](#links)
 - [Install](#install)
 - [Develop](#develop)
+- [Use](#use)
 - [Changelog](#changelog)
     - [0.10.2 - 27 October 2018](#0102---27-october-2018)
 
@@ -33,7 +34,7 @@ Syntax is the thing we look at, reason with and write ourselves everyday and is 
 
 There are [reasons](https://en.wikipedia.org/wiki/Function_composition#Alternative_notations) for why some use the [`compose`](https://en.wikipedia.org/wiki/Composition_operator) notation and others the `pipe`. [Math](https://en.wikipedia.org/wiki/Nicolas_Bourbaki) people will know more.
 
-In [Settings are evil](https://www.youtube.com/watch?v=glZ1C-Yu5tw), Mattias Petter Johansson makes the point of product decisions and why adding a toggle in the settings page just adds maintenance overhead and useless complexity. While a measly Twitter flag does not compare to _Function Composition_, I think there is a decision to be made.
+In [Settings are evil](https://www.youtube.com/watch?v=glZ1C-Yu5tw), Mattias Petter Johansson makes the point of product decisions and why adding a toggle in the settings page just adds maintenance overhead and useless complexity. While a measly Twitter feature flag does not compare to _Function Composition_, I think choosing one is helpfull (just like " over ').
 
 > Having a set of functions/transformations/verbs, what is the best way of presenting them so that people with little to no knowledge of the overall context can understand it in the least amount of time and with smallest amount of cognitive overhead?
 
@@ -89,9 +90,30 @@ npm i --save-exact @codemachiner/m
 git clone git@github.com:codemachiner/m.git && \
   cd m && \
   npm run setup
+
+# run tests (any `*.test.js`) once
+npm test
+
+# watch `src` folder for changes and run test automatically
+npm run tdd
 ```
 
-Use `npm test` to run tests (any `*.test.js`) once or `npm run tdd` to watch `src` folder for changes and run test automatically.
+## Use
+
+```js
+import { pipe, trim, split, dropLast, push, join } from "@codemachiner/m"
+
+const removeTrailingSlash = source =>
+  source[source.length - 1] === sep ? source.slice(0, -1) : source
+
+const renameFile = newName => pipe(
+  removeTrailingSlash,
+  split(sep),
+  dropLast,
+  push(trim(sep)(newName)),
+  join(sep)
+)
+```
 
 ## Changelog
 
@@ -101,9 +123,8 @@ History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
 #### Add
 
-- Add test for [`tail`](/src/tail/tail.js)
-- Add test for [`head`](/src/head/head.js)
-- Add test for [`equals`](/src/core__equals/core__equals.js)
+- Add test for [`tail`](/src/tail/tail.js), [`head`](/src/head/head.js), [`equals`](/src/core__equals/core__equals.js)
+- Add test for main [`index.js`](/src/index.js) file
 
 #### Change
 

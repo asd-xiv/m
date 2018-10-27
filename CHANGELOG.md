@@ -13,9 +13,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Add
 
-- Add test for [`tail`](/src/tail/tail.js)
-- Add test for [`head`](/src/head/head.js)
-- Add test for [`equals`](/src/core__equals/core__equals.js)
+- Add test for [`tail`](/src/tail/tail.js), [`head`](/src/head/head.js), [`equals`](/src/core__equals/core__equals.js)
+- Add test for main [`index.js`](/src/index.js) file
 
 ### Change
 
