@@ -1,9 +1,23 @@
 /**
  * Check if a is equal to b (strict equality)
  *
- * @param  {mixed}   a  First value
- * @param  {mixed}   b  Second value
+ * @param  {mixed}  one  First value
+ * @param  {mixed}  two  Second value
  *
  * @return  {boolean}
+ *
+ * @tag Core
+ * @signature (a: mixed) => (b: mixed): boolean
+ *
+ * @example
+ * equal(2)(2)
+ * // => true
+ * equal("2")(2)
+ * // => false
+ * equal(NaN)(NaN)
+ * // => true
+ * equal([1])([1])
+ * // => false
  */
-module.exports = a => b => a === b
+module.exports = one => two =>
+  Number.isNaN(one) && Number.isNaN(two) ? true : one === two
