@@ -1,11 +1,16 @@
 [![npm package version](https://badge.fury.io/js/%40codemachiner%2Fm.svg)](https://badge.fury.io/js/%40codemachiner%2Fm)
-[![dev-badge](https://david-dm.org/codemachiner/m/dev-status.svg)](https://david-dm.org/codemachiner/m?type=dev)
+[![dev-badge](https://david-dm.org/codemachiner/m.svg)](https://david-dm.org/codemachiner/m)
+[![Coverage Status](https://coveralls.io/repos/github/codemachiner/m/badge.svg)](https://coveralls.io/github/codemachiner/m)
 
 # m
 
 > Functional library for Javascript.
 
-I started writing this as a way to learn functional programming. It changes a lot and it's incomplete. Use [Ramda](https://github.com/ramda/ramda) to be on the safe side.
+Started writing this library as a way to learn functional programming. It changes a lot and not yet complete.
+
+Use [Ramda](https://github.com/ramda/ramda) to be safe.
+
+---
 
 <!-- MarkdownTOC levels="2,3" autolink="true" autoanchor="false" -->
 
@@ -14,7 +19,7 @@ I started writing this as a way to learn functional programming. It changes a lo
 - [Install](#install)
 - [Develop](#develop)
 - [Changelog](#changelog)
-    - [0.9.0 - 26 October 2018](#090---26-october-2018)
+    - [0.10.0 - 27 October 2018](#0100---27-october-2018)
 
 <!-- /MarkdownTOC -->
 
@@ -92,17 +97,8 @@ Use `npm test` to run tests (any `*.test.js`) once or `npm run tdd` to watch `sr
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-### 0.9.0 - 26 October 2018
+### 0.10.0 - 27 October 2018
 
 #### Add
 
-- Add [`replace`](/src/replace/replace.js) - Replace substring if source is string, replace element (shallow equal) if source is Array.
-- Add [`string__trim`](/src/string__trim/trim.js) - Remove char from beginning and end of string
-- Add [`array__drop-last`](/src/array__drop-last/drop-last.js) - Remove elements from end of array
-- Add [`fs__rename-file`](/src/fs__rename-file/rename-file.js) - Rename a file given a path string
-
-#### Remove
-
-- Remove `src/fs.js` entry point
-  - Rename `fs__find` -> `fs__findFiles` and add to main index
-  - load `findFiles` like `const { findFiles } = require("m")`, oposed to `const { find } = require("m/src/fs")`
+- Add test coverage and [coveralls](https://coveralls.io/github/codemachiner/m) badge

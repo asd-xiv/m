@@ -1,5 +1,8 @@
 dist/
 docs/
+coverage/
+.nyc_output
+.coveralls.yml
 
 node_modules
 *.sublime-project

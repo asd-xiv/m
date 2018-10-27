@@ -1,0 +1,23 @@
+{
+  "lines": 100,
+  "statements": 100,
+  "functions": 100,
+  "branches": 100,
+  "include": [
+    "src/**/*.js"
+  ],
+  "exclude": [
+    "src/index.js"
+    "src/**/*.test.js",
+    "src/**/*.bench.js"
+  ],
+  "require": [
+    "@babel/register"
+  ],
+  "reporter": [],
+  "cache": true,
+  "all": true,
+  "sourceMap": true,
+  "instrument": true,
+  "report-dir": "./coverage"
+}
