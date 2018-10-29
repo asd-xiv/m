@@ -1,7 +1,9 @@
 module.exports = {
+  all: require("./all/all"),
   replace: require("./replace/replace"),
   replaceBy: require("./replace-by/replace-by"),
   head: require("./head/head"),
+  is: require("./is/is"),
   tail: require("./tail/tail"),
 
   count: require("./array__count/count"),

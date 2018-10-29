@@ -6,9 +6,7 @@
 
 > Functional library for Javascript.
 
-Started writing this library as a way to learn functional programming. It changes a lot and not yet complete.
-
-Use [Ramda](https://github.com/ramda/ramda) to be safe.
+Changes a lot and not yet complete. Use [Ramda](https://github.com/ramda/ramda) to be safe.
 
 ---
 
@@ -123,6 +121,8 @@ History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
 #### Add
 
+- Add [`is`](/src/is/is.js) - Test if something is not `null` or `undefined`
+- Add [`all`](/src/all/all.js) - Test if all elements of array satisfy a function
 - Add test for [`tail`](/src/tail/tail.js), [`head`](/src/head/head.js), [`equals`](/src/core__equals/equals.js), [`clone`](/src/core__clone/clone.js)
 - Add test for main [`index.js`](/src/index.js) file
 
