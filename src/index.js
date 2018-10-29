@@ -15,7 +15,7 @@ module.exports = {
   find: require("./array__find/find"),
   findBy: require("./array__find-by/find-by"),
   flatten: require("./array__flatten/flatten"),
-  forEach: require("./array__for-each/for-each"),
+  forEach: require("./for-each/for-each"),
   has: require("./array__has/has"),
   hasWith: require("./array__has-with/has-with"),
   hist: require("./array__hist/hist"),
