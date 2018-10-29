@@ -24,7 +24,7 @@ const hasId = source => is(source.id)
  * // => false
  */
 test("core::all", t => {
-  t.equal(all(isEven)([1, 2, 3]), true, "Check all number are even")
+  t.equal(all(isEven)([2, 6, 4]), true, "Check all number are even")
   t.equal(
     all(hasId)([{}, { id: 2 }, {}]),
     false,
