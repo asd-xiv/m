@@ -53,7 +53,12 @@ const hasByValue = (value, source) => {
  * has( elm => elm.id === 1 )([{}, {id: 1}])
  * // => true
  */
-module.exports = value => source =>
-  typeof value === "function"
+module.exports = value => source => {
+  if (source.length === 0) {
+    return false
+  }
+
+  return typeof value === "function"
     ? hasByFunction(value, source)
     : hasByValue(value, source)
+}
