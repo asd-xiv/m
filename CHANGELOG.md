@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Add [`inc`](/src/inc/inc.js) - Add one
 - Add [`is`](/src/is/is.js) - Test if something is not `null` or `undefined`
 - Add [`all`](/src/all/all.js) - Test if all elements of array satisfy a function
-- Add tests for [`raise`](/src/raise/raise.js), [`throttle`](/src/throttle/throttle.js), [`proto-chain`](/src/proto-chain/proto-chain.js), [`merge`](/src/merge/merge.js), [`max`](/src/max/max.js), [`deep-equal`](/src/deep-equal/deep-equal.js), [`find-files`](/src/find-files/find-files.js), [`ends-with`](/src/ends-with/ends-with.js), [`when`](/src/when/when.js), [`tail`](/src/tail/tail.js), [`head`](/src/head/head.js), [`equals`](/src/core__equals/equals.js), [`clone`](/src/core__clone/clone.js)
+- Add tests for [`sort-by`](/src/sort-by/sort-by.js), [`repeat`](/src/repeat/repeat.js), [`raise`](/src/raise/raise.js), [`throttle`](/src/throttle/throttle.js), [`proto-chain`](/src/proto-chain/proto-chain.js), [`merge`](/src/merge/merge.js), [`max`](/src/max/max.js), [`deep-equal`](/src/deep-equal/deep-equal.js), [`find-files`](/src/find-files/find-files.js), [`ends-with`](/src/ends-with/ends-with.js), [`when`](/src/when/when.js), [`tail`](/src/tail/tail.js), [`head`](/src/head/head.js), [`equals`](/src/core__equals/equals.js), [`clone`](/src/core__clone/clone.js)
 - Add test for main [`index.js`](/src/index.js) file
 
 ### Change

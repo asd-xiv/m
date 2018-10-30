@@ -37,24 +37,43 @@ test("array::sortBy", t => {
     { id: 2, position: 2 },
     { id: 4, position: 5 },
   ]
-  const expected = [
-    { id: 2, position: 2 },
-    { id: 1, position: 3 },
-    { id: 4, position: 5 },
-    { id: 5, position: null },
-    { id: 3 },
-  ]
 
-  t.notEqual(
-    sortBy("position")(source),
-    source,
-    "Does not mutate initial object"
+  t.notEqual(sortBy("position")(source), source, "Imutable")
+
+  t.deepEqual(
+    sortBy("position")(sortBy("position")(source)),
+    [
+      { id: 2, position: 2 },
+      { id: 1, position: 3 },
+      { id: 4, position: 5 },
+      { id: 5, position: null },
+      { id: 3 },
+    ],
+    "Idempotent"
   )
 
   t.deepEqual(
     sortBy("position")(source),
-    expected,
-    "Sort by field with undefined at bottom"
+    [
+      { id: 2, position: 2 },
+      { id: 1, position: 3 },
+      { id: 4, position: 5 },
+      { id: 5, position: null },
+      { id: 3 },
+    ],
+    "Sort asc by field with undefined at bottom"
+  )
+
+  t.deepEqual(
+    sortBy("position", "desc")(source),
+    [
+      { id: 4, position: 5 },
+      { id: 1, position: 3 },
+      { id: 2, position: 2 },
+      { id: 5, position: null },
+      { id: 3 },
+    ],
+    "Sort desc by field with undefined at bottom"
   )
 
   t.end()

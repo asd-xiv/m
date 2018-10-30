@@ -22,20 +22,10 @@ test("array::repeat", t => {
   t.deepEqual(
     repeat(index => index + 2)(5),
     [2, 3, 4, 5, 6],
-    "Repeat custom function 5 times should return array with 5 elements"
+    "Repeat function 5 times "
   )
-
-  t.deepEqual(
-    repeat(index => index + 2)(0),
-    [],
-    "Repeat custom function 0 times should return empty array"
-  )
-
-  t.deepEqual(
-    repeat(3)(2),
-    [3, 3],
-    "Repeat custom function 2 times should return array with 2 elements with the same value"
-  )
+  t.deepEqual(repeat(index => index + 2)(), [], "Repeat function 0 times")
+  t.deepEqual(repeat(3)(2), [3, 3], "Repeat value 2 times ")
 
   t.end()
 })
