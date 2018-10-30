@@ -1,5 +1,6 @@
 const test = require("tape")
 const findFiles = require("./find-files")
+const endsWith = require("../ends-with/ends-with")
 
 /**
  * Recursive dir walk with regular expression matching on file name
@@ -11,21 +12,27 @@ const findFiles = require("./find-files")
  *
  * @return {string[]}         Array of files paths
  */
-test("fs::find( { test, isAbsolute } )( folder ): string[]", t => {
+test("fs::find", t => {
   const files = findFiles({
     test: /.*\.test\.js/,
   })(__dirname)
 
-  t.equal(
-    files.length,
-    1,
-    'folder should contain 1 file that ends with ".test.js"'
+  t.equals(files.length, 1, "Find files using regexp filter")
+
+  t.equals(
+    endsWith(".test.js")(files[0]),
+    true,
+    'File name should match ".test.js"'
   )
 
-  t.notEqual(
-    files[0].indexOf(".test.js"),
-    -1,
-    'file name should match ".test.js"'
+  const filesByFunction = findFiles({
+    test: endsWith(".test.js"),
+  })(__dirname)
+
+  t.equals(
+    endsWith(".test.js")(filesByFunction[0]),
+    true,
+    "Find files using filter function"
   )
 
   t.end()
