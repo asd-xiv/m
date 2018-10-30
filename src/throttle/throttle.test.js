@@ -12,16 +12,49 @@ const throttle = require("./throttle")
  *                                  run the `fn` in `timeWindow` ms
  */
 test("core::throttle", t => {
-  let counter = 0
-  const testFn = throttle(() => {
-    counter++
+  /**
+   * Throttle with defaults
+   */
+  let defaultCounter = 0
+  const defaultInc = throttle(() => {
+    defaultCounter++
   })
 
-  for (let i = 0; i < 10; i++) {
-    testFn()
+  for (let i = 0; i < 100; i++) {
+    defaultInc()
   }
 
-  t.equal(counter, 1, "Calling functions multiple times should run it once")
+  setTimeout(() => {
+    t.equal(
+      defaultCounter,
+      1,
+      "Calling throttled function 100 times should run it once"
+    )
+  }, 100)
 
-  t.end()
+  /**
+   * Throttle with custom
+   */
+
+  let customCounter = 0
+  const customInc = throttle(
+    () => {
+      customCounter++
+    },
+    { timeWindow: 50, bind: null, hasLastCall: true }
+  )
+
+  for (let i = 0; i < 100; i++) {
+    customInc()
+  }
+
+  setTimeout(() => {
+    t.equal(
+      customCounter,
+      2,
+      "Calling throttled function 100 times with lastCall enabled should run it twice"
+    )
+
+    t.end()
+  }, 100)
 })
