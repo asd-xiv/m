@@ -1,6 +1,13 @@
-const sortNumeric = source => {
+/**
+ * Find max value using language operator
+ *
+ * @param  {Array}  source  Source input
+ *
+ * @return {mixed}
+ */
+const maxByValue = source => {
   if (source.length === 0) {
-    return 0
+    return null
   }
 
   let maxValue = 0
@@ -14,9 +21,17 @@ const sortNumeric = source => {
   return maxValue
 }
 
-const sortFn = fn => source => {
+/**
+ * Find max value using function to transform element into numeric
+ *
+ * @param  {Function}  fn      Transform function
+ * @param  {Array}     source  Source input
+ *
+ * @return {mixed}
+ */
+const maxByFunction = fn => source => {
   if (source.length === 0) {
-    return 0
+    return null
   }
 
   let [maxItem] = source
@@ -58,4 +73,4 @@ const sortFn = fn => source => {
  * // => {time: "2018-06-11T09:01:54.337344Z"}
  */
 module.exports = arg1 =>
-  Array.isArray(arg1) ? sortNumeric(arg1) : sortFn(arg1)
+  Array.isArray(arg1) ? maxByValue(arg1) : maxByFunction(arg1)

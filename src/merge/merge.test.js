@@ -23,15 +23,19 @@ test("object::merge", t => {
   const obj3 = { c: 42, b: undefined }
   const result = merge(obj1, obj2, obj3)
 
+  const resultAgain = merge(result, obj1, obj2, obj3)
+
   t.deepEqual(
     result,
     { a: "lorem", b: "ipsum", c: 42 },
     "3 objects should be merged into one"
   )
 
-  t.notEqual(result, obj1, "result should not equal first obj")
+  t.deepEqual(result, resultAgain, "Idempotence")
 
-  t.notEqual(result, obj2, "result should not equal second obj")
+  t.notEqual(result, obj1, "Imutability - first object")
+  t.notEqual(result, obj2, "Imutability - second object")
+  t.notEqual(result, obj3, "Imutability - third object")
 
   t.end()
 })

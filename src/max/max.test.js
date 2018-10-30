@@ -1,5 +1,6 @@
 const test = require("tape")
 const max = require("./max")
+const i = require("../i/i")
 
 /**
  * Find the maximum value in a source array
@@ -26,10 +27,15 @@ const max = require("./max")
  * max(fn)(source)
  * // => {time: "2018-06-11T09:01:54.337344Z"}
  */
-test("array::max", t => {
-  t.deepEqual(max([-1, 1, 10, 3]), 10, "max([-1, 1, 10, 3]) // => 10")
 
-  t.deepEqual(max([]), 0, "max([]) // => 0 (neutral element)")
+test("array::max", t => {
+  t.equals(max([-1, 1, 10, 3]), 10, "Find max in numeric array")
+  t.equals(max([]), null, "Find max in empty array (=> null)")
+  t.equals(
+    max(i)([]),
+    null,
+    "Find max in empty array using transform function (=> null)"
+  )
 
   const fn = element => new Date(element.time)
   const source = [

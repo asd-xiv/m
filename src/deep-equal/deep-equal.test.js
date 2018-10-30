@@ -28,16 +28,25 @@ test("core::deepEqual", t => {
 
   t.equal(deepEqual([1, "2"])([2, 1]), false, 'Array: [1, "2"] !== [2, 1]')
 
+  /**
+   * Objects
+   */
   t.equal(
     deepEqual({ a: 2, b: 3 })({ b: 3, a: 2 }),
     true,
-    "Object: {a: 2, b: 3} === {b: 3, a: 2}"
+    "Compare equal objects with keys arranged differently"
   )
 
   t.equal(
     deepEqual({ a: 2, b: 3 })({ b: 3, a: 1 }),
     false,
-    "Object: {a: 2, b: 3} !== {b: 3, a: 1}"
+    "Compare non equal objects with keys arranged differently"
+  )
+
+  t.equal(
+    deepEqual({ a: 2, b: 3 })({ a: 2, b: 3, c: 1 }),
+    false,
+    "Compare objects with different number of keys"
   )
 
   t.equal(
@@ -49,7 +58,7 @@ test("core::deepEqual", t => {
       lvl2: { b: 3, a: [1] },
     }),
     true,
-    "Object: recursive check success"
+    "Compare equal objects, 3 lvl deep, with keys arranged differently"
   )
 
   t.equal(
@@ -61,19 +70,19 @@ test("core::deepEqual", t => {
       lvl1: [1, 2, 3],
     }),
     false,
-    "Object: recursive check fail"
+    "Compare non-equal objects, 3 lvl deep, with keys arranged differently"
   )
 
   t.equal(
     deepEqual({ 1: 2, 2: 3 })([2, 1]),
     false,
-    "Type checks: {1: 2, 2: 3} !== [2, 1]"
+    "Compare different types, object and array"
   )
 
   t.equal(
     deepEqual(new RegExp("test"))([2, 1]),
     false,
-    "Type checks: /test/ !== [2, 1]"
+    "Compare different types, regexp and array"
   )
 
   t.end()
