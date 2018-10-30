@@ -18,7 +18,7 @@ test("fs::find", t => {
    */
   const allFiles = findFiles()(__dirname)
 
-  t.equals(allFiles.length, 3, "Find all files in folder")
+  t.equals(allFiles.length, 4, "Find all files in folder")
 
   /**
    * Find all .test.js files
