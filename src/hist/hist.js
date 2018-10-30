@@ -1,3 +1,49 @@
+const type = require("../type/type")
+const is = require("../is/is")
+
+/**
+ * Count the number of occurances of each element
+ *
+ * @param  {Array}  source  Source input
+ *
+ * @return {Object}
+ */
+const byArray = source => {
+  const result = {}
+
+  for (let i = 0, length = source.length - 1; i <= length; i++) {
+    result[source[i]] = is(result[source[i]]) ? result[source[i]] + 1 : 1
+  }
+
+  return result
+}
+
+/**
+ * Count the number of occurances of each object by a field
+ *
+ * @param  {string}  field  The field
+ *
+ * @return {Object}
+ */
+const byKey = field => source => {
+  const result = {}
+
+  for (let i = 0, length = source.length; i < length; i++) {
+    if (!!source[i][field]) {
+      const groupKey = String(source[i][field])
+
+      result[groupKey] = result[groupKey] ? result[groupKey] + 1 : 1
+    }
+  }
+
+  return result
+}
+
+const byType = {
+  Array: byArray,
+  String: byKey,
+}
+
 /**
  * Determine the count of all field's distinct values in a list of objects
  * (aka histogram)
@@ -29,16 +75,4 @@
  * hist( "score" )( scores )
  * // => { "1": 1, "10": 2 }
  */
-module.exports = field => source => {
-  const result = {}
-
-  for (let i = 0, length = source.length; i < length; i++) {
-    if (!!source[i][field]) {
-      const groupKey = String(source[i][field])
-
-      result[groupKey] = result[groupKey] ? result[groupKey] + 1 : 1
-    }
-  }
-
-  return result
-}
+module.exports = field => byType[type(field)](field)
