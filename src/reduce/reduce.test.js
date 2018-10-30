@@ -8,5 +8,11 @@ test("reduce", t => {
     "Sum up the elements of an array"
   )
 
+  t.deepEqual(
+    reduce((acc, reduceElm) => ({ ...acc, [reduceElm]: reduceElm }))([1, 2, 3]),
+    { 1: 1, 2: 2, 3: 3 },
+    "From array to object with default acc"
+  )
+
   t.end()
 })

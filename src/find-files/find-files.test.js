@@ -13,18 +13,31 @@ const endsWith = require("../ends-with/ends-with")
  * @return {string[]}         Array of files paths
  */
 test("fs::find", t => {
-  const files = findFiles({
+  /**
+   * Find all files
+   */
+  const allFiles = findFiles()(__dirname)
+
+  t.equals(allFiles.length, 3, "Find all files in folder")
+
+  /**
+   * Find all .test.js files
+   */
+  const testFiles = findFiles({
     test: /.*\.test\.js/,
   })(__dirname)
 
-  t.equals(files.length, 1, "Find files using regexp filter")
+  t.equals(testFiles.length, 1, "Find files using regexp filter")
 
   t.equals(
-    endsWith(".test.js")(files[0]),
+    endsWith(".test.js")(testFiles[0]),
     true,
     'File name should match ".test.js"'
   )
 
+  /**
+   * Find files using function
+   */
   const filesByFunction = findFiles({
     test: endsWith(".test.js"),
   })(__dirname)
