@@ -27,21 +27,13 @@
  * //]
  */
 module.exports = (field, direction = "asc") => source => {
-  // dont mutate
-  const result = Array.isArray(source) ? new Array(...source) : [source]
+  const result = [...source]
+  const valueIfFieldMissing =
+    direction === "asc" ? Number.POSITIVE_INFINITY : Number.NEGATIVE_INFINITY
 
   return result.sort((alice, bob) => {
-    const aliceValue =
-      alice[field] ||
-      (direction === "asc"
-        ? Number.POSITIVE_INFINITY
-        : Number.NEGATIVE_INFINITY)
-
-    const bobValue =
-      bob[field] ||
-      (direction === "asc"
-        ? Number.POSITIVE_INFINITY
-        : Number.NEGATIVE_INFINITY)
+    const aliceValue = alice[field] || valueIfFieldMissing
+    const bobValue = bob[field] || valueIfFieldMissing
 
     return alice[field] === null && typeof bob[field] === "undefined"
       ? -1

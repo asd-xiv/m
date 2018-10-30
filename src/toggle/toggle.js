@@ -1,7 +1,7 @@
-const ifThen = require("../core__if-then/if-then")
+const when = require("../when/when")
 const has = require("../has/has")
-const remove = require("../array__remove/remove")
-const push = require("../array__push/push")
+const remove = require("../remove/remove")
+const push = require("../push/push")
 
 /**
  * Add element if not exists, remove otherwise
@@ -24,5 +24,5 @@ module.exports = element => source => {
     return [element]
   }
 
-  return ifThen(has(element), remove(element), push(element))(source)
+  return when(has(element), remove(element), push(element))(source)
 }

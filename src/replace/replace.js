@@ -1,4 +1,4 @@
-const type = require("../core__type/type")
+const type = require("../type/type")
 
 /**
  * Replace substring in string
@@ -52,12 +52,6 @@ module.exports = (oldElm, newElm) => source => {
   const byType = {
     String: replaceString,
     Array: replaceArray,
-  }
-
-  if (sourceType !== "String" && sourceType !== "Array") {
-    throw new TypeError(
-      `m.replace only accepts string and array as source. Received ${sourceType}`
-    )
   }
 
   return byType[sourceType](oldElm, newElm)(source)

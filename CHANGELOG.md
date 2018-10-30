@@ -13,13 +13,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Add
 
+- Add [`dec`](/src/dec/dec.js) - Add one
+- Add [`inc`](/src/inc/inc.js) - Add one
 - Add [`is`](/src/is/is.js) - Test if something is not `null` or `undefined`
 - Add [`all`](/src/all/all.js) - Test if all elements of array satisfy a function
-- Add test for [`tail`](/src/tail/tail.js), [`head`](/src/head/head.js), [`equals`](/src/core__equals/equals.js), [`clone`](/src/core__clone/clone.js)
+- Add tests for [`when`](/src/when/when.js), [`tail`](/src/tail/tail.js), [`head`](/src/head/head.js), [`equals`](/src/core__equals/equals.js), [`clone`](/src/core__clone/clone.js)
 - Add test for main [`index.js`](/src/index.js) file
 
 ### Change
 
+- **Breaking**: `ifThen` renamed to `when`
 - Change [`equals`](/src/core__equals/equals.js) to handle equality between NaN values
 
 ## [0.10.1] - 27 October 2018

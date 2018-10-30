@@ -1,4 +1,4 @@
-const escape = require("../string__escape/escape")
+const escape = require("../escape/escape")
 
 /**
  * Make safe for RegExp'ing

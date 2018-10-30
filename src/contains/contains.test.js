@@ -29,5 +29,11 @@ test("string::contains", t => {
     "Search string does not exist in source string"
   )
 
+  t.equals(
+    contains("lorem ipsum very long dolor")("lorem ipsum"),
+    false,
+    "Search string longer than source string"
+  )
+
   t.end()
 })

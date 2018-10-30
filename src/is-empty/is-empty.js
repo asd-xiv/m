@@ -1,14 +1,16 @@
-const type = require("../core__type/type")
+const type = require("../type/type")
 
 /**
- * Determines something is empty
+ * Check if variable is considered empty
  *
- * @param   {Any}      input  Something to check if empty
+ * @param   {Any}      source  Source input
  *
  * @return  {boolean}  True if empty, False otherwise
  *
- * @example
+ * @tag Core
+ * @signature (source: any): boolean
  *
+ * @example
  * isEmpty({})               // true
  * isEmpty(1)                // false
  * isEmpty(false)            // false
@@ -22,16 +24,16 @@ const type = require("../core__type/type")
  * isEmpty(() => {})         // false
  * isEmpty(Promise.resolve() // false
  */
-module.exports = input => {
-  const inputType = type(input)
+module.exports = source => {
+  const sourceType = type(source)
   const byType = {
     Null: () => true,
     Undefined: () => true,
-    Number: () => Number.isNaN(input),
-    String: () => input === "",
-    Array: () => input.length === 0,
-    Object: () => Object.keys(input).length === 0,
+    Number: () => Number.isNaN(source),
+    String: () => source === "",
+    Array: () => source.length === 0,
+    Object: () => Object.keys(source).length === 0,
   }
 
-  return byType[inputType] ? byType[inputType]() : false
+  return byType[sourceType] ? byType[sourceType]() : false
 }

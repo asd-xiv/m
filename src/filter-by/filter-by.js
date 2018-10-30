@@ -1,18 +1,18 @@
-const filter = require("../array__filter/filter")
-const isMatch = require("../core__is-match/is-match")
+const filter = require("../filter/filter")
+const isMatch = require("../is-match/is-match")
 
 /**
  * Filter an array of objects
  *
+ * @param   {Object}    matchObject  Match object
+ * @param   {Object[]}  source       Source input
+ *
+ * @return  {Object[]}
+ *
  * @tag Array
  * @signature (matchObject: Object) => (source: Object[]): Object[]
  *
- * @param   {Object}  matchObject  Match object
- *
- * @return  {Object[]} Array of objects that match the filter criteria
- *
  * @example { example }
- *
  * filterBy( { "!id": 2 } )( [
  *   { lorem: 2 },
  *   { lorem: 3 },

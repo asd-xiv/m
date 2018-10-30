@@ -1,5 +1,5 @@
-const i = require("../core__i/i")
-const type = require("../core__type/type")
+const i = require("../i/i")
+const type = require("../type/type")
 
 /**
  * Creates a new instance of the object with same properties than original

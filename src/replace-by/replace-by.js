@@ -1,4 +1,4 @@
-const isMatch = require("../core__is-match/is-match")
+const isMatch = require("../is-match/is-match")
 
 /**
  * Replace object element in array using filter object

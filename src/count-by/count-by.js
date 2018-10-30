@@ -1,15 +1,15 @@
-const isMatch = require("../core__is-match/is-match")
+const isMatch = require("../is-match/is-match")
 
 /**
  * Count the number of objects that match a criteria
  *
- * @tag Array
- * @signature (matchObject: Object)(source: Object[]): number
- *
  * @param   {Object}    matchObject  Match object
- * @param   {Object[]}  source       Array of objects
+ * @param   {Object[]}  source       Source input
  *
  * @return  {number}
+ *
+ * @tag Array
+ * @signature (matchObject: Object)(source: Object[]): number
  *
  * @example
  * const scores = [{

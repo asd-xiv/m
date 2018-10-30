@@ -1,5 +1,4 @@
-const type = require("../core__type/type")
-const reduce = require("../array__reduce/reduce")
+const reduce = require("../reduce/reduce")
 
 /**
  * Recursively concat all arrays intro a single array
@@ -14,7 +13,7 @@ const reduce = require("../array__reduce/reduce")
  */
 const flatten = reduce(
   (acc, item) =>
-    type(item) === "Array" ? [...acc, ...flatten(item)] : [...acc, item],
+    Array.isArray(item) ? [...acc, ...flatten(item)] : [...acc, item],
   []
 )
 

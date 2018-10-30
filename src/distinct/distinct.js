@@ -1,4 +1,4 @@
-const deepEqual = require("../core__deep-equal/deep-equal")
+const deepEqual = require("../deep-equal/deep-equal")
 
 /**
  * Remove repeating values

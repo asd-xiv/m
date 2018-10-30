@@ -1,4 +1,4 @@
-const escapeRegExp = require("../string__escapeRegExp/escapeRegExp")
+const escapeRegExp = require("../escapeRegExp/escapeRegExp")
 
 /**
  * Remove char from beginning and end of string

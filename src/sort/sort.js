@@ -1,5 +1,5 @@
-const map = require("../array__map/map")
-const I = require("../core__i/i")
+const map = require("../map/map")
+const I = require("../i/i")
 
 /**
  * TODO: reactor with propper sorting algorithms
