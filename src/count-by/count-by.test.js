@@ -32,7 +32,7 @@ const countBy = require("./count-by")
  * })(scores)
  * // => 2
  */
-test("array::countBy(matchObject: Object)(source: Object[]): number", t => {
+test("array::countBy", t => {
   const scores = [
     {
       name: "Bob",

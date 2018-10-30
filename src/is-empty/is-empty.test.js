@@ -23,7 +23,7 @@ const isEmpty = require("./is-empty")
  * isEmpty(() => {})         // false
  * isEmpty(Promise.resolve() // false
  */
-test("core::isEmpty( input ): boolean", t => {
+test("core::isEmpty", t => {
   t.equal(isEmpty({}), true, "{} should equal true")
   t.equal(isEmpty({ a: 2 }), false, "{a:2} should equal false")
   t.equal(isEmpty([]), true, "[] should equal true")

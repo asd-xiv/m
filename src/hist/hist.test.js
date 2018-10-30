@@ -40,7 +40,7 @@ const hist = require("./hist")
  * //  "Math": 2
  * // }
  */
-test("array::hist(field: string)(source: Object[]): Object", t => {
+test("array::hist", t => {
   const scores = [
     {
       name: "Bob",

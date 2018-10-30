@@ -9,7 +9,7 @@ const map = require("./map")
  * map( x => x * x )( [ 1, 2, 3 ] )
  * // => [ 1, 4, 9 ]
  */
-test("array::map( ...fn(currentValue, index, array) )( input ): Array", t => {
+test("array::map", t => {
   const square = value => value * value
 
   t.deepEqual(

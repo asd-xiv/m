@@ -26,7 +26,7 @@ const max = require("./max")
  * max(fn)(source)
  * // => {time: "2018-06-11T09:01:54.337344Z"}
  */
-test("array::max( source: Number[] ): Number", t => {
+test("array::max", t => {
   t.deepEqual(max([-1, 1, 10, 3]), 10, "max([-1, 1, 10, 3]) // => 10")
 
   t.deepEqual(max([]), 0, "max([]) // => 0 (neutral element)")

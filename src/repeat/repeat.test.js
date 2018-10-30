@@ -18,7 +18,7 @@ const repeat = require("./repeat")
  * repeat(index=>index+1)(3)
  * // => [1, 2, 3]
  */
-test("array::repeat( fn: Function ) => ( count: number ): Array", t => {
+test("array::repeat", t => {
   t.deepEqual(
     repeat(index => index + 2)(5),
     [2, 3, 4, 5, 6],

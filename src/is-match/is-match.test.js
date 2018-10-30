@@ -35,7 +35,7 @@ const isMatch = require("./is-match")
  * })
  * // false
  */
-test("isMatch::(test: Object)(source: Object): boolean", t => {
+test("core::isMatch", t => {
   t.deepEqual(
     isMatch({
       id: 2,

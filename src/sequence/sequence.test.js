@@ -19,7 +19,7 @@ const sequence = require("./sequence")
  * sequence(3)(1, 5)   // [1, 4]
  * sequence(-1)(2, -3) // [ 2, 1, 0, -1, -2, -3 ]
  */
-test("number::sequence(step: number) => (start: number, end: number): number[]", t => {
+test("number::sequence", t => {
   t.throws(
     () => sequence(0)(1, 10),
     /Invalid "step" value, must be non zero/,

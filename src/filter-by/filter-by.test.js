@@ -33,7 +33,7 @@ const filterBy = require("./filter-by")
  * // { id: 4, items: 2 }
  * // ]
  */
-test("filterBy::(matchObject: Object) => (source: Object[]): Object[]", t => {
+test("array::filterBy", t => {
   t.deepEqual(
     filterBy({
       items: 2,

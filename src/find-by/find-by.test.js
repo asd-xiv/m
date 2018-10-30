@@ -10,7 +10,7 @@ const findBy = require("./find-by")
  * findBy( { id: 2 } )( comments )
  * // => { id: 2, body: "dolor" }
  */
-test("array::findBy( filter: Object )( input: Array ): mixed", t => {
+test("array::findBy", t => {
   const comments = [{ id: 1, body: "" }, { id: 2, body: "dolor" }]
 
   t.deepEqual(

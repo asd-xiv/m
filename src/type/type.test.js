@@ -21,7 +21,7 @@ const type = require("./type")
  * type(() => {})          // "Function"
  * type(Promise.resolve()) // "Promise"
  */
-test("core::type( input ): string", t => {
+test("core::type", t => {
   t.equal(type(null), "Null", "null should equal Null")
   t.equal(type(undefined), "Undefined", "undefined should equal Undefined")
   t.equal(type(NaN), "Number", "NaN should equal Number")

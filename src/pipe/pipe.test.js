@@ -9,7 +9,7 @@ const pipe = require("./pipe")
  * pipe( inc, inc )( 2 )
  * // => 4
  */
-test("core::pipe( ...fn )( ...input )", t => {
+test("core::pipe", t => {
   const inc = input => input + 1
   const sum = (a, b) => a + b
 

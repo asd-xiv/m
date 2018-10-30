@@ -16,7 +16,7 @@ const join = require("./join")
  * join( "," )( [ "lorem", "ipsum" ] )
  * // => "lorem,ipsum"
  */
-test("array::join( separator: string )( source: Array ): string", t => {
+test("array::join", t => {
   const source = ["lorem", "ipsum"]
 
   t.equals(join(",")(source), "lorem,ipsum", "Join array with 2 string into 1")

@@ -20,7 +20,7 @@ const has = require("./has")
  * has( elm => elm.id === 1 )([{}, {id: 1}])
  * // => true
  */
-test("array::has( value: Function|mixed )( source: Array ): boolean", t => {
+test("array::has", t => {
   t.equals(has(2)([1, 2]), true, "Primitive exists in array")
   t.equals(has(2)([1, "2"]), false, "Primitive does not exist in array")
 

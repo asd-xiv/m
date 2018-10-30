@@ -1,8 +1,8 @@
 /**
  * Identity function
  *
- * @param  {mixed}  input  The input
+ * @param  {mixed}  source  Source input
  *
  * @return {mixed}
  */
-module.exports = input => input
+module.exports = source => source

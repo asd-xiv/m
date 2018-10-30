@@ -15,7 +15,7 @@ const toLower = require("./to-lower")
  * const scores = split(",")("lorem,ipsum")
  * // ["lorem", "ipsum"]
  */
-test("string::toLower( source: string ): string", t => {
+test("string::toLower", t => {
   const source = "Lorem Opsum"
 
   t.equals(

@@ -18,7 +18,7 @@ const split = require("./split")
  * const scores = split(",")("lorem,ipsum")
  * // ["lorem", "ipsum"]
  */
-test("string::split( separator: string|RegExp )( source: string ): Array", t => {
+test("string::split", t => {
   const source = "lorem,ipsum"
 
   t.deepEqual(

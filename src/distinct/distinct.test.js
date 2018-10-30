@@ -15,7 +15,7 @@ const distinct = require("./distinct")
  * distinct( [1, 1, 2] ) // => [1, 2]
  * distinct( [1, {a: 2}, {a: 2}] ) // => [1, {a: 2}]
  */
-test("array::distinct( source: Array ): Array", t => {
+test("array::distinct", t => {
   t.deepEqual(
     distinct([1, 1, 3]),
     [1, 3],

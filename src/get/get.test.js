@@ -16,7 +16,7 @@ const get = require("./get")
  * get( "lorem" )( { lorem: "ipsum" } ) // => "ipsum"
  * get( "not-exist" )( { lorem: "ipsum" } ) // => undefined
  */
-test("object::get(key: string) => (source: Object) => mixed", t => {
+test("object::get", t => {
   t.equal(
     get("lorem")({
       lorem: "ipsum",

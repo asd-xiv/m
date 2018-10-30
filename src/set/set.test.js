@@ -18,7 +18,7 @@ const set = require("./set")
  * set( "a", "lorem" )( { b: "ipsum" } )
  * // => { a: "lorem", b: "ipsum" }
  */
-test("object::set( key: string, value: mixed ) => ( source: Object ): Object", t => {
+test("object::set", t => {
   const source = { lorem: "ipsum" }
 
   t.deepEqual(

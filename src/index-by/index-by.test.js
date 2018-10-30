@@ -16,7 +16,7 @@ const indexBy = require("./index-by")
  * //   3: [ { id: 2, user_id: 3 } ],
  * // }
  */
-test("array::indexBy( field )( input ): Object", t => {
+test("array::indexBy", t => {
   const comments = [
     { id: 1, user_id: 2 },
     { id: 2, user_id: 3 },

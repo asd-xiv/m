@@ -11,7 +11,7 @@ const find = require("./find")
  *
  * @example
  */
-test("array::find( matchFn: Function )( source: Array ): mixed", t => {
+test("array::find", t => {
   const comments = [{ id: 1, body: "" }, { id: 2, body: "dolor" }]
 
   t.deepEqual(

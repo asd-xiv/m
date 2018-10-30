@@ -1,6 +1,14 @@
 const test = require("tape")
 const renameFile = require("./rename-file")
 
+/**
+ * Rename a file
+ *
+ * @param  {string}  newName   New file name
+ * @param  {string}  filePath  Absolute file path
+ *
+ * @return {string}
+ */
 test("fs::renameFile", t => {
   t.equals(
     renameFile("ipsum")("/home/user/lorem"),

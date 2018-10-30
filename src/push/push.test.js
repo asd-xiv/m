@@ -11,7 +11,7 @@ const push = require("./push")
  * push( 2 )( [ 1 ] ) // => [ 1, 2 ]
  * push( 2, 4 )( [ 1 ] ) // => [ 1, 2, 4 ]
  */
-test("array::push( ...elements )( input )", t => {
+test("array::push", t => {
   t.deepEqual(push(null)([1]), [1, null], "(null)([]) should equal [null]")
 
   t.deepEqual(

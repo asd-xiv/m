@@ -1,7 +1,17 @@
 const test = require("tape")
 const throttle = require("./throttle")
 
-test("core::throttle( fn: Function, { timeWindow = 50, bind = null } = {} ): Function", t => {
+/**
+ * Call a function only if it hasn't been called in the last `timeWindow` ms.
+ *
+ * @param  {function} fn            Function to be ran
+ * @param  {integer}  timeWindow    Time between each `fn` call
+ *
+ * @return {function}               Either return `fn` if you've passed the
+ *                                  `timeWindow` or return a timer that will
+ *                                  run the `fn` in `timeWindow` ms
+ */
+test("core::throttle", t => {
   let counter = 0
   const testFn = throttle(() => {
     counter++

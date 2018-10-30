@@ -16,7 +16,7 @@ const hasKey = require("./has-key")
  * has( "lorem" )( { lorem: null } ) // => true
  * has( "toString" )( { lorem: "ipsum" } ) // => false
  */
-test("object::has( key: string ) => ( input: Object ): boolean", t => {
+test("object::hasKey", t => {
   t.equal(hasKey("lorem")({ lorem: "ipsum" }), true, "Key exists")
 
   t.equal(hasKey("lorem")({}), false, "Key does not exist")

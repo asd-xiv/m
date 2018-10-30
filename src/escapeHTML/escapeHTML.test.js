@@ -16,7 +16,7 @@ const escapeHTML = require("./escapeHTML")
  * escapeHTML( "<div className=''>alice & bob</div>" )
  * // => "lorem \\. ipsum \\[dolor\\]"
  */
-test("string::escapeHTML( source: string ) => string", t => {
+test("string::escapeHTML", t => {
   const actual = escapeHTML(
     "<script type='text/javascript'>alert('HERE'S BOBBY')</script>"
   )

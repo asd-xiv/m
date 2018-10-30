@@ -16,7 +16,7 @@ const escapeRegExp = require("./escapeRegExp")
  * escapeRegExp( "lorem. ipsum [dolor]" )
  * // => "lorem \\. ipsum \\[dolor\\]"
  */
-test("string::escapeRegExp( source: string ) => string", t => {
+test("string::escapeRegExp", t => {
   const actualT1 = escapeRegExp("lorem. ipsum [dolor] (sit amet)?")
   const expectedT1 = "lorem\\. ipsum \\[dolor\\] \\(sit amet\\)\\?"
 

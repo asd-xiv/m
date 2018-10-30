@@ -17,7 +17,7 @@ const pick = require("./pick")
  * pick(["id", "name"])({id: 2, name: "lorem", description: "lorem ipsum"})
  * // => {id: 2, name: lorem}
  */
-test("object::pick( keys: string[] ) => ( source: Object ): Object", t => {
+test("object::pick", t => {
   const source = {
     lorem: "ipsum",
     dolor: "amet",

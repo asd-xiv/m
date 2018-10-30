@@ -16,7 +16,7 @@ const sort = require("./sort")
  * sort((a,b) => a.id-b.id)([{id:2}, {id: 1}])
  * // => [{id:1}, {id: 2}]
  */
-test("array::sort( fn: Function ) => ( source: Array ): Array", t => {
+test("array::sort", t => {
   const source = [{ id: 2 }, { id: 1 }]
 
   t.deepEqual(

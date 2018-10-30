@@ -29,7 +29,7 @@ const sortBy = require("./sort-by")
  * //  { id: 3 },
  * //]
  */
-test("array::sortBy( field: string, direction: string ) => ( source: Array ): Array", t => {
+test("array::sortBy", t => {
   const source = [
     { id: 5, position: null },
     { id: 3 },

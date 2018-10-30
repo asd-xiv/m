@@ -22,7 +22,7 @@ const equals = require("./equals")
  * equal([1])([1])
  * // => false
  */
-test("equals", t => {
+test("core::equals", t => {
   t.equals(equals(2)(2), true, "Compare two equal primitives")
 
   t.equals(equals("2")(2), false, "Compare two not-equal primitives")
