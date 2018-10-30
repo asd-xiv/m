@@ -1,5 +1,6 @@
 module.exports = {
   all: require("./all/all"),
+  between: require("./between/between"),
   coinToss: require("./coin-toss/coin-toss"),
   contains: require("./contains/contains"),
   count: require("./count/count"),

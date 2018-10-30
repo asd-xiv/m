@@ -18,7 +18,7 @@ Changes a lot and not yet complete. Use [Ramda](https://github.com/ramda/ramda) 
 - [Develop](#develop)
 - [Use](#use)
 - [Changelog](#changelog)
-    - [0.10.2 - 27 October 2018](#0102---27-october-2018)
+    - [0.11 - 30 October 2018](#011---30-october-2018)
 
 <!-- /MarkdownTOC -->
 
@@ -117,14 +117,19 @@ const renameFile = newName => pipe(
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-### 0.10.2 - 27 October 2018
+### 0.11 - 30 October 2018
 
 #### Add
 
-- Add [`dec`](/src/dec/dec.js) - Substract one
-- Add [`inc`](/src/inc/inc.js) - Add one
-- Add [`is`](/src/is/is.js) - Test if something is not `null` or `undefined`
-- Add [`all`](/src/all/all.js) - Test if all elements of array satisfy a function
+- Add tests for [`random`](/src/random/random) and [`coin-toss`](/src/coin-toss/coin-toss) using [Chi-squared distribution](https://en.wikipedia.org/wiki/Chi-squared_distribution) via [chi-squared-test](https://www.npmjs.com/package/chi-squared-test)
+- Add functions:
+  - [`gt`](/src/gt/gt.js) - Grater than compare
+  - [`lt`](/src/lt/lt.js) - Less than compare
+  - [`between`](/src/between/between) - Check if value is inside open or closed interval
+  - [`dec`](/src/dec/dec.js) - Substract one
+  - [`inc`](/src/inc/inc.js) - Add one
+  - [`is`](/src/is/is.js) - Test if something is not `null` or `undefined`
+  - [`all`](/src/all/all.js) - Test if all elements of array satisfy a function
 - Add tests for [`sort-by`](/src/sort-by/sort-by.js), [`repeat`](/src/repeat/repeat.js), [`raise`](/src/raise/raise.js), [`throttle`](/src/throttle/throttle.js), [`proto-chain`](/src/proto-chain/proto-chain.js), [`merge`](/src/merge/merge.js), [`max`](/src/max/max.js), [`deep-equal`](/src/deep-equal/deep-equal.js), [`find-files`](/src/find-files/find-files.js), [`ends-with`](/src/ends-with/ends-with.js), [`when`](/src/when/when.js), [`tail`](/src/tail/tail.js), [`head`](/src/head/head.js), [`equals`](/src/core__equals/equals.js), [`clone`](/src/core__clone/clone.js)
 - Add test for main [`index.js`](/src/index.js) file
 
