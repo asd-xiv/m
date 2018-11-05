@@ -51,6 +51,7 @@ module.exports = {
   set: require("./set/set"),
   sort: require("./sort/sort"),
   split: require("./split/split"),
+  startsWith: require("./starts-with/starts-with"),
   tail: require("./tail/tail"),
   throttle: require("./throttle/throttle"),
   toggle: require("./toggle/toggle"),
