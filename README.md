@@ -4,7 +4,7 @@
 
 # m
 
-> Functional library for Javascript.
+> Functional library for Javascript
 
 Changes a lot and not yet complete. Use [Ramda](https://github.com/ramda/ramda) to be safe.
 
@@ -18,7 +18,7 @@ Changes a lot and not yet complete. Use [Ramda](https://github.com/ramda/ramda) 
 - [Develop](#develop)
 - [Use](#use)
 - [Changelog](#changelog)
-    - [0.11 - 30 October 2018](#011---30-october-2018)
+    - [0.12.0 - 5 November 2018](#0120---5-november-2018)
 
 <!-- /MarkdownTOC -->
 
@@ -30,9 +30,9 @@ There is no _structure_ difference between `pipe` and `compose`, both will use t
 
 Syntax is the thing we look at, reason with and write ourselves everyday and is the difference between _"Aah, right"_ and _"Why is he doing -1 two times?"_.
 
-There are [reasons](https://en.wikipedia.org/wiki/Function_composition#Alternative_notations) for why some use the [`compose`](https://en.wikipedia.org/wiki/Composition_operator) notation and others the `pipe`. [Math](https://en.wikipedia.org/wiki/Nicolas_Bourbaki) people will know more.
+There are [reasons](https://en.wikipedia.org/wiki/Function_composition#Alternative_notations) for why some use [`compose`](https://en.wikipedia.org/wiki/Composition_operator) notation and others `pipe`. [Math](https://en.wikipedia.org/wiki/Nicolas_Bourbaki) people will know more.
 
-In [Settings are evil](https://www.youtube.com/watch?v=glZ1C-Yu5tw), Mattias Petter Johansson makes the point of product decisions and why adding a toggle in the settings page just adds maintenance overhead and useless complexity. While a measly Twitter feature flag does not compare to _Function Composition_, I think choosing one is helpfull (just like " over ').
+In [Settings are evil](https://www.youtube.com/watch?v=glZ1C-Yu5tw), Mattias Petter Johansson makes the point of product decisions and why adding a toggle in the settings page just adds maintenance overhead and useless complexity. While a measly Twitter feature flag does not compare to _Function Composition_, choosing one might be helpful (just like "double quotes" over 'single quotes').
 
 > Having a set of functions/transformations/verbs, what is the best way of presenting them so that people with little to no knowledge of the overall context can understand it in the least amount of time and with smallest amount of cognitive overhead?
 
@@ -42,11 +42,11 @@ Given that:
 - [left/back is in the past, right/front is the future](https://medium.com/@cwodtke/the-intuitive-and-the-unlearnable-cccffd9a762)
 - a lot of piping going on in your terminal
 
-it makes sense to choose the _syntactic_ that is more aligned with our intuition and context. The transformations are applied in a certain order with time as a medium - `input -> t0 -> t1 -> tn -> output`. The way is forward.
+it makes sense to choose the _syntactic_ more aligned with our intuition and context. The transformations are applied in a certain order with time as a medium - `input -> t0 -> t1 -> tn -> output`. The way is forward.
 
 ```js
 const { sep } = require("path")
-const { pipe, compose, join, push, dropLast, split } = require("../index")
+const { pipe, compose, join, push, dropLast, split } = require("@codemachiner/m")
 
 //
 // Compose - g(f(x))
@@ -117,23 +117,8 @@ const renameFile = newName => pipe(
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-### 0.11 - 30 October 2018
+### 0.12.0 - 5 November 2018
 
 #### Add
 
-- Add tests for [`random`](/src/random/random) and [`coin-toss`](/src/coin-toss/coin-toss) using [Chi-squared distribution](https://en.wikipedia.org/wiki/Chi-squared_distribution) via [chi-squared-test](https://www.npmjs.com/package/chi-squared-test)
-- Add functions:
-  - [`gt`](/src/gt/gt.js) - Grater than compare
-  - [`lt`](/src/lt/lt.js) - Less than compare
-  - [`between`](/src/between/between) - Check if value is inside open or closed interval
-  - [`dec`](/src/dec/dec.js) - Substract one
-  - [`inc`](/src/inc/inc.js) - Add one
-  - [`is`](/src/is/is.js) - Test if something is not `null` or `undefined`
-  - [`all`](/src/all/all.js) - Test if all elements of array satisfy a function
-- Add tests for [`sort-by`](/src/sort-by/sort-by.js), [`repeat`](/src/repeat/repeat.js), [`raise`](/src/raise/raise.js), [`throttle`](/src/throttle/throttle.js), [`proto-chain`](/src/proto-chain/proto-chain.js), [`merge`](/src/merge/merge.js), [`max`](/src/max/max.js), [`deep-equal`](/src/deep-equal/deep-equal.js), [`find-files`](/src/find-files/find-files.js), [`ends-with`](/src/ends-with/ends-with.js), [`when`](/src/when/when.js), [`tail`](/src/tail/tail.js), [`head`](/src/head/head.js), [`equals`](/src/core__equals/equals.js), [`clone`](/src/core__clone/clone.js)
-- Add test for main [`index.js`](/src/index.js) file
-
-#### Change
-
-- **Breaking**: `ifThen` renamed to `when`
-- Change [`equals`](/src/core__equals/equals.js) to handle equality between NaN values
+- Add [`startsWith`](/src/starts-with/starts-with.js) - Test if string starts with substring
