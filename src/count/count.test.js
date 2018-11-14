@@ -51,8 +51,10 @@ test("array::count", t => {
   t.equal(
     count(element => element.score === 10)(scores),
     2,
-    "count elements that satisfy function"
+    "Count elements that satisfy function"
   )
+
+  t.equal(count(scores), 3, "Count elements of an array")
 
   t.end()
 })

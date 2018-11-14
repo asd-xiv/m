@@ -1,3 +1,17 @@
+const byArray = source => source.length
+
+const byFunction = fn => source => {
+  let count = 0
+
+  for (let i = 0, length = source.length; i < length; i++) {
+    if (fn.call(null, source[i]) === true) {
+      count = count + 1
+    }
+  }
+
+  return count
+}
+
 /**
  * Count the number of elements that satisfies a function
  *
@@ -27,14 +41,4 @@
  * count( element => element.score === 10 )( scores )
  * // => 2
  */
-module.exports = fn => source => {
-  let count = 0
-
-  for (let i = 0, length = source.length; i < length; i++) {
-    if (fn.call(null, source[i]) === true) {
-      count = count + 1
-    }
-  }
-
-  return count
-}
+module.exports = fn => (Array.isArray(fn) ? byArray(fn) : byFunction(fn))
