@@ -9,22 +9,24 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.13.1] - 14 November 2018
+
+### Change
+
+- Change [`map`](/src/map/map.js) to also iterate over input even if not array - treat it as array with one element.
+- Change [`find-files`](/src/find-files/find-files.js) to accept multiple folders and treat first param as the test fn or regexp (opposed to object containing test property).
+
 ## [0.13.0] - 14 November 2018
 
 ### Add
 
 - Add [`debounce`](/src/debounce/debounce.js) - Call a function only after it wasn't called for `timeWindow` ms
+- Add [`startsWith`](/src/starts-with/starts-with.js) - Test if string starts with substring
 
 ### Change
 
 - Change [`reduce`](/src/reduce/reduce.js) to allow default acc to be set as default param. Dont explicitly set default acc to {}.
 - Change [`count`](/src/count/count.js) to return the length if the first param is an Array
-
-## [0.12.0] - 5 November 2018
-
-### Add
-
-- Add [`startsWith`](/src/starts-with/starts-with.js) - Test if string starts with substring
 
 ## [0.11.0] - 30 October 2018
 
@@ -104,10 +106,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Removed `flow` support
 
-[Unreleased]: https://github.com/codemachiner/m/compare/v0.13.0...HEAD
+[Unreleased]: https://github.com/codemachiner/m/compare/v0.13.1...HEAD
 
-[0.13.0]: https://github.com/codemachiner/m/compare/v0.12.0...v0.13.0
-[0.12.0]: https://github.com/codemachiner/m/compare/v0.11.0...v0.12.0
+[0.13.1]: https://github.com/codemachiner/m/compare/v0.13.0...v0.13.1
+[0.13.0]: https://github.com/codemachiner/m/compare/v0.11.0...v0.13.0
 [0.11.0]: https://github.com/codemachiner/m/compare/v0.10.1...v0.11.0
 [0.10.1]: https://github.com/codemachiner/m/compare/v0.10.0...v0.10.1
 [0.10.0]: https://github.com/codemachiner/m/compare/v0.9.0...v0.10.0
