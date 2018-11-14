@@ -58,12 +58,13 @@ const matchInFolder = test =>
   pipe(
     readDir,
     reduce(
-      (acc = [], filePath) =>
+      (acc, filePath) =>
         isDir(filePath)
           ? [...acc, ...matchInFolder(test)(filePath)]
           : isFileNameValid(test)(path.basename(filePath))
             ? push(filePath)(acc)
-            : acc
+            : acc,
+      []
     )
   )
 
