@@ -18,7 +18,7 @@ Changes a lot and not yet complete. Use [Ramda](https://github.com/ramda/ramda) 
 - [Develop](#develop)
 - [Use](#use)
 - [Changelog](#changelog)
-    - [0.13.1 - 14 November 2018](#0131---14-november-2018)
+    - [0.13.2 - 15 November 2018](#0132---15-november-2018)
 
 <!-- /MarkdownTOC -->
 
@@ -117,9 +117,13 @@ const renameFile = newName => pipe(
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-### 0.13.1 - 14 November 2018
+### 0.13.2 - 15 November 2018
+
+#### Add
+
+- Add [`map`](/src/map/map.test.js) tests: imutable and non-array source
+- Add `npm audit fix` to `setup` and `prepare` scripts
 
 #### Change
 
-- Change [`map`](/src/map/map.js) to also iterate over input even if not array - treat it as array with one element.
-- Change [`find-files`](/src/find-files/find-files.js) to accept multiple folders and treat first param as the test fn or regexp (opposed to object containing test property).
+- Change [`reduce`](/src/reduce/reduce.js) to allow non-array input

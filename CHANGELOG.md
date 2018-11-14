@@ -9,6 +9,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.13.2] - 15 November 2018
+
+### Add
+
+- Add [`map`](/src/map/map.test.js) tests: imutable and non-array source
+- Add `npm audit fix` to `setup` and `prepare` scripts
+
+### Change
+
+- Change [`reduce`](/src/reduce/reduce.js) to allow non-array input
+
 ## [0.13.1] - 14 November 2018
 
 ### Change
@@ -106,8 +117,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Removed `flow` support
 
-[Unreleased]: https://github.com/codemachiner/m/compare/v0.13.1...HEAD
+[Unreleased]: https://github.com/codemachiner/m/compare/v0.13.2...HEAD
 
+[0.13.2]: https://github.com/codemachiner/m/compare/v0.13.1...v0.13.2
 [0.13.1]: https://github.com/codemachiner/m/compare/v0.13.0...v0.13.1
 [0.13.0]: https://github.com/codemachiner/m/compare/v0.11.0...v0.13.0
 [0.11.0]: https://github.com/codemachiner/m/compare/v0.10.1...v0.11.0
