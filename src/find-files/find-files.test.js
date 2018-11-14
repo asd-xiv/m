@@ -12,41 +12,35 @@ const endsWith = require("../ends-with/ends-with")
  *
  * @return {string[]}         Array of files paths
  */
-test("fs::find", t => {
-  /**
-   * Find all files
-   */
-  const allFiles = findFiles()(__dirname)
+test("fs::findFiles", t => {
+  const filesInFolder = findFiles()(__dirname)
 
-  t.equals(allFiles.length, 4, "Find all files in folder")
+  t.equals(filesInFolder.length, 5, "Find all files in folder")
 
-  /**
-   * Find all .test.js files
-   */
-  const testFiles = findFiles({
-    test: /.*\.test\.js/,
-  })(__dirname)
+  const filesByRegExp = findFiles(/.*\.test\.js/)(__dirname)
 
-  t.equals(testFiles.length, 1, "Find files using regexp filter")
+  t.equals(filesByRegExp.length, 1, "Find files using regexp filter")
 
   t.equals(
-    endsWith(".test.js")(testFiles[0]),
+    endsWith(".test.js")(filesByRegExp[0]),
     true,
-    'File name should match ".test.js"'
+    'Find all files matching ".test.js"'
   )
 
-  /**
-   * Find files using function
-   */
-  const filesByFunction = findFiles({
-    test: endsWith(".test.js"),
-  })(__dirname)
+  const filesByFunction = findFiles(endsWith(".test.js"))(__dirname)
 
   t.equals(
     endsWith(".test.js")(filesByFunction[0]),
     true,
     "Find files using filter function"
   )
+
+  const filesInMultipleFolders = findFiles()([
+    `${__dirname}/dummy-test-folder`,
+    `${__dirname}/dummy-test-folder-2`,
+  ])
+
+  t.equals(filesInMultipleFolders.length, 2, "Find files in multiple folders")
 
   t.end()
 })

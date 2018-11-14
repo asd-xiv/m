@@ -7,7 +7,6 @@ const map = require("../map/map")
 const push = require("../push/push")
 const flatten = require("../flatten/flatten")
 const reduce = require("../reduce/reduce")
-const type = require("../type/type")
 
 /**
  * Determines if file name valid.
@@ -16,14 +15,10 @@ const type = require("../type/type")
  *
  * @return {boolean}  True if file name valid, False otherwise.
  */
-const isFileNameValid = match => fileName => {
-  const byType = {
-    Function: () => match.call(null, fileName),
-    RegExp: () => match.test(fileName),
-  }
-
-  return byType[type(match)]()
-}
+const isFileNameValid = match => fileName =>
+  typeof match === "function"
+    ? match.call(null, fileName)
+    : match.test(fileName)
 
 /**
  * Reads a folder contents
@@ -58,22 +53,22 @@ const isDir = dirPath => fs.statSync(dirPath).isDirectory()
  * @example
  * find({test: /*.\.plugin\.js/})("./root-folder")
  */
-module.exports = ({ test = /.*/ } = {}) => {
-  const matchInDir = pipe(
+
+const matchInFolder = test =>
+  pipe(
     readDir,
     reduce(
-      (acc, filePath) =>
+      (acc = [], filePath) =>
         isDir(filePath)
-          ? push(matchInDir(filePath))(acc)
+          ? [...acc, ...matchInFolder(test)(filePath)]
           : isFileNameValid(test)(path.basename(filePath))
             ? push(filePath)(acc)
-            : acc,
-      []
+            : acc
     )
   )
 
-  return pipe(
-    matchInDir,
+module.exports = (test = /.*/) =>
+  pipe(
+    map(matchInFolder(test)),
     flatten
   )
-}
