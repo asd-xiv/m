@@ -18,7 +18,7 @@ Changes a lot and not yet complete. Use [Ramda](https://github.com/ramda/ramda) 
 - [Develop](#develop)
 - [Use](#use)
 - [Changelog](#changelog)
-    - [0.12.0 - 5 November 2018](#0120---5-november-2018)
+    - [0.13.0 - 14 November 2018](#0130---14-november-2018)
 
 <!-- /MarkdownTOC -->
 
@@ -117,8 +117,13 @@ const renameFile = newName => pipe(
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-### 0.12.0 - 5 November 2018
+### 0.13.0 - 14 November 2018
 
 #### Add
 
-- Add [`startsWith`](/src/starts-with/starts-with.js) - Test if string starts with substring
+- Add [`debounce`](/src/debounce/debounce.js) - Call a function only after it wasn't called for `timeWindow` ms
+
+#### Change
+
+- Change [`reduce`](/src/reduce/reduce.js) to allow default acc to be set as default param. Dont explicitly set default acc to {}.
+- Change [`count`](/src/count/count.js) to return the length if the first param is an Array

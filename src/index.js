@@ -5,6 +5,7 @@ module.exports = {
   contains: require("./contains/contains"),
   count: require("./count/count"),
   countBy: require("./count-by/count-by"),
+  debounce: require("./debounce/debounce"),
   dec: require("./dec/dec"),
   deepEqual: require("./deep-equal/deep-equal"),
   distinct: require("./distinct/distinct"),
