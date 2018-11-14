@@ -19,6 +19,12 @@ test("array::map", t => {
   )
 
   t.deepEqual(
+    map(square)(3),
+    [9],
+    "Run even if input is not array, treat it as array of one"
+  )
+
+  t.deepEqual(
     map(square, square)([1, 2, 3]),
     [1, 16, 81],
     "(square,square)([1,2,3]) // => [1,16,82]"
@@ -35,6 +41,10 @@ test("array::map", t => {
 
     return currentValue * currentValue
   })([1, 2])
+
+  const imutableTestArray = [1, 2, 3]
+
+  t.notEqual(map(square)(imutableTestArray), imutableTestArray, "Imutable")
 
   t.end()
 })
