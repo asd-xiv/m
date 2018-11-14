@@ -6,12 +6,12 @@
  * @param  {Object}    defaultAcc  The default acc
  * @param  {Array}     source      Source input
  *
- * @return {Array}
+ * @return {mixed}
  *
  * @tag Array
- * @signature (fn: Function, defaultAcc: mixed) => (source: Array): Array
+ * @signature (fn: Function, defaultAcc: mixed) => (source: Array): mixed
  */
-module.exports = (fn, defaultAcc = {}) => source => {
+module.exports = (fn, defaultAcc) => source => {
   let acc = defaultAcc
 
   for (let i = 0, length = source.length; i < length; i++) {
