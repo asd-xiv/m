@@ -7,19 +7,20 @@
  *
  * @return {Array}
  */
-module.exports = (...fn) => input => {
-  const newArray = []
+module.exports = (...fn) => source => {
+  const result = []
+  const sourceArray = Array.isArray(source) ? source : [source]
 
-  for (let i = 0, valuesCount = input.length; i < valuesCount; i++) {
-    let value = input[i]
+  for (let i = 0, valuesCount = sourceArray.length; i < valuesCount; i++) {
+    let value = sourceArray[i]
 
     // pipe functions through each value
     for (let j = 0, fnCount = fn.length; j < fnCount; j++) {
-      value = fn[j].call(null, value, i, input)
+      value = fn[j].call(null, value, i, sourceArray)
     }
 
-    newArray.push(value)
+    result.push(value)
   }
 
-  return newArray
+  return result
 }
