@@ -18,6 +18,12 @@ test("reduce", t => {
   t.equals(reduce((acc, next) => acc + next, 0)([1, 2, 3]), 6, "Sum an array")
 
   t.equals(
+    reduce((acc, next) => acc + next, 0)(12),
+    12,
+    "Run even if input is not array, treat it as array of one"
+  )
+
+  t.equals(
     reduce((acc = 0, next) => acc + next)([1, 2, 3]),
     6,
     "Sum an array with the initial acc left undefined in the reduce function but set as default value in the param"
