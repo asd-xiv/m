@@ -13,12 +13,11 @@ Changes a lot and not yet complete. Use [Ramda](https://github.com/ramda/ramda) 
 <!-- MarkdownTOC levels="2,3" autolink="true" autoanchor="false" -->
 
 - [Why only pipe](#why-only-pipe)
-    - [Links](#links)
 - [Install](#install)
 - [Develop](#develop)
 - [Use](#use)
 - [Changelog](#changelog)
-    - [0.14.0 - 15 November 2018](#0140---15-november-2018)
+    - [0.15.0 - 15 November 2018](#0150---15-november-2018)
 
 <!-- /MarkdownTOC -->
 
@@ -71,11 +70,6 @@ const renameFile = newName => filePath =>
   filePath |> split(sep) |> dropLast |> push(newName) |> join(sep)
 ```
 
-### Links
-
-- [@babel/plugin-proposal-pipeline-operator
-](https://babeljs.io/docs/en/next/babel-plugin-proposal-pipeline-operator.html)
-
 ## Install
 
 ```bash
@@ -117,8 +111,8 @@ const renameFile = newName => pipe(
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-### 0.14.0 - 15 November 2018
+### 0.15.0 - 15 November 2018
 
-#### Change
+#### Add
 
-- Update packages and renaming to "asd14"
+- Add [`elapsedTime`](/src/elapsed-time/elapsed-time) - Calculate elapsed time between to dates. In days, hours, minutes and seconds

@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.15.0] - 15 November 2018
+
+### Add
+
+- Add [`elapsedTime`](/src/elapsed-time/elapsed-time) - Calculate elapsed time between to dates. In days, hours, minutes and seconds
+
 ## [0.14.0] - 15 November 2018
 
 ### Change
@@ -123,8 +129,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Removed `flow` support
 
-[Unreleased]: https://github.com/asd14/m/compare/v0.14.0...HEAD
+[Unreleased]: https://github.com/asd14/m/compare/v0.15.0...HEAD
 
+[0.15.0]: https://github.com/asd14/m/compare/v0.14.0...v0.15.0
 [0.14.0]: https://github.com/asd14/m/compare/v0.13.2...v0.14.0
 [0.13.2]: https://github.com/asd14/m/compare/v0.13.1...v0.13.2
 [0.13.1]: https://github.com/asd14/m/compare/v0.13.0...v0.13.1
