@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.14.0] - 15 November 2018
+
+### Change
+
+- Update packages and renaming to "asd14"
+
 ## [0.13.2] - 15 November 2018
 
 ### Add
@@ -70,7 +76,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Add
 
-- Add test coverage and [coveralls](https://coveralls.io/github/codemachiner/m) badge
+- Add test coverage and [coveralls](https://coveralls.io/github/asd14/m) badge
 
 ## [0.9.0] - 26 October 2018
 
@@ -117,16 +123,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Removed `flow` support
 
-[Unreleased]: https://github.com/codemachiner/m/compare/v0.13.2...HEAD
+[Unreleased]: https://github.com/asd14/m/compare/v0.14.0...HEAD
 
-[0.13.2]: https://github.com/codemachiner/m/compare/v0.13.1...v0.13.2
-[0.13.1]: https://github.com/codemachiner/m/compare/v0.13.0...v0.13.1
-[0.13.0]: https://github.com/codemachiner/m/compare/v0.11.0...v0.13.0
-[0.11.0]: https://github.com/codemachiner/m/compare/v0.10.1...v0.11.0
-[0.10.1]: https://github.com/codemachiner/m/compare/v0.10.0...v0.10.1
-[0.10.0]: https://github.com/codemachiner/m/compare/v0.9.0...v0.10.0
-[0.9.0]: https://github.com/codemachiner/m/compare/v0.8.1...v0.9.0
-[0.8.1]: https://github.com/codemachiner/m/compare/v0.8.0...v0.8.1
-[0.8.0]: https://github.com/codemachiner/m/compare/v0.7.0...v0.8.0
-[0.7.0]: https://github.com/codemachiner/m/compare/v0.6.0...v0.7.0
-[0.6.0]: https://github.com/codemachiner/m/compare/v0.5.1...v0.6.0
+[0.14.0]: https://github.com/asd14/m/compare/v0.13.2...v0.14.0
+[0.13.2]: https://github.com/asd14/m/compare/v0.13.1...v0.13.2
+[0.13.1]: https://github.com/asd14/m/compare/v0.13.0...v0.13.1
+[0.13.0]: https://github.com/asd14/m/compare/v0.11.0...v0.13.0
+[0.11.0]: https://github.com/asd14/m/compare/v0.10.1...v0.11.0
+[0.10.1]: https://github.com/asd14/m/compare/v0.10.0...v0.10.1
+[0.10.0]: https://github.com/asd14/m/compare/v0.9.0...v0.10.0
+[0.9.0]: https://github.com/asd14/m/compare/v0.8.1...v0.9.0
+[0.8.1]: https://github.com/asd14/m/compare/v0.8.0...v0.8.1
+[0.8.0]: https://github.com/asd14/m/compare/v0.7.0...v0.8.0
+[0.7.0]: https://github.com/asd14/m/compare/v0.6.0...v0.7.0
+[0.6.0]: https://github.com/asd14/m/compare/v0.5.1...v0.6.0
