@@ -23,5 +23,5 @@ module.exports = (ifFn, thenFn, elseFn) => source =>
   ifFn(source)
     ? thenFn(source)
     : type(elseFn) === "Function"
-      ? elseFn(source)
-      : source
+    ? elseFn(source)
+    : source

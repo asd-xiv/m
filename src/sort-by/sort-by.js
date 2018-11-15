@@ -38,11 +38,11 @@ module.exports = (field, direction = "asc") => source => {
     return alice[field] === null && typeof bob[field] === "undefined"
       ? -1
       : aliceValue < bobValue
-        ? direction === "asc"
-          ? -1
-          : 1
-        : direction === "asc"
-          ? 1
-          : -1
+      ? direction === "asc"
+        ? -1
+        : 1
+      : direction === "asc"
+      ? 1
+      : -1
   })
 }

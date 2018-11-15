@@ -26,5 +26,5 @@ module.exports = input =>
   input === null
     ? "Null"
     : input === undefined
-      ? "Undefined"
-      : Object.prototype.toString.call(input).slice(8, -1)
+    ? "Undefined"
+    : Object.prototype.toString.call(input).slice(8, -1)

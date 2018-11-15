@@ -85,10 +85,10 @@ const type = source =>
   Array.isArray(source)
     ? "Array"
     : source instanceof RegExp
-      ? "RegExp"
-      : source instanceof Object
-        ? "Object"
-        : "Primitive"
+    ? "RegExp"
+    : source instanceof Object
+    ? "Object"
+    : "Primitive"
 
 /**
  * Determine if two variables are structurally equal.

@@ -62,8 +62,8 @@ const matchInFolder = test =>
         isDir(filePath)
           ? [...acc, ...matchInFolder(test)(filePath)]
           : isFileNameValid(test)(path.basename(filePath))
-            ? push(filePath)(acc)
-            : acc,
+          ? push(filePath)(acc)
+          : acc,
       []
     )
   )
