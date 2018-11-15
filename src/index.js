@@ -10,6 +10,7 @@ module.exports = {
   deepEqual: require("./deep-equal/deep-equal"),
   distinct: require("./distinct/distinct"),
   dropLast: require("./drop-last/drop-last"),
+  elapsedTime: require("./elapsed-time/elapsed-time"),
   endsWith: require("./ends-with/ends-with"),
   escapeHTML: require("./escapeHTML/escapeHTML"),
   escapeRegExp: require("./escapeRegExp/escapeRegExp"),
