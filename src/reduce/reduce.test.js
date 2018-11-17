@@ -29,6 +29,12 @@ test("reduce", t => {
     "Sum an array with the initial acc left undefined in the reduce function but set as default value in the param"
   )
 
+  t.equals(
+    reduce((acc = 0, next) => acc + next, 0)([]),
+    0,
+    "Reducing empty array return default acc"
+  )
+
   t.deepEquals(
     reduce((acc, next) => ({ ...acc, [next]: next }), {})([1, 2, 3]),
     { 1: 1, 2: 2, 3: 3 },
