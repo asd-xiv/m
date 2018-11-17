@@ -8,5 +8,17 @@ test("array::filter", t => {
     "Keep items lower or equal than 3"
   )
 
+  t.deepEqual(
+    filter(filterElm => filterElm <= 3)("asd"),
+    [],
+    "Run filter for non-array input, treat as array of one (input does not match function)"
+  )
+
+  t.deepEqual(
+    filter(filterElm => filterElm <= 3)(3),
+    [3],
+    "Run filter for non-array input, treat as array of one (input matches function)"
+  )
+
   t.end()
 })

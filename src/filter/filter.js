@@ -9,11 +9,14 @@
  * @signature (fn: Function) => (source: Array): Array
  */
 module.exports = fn => source => {
-  const filteredArray = []
+  const result = []
+  const sourceArray = Array.isArray(source) ? source : [source]
 
-  for (let i = 0, length = source.length; i < length; i++) {
-    fn.call(null, source[i]) === true && filteredArray.push(source[i])
+  for (let i = 0, length = sourceArray.length; i < length; i++) {
+    if (fn.call(null, sourceArray[i]) === true) {
+      result.push(sourceArray[i])
+    }
   }
 
-  return filteredArray
+  return result
 }
