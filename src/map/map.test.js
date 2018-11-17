@@ -21,7 +21,7 @@ test("array::map", t => {
   t.deepEqual(
     map(square)(3),
     [9],
-    "Run even if input is not array, treat it as array of one"
+    "Run map for non-array input, treat as array of one"
   )
 
   t.deepEqual(

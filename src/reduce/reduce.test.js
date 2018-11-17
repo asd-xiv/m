@@ -20,7 +20,7 @@ test("reduce", t => {
   t.equals(
     reduce((acc, next) => acc + next, 0)(12),
     12,
-    "Run even if input is not array, treat it as array of one"
+    "Run reduce for non-array input, treat as array of one"
   )
 
   t.equals(
