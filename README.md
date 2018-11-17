@@ -17,7 +17,7 @@ Changes a lot and not yet complete. Use [Ramda](https://github.com/ramda/ramda) 
 - [Develop](#develop)
 - [Use](#use)
 - [Changelog](#changelog)
-    - [0.15.1 - 17 November 2018](#0151---17-november-2018)
+    - [0.15.2 - 17 November 2018](#0152---17-november-2018)
 
 <!-- /MarkdownTOC -->
 
@@ -111,8 +111,8 @@ const renameFile = newName => pipe(
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-### 0.15.1 - 17 November 2018
+### 0.15.2 - 17 November 2018
 
 #### Change
 
-- Change [`filter`](/src/filter/filter) to also iterate over non-array input, treat as array of one.
+- Change [`remove`](/src/remove/remove) to allow multiple values to be removed at once
