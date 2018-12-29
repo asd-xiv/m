@@ -1,10 +1,7 @@
 {
   "parser": "babel-eslint",
   "root": true,
-  "extends": [ "@codemachiner/eslint-config/targets/node" ],
-  "settings": {
-    "import/resolver": "node"
-  },
+  "extends": [ "@asd14/eslint-config/targets/node" ],
   "rules": {
     "unicorn/filename-case": "off"
   }
