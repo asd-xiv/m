@@ -12,28 +12,20 @@ Changes a lot and not yet complete. Use [Ramda](https://github.com/ramda/ramda) 
 
 <!-- MarkdownTOC levels="2,3" autolink="true" autoanchor="false" -->
 
-- [Why only pipe](#why-only-pipe)
+- [|> pipe](#%7C-pipe)
 - [Install](#install)
 - [Develop](#develop)
 - [Use](#use)
 - [Changelog](#changelog)
-    - [0.15.3 - 29 December 2018](#0153---29-december-2018)
+    - [0.16.0 - 1 January 2019](#0160---1-january-2019)
 
 <!-- /MarkdownTOC -->
 
-## Why only pipe
+## |> pipe
 
 There is no _structure_ difference between `pipe` and `compose`, both will use the same building blocks to get from A to B.
 
-> A series of transformations over an initial input can be written as `x -> f -> g -> result`, _piping_, or as `result = g(f(x))`, _composing_. The difference is only _syntactic_. Input is the same, transformations **and** order of application are the same, the result will be the same.
-
-Syntax is the thing we look at, reason with and write everyday and is the difference between _"Aah, right"_ and _"Why is he doing -1 two times?"_.
-
-There are [reasons](https://en.wikipedia.org/wiki/Function_composition#Alternative_notations) for why some use [`compose`](https://en.wikipedia.org/wiki/Composition_operator) notation and others `pipe`. [Math](https://en.wikipedia.org/wiki/Nicolas_Bourbaki) people will know more.
-
-In [Settings are evil](https://www.youtube.com/watch?v=glZ1C-Yu5tw), Mattias Petter Johansson makes the point of product decisions and why adding a toggle in the settings page just adds maintenance overhead and useless complexity. While a measly Twitter feature flag does not compare to _Function Composition_, choosing one might be helpful (just like "double quotes" over 'single quotes').
-
-> Having a set of functions/transformations/verbs, what is the best way of presenting them so that people with little to no knowledge of the overall context can understand it in the least amount of time and with smallest amount of cognitive overhead?
+A series of transformations over an initial input can be written as `x -> f -> g -> result`, _piping_, or as `result = g(f(x))`, _composing_. The difference is only _syntactic_. Input is the same, transformations **and** order of application are the same, the result will be the same.
 
 Given that:
 
@@ -47,7 +39,6 @@ it makes sense to choose the _syntactic_ more aligned with our intuition and con
 const { sep } = require("path")
 const { pipe, compose, join, push, dropLast, split } = require("@asd14/m")
 
-//
 // Compose - g(f(x))
 //
 const renameFile = newName => filePath =>
@@ -55,7 +46,6 @@ const renameFile = newName => filePath =>
     join(sep), push(newName), dropLast, split(sep)
   )(filePath)
 
-//
 // Pipe - x -> f -> g
 //
 const renameFile = newName => filePath =>
@@ -63,7 +53,6 @@ const renameFile = newName => filePath =>
     split(sep), dropLast, push(newName), join(sep) 
   )(filePath)
 
-//
 // When using the new pipeline operator, things are even more expressive
 //
 const renameFile = newName => filePath =>
@@ -111,8 +100,8 @@ const renameFile = newName => pipe(
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-### 0.15.3 - 29 December 2018
+### 0.16.0 - 1 January 2019
 
 #### Change
 
-- Update packages
+- Allow [`replaceBy`](src/replace-by/replace-by.js#L45) to accept an update function
