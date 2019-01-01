@@ -68,7 +68,7 @@
     "prettier": "1.15.3",
     "ramda": "0.26.1",
     "tap-diff": "0.1.1",
-    "tape": "4.9.1",
+    "tape": "4.9.2",
     "underscore": "1.9.1"
   }
 }
