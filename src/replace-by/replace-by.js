@@ -4,11 +4,11 @@ const isMatch = require("../is-match/is-match")
  * Replace object element in array using filter object
  *
  * @tag Array
- * @signature (filter: Object, newElm: Object) => (source: Object[]): Object[]
+ * @signature (filter: Obj, replace: Obj|Function) => (source: Obj[]): Obj[]
  *
- * @param  {Object}    filter  Filter object used to match against each element
- * @param  {Object}    newElm  Object to replace matching elements
- * @param  {Object[]}  source  Source array
+ * @param  {Object}    filter   Filter object to match against each element
+ * @param  {Object}    replace  Object to replace matching elements
+ * @param  {Object[]}  source   Source array
  *
  * @return {Array}
  *
@@ -24,13 +24,25 @@ const isMatch = require("../is-match/is-match")
  * //   {id: 2, title:"boss", isBoss: true},
  * //   {id: 3, title:"minion"}
  * // ]
+ *
+ * replaceBy({ id: 2 }, item => ({
+ *   ...item,
+ *   content: ["new", "updated", "field"],
+ * }))([
+ *   { id: 1, name: "foo", content: [] },
+ *   { id: 2, name: "bar", content: [] },
+ * ])
+ * // [
+ * //   { id: 1, name: "foo", content: [] },
+ * //   { id: 2, name: "bar", content: ["new", "updated", "field"] },
+ * // ],
  */
-module.exports = (filter, newElm) => source => {
+module.exports = (filter, replace) => source => {
   const result = []
 
   for (let i = 0, length = source.length; i < length; i++) {
     if (isMatch(filter)(source[i])) {
-      result.push(newElm)
+      result.push(typeof replace === "function" ? replace(source[i]) : replace)
     } else {
       result.push(source[i])
     }

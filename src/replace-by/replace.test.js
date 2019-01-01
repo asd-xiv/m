@@ -46,5 +46,20 @@ test("array::replaceBy", t => {
     "Replace multiple objects by using negate in filter object"
   )
 
+  t.deepEquals(
+    replaceBy({ id: 2 }, item => ({
+      ...item,
+      content: ["new", "updated", "field"],
+    }))([
+      { id: 1, name: "foo", content: [] },
+      { id: 2, name: "bar", content: [] },
+    ]),
+    [
+      { id: 1, name: "foo", content: [] },
+      { id: 2, name: "bar", content: ["new", "updated", "field"] },
+    ],
+    "Replace object with custom update function"
+  )
+
   t.end()
 })
