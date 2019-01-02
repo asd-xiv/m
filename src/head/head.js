@@ -12,6 +12,7 @@
  * head([1, 2, 3])
  * // => 1
  * head([])
- * // => null
+ * // => undefined
  */
-module.exports = source => (source.length === 0 ? null : source[0])
+module.exports = source =>
+  Array.isArray(source) && source.length !== 0 ? source[0] : undefined
