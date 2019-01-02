@@ -17,7 +17,7 @@ Changes a lot and not yet complete. Use [Ramda](https://github.com/ramda/ramda) 
 - [Develop](#develop)
 - [Use](#use)
 - [Changelog](#changelog)
-    - [0.16.0 - 1 January 2019](#0160---1-january-2019)
+    - [0.16.1 - 2 January 2019](#0161---2-january-2019)
 
 <!-- /MarkdownTOC -->
 
@@ -40,21 +40,18 @@ const { sep } = require("path")
 const { pipe, compose, join, push, dropLast, split } = require("@asd14/m")
 
 // Compose - g(f(x))
-//
 const renameFile = newName => filePath =>
   compose(
     join(sep), push(newName), dropLast, split(sep)
   )(filePath)
 
 // Pipe - x -> f -> g
-//
 const renameFile = newName => filePath =>
   pipe(
     split(sep), dropLast, push(newName), join(sep) 
   )(filePath)
 
-// When using the new pipeline operator, things are even more expressive
-//
+// Using the pipeline operator, things are more expressive
 const renameFile = newName => filePath =>
   filePath |> split(sep) |> dropLast |> push(newName) |> join(sep)
 ```
@@ -100,8 +97,8 @@ const renameFile = newName => pipe(
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-### 0.16.0 - 1 January 2019
+### 0.16.1 - 2 January 2019
 
 #### Change
 
-- Allow [`replaceBy`](src/replace-by/replace-by.js#L45) to accept an update function
+- [`head`](src/head/head.js) returns `undefined` if source is empty or not array
