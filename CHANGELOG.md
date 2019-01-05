@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.17.0] - 5 January 2019
+
+### Add
+
+- [`findIndex`](src/find-by/find-by.js) - Find the position of first element that satisfies a function
+- [`findIndexBy`](src/find-index-by/find-index-by.js) - Find the position of first element that matches the filter criteria
+
 ## [0.16.1] - 2 January 2019
 
 ### Change
@@ -159,8 +166,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Removed `flow` support
 
-[Unreleased]: https://github.com/asd14/m/compare/v0.16.1...HEAD
+[Unreleased]: https://github.com/asd14/m/compare/v0.17.0...HEAD
 
+[0.17.0]: https://github.com/asd14/m/compare/v0.16.1...v0.17.0
 [0.16.1]: https://github.com/asd14/m/compare/v0.16.0...v0.16.1
 [0.16.0]: https://github.com/asd14/m/compare/v0.15.3...v0.16.0
 [0.15.3]: https://github.com/asd14/m/compare/v0.15.2...v0.15.3
