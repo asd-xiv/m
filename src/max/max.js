@@ -7,10 +7,10 @@
  */
 const maxByValue = source => {
   if (source.length === 0) {
-    return null
+    return undefined
   }
 
-  let maxValue = 0
+  let [maxValue] = source
 
   for (let i = 0, length = source.length; i < length; i++) {
     if (maxValue < source[i]) {
@@ -31,11 +31,11 @@ const maxByValue = source => {
  */
 const maxByFunction = fn => source => {
   if (source.length === 0) {
-    return null
+    return undefined
   }
 
   let [maxItem] = source
-  let maxValue = 0
+  let maxValue = fn.call(null, maxItem)
 
   for (let i = 1, length = source.length; i < length; i++) {
     if (maxValue < fn.call(null, source[i])) {
@@ -55,6 +55,7 @@ const maxByFunction = fn => source => {
  *
  * @return {number}
  *
+ * @name max
  * @tag Array
  * @signature ( source: Number[] ): Number
  * @signature ( fn: Function ) => ( source: Number[] ): Number
