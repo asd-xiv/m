@@ -34,17 +34,19 @@ const minByFunction = fn => source => {
     return undefined
   }
 
-  let [minItem] = source
-  let minValue = fn.call(null, minItem)
+  const result = {
+    item: source[0],
+    value: fn.call(null, source[0]),
+  }
 
   for (let i = 1, length = source.length; i < length; i++) {
-    if (minValue > fn.call(null, source[i])) {
-      minItem = source[i]
-      minValue = fn.call(null, minItem)
+    if (result.value > fn.call(null, source[i])) {
+      result.item = source[i]
+      result.value = fn.call(null, result.item)
     }
   }
 
-  return minItem
+  return result.item
 }
 
 /**

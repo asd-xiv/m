@@ -34,17 +34,19 @@ const maxByFunction = fn => source => {
     return undefined
   }
 
-  let [maxItem] = source
-  let maxValue = fn.call(null, maxItem)
+  const result = {
+    item: source[0],
+    value: fn.call(null, source[0]),
+  }
 
   for (let i = 1, length = source.length; i < length; i++) {
-    if (maxValue < fn.call(null, source[i])) {
-      maxItem = source[i]
-      maxValue = fn.call(null, maxItem)
+    if (result.value < fn.call(null, source[i])) {
+      result.item = source[i]
+      result.value = fn.call(null, result.item)
     }
   }
 
-  return maxItem
+  return result.item
 }
 
 /**
