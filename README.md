@@ -17,7 +17,7 @@ Changes a lot and not yet complete. Use [Ramda](https://github.com/ramda/ramda) 
 - [Develop](#develop)
 - [Use](#use)
 - [Changelog](#changelog)
-    - [0.17.0 - 5 January 2019](#0170---5-january-2019)
+    - [0.17.1 - 6 January 2019](#0171---6-january-2019)
 
 <!-- /MarkdownTOC -->
 
@@ -97,9 +97,8 @@ const renameFile = newName => pipe(
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-### 0.17.0 - 5 January 2019
+### 0.17.1 - 6 January 2019
 
-#### Add
+#### Change
 
-- [`findIndex`](src/find-by/find-by.js) - Find the position of first element that satisfies a function
-- [`findIndexBy`](src/find-index-by/find-index-by.js) - Find the position of first element that matches the filter criteria
+- Fix bugs in [`min`](src/min/min.js) and [`max`](src/max/max.js) functions

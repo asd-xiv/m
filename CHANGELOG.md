@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.17.1] - 6 January 2019
+
+### Change
+
+- Fix bugs in [`min`](src/min/min.js) and [`max`](src/max/max.js) functions
+
 ## [0.17.0] - 5 January 2019
 
 ### Add
@@ -166,8 +172,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Removed `flow` support
 
-[Unreleased]: https://github.com/asd14/m/compare/v0.17.0...HEAD
+[Unreleased]: https://github.com/asd14/m/compare/v0.17.1...HEAD
 
+[0.17.1]: https://github.com/asd14/m/compare/v0.17.0...v0.17.1
 [0.17.0]: https://github.com/asd14/m/compare/v0.16.1...v0.17.0
 [0.16.1]: https://github.com/asd14/m/compare/v0.16.0...v0.16.1
 [0.16.0]: https://github.com/asd14/m/compare/v0.15.3...v0.16.0
