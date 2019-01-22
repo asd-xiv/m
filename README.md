@@ -17,7 +17,7 @@ Changes a lot and not yet complete. Use [Ramda](https://github.com/ramda/ramda) 
 - [Develop](#develop)
 - [Use](#use)
 - [Changelog](#changelog)
-    - [0.17.1 - 6 January 2019](#0171---6-january-2019)
+    - [0.18.0 - 22 January 2019](#0180---22-january-2019)
 
 <!-- /MarkdownTOC -->
 
@@ -97,8 +97,15 @@ const renameFile = newName => pipe(
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-### 0.17.1 - 6 January 2019
+### 0.18.0 - 22 January 2019
+
+#### Add
+
+- Add [`concat`](src/concat/concat.js) - Merge twp arrays into once
+- Add [`page`](src/page/page.js) - Subset array using offset and limit 
+- Add [`groupBy`](src/group-by/group-by.js) - Group an array of objects by field. Returns an array of arrays.
 
 #### Change
 
-- Fix bugs in [`min`](src/min/min.js) and [`max`](src/max/max.js) functions
+- Change [`isMatch`](src/is-match/is-match.js) to accept predicate functions
+- Change [`indexBy`](src/index-by/index-by.js) to return object of objects

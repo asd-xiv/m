@@ -9,6 +9,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.18.0] - 22 January 2019
+
+### Add
+
+- Add [`concat`](src/concat/concat.js) - Merge twp arrays into once
+- Add [`page`](src/page/page.js) - Subset array using offset and limit 
+- Add [`groupBy`](src/group-by/group-by.js) - Group an array of objects by field. Returns an array of arrays.
+
+### Change
+
+- Change [`isMatch`](src/is-match/is-match.js) to accept predicate functions
+- Change [`indexBy`](src/index-by/index-by.js) to return object of objects
+
 ## [0.17.1] - 6 January 2019
 
 ### Change
@@ -172,8 +185,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Removed `flow` support
 
-[Unreleased]: https://github.com/asd14/m/compare/v0.17.1...HEAD
+[Unreleased]: https://github.com/asd14/m/compare/v0.18.0...HEAD
 
+[0.18.0]: https://github.com/asd14/m/compare/v0.17.1...v0.18.0
 [0.17.1]: https://github.com/asd14/m/compare/v0.17.0...v0.17.1
 [0.17.0]: https://github.com/asd14/m/compare/v0.16.1...v0.17.0
 [0.16.1]: https://github.com/asd14/m/compare/v0.16.0...v0.16.1
