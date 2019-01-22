@@ -2,42 +2,47 @@ const test = require("tape")
 const indexBy = require("./index-by")
 
 /**
- * Group an array of objects by field. Only truthy fields will be indexed.
+ * Index an array of objects by field. Only truthy fields will be indexed.
+ *
+ * @param  {string}  field  The field to index by
+ * @param  {Array}   array  Input
+ *
+ * @return {Object}
+ *
+ * @tag Array
+ * @signature (field: string) => (source: Object[]): Object
  *
  * @example
- * indexBy( "user_id" )( [
- *   { id: 1, user_id: 2 },
- *   { id: 2, user_id: 3 },
- *   { id: 3, user_id: 2 },
- *   { id: 4, user_id: null },
- * ] )
+ * indexBy("id")([
+ *   {id: 1, user_id: 2},
+ *   {id: 2, user_id: 3},
+ * ])
  * // => {
- * //   2: [ { id: 1, user_id: 2 }, { id: 3, user_id: 2 } ],
- * //   3: [ { id: 2, user_id: 3 } ],
+ * //   1: {id: 1, user_id: 2},
+ * //   2: {id: 2, user_id: 3},
  * // }
  */
 test("array::indexBy", t => {
-  const comments = [
-    { id: 1, user_id: 2 },
-    { id: 2, user_id: 3 },
-    { id: 3, user_id: 2 },
-    { id: 4, user_id: null },
-  ]
-  const commentsByUserId = indexBy("user_id")(comments)
-
   t.deepEqual(
-    commentsByUserId,
+    indexBy("id")([{ id: 1, label: "test" }, { id: 2, label: "foo" }]),
     {
-      2: [{ id: 1, user_id: 2 }, { id: 3, user_id: 2 }],
-      3: [{ id: 2, user_id: 3 }],
+      1: { id: 1, label: "test" },
+      2: { id: 2, label: "foo" },
     },
-    "array of objects should return an object groped by user_id"
+    "index object array by existing field"
   )
 
-  t.equal(
-    commentsByUserId[3][0],
-    comments[1],
-    "first comment with user_id:3 should equal source array one"
+  t.deepEqual(
+    indexBy("id")([
+      { id: 1, label: "test" },
+      { id: 2, label: "foo" },
+      { label: "foo bar" },
+    ]),
+    {
+      1: { id: 1, label: "test" },
+      2: { id: 2, label: "foo" },
+    },
+    "index object array by existing field"
   )
 
   t.end()

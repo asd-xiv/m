@@ -1,33 +1,32 @@
 /**
- * Group an array of objects by field. Only truthy fields will be indexed.
+ * Index an array of objects by field. Only truthy fields will be indexed.
  *
  * @param  {string}  field  The field to index by
  * @param  {Array}   array  Input
  *
  * @return {Object}
  *
+ * @tag Array
+ * @signature (field: string) => (source: Object[]): Object
+ *
  * @example
- * indexBy( "user_id" )( [
- *   { id: 1, user_id: 2 },
- *   { id: 2, user_id: 3 },
- *   { id: 3, user_id: 2 },
- *   { id: 4, user_id: null },
- * ] )
+ * indexBy("id")([
+ *   {id: 1, user_id: 2},
+ *   {id: 2, user_id: 3},
+ * ])
  * // => {
- * //   2: [ { id: 1, user_id: 2 }, { id: 3, user_id: 2 } ],
- * //   3: [ { id: 2, user_id: 3 } ],
+ * //   1: {id: 1, user_id: 2},
+ * //   2: {id: 2, user_id: 3},
  * // }
  */
-module.exports = field => input => {
+module.exports = field => source => {
   const result = {}
 
-  for (let i = 0, length = input.length; i < length; i++) {
-    if (!!input[i][field]) {
-      const groupKey = String(input[i][field])
+  for (let i = 0, length = source.length; i < length; i++) {
+    if (source[i][field]) {
+      const indexKey = String(source[i][field])
 
-      result[groupKey] = result[groupKey]
-        ? [...result[groupKey], input[i]]
-        : [input[i]]
+      result[indexKey] = source[i]
     }
   }
 
