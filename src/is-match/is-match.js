@@ -1,3 +1,12 @@
+const byValue = ({ shouldBe, value, not }) =>
+  not ? shouldBe !== value : shouldBe === value
+
+const byFn = ({ shouldBe, value, not }) => {
+  const result = shouldBe(value) === true
+
+  return not ? !result : result
+}
+
 /**
  * Determines if one object's properties are equal to another
  *
@@ -37,12 +46,14 @@ module.exports = subset => source => {
   const subsetEntries = Object.entries(subset)
 
   for (let i = 0, length = subsetEntries.length; i < length; i++) {
-    const [key, value] = subsetEntries[i]
-    const shouldTestNegation = key[0] === "!"
+    const [key, shouldBe] = subsetEntries[i]
+    const not = key[0] === "!"
     const cleanKey = key.replace("!", "")
-    const isFieldMatch = shouldTestNegation
-      ? source[cleanKey] !== value
-      : source[cleanKey] === value
+
+    const isFieldMatch =
+      typeof shouldBe === "function"
+        ? byFn({ shouldBe, value: source[cleanKey], not })
+        : byValue({ shouldBe, value: source[cleanKey], not })
 
     if (isFieldMatch === false) {
       return false

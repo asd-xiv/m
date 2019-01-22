@@ -87,5 +87,17 @@ test("core::isMatch", t => {
     "Properties are not present"
   )
 
+  t.deepEqual(
+    isMatch({
+      "!id": item => item === 3,
+      name: item => item !== "John",
+    })({
+      id: 2,
+      name: "JohnX",
+    }),
+    true,
+    "Matching with predicate functions"
+  )
+
   t.end()
 })
