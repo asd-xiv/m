@@ -2,12 +2,13 @@ const test = require("tape")
 const groupBy = require("./group-by")
 
 /**
- * Group an array of objects by field. Only truthy fields will be indexed.
+ * Group an array of objects by field.
  *
- * @param  {string}  field  The field to index by
- * @param  {Array}   array  Input
+ * @param  {string}  field   The field to index by. Value will be cast to string
+ *                           before indexing.
+ * @param  {Array}   source  Input array
  *
- * @return {Object}
+ * @return {Array<Array>}
  *
  * @example
  * groupBy("user_id")([
@@ -16,10 +17,11 @@ const groupBy = require("./group-by")
  *   {id: 3, user_id: 2},
  *   {id: 4, user_id: null},
  * ] )
- * // => {
- * //   2: [{id: 1, user_id: 2}, {id: 3, user_id: 2}],
- * //   3: [{id: 2, user_id: 3}],
- * // }
+ * // => [
+ * //   [{id: 1, user_id: 2}, {id: 3, user_id: 2}],
+ * //   [{id: 2, user_id: 3}],
+ * //   [{id: 4, user_id: null}],
+ * // ]
  */
 test("array::groupBy", t => {
   const comments = [
@@ -32,17 +34,18 @@ test("array::groupBy", t => {
 
   t.deepEqual(
     commentsByUserId,
-    {
-      2: [{ id: 1, user_id: 2 }, { id: 3, user_id: 2 }],
-      3: [{ id: 2, user_id: 3 }],
-    },
-    "array of objects should return an object groped by user_id"
+    [
+      [{ id: 1, user_id: 2 }, { id: 3, user_id: 2 }],
+      [{ id: 2, user_id: 3 }],
+      [{ id: 4, user_id: null }],
+    ],
+    "Grouping array of objects by field returns array of arrays"
   )
 
   t.equal(
-    commentsByUserId[3][0],
+    commentsByUserId[1][0],
     comments[1],
-    "first comment with user_id:3 should equal source array one"
+    "Items arent cloned after grouping"
   )
 
   t.end()
