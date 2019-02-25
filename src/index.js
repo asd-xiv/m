@@ -13,6 +13,7 @@ module.exports = {
   dropLast: require("./drop-last/drop-last"),
   elapsedTime: require("./elapsed-time/elapsed-time"),
   endsWith: require("./ends-with/ends-with"),
+  equals: require("./equals/equals"),
   escapeHTML: require("./escapeHTML/escapeHTML"),
   escapeRegExp: require("./escapeRegExp/escapeRegExp"),
   filter: require("./filter/filter"),
@@ -64,6 +65,7 @@ module.exports = {
   toLower: require("./to-lower/to-lower"),
   trim: require("./trim/trim"),
   type: require("./type/type"),
+  upsertBy: require("./upsert-by/upsert-by"),
   when: require("./when/when"),
   zipToObj: require("./zip-to-obj/zip-to-obj"),
 }
