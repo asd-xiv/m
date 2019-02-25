@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.19.0] - 25 February 2019
+
+### Add
+
+- Add [`upsertBy`](src/upsert-by/upsert-by.js) - Update if exists, else update
+- Add [`equals`](src/equals/equals) - Tripple equals
+
 ## [0.18.0] - 22 January 2019
 
 ### Add
@@ -185,8 +192,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Removed `flow` support
 
-[Unreleased]: https://github.com/asd14/m/compare/v0.18.0...HEAD
+[Unreleased]: https://github.com/asd14/m/compare/v0.19.0...HEAD
 
+[0.19.0]: https://github.com/asd14/m/compare/v0.18.0...v0.19.0
 [0.18.0]: https://github.com/asd14/m/compare/v0.17.1...v0.18.0
 [0.17.1]: https://github.com/asd14/m/compare/v0.17.0...v0.17.1
 [0.17.0]: https://github.com/asd14/m/compare/v0.16.1...v0.17.0

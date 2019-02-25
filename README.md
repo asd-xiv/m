@@ -97,15 +97,9 @@ const renameFile = newName => pipe(
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-### 0.18.0 - 22 January 2019
+### 0.19.0 - 25 February 2019
 
 #### Add
 
-- Add [`concat`](src/concat/concat.js) - Merge twp arrays into once
-- Add [`page`](src/page/page.js) - Subset array using offset and limit 
-- Add [`groupBy`](src/group-by/group-by.js) - Group an array of objects by field. Returns an array of arrays.
-
-#### Change
-
-- Change [`isMatch`](src/is-match/is-match.js) to accept predicate functions
-- Change [`indexBy`](src/index-by/index-by.js) to return object of objects
+- Add [`upsertBy`](src/upsert-by/upsert-by.js) - Update if exists, else update
+- Add [`equals`](src/equals/equals) - Tripple equals
