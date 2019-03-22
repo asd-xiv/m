@@ -4,22 +4,23 @@
 
 # m
 
-> Functional library for Javascript
+> Point free style, functional library for Javascript
 
-Changes a lot and not yet complete. Use [Ramda](https://github.com/ramda/ramda) to be safe.
+Changes a lot. Use [Ramda](https://github.com/ramda/ramda).
 
 ---
 
-<!-- MarkdownTOC levels="2,3" autolink="true" autoanchor="false" -->
+<!-- vim-markdown-toc GFM -->
 
-- [|> pipe](#%7C-pipe)
-- [Install](#install)
-- [Develop](#develop)
-- [Use](#use)
-- [Changelog](#changelog)
-    - [0.18.0 - 22 January 2019](#0180---22-january-2019)
+* [|> pipe](#-pipe)
+* [Install](#install)
+* [Develop](#develop)
+* [Use](#use)
+* [Changelog](#changelog)
+  * [0.20 - 22 March 2019](#020---22-march-2019)
+    * [Add](#add)
 
-<!-- /MarkdownTOC -->
+<!-- vim-markdown-toc -->
 
 ## |> pipe
 
@@ -97,9 +98,8 @@ const renameFile = newName => pipe(
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-### 0.19.0 - 25 February 2019
+### 0.20 - 22 March 2019
 
 #### Add
 
-- Add [`upsertBy`](src/upsert-by/upsert-by.js) - Update if exists, else update
-- Add [`equals`](src/equals/equals) - Tripple equals
+- Add [`pipeP`](src/pipeP/pipeP.js) - Left-to-right function composition that can return Promises
