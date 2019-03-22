@@ -2,23 +2,24 @@
  * Performs left-to-right function composition. The leftmost function may have
  * any arity, the remaining functions must be unary.
  *
- * @param   {Array}  fn     Array of functions, call each one in order with the
- *                          input of previous one's result
- * @param   {Array}  input  Arguments array
+ * @param  {Function}    first   First function in chain
+ * @param  {Function[]}  rest    Remaining bottom functions
+ * @param  {Array}       source  First function arguments
  *
- * @return  {mixed}
+ * @return  {any}
  *
  * @example
- * pipe( inc, inc )( 2 )
+ * pipe(inc, inc)(2)
  * // => 4
  */
-module.exports = (...fn) => (...input) => {
-  const [firstFn, ...restFn] = fn
-  let acc = firstFn.apply(null, input)
+const pipe = (first, ...rest) => (...source) => {
+  let acc = first.apply(null, source)
 
-  for (let i = 0, length = restFn.length; i < length; i++) {
-    acc = restFn[i](acc, input[i], i, input)
+  for (let i = 0, length = rest.length; i < length; i++) {
+    acc = rest[i](acc, source[i], i, source)
   }
 
   return acc
 }
+
+export { pipe }

@@ -1,4 +1,4 @@
-const reduce = require("../reduce/reduce")
+import { reduce } from "../reduce/reduce"
 
 /**
  * Recursively concat all arrays intro a single array
@@ -17,4 +17,4 @@ const flatten = reduce(
   []
 )
 
-module.exports = flatten
+export { flatten }

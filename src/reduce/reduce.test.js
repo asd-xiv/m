@@ -1,5 +1,5 @@
-const test = require("tape")
-const reduce = require("./reduce")
+import test from "tape"
+import { reduce } from ".."
 
 /**
  * Apply a function against an accumulator and each  element in the array (from

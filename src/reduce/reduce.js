@@ -11,7 +11,7 @@
  * @tag Array
  * @signature (fn: Function, defaultAcc: mixed) => (source: Array): mixed
  */
-module.exports = (fn, defaultAcc) => source => {
+const reduce = (fn, defaultAcc) => source => {
   let acc = defaultAcc
   const sourceArray = Array.isArray(source) ? source : [source]
 
@@ -21,3 +21,5 @@ module.exports = (fn, defaultAcc) => source => {
 
   return acc
 }
+
+export { reduce }

@@ -2,11 +2,12 @@
 
 const path = require("path")
 const fs = require("fs")
-const pipe = require("../pipe/pipe")
 const map = require("../map/map")
 const push = require("../push/push")
-const flatten = require("../flatten/flatten")
-const reduce = require("../reduce/reduce")
+
+import { flatten } from "../flatten/flatten"
+import { pipe } from "../pipe/pipe"
+import { reduce } from "../reduce/reduce"
 
 /**
  * Determines if file name valid.
@@ -53,7 +54,6 @@ const isDir = dirPath => fs.statSync(dirPath).isDirectory()
  * @example
  * find({test: /*.\.plugin\.js/})("./root-folder")
  */
-
 const matchInFolder = test =>
   pipe(
     readDir,
@@ -68,8 +68,10 @@ const matchInFolder = test =>
     )
   )
 
-module.exports = (test = /.*/) =>
+const findFiles = (test = /.*/) =>
   pipe(
     map(matchInFolder(test)),
     flatten
   )
+
+export { findFiles }

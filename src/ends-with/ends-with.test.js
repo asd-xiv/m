@@ -1,21 +1,6 @@
-const test = require("tape")
-const endsWith = require("./ends-with")
+import test from "tape"
+import { endsWith } from ".."
 
-/**
- * Test if string ends with substring
- *
- * @param  {string}  search  Search string
- * @param  {string}  source  Source string
- *
- * @return {boolean}
- *
- * @tag String
- * @signature (search: string) => (source: string): boolean
- *
- * @example
- * endWith("ipsum")("lorem ipsum")
- * // => true
- */
 test("string::endsWith", t => {
   t.equals(
     endsWith("ipsum")("lorem ipsum"),

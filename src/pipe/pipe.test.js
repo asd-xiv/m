@@ -1,5 +1,5 @@
-const test = require("tape")
-const pipe = require("./pipe")
+import test from "tape"
+import { pipe } from ".."
 
 /**
  * Performs left-to-right function composition. The leftmost function may have

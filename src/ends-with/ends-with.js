@@ -13,7 +13,7 @@
  * endWith("ipsum")("lorem ipsum")
  * // => true
  */
-module.exports = search => source => {
+const endsWith = search => source => {
   if (search.length > source.length) {
     return false
   }
@@ -26,3 +26,5 @@ module.exports = search => source => {
 
   return searchPosition === source.length - search.length
 }
+
+export { endsWith }
