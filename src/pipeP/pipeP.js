@@ -11,11 +11,11 @@ import { reduce } from "../reduce/reduce"
  * @signature  (...fn) => (...input): any
  * @see        {@link pipe}
  *
- * @param  {Array}  fn     Promise chain, in order with the input of previous
- *                         one's result
- * @param  {Array}  input  First function's arguments
+ * @param  {Function}    first   First function in chain
+ * @param  {Function[]}  rest    Remaining bottom functions
+ * @param  {Array}       source  First function arguments
  *
- * @returns  {any}
+ * @returns  {Promise<any>}
  *
  * @example
  * const inc = input => input + 1

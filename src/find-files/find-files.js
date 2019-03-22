@@ -46,9 +46,9 @@ const isDir = dirPath => fs.statSync(dirPath).isDirectory()
 /**
  * Recursive dir walk with regular expression matching on file name
  *
- * @param  {Object}           arg1             Function props
- * @param  {Function|RegExp}  arg1.test        Test function or RegExp to match
- *                                             file name agains
+ * @param  {Function|RegExp}  test  Test function or RegExp to match
+ *                                  file name agains
+ *
  * @return {string[]}         Array of files paths
  *
  * @example
