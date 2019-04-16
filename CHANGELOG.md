@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.21] - 16 April 2019
+
+### Add
+
+- Add [`last`](src/last/last.js) - Return last element in array
+
 ## [0.20] - 22 March 2019
 
 ### Add
@@ -198,8 +204,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Removed `flow` support
 
-[Unreleased]: https://github.com/asd14/m/compare/v0.20...HEAD
+[Unreleased]: https://github.com/asd14/m/compare/v0.21...HEAD
 
+[0.21]: https://github.com/asd14/m/compare/v0.20...v0.21
 [0.20]: https://github.com/asd14/m/compare/v0.19...v0.20.0
 [0.19]: https://github.com/asd14/m/compare/v0.18.0...v0.19
 [0.18.0]: https://github.com/asd14/m/compare/v0.17.1...v0.18.0

@@ -17,7 +17,7 @@ Changes a lot. Use [Ramda](https://github.com/ramda/ramda).
 * [Develop](#develop)
 * [Use](#use)
 * [Changelog](#changelog)
-  * [0.20 - 22 March 2019](#020---22-march-2019)
+  * [0.21 - 16 April 2019](#021---16-april-2019)
     * [Add](#add)
 
 <!-- vim-markdown-toc -->
@@ -98,8 +98,8 @@ const renameFile = newName => pipe(
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-### 0.20 - 22 March 2019
+### 0.21 - 16 April 2019
 
 #### Add
 
-- Add [`pipeP`](src/pipeP/pipeP.js) - Left-to-right function composition that can return Promises
+- Add [`last`](src/last/last.js) - Return last element in array
