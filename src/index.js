@@ -38,6 +38,7 @@ module.exports = {
   isEmpty: require("./is-empty/is-empty"),
   isMatch: require("./is-match/is-match"),
   join: require("./join/join"),
+  last: require("./last/last").last,
   map: require("./map/map"),
   max: require("./max/max"),
   merge: require("./merge/merge"),
