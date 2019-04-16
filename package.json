@@ -35,7 +35,6 @@
     "coverage": "NODE_ENV=test nyc npm test && nyc report --reporter=text-lcov | coveralls"
   },
   "keywords": [
-    "pure",
     "point-free",
     "functional",
     "javascript",
