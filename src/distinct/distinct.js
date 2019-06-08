@@ -1,4 +1,4 @@
-const deepEqual = require("../deep-equal/deep-equal")
+import { deepEqual } from "../deep-equal/deep-equal"
 
 /**
  * Remove repeating values
@@ -14,7 +14,7 @@ const deepEqual = require("../deep-equal/deep-equal")
  * distinct( [1, 1, 2] )
  * // => [1, 2]
  */
-module.exports = source => {
+const distinct = source => {
   const result = []
 
   for (let i = 0, length = source.length; i < length; i++) {
@@ -35,3 +35,5 @@ module.exports = source => {
 
   return result
 }
+
+export { distinct }

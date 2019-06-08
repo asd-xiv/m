@@ -14,7 +14,7 @@
  * pick(["id", "name"])({id: 2, name: "lorem", description: "lorem ipsum"})
  * // => {id: 2, name: lorem}
  */
-module.exports = keys => source => {
+const pick = keys => source => {
   const result = {}
 
   for (let i = 0, length = keys.length; i < length; i++) {
@@ -28,3 +28,5 @@ module.exports = keys => source => {
 
   return result
 }
+
+export { pick }

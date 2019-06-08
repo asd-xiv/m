@@ -1,73 +1,69 @@
-module.exports = {
-  all: require("./all/all"),
-  between: require("./between/between"),
-  coinToss: require("./coin-toss/coin-toss"),
-  concat: require("./concat/concat"),
-  contains: require("./contains/contains"),
-  count: require("./count/count"),
-  countBy: require("./count-by/count-by"),
-  debounce: require("./debounce/debounce"),
-  dec: require("./dec/dec"),
-  deepEqual: require("./deep-equal/deep-equal"),
-  distinct: require("./distinct/distinct"),
-  dropLast: require("./drop-last/drop-last"),
-  elapsedTime: require("./elapsed-time/elapsed-time"),
-  endsWith: require("./ends-with/ends-with").endsWith,
-  equals: require("./equals/equals"),
-  escapeHTML: require("./escapeHTML/escapeHTML"),
-  escapeRegExp: require("./escapeRegExp/escapeRegExp"),
-  filter: require("./filter/filter"),
-  filterBy: require("./filter-by/filter-by"),
-  find: require("./find/find"),
-  findBy: require("./find-by/find-by"),
-  findIndex: require("./find-index/find-index"),
-  findIndexBy: require("./find-index-by/find-index-by"),
-  flatten: require("./flatten/flatten").flatten,
-  forEach: require("./for-each/for-each"),
-  get: require("./get/get"),
-  groupBy: require("./group-by/group-by"),
-  has: require("./has/has"),
-  hasKey: require("./has-key/has-key"),
-  hasWith: require("./has-with/has-with"),
-  head: require("./head/head"),
-  hist: require("./hist/hist"),
-  i: require("./i/i"),
-  inc: require("./inc/inc"),
-  indexBy: require("./index-by/index-by"),
-  is: require("./is/is"),
-  isEmpty: require("./is-empty/is-empty"),
-  isMatch: require("./is-match/is-match"),
-  join: require("./join/join"),
-  last: require("./last/last").last,
-  map: require("./map/map"),
-  max: require("./max/max"),
-  merge: require("./merge/merge"),
-  min: require("./min/min"),
-  page: require("./page/page"),
-  pick: require("./pick/pick"),
-  pipe: require("./pipe/pipe").pipe,
-  pipeP: require("./pipeP/pipeP").pipeP,
-  pluck: require("./pluck/pluck"),
-  push: require("./push/push"),
-  raise: require("./raise/raise"),
-  random: require("./random/random"),
-  reduce: require("./reduce/reduce").reduce,
-  remove: require("./remove/remove"),
-  renameFile: require("./rename-file/rename-file"),
-  repeat: require("./repeat/repeat"),
-  replace: require("./replace/replace"),
-  replaceBy: require("./replace-by/replace-by"),
-  set: require("./set/set"),
-  sort: require("./sort/sort"),
-  split: require("./split/split"),
-  startsWith: require("./starts-with/starts-with"),
-  tail: require("./tail/tail"),
-  throttle: require("./throttle/throttle"),
-  toggle: require("./toggle/toggle"),
-  toLower: require("./to-lower/to-lower"),
-  trim: require("./trim/trim"),
-  type: require("./type/type"),
-  upsertBy: require("./upsert-by/upsert-by"),
-  when: require("./when/when"),
-  zipToObj: require("./zip-to-obj/zip-to-obj"),
-}
+export { curry } from "./curry/curry"
+export { any, anyWith } from "./any/any"
+export { all, allWith } from "./all/all"
+export { between } from "./between/between"
+export { gt } from "./gt/gt"
+export { when } from "./when/when"
+export { zipToObj } from "./zip-to-obj/zip-to-obj"
+export { concat } from "./concat/concat"
+export { contains } from "./contains/contains"
+export { count, countWith } from "./count/count"
+export { debounce } from "./debounce/debounce"
+export { dec } from "./dec/dec"
+export { deepEqual } from "./deep-equal/deep-equal"
+export { distinct } from "./distinct/distinct"
+export { dropLast } from "./drop-last/drop-last"
+export { elapsedTime } from "./elapsed-time/elapsed-time"
+export { endsWith } from "./ends-with/ends-with"
+export { equals } from "./equals/equals"
+export { escapeHTML } from "./escapeHTML/escapeHTML"
+export { escapeRegExp } from "./escapeRegExp/escapeRegExp"
+export { filter, filterWith } from "./filter/filter"
+export { find, findWith } from "./find/find"
+export { findIndex, findIndexWith } from "./find-index/find-index"
+export { flatten } from "./flatten/flatten"
+export { forEach } from "./for-each/for-each"
+export { get } from "./get/get"
+export { groupBy } from "./group-by/group-by"
+export { has, hasKey, hasWith } from "./has/has"
+export { head } from "./head/head"
+export { hist } from "./hist/hist"
+export { i } from "./i/i"
+export { inc } from "./inc/inc"
+export { indexBy } from "./index-by/index-by"
+export { is } from "./is/is"
+export { isEmpty } from "./is-empty/is-empty"
+export { isMatch } from "./is-match/is-match"
+export { join } from "./join/join"
+export { last } from "./last/last"
+export { lt } from "./lt/lt"
+export { map } from "./map/map"
+export { max } from "./max/max"
+export { merge } from "./merge/merge"
+export { min } from "./min/min"
+export { page } from "./page/page"
+export { pick } from "./pick/pick"
+export { pipe } from "./pipe/pipe"
+export { pipeP } from "./pipeP/pipeP"
+export { pluck } from "./pluck/pluck"
+export { push } from "./push/push"
+export { protoChain } from "./proto-chain/proto-chain"
+export { raise } from "./raise/raise"
+export { random } from "./random/random"
+export { reduce } from "./reduce/reduce"
+export { remove, removeWith } from "./remove/remove"
+export { renameFile } from "./rename-file/rename-file"
+export { repeat } from "./repeat/repeat"
+export { replace, replaceWith } from "./replace/replace"
+export { set } from "./set/set"
+export { sequence } from "./sequence/sequence"
+export { sort, sortWith } from "./sort/sort"
+export { split } from "./split/split"
+export { startsWith } from "./starts-with/starts-with"
+export { tail } from "./tail/tail"
+export { throttle } from "./throttle/throttle"
+export { toggle } from "./toggle/toggle"
+export { toLower } from "./to-lower/to-lower"
+export { trim } from "./trim/trim"
+export { type } from "./type/type"
+export { upsert } from "./upsert/upsert"

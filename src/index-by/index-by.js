@@ -19,7 +19,7 @@
  * //   2: {id: 2, user_id: 3},
  * // }
  */
-module.exports = field => source => {
+const indexBy = field => source => {
   const result = {}
 
   for (let i = 0, length = source.length; i < length; i++) {
@@ -32,3 +32,5 @@ module.exports = field => source => {
 
   return result
 }
+
+export { indexBy }

@@ -12,4 +12,6 @@
  * inc(2)
  * // => 3
  */
-module.exports = source => source + 1
+const inc = source => source + 1
+
+export { inc }

@@ -5,4 +5,6 @@
  *
  * @return {mixed}
  */
-module.exports = source => source
+const i = source => source
+
+export { i }

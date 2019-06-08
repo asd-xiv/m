@@ -14,6 +14,8 @@
  * })([1, 2, 3, 4, 5, 6, 7, 8])
  * // => [2, 3, 4, 5, 6]
  */
-module.exports = ({ offset = 0, limit = 10 } = {}) => source => [
+const page = ({ offset = 0, limit = 10 } = {}) => source => [
   ...source.splice(offset, limit),
 ]
+
+export { page }

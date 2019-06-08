@@ -1,15 +1,7 @@
-const test = require("tape")
-const renameFile = require("./rename-file")
+import test from "tape"
+import { renameFile } from ".."
 
-/**
- * Rename a file
- *
- * @param  {string}  newName   New file name
- * @param  {string}  filePath  Absolute file path
- *
- * @return {string}
- */
-test("fs::renameFile", t => {
+test("renameFile", t => {
   t.equals(
     renameFile("ipsum")("/home/user/lorem"),
     "/home/user/ipsum",

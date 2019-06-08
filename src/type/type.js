@@ -22,9 +22,11 @@
  * type(() => {})          // "Function"
  * type(Promise.resolve()) // "Promise"
  */
-module.exports = input =>
+const type = input =>
   input === null
     ? "Null"
     : input === undefined
     ? "Undefined"
     : Object.prototype.toString.call(input).slice(8, -1)
+
+export { type }

@@ -1,3 +1,5 @@
+import { isMatch } from "../is-match/is-match"
+
 /**
  * Remove elements that dont match based on custom function
  *
@@ -8,7 +10,7 @@
  * @tag Array
  * @signature (fn: Function) => (source: Array): Array
  */
-module.exports = fn => source => {
+const filter = fn => source => {
   const result = []
   const sourceArray = Array.isArray(source) ? source : [source]
 
@@ -20,3 +22,7 @@ module.exports = fn => source => {
 
   return result
 }
+
+const filterWith = subset => filter(isMatch(subset))
+
+export { filter, filterWith }

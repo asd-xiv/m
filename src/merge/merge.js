@@ -14,7 +14,7 @@
  * merge({a: "lorem"}, {b: "ipsum", c: 41}, {c: 42, b: undefined})
  * // => { a: "lorem", b: "ipsum", c: 42 }
  */
-module.exports = (...sources) => {
+const merge = (...sources) => {
   const result = {}
 
   for (let i = 0, length = sources.length; i < length; i++) {
@@ -35,3 +35,5 @@ module.exports = (...sources) => {
 
   return result
 }
+
+export { merge }

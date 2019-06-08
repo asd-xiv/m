@@ -1,28 +1,7 @@
-const test = require("tape")
-const indexBy = require("./index-by")
+import test from "tape"
+import { indexBy } from ".."
 
-/**
- * Index an array of objects by field. Only truthy fields will be indexed.
- *
- * @param  {string}  field  The field to index by
- * @param  {Array}   array  Input
- *
- * @return {Object}
- *
- * @tag Array
- * @signature (field: string) => (source: Object[]): Object
- *
- * @example
- * indexBy("id")([
- *   {id: 1, user_id: 2},
- *   {id: 2, user_id: 3},
- * ])
- * // => {
- * //   1: {id: 1, user_id: 2},
- * //   2: {id: 2, user_id: 3},
- * // }
- */
-test("array::indexBy", t => {
+test("indexBy", t => {
   t.deepEqual(
     indexBy("id")([{ id: 1, label: "test" }, { id: 2, label: "foo" }]),
     {

@@ -1,4 +1,4 @@
-const type = require("../type/type")
+import { type } from "../type/type"
 
 /**
  * Check if variable is considered empty
@@ -24,7 +24,7 @@ const type = require("../type/type")
  * isEmpty(() => {})         // false
  * isEmpty(Promise.resolve() // false
  */
-module.exports = source => {
+const isEmpty = source => {
   const sourceType = type(source)
   const byType = {
     Null: () => true,
@@ -37,3 +37,5 @@ module.exports = source => {
 
   return byType[sourceType] ? byType[sourceType]() : false
 }
+
+export { isEmpty }

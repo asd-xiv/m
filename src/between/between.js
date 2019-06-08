@@ -18,7 +18,7 @@
  * between(2, 5, {closed: true})(5)
  * // => true
  */
-module.exports = (left, right, { closed = false } = {}) => source => {
+const between = (left, right, { closed = false } = {}) => source => {
   if (left > right) {
     throw new Error("Left interval limit must be less than right limit")
   }
@@ -27,3 +27,5 @@ module.exports = (left, right, { closed = false } = {}) => source => {
     ? source > left && source < right
     : source >= left && source <= right
 }
+
+export { between }

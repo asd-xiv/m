@@ -8,7 +8,7 @@
  *                                  `timeWindow` or return a timer that will
  *                                  run the `fn` in `timeWindow` ms
  */
-module.exports = (
+const throttle = (
   fn,
   { timeWindow = 50, bind = null, hasLastCall = false } = {}
 ) => {
@@ -37,3 +37,5 @@ module.exports = (
     }
   }
 }
+
+export { throttle }

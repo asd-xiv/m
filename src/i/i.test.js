@@ -1,13 +1,6 @@
-const test = require("tape")
-const i = require("./i")
+import test from "tape"
+import { i } from ".."
 
-/**
- * Identity function
- *
- * @param  {mixed}  source  Source input
- *
- * @return {mixed}
- */
 test("core::i", t => {
   t.equals(i(true), true, "Identity boolean")
   t.equals(i(3), 3, "Identity string")

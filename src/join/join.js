@@ -13,4 +13,6 @@
  * join( "," )( [ "lorem", "ipsum" ] )
  * // => "lorem,ipsum"
  */
-module.exports = separator => source => [].join.call(source, separator)
+const join = separator => source => [].join.call(source, separator)
+
+export { join }

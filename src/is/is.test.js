@@ -1,5 +1,5 @@
-const test = require("tape")
-const is = require("./is")
+import test from "tape"
+import { is } from ".."
 
 /**
  * Test if something is not `null` or `undefined`

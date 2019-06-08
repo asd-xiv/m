@@ -1,7 +1,7 @@
 import test from "tape"
 import { pipeP } from ".."
 
-test("core::pipeP", t => {
+test("pipeP", t => {
   const inc = input => input + 1
   const sum = (a = 0, b = 0) =>
     new Promise(resolve => {

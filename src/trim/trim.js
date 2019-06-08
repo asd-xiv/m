@@ -1,4 +1,4 @@
-const escapeRegExp = require("../escapeRegExp/escapeRegExp")
+import { escapeRegExp } from "../escapeRegExp/escapeRegExp"
 
 /**
  * Remove char from beginning and end of string
@@ -17,8 +17,10 @@ const escapeRegExp = require("../escapeRegExp/escapeRegExp")
  * trim("-")("-- lorem  --")
  * // => " lorem  "
  */
-module.exports = (char = " ") => source => {
+const trim = (char = " ") => source => {
   const safeChar = escapeRegExp(char)
 
   return source.replace(new RegExp(`^[${safeChar}]+|[${safeChar}]+$`, "g"), "")
 }
+
+export { trim }

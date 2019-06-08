@@ -12,4 +12,6 @@
  * dec(2)
  * // => 1
  */
-module.exports = source => source - 1
+const dec = source => source - 1
+
+export { dec }

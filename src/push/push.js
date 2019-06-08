@@ -7,10 +7,12 @@
  * @return {Array}
  *
  * @tag Array
- * @signature ( ...elements: mixed ) => ( input: Array ): Array
+ * @signature (...elements: mixed) => (input: Array): Array
  *
  * @example
- * push( 2 )( [ 1 ] ) // => [ 1, 2 ]
- * push( 2, 4 )( [ 1 ] ) // => [ 1, 2, 4 ]
+ * push(2)([1]) // => [1, 2]
+ * push(2, 4)([1]) // => [1, 2, 4]
  */
-module.exports = (...elements) => input => input.concat(elements)
+const push = (...elements) => input => input.concat(elements)
+
+export { push }

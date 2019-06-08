@@ -1,4 +1,4 @@
-const escape = require("../escape/escape")
+import { escape } from "../escape/escape"
 
 /**
  * Make safe for RegExp'ing
@@ -15,4 +15,6 @@ const escape = require("../escape/escape")
  * escapeRegExp( "lorem. ipsum [dolor]" )
  * // => "lorem \\. ipsum \\[dolor\\]"
  */
-module.exports = escape(/[|\\{}<>()[\]^$+*?.]/g)
+const escapeRegExp = escape(/[|\\{}<>()[\]^$+*?.]/g)
+
+export { escapeRegExp }

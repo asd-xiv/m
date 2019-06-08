@@ -13,10 +13,12 @@
  * contains("ipsum")("lorem ipsum")
  * // => true
  */
-module.exports = search => source => {
+const contains = search => source => {
   if (search.length > source.length) {
     return false
   }
 
   return source.indexOf(search) !== -1
 }
+
+export { contains }

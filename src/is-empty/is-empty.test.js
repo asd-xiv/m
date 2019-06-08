@@ -1,28 +1,6 @@
-const test = require("tape")
-const isEmpty = require("./is-empty")
+import test from "tape"
+import { isEmpty } from ".."
 
-/**
- * Determines something is empty
- *
- * @param   {Any}      input  Something to check if empty
- *
- * @return  {boolean}  True if empty, False otherwise
- *
- * @example
- *
- * isEmpty({})               // true
- * isEmpty(1)                // false
- * isEmpty(false)            // false
- * isEmpty("")               // true
- * isEmpty(null)             // true
- * isEmpty(undefined)        // true
- * isEmpty([])               // true
- * isEmpty(NaN)              // true
- * isEmpty(/[A-z]/)          // false
- * isEmpty(new Date())       // false
- * isEmpty(() => {})         // false
- * isEmpty(Promise.resolve() // false
- */
 test("core::isEmpty", t => {
   t.equal(isEmpty({}), true, "{} should equal true")
   t.equal(isEmpty({ a: 2 }), false, "{a:2} should equal false")

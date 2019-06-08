@@ -1,4 +1,5 @@
-const has = require("../has/has")
+import { has } from "../has/has"
+import { isMatch } from "../is-match/is-match"
 
 /**
  * Remove element(s) from array by value or by filter function
@@ -19,17 +20,21 @@ const has = require("../has/has")
  * remove(_ => _ === 3)([1, 2, 3])
  * // => [1, 2]
  */
-module.exports = (...value) => source => {
+const remove = (...value) => source => {
   const result = []
 
   for (let i = 0, length = source.length; i < length; i++) {
-    const isMatch =
+    const exists =
       typeof value[0] === "function"
         ? value[0].call(null, source[i]) === true
         : has(source[i])(value)
 
-    !isMatch && result.push(source[i])
+    !exists && result.push(source[i])
   }
 
   return result
 }
+
+const removeWith = subset => remove(isMatch(subset))
+
+export { remove, removeWith }

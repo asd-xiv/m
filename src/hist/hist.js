@@ -1,5 +1,5 @@
-const type = require("../type/type")
-const is = require("../is/is")
+import { type } from "../type/type"
+import { is } from "../is/is"
 
 /**
  * Count the number of occurances of each element
@@ -75,4 +75,6 @@ const byType = {
  * hist( "score" )( scores )
  * // => { "1": 1, "10": 2 }
  */
-module.exports = field => byType[type(field)](field)
+const hist = field => byType[type(field)](field)
+
+export { hist }

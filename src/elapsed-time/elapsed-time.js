@@ -22,7 +22,7 @@ const oneSecond = 1000
  * )
  * // => { days: 0, hours: 3, minutes: 24, seconds: 0 }
  */
-module.exports = startDate => endDate => {
+const elapsedTime = startDate => endDate => {
   const timePassedInSec = Math.abs(startDate - endDate) / oneSecond
 
   // Number of days
@@ -48,3 +48,5 @@ module.exports = startDate => endDate => {
     seconds,
   }
 }
+
+export { elapsedTime }

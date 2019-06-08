@@ -15,7 +15,9 @@
  * set( "a", "lorem" )( { b: "ipsum" } )
  * // => { a: "lorem", b: "ipsum" }
  */
-module.exports = (key, value) => source => ({
+const set = (key, value) => source => ({
   ...source,
   [key]: value,
 })
+
+export { set }

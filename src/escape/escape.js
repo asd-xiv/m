@@ -1,1 +1,3 @@
-module.exports = match => source => source.replace(match, "\\$&")
+const escape = match => source => source.replace(match, "\\$&")
+
+export { escape }

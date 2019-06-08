@@ -75,5 +75,7 @@ const maxByFunction = fn => source => {
  * max(fn)(source)
  * // => {time: "2018-06-11T09:01:54.337344Z"}
  */
-module.exports = arg1 =>
+const max = arg1 =>
   Array.isArray(arg1) ? maxByValue(arg1) : maxByFunction(arg1)
+
+export { max }

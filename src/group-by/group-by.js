@@ -20,7 +20,7 @@
  * //   [{id: 4, user_id: null}],
  * // ]
  */
-module.exports = field => input => {
+const groupBy = field => input => {
   const result = {}
 
   for (let i = 0, length = input.length; i < length; i++) {
@@ -35,3 +35,5 @@ module.exports = field => input => {
 
   return Object.values(result)
 }
+
+export { groupBy }

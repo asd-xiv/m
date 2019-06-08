@@ -1,22 +1,7 @@
-const test = require("tape")
-const escapeHTML = require("./escapeHTML")
+import test from "tape"
+import { escapeHTML } from ".."
 
-/**
- * Make safe for rendering
- *
- * @param   {string}  source  Source string
- *
- * @return  {string}
- *
- * @tag String
- * @signature ( source: string ): string
- *
- * @example { example }
- *
- * escapeHTML( "<div className=''>alice & bob</div>" )
- * // => "lorem \\. ipsum \\[dolor\\]"
- */
-test("string::escapeHTML", t => {
+test("escapeHTML", t => {
   const actual = escapeHTML(
     "<script type='text/javascript'>alert('HERE'S BOBBY')</script>"
   )

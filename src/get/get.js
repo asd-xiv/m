@@ -13,5 +13,7 @@
  * get( "lorem" )( { lorem: "ipsum" } ) // => "ipsum"
  * get( "not-exist" )( { lorem: "ipsum" } ) // => undefined
  */
-module.exports = key => source =>
+const get = key => source =>
   typeof source === "object" ? source[key] : undefined
+
+export { get }

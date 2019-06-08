@@ -1,7 +1,7 @@
-const test = require("tape")
-const deepEqual = require("./deep-equal")
+import test from "tape"
+import { deepEqual } from ".."
 
-test("core::deepEqual", t => {
+test("deepEqual", t => {
   t.equal(deepEqual(1)(1), true, "Primitives: 1 === 1")
 
   t.equal(deepEqual(1)("3"), false, 'Primitives: 1 !== "3"')

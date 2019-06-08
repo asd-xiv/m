@@ -14,7 +14,7 @@
  * pluck("position")([{id: 1, position: 3}, {id:2, position: -1}])
  * // => [3, -1]
  */
-module.exports = field => source => {
+const pluck = field => source => {
   const result = []
 
   for (let i = 0, length = source.length; i < length; i++) {
@@ -23,3 +23,5 @@ module.exports = field => source => {
 
   return result
 }
+
+export { pluck }

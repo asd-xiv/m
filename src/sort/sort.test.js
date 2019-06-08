@@ -1,27 +1,24 @@
-const test = require("tape")
-const sort = require("./sort")
+import test from "tape"
+import { sort, sortWith } from ".."
 
-/**
- * Sort array using custom function
- *
- * @param  {Function}  fn      Sort function
- * @param  {Array}     source  Array
- *
- * @return {Array}
- *
- * @tag Array
- * @signature ( fn: Function ) => ( source: Array ): Array
- *
- * @example
- * sort((a,b) => a.id-b.id)([{id:2}, {id: 1}])
- * // => [{id:1}, {id: 2}]
- */
-test("array::sort", t => {
-  const source = [{ id: 2 }, { id: 1 }]
+test("sort(With)", t => {
+  const source = [
+    { id: 5, position: null },
+    { id: 3 },
+    { id: 1, position: 3 },
+    { id: 2, position: 2 },
+    { id: 4, position: 5 },
+  ]
 
   t.deepEqual(
     sort((a, b) => a.id - b.id)(source),
-    [{ id: 1 }, { id: 2 }],
+    [
+      { id: 1, position: 3 },
+      { id: 2, position: 2 },
+      { id: 3 },
+      { id: 4, position: 5 },
+      { id: 5, position: null },
+    ],
     "Sort array of objects by field"
   )
 
@@ -29,6 +26,44 @@ test("array::sort", t => {
     sort((a, b) => a.id - b.id)(source),
     source,
     "Returned array is different (immutability)"
+  )
+
+  t.notEqual(sortWith("position")(source), source, "Imutable")
+
+  t.deepEqual(
+    sortWith("position")(sortWith("position")(source)),
+    [
+      { id: 2, position: 2 },
+      { id: 1, position: 3 },
+      { id: 4, position: 5 },
+      { id: 5, position: null },
+      { id: 3 },
+    ],
+    "Idempotent"
+  )
+
+  t.deepEqual(
+    sortWith("position")(source),
+    [
+      { id: 2, position: 2 },
+      { id: 1, position: 3 },
+      { id: 4, position: 5 },
+      { id: 5, position: null },
+      { id: 3 },
+    ],
+    "Sort asc by field with undefined at bottom"
+  )
+
+  t.deepEqual(
+    sortWith("position", "desc")(source),
+    [
+      { id: 4, position: 5 },
+      { id: 1, position: 3 },
+      { id: 2, position: 2 },
+      { id: 5, position: null },
+      { id: 3 },
+    ],
+    "Sort desc by field with undefined at bottom"
   )
 
   t.end()

@@ -13,7 +13,7 @@
  * startsWith("lorem")("lorem ipsum")
  * // => true
  */
-module.exports = search => source => {
+const startsWith = search => source => {
   if (search.length > source.length) {
     return false
   }
@@ -26,3 +26,5 @@ module.exports = search => source => {
 
   return searchPosition === 0
 }
+
+export { startsWith }

@@ -1,23 +1,7 @@
-const test = require("tape")
-const toggle = require("./toggle")
+import test from "tape"
+import { toggle } from ".."
 
-/**
- * Add element if not exists, remove otherwise
- *
- * @param  {mixed}  element  Toggable value
- *
- * @return {Array}
- *
- * @tag Array
- * @signature (element: mixed) => (source: Array): Array
- *
- * @example
- * toggle( 1 )( [ 1, 2 ] )
- * // => [ 2 ]
- * toggle( 1 )( [ 2 ] )
- * // => [ 1, 2 ]
- */
-test("array::toggle", t => {
+test("toggle", t => {
   t.deepEqual(
     toggle(2)([1, 2, 3]),
     [1, 3],

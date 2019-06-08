@@ -1,21 +1,7 @@
-const test = require("tape")
-const toLower = require("./to-lower")
+import test from "tape"
+import { toLower } from ".."
 
-/**
- * Convert string to lower case
- *
- * @tag String
- * @signature ( source: string ): string
- *
- * @param   {string}  source  Source string
- *
- * @return  {string}
- *
- * @example
- * const scores = split(",")("lorem,ipsum")
- * // ["lorem", "ipsum"]
- */
-test("string::toLower", t => {
+test("toLower", t => {
   const source = "Lorem Opsum"
 
   t.equals(

@@ -1,27 +1,7 @@
-const test = require("tape")
-const type = require("./type")
+import test from "tape"
+import { type } from ".."
 
-/**
- * From ramda: Gives a single-word string description of the (native) type of
- * a value, returning such answers as "Object", "Number", "Array", or "Null".
- *
- * Does not attempt to distinguish user Object types any further, reporting
- * them all as "Object".
- *
- * @example
- * type({})                // "Object"
- * type(1)                 // "Number"
- * type(false)             // "Boolean"
- * type("s")               // "String"
- * type(null)              // "Null"
- * type(undefined)         // "Undefined"
- * type([])                // "Array"
- * type(/[A-z]/)           // "RegExp"
- * type(new Date())        // "Date"
- * type(() => {})          // "Function"
- * type(Promise.resolve()) // "Promise"
- */
-test("core::type", t => {
+test("type", t => {
   t.equal(type(null), "Null", "null should equal Null")
   t.equal(type(undefined), "Undefined", "undefined should equal Undefined")
   t.equal(type(NaN), "Number", "NaN should equal Number")

@@ -1,7 +1,7 @@
-const when = require("../when/when")
-const has = require("../has/has")
-const remove = require("../remove/remove")
-const push = require("../push/push")
+import { when } from "../when/when"
+import { has } from "../has/has"
+import { remove } from "../remove/remove"
+import { push } from "../push/push"
 
 /**
  * Add element if not exists, remove otherwise
@@ -19,10 +19,12 @@ const push = require("../push/push")
  * toggle( 1 )( [ 2 ] )
  * // => [ 1, 2 ]
  */
-module.exports = element => source => {
+const toggle = element => source => {
   if (source.length === 0) {
     return [element]
   }
 
   return when(has(element), remove(element), push(element))(source)
 }
+
+export { toggle }

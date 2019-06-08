@@ -1,3 +1,5 @@
+import { isMatch } from "../is-match/is-match"
+
 /**
  * Find the position of first element that satisfies a function
  *
@@ -18,7 +20,7 @@
  * findIndex(item => item.id === 3)(comments)
  * // => -1
  */
-module.exports = fn => source => {
+const findIndex = fn => source => {
   for (let i = 0, length = source.length; i < length; i++) {
     const found = fn(source[i], i, source)
 
@@ -29,3 +31,7 @@ module.exports = fn => source => {
 
   return -1
 }
+
+const findIndexWith = subset => findIndex(isMatch(subset))
+
+export { findIndex, findIndexWith }

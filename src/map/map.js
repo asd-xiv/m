@@ -7,7 +7,7 @@
  *
  * @return {Array}
  */
-module.exports = (...fn) => source => {
+const map = (...fn) => source => {
   const result = []
   const sourceArray = Array.isArray(source) ? source : [source]
 
@@ -24,3 +24,5 @@ module.exports = (...fn) => source => {
 
   return result
 }
+
+export { map }

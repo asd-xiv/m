@@ -1,22 +1,14 @@
-const test = require("tape")
-const debounce = require("./debounce")
-
-/**
- * Call a function only after it wasn't called for `timeWindow` ms.
- *
- * @param  {Function}  fn            Source function
- * @param  {number}    timeWindow    Time that needs to pass without calling
- *                                   so that the function is actually called
- *
- * @return {Function}
- */
+import test from "tape"
+import { debounce } from ".."
 
 test("core::debounce", t => {
   /**
    * Debounce with defaults
    */
   let defaultCounter = 0
+  let callCount = 0
   const defaultSet = debounce(source => {
+    callCount = callCount + 1
     defaultCounter = source
   })
 
@@ -24,11 +16,10 @@ test("core::debounce", t => {
     defaultSet(i)
   }
 
-  // Wait until the internal timer of debounce finishes
   setTimeout(() => {
     t.equal(
-      defaultCounter,
-      99,
+      callCount + defaultCounter,
+      1 + 99,
       "Calling debounce function 100 times should run it once, 50ms after last call"
     )
   }, 100)
@@ -36,30 +27,27 @@ test("core::debounce", t => {
   /**
    * Debounce with custom
    */
-
   let customCounter = 0
+  let customCallCount = 0
   const customSet = debounce(
     source => {
+      customCallCount = customCallCount + 1
       customCounter = source
     },
-    { timeWindow: 100, bind: null }
+    { wait: 100, bind: null }
   )
 
   for (let i = 0; i < 100; i++) {
     customSet(i)
   }
 
-  // Wait until the internal timer of debounce finishes
   setTimeout(() => {
     t.equal(
-      customCounter,
-      99,
+      customCallCount + customCounter,
+      1 + 99,
       "Calling debounced function 100 times with custom timer window"
     )
-  }, 150)
 
-  // Make sure the tests end after both test timers end
-  setTimeout(() => {
     t.end()
-  }, 200)
+  }, 150)
 })

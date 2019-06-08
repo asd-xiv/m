@@ -1,18 +1,7 @@
-const test = require("tape")
-const protoChain = require("./proto-chain")
+import test from "tape"
+import { protoChain } from ".."
 
-/**
- * Return an array of constructor function names based on the prototype chain
- *
- * @param {Object}    source  Source input
- * @param {string[]}  acc     Accumulator array
- *
- * @returns {string[]}
- *
- * @tag Core
- * @signature (source: Object, acc: string[]): string[]
- */
-test("core::protoChain", t => {
+test("protoChain", t => {
   t.deepEqual(protoChain({}), ["Object"], "Proto chain of object")
 
   t.deepEqual(

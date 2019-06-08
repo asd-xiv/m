@@ -1,12 +1,12 @@
 /* eslint-disable no-sync, no-console */
 
-const Benchmark = require("benchmark")
+import Benchmark from "benchmark"
 
-const deepEqual = require("./deep-equal")
-const { isEqual: deepEqualL } = require("lodash")
-const { equals: deepEqualR } = require("ramda")
-const { isEqual: deepEqualU } = require("underscore")
-const deepEqualF = require("fast-deep-equal")
+import { deepEqual } from "./deep-equal"
+import { isEqual as deepEqualL } from "lodash"
+import { equals as deepEqualR } from "ramda"
+import { isEqual as deepEqualU } from "underscore"
+import deepEqualF from "fast-deep-equal"
 
 const sourceA1 = {
   lvl1: [1, 2, 3],

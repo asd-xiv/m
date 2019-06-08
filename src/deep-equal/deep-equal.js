@@ -2,20 +2,20 @@
 
 const byType = {
   /**
-   * Determine if 2 arrays are equal. Order counts: [1,2] !== [2,1]
+   * Determine if 2 arrays are equal. Order counts: [1, 2] !== [2, 1]
    *
-   * @param  {Array}   alice  Source input
-   * @param  {Array}   bob    Other source input
+   * @param  {Array}  a  Source input
+   * @param  {Array}  b  Other source input
    *
-   * @return {boolean}
+   * @returns  {boolean}
    */
-  Array: (alice, bob) => {
-    if (alice.length !== bob.length) {
+  Array: (a, b) => {
+    if (a.length !== b.length) {
       return false
     }
 
-    for (let i = 0, length = alice.length; i < length; i++) {
-      if (!deepEqual(alice[i])(bob[i])) {
+    for (let i = 0, length = a.length; i < length; i++) {
+      if (!deepEqual(a[i])(b[i])) {
         return false
       }
     }
@@ -26,14 +26,14 @@ const byType = {
   /**
    * Determine if 2 objects are equal
    *
-   * @param  {Object}   alice  Source input
-   * @param  {Object}   bob    Other source input
+   * @param  {Object}  a  Source input
+   * @param  {Object}  b  Other source input
    *
-   * @return {boolean}
+   * @returns  {boolean}
    */
-  Object: (alice, bob) => {
-    const aliceEntries = Object.entries(alice)
-    const bobEntries = Object.entries(bob)
+  Object: (a, b) => {
+    const aliceEntries = Object.entries(a)
+    const bobEntries = Object.entries(b)
 
     if (aliceEntries.length !== bobEntries.length) {
       return false
@@ -42,7 +42,7 @@ const byType = {
     for (let i = 0, length = aliceEntries.length; i < length; i++) {
       const [aliceKey, aliceValue] = aliceEntries[i]
 
-      if (!deepEqual(bob[aliceKey])(aliceValue)) {
+      if (!deepEqual(b[aliceKey])(aliceValue)) {
         return false
       }
     }
@@ -53,22 +53,22 @@ const byType = {
   /**
    * Determine if 2 regular expressions are equal
    *
-   * @param  {RegExp}   alice  Source input
-   * @param  {RegExp}   bob    Other source input
+   * @param  {RegExp}  a  Source input
+   * @param  {RegExp}  b  Other source input
    *
-   * @return {boolean}
+   * @returns  {boolean}
    */
-  RegExp: (alice, bob) => alice.toString() === bob.toString(),
+  RegExp: (a, b) => a.toString() === b.toString(),
 
   /**
    * Shallow equal
    *
-   * @param  {mixed}   alice  Source input
-   * @param  {mixed}   bob    Other source input
+   * @param  {mixed}  a  Source input
+   * @param  {mixed}  b  Other source input
    *
-   * @return {boolean}
+   * @returns  {boolean}
    */
-  Primitive: (alice, bob) => alice === bob,
+  Primitive: (a, b) => a === b,
 }
 
 /**
@@ -77,9 +77,9 @@ const byType = {
  *
  * Not using `../type/type.js` added ~300k ops/sec
  *
- * @param  {mixed}   source  The source
+ * @param  {mixed}  source  The source
  *
- * @return {string}
+ * @returns  {string}
  */
 const type = source =>
   Array.isArray(source)
@@ -91,27 +91,47 @@ const type = source =>
     : "Primitive"
 
 /**
- * Determine if two variables are structurally equal.
+ * Determine if two variables are structurally equal (callable curried or
+ * uncurried)
  *
- * @param  {mixed}   alice  Source input
- * @param  {mixed}   bob    Other source input
+ * @name       deepEqual
+ * @tag        Core
+ * @signature  (a: any, b: any): boolean
+ * @see        {@link clone}
  *
- * @return {boolean}
+ * @param  {any}  a  Source input
+ * @param  {any}  b  Other source input
+ *
+ * @returns {boolean} True if inputs are deeply equal, false otherwise
+ *
+ * @example
+ * deepEqual(
+ *   { b: 3, a: 2 },
+ *   { a: 2, b: 3 }
+ * )
+ * // => true
+ *
+ * deepEqual(
+ *   { a :[1, 2] }
+ * )(
+ *   { a: [2, 1] }
+ * )
+ * // => false
  */
-const deepEqual = alice => bob => {
+const deepEqual = a => b => {
   // added 100k ops/sec
-  if (alice === bob) {
+  if (a === b) {
     return true
   }
 
-  const aliceType = type(alice)
-  const bobType = type(bob)
+  const aliceType = type(a)
+  const bobType = type(b)
 
   if (aliceType !== bobType) {
     return false
   }
 
-  return byType[aliceType](alice, bob)
+  return byType[aliceType](a, b)
 }
 
-module.exports = deepEqual
+export { deepEqual }

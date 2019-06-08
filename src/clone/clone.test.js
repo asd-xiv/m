@@ -1,23 +1,7 @@
-const test = require("tape")
-const clone = require("./clone")
+import test from "tape"
+import { clone } from "./clone"
 
-/**
- * Creates a new instance of the object with same properties than original
- *
- * @param  {T}  source  Variable to clone
- *
- * @return {T}
- *
- * @tag Coore
- * @signature (source: T): T
- *
- * @example
- * clone([1])
- * // => [1]
- * clone({a: [1]})
- * // => {a: [1]}
- */
-test("core::clone", t => {
+test("clone", t => {
   /*
    * Primitives
    */

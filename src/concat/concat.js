@@ -13,4 +13,6 @@
  * concat([1])([4, 5])
  * // => [1, 4, 5]
  */
-module.exports = source1 => source2 => source1.concat(source2)
+const concat = source1 => source2 => source1.concat(source2)
+
+export { concat }

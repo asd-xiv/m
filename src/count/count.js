@@ -1,16 +1,4 @@
-const byArray = source => source.length
-
-const byFunction = fn => source => {
-  let count = 0
-
-  for (let i = 0, length = source.length; i < length; i++) {
-    if (fn.call(null, source[i]) === true) {
-      count = count + 1
-    }
-  }
-
-  return count
-}
+import { isMatch } from "../is-match/is-match"
 
 /**
  * Count the number of elements that satisfies a function
@@ -18,8 +6,8 @@ const byFunction = fn => source => {
  * @tag Array
  * @signature (fn: Function)(source: Array <Object>): number
  *
- * @param   {Function}        fn      Test function
- * @param   {Array <Object>}  source  Source array
+ * @param  {Function}  fn      Match function
+ * @param  {Object[]}  source  Source array
  *
  * @return  {number}
  *
@@ -38,7 +26,24 @@ const byFunction = fn => source => {
  *  subject: "Math"
  * }]
  *
- * count( element => element.score === 10 )( scores )
+ * count(element => element.score === 10)(scores)
  * // => 2
  */
-module.exports = fn => (Array.isArray(fn) ? byArray(fn) : byFunction(fn))
+const count = fn =>
+  Array.isArray(fn)
+    ? fn.length
+    : source => {
+        let _count = 0
+
+        for (let i = 0, length = source.length; i < length; i++) {
+          if (fn.call(null, source[i]) === true) {
+            _count = _count + 1
+          }
+        }
+
+        return _count
+      }
+
+const countWith = subset => count(isMatch(subset))
+
+export { count, countWith }

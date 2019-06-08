@@ -1,22 +1,7 @@
-const test = require("tape")
-const escapeRegExp = require("./escapeRegExp")
+import test from "tape"
+import { escapeRegExp } from ".."
 
-/**
- * Make safe for RegExp'ing
- *
- * @param   {string}  source  Source string
- *
- * @return  {string}
- *
- * @tag String
- * @signature ( source: string ): string
- *
- * @example { example }
- *
- * escapeRegExp( "lorem. ipsum [dolor]" )
- * // => "lorem \\. ipsum \\[dolor\\]"
- */
-test("string::escapeRegExp", t => {
+test("escapeRegExp", t => {
   const actualT1 = escapeRegExp("lorem. ipsum [dolor] (sit amet)?")
   const expectedT1 = "lorem\\. ipsum \\[dolor\\] \\(sit amet\\)\\?"
 

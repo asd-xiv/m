@@ -1,26 +1,7 @@
-const test = require("tape")
-const remove = require("./remove")
+import test from "tape"
+import { remove, removeWith } from ".."
 
-/**
- * Remove element(s) from array by value or by filter function
- *
- * @param  {Function|mixed}  value   Value to remove
- * @param  {Array}           source  Source array
- *
- * @return {Array}
- *
- * @tag Array
- * @signature (value: Function|mixed) => (source: Array): Array
- *
- * @example
- * remove(3)([1, 2, 3])
- * // => [1, 2]
- * remove(1, 3)([1, 2, 3])
- * // => [2]
- * remove(_ => _ === 3)([1, 2, 3])
- * // => [1, 2]
- */
-test("array::remove", t => {
+test("remove(With)", t => {
   t.deepEqual(
     remove(_ => _ === 3)([1, 2, 3]),
     [1, 2],
@@ -37,6 +18,16 @@ test("array::remove", t => {
     remove(1, 3)([1, 2, 3]),
     [2],
     "Remove multiple elements from array by value"
+  )
+
+  t.deepEqual(
+    removeWith({ author: null })([
+      { id: 1, author: null },
+      { id: 2, author: null },
+      { id: 3, author: 3 },
+    ]),
+    [{ id: 3, author: 3 }],
+    "Remove multiple elements from array by matching a subset"
   )
 
   const source = [1, 2, 3]

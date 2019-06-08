@@ -75,5 +75,7 @@ const minByFunction = fn => source => {
  * min(fn)(source)
  * // => {time: "2018-05-15T11:20:07.754110Z"}
  */
-module.exports = arg1 =>
+const min = arg1 =>
   Array.isArray(arg1) ? minByValue(arg1) : minByFunction(arg1)
+
+export { min }

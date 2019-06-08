@@ -16,7 +16,7 @@
  * sequence(3)(1, 5)   // [1, 4]
  * sequence(-1)(2, -3) // [ 2, 1, 0, -1, -2, -3 ]
  */
-module.exports = step => (start, end) => {
+const sequence = step => (start, end) => {
   if (step === 0) {
     throw new Error(
       `Invalid "step" value, must be non zero. Got "step": ${step}, "start": ${start}, "end": ${end}`
@@ -46,3 +46,5 @@ module.exports = step => (start, end) => {
 
   return result
 }
+
+export { sequence }

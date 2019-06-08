@@ -1,22 +1,9 @@
-const test = require("tape")
-const repeat = require("../repeat/repeat")
-const get = require("../get/get")
-const gt = require("../gt/gt")
-const hist = require("../hist/hist")
-const chiSquaredTest = require("chi-squared-test")
+import test from "tape"
+import chiSquaredTest from "chi-squared-test"
 
-const random = require("./random")
+import { random, repeat, get, gt, hist } from ".."
 
-/**
- * Generate random number between interval
- *
- * @param  {Object}   arg1      Props
- * @param  {number}   arg1.min  The minimum
- * @param  {number}   arg1.max  The maximum
- *
- * @return {integer}
- */
-test("number::random", t => {
+test("random", t => {
   const [min, max, observationCount] = [5, 10, 600]
 
   const observationsHist =

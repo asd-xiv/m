@@ -1,46 +1,7 @@
-const test = require("tape")
-const hist = require("./hist")
+import test from "tape"
+import { hist } from ".."
 
-/**
- * Determine the count of all field's distinct values in a list of objects
- * (aka histogram)
- *
- * @tag Array
- * @signature (field: string)(source: Object[]): Object
- *
- * @param   {string}    field   Field name to count
- * @param   {Object[]}  source  Array of objects
- *
- * @return  {Object}
- *
- * @example
- *
- * const scores = [{
- *  name   : "Bob",
- *  score  : 1,
- *  subject: "Math"
- * }, {
- *  name   : "Alice",
- *  score  : 10,
- *  subject: "Math"
- * }, {
- *  name   : "Hatter",
- *  score  : 10,
- *  subject: "Math"
- * }]
- *
- * hist( "score" )( scores )
- * // => {
- * //  "1": 1,
- * //  "10": 2
- * // }
- *
- * hist( "subject" )( scores )
- * // => {
- * //  "Math": 2
- * // }
- */
-test("array::hist", t => {
+test("hist", t => {
   const scores = [
     {
       name: "Bob",

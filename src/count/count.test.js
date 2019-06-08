@@ -1,60 +1,31 @@
-const test = require("tape")
-const count = require("./count")
+import test from "tape"
+import { count, countWith } from ".."
 
-/**
- * Count the number of elements that satisfies a function
- *
- * @tag Array
- * @signature (fn: Function)(source: Array <Object>): number
- *
- * @param   {Function}        fn      Test function
- * @param   {Array <Object>}  source  Source array
- *
- * @return  {number}
- *
- * @example
- * const scores = [{
- *  name   : "Bob",
- *  score  : 1,
- *  subject: "Math"
- * }, {
- *  name   : "Alice",
- *  score  : 10,
- *  subject: "Math"
- * }, {
- *  name   : "Hatter",
- *  score  : 10,
- *  subject: "Math"
- * }]
- *
- * count( element => element.score === 10 )( scores )
- * // => 2
- */
-test("array::count", t => {
-  const scores = [
-    {
-      name: "Bob",
-      score: 1,
-    },
-    {
-      name: "Alice",
-      score: 10,
-      subject: "Math",
-    },
-    {
-      name: "Hatter",
-      score: 10,
-      subject: "Math",
-    },
-  ]
+test("count(With)", t => {
+  t.equal(count([1, 2, 3]), 3, "Count items of array")
 
   t.equal(
-    count(element => element.score === 10)(scores),
+    count(item => item.score === 10)([
+      { name: "Bob", score: 1 },
+      { name: "Alice", score: 10, subject: "Math" },
+      { name: "Hatter", score: 10, subject: "Math" },
+    ]),
     2,
-    "Count elements that satisfy function"
+    "Count items that satisfy function"
   )
 
-  t.equal(count(scores), 3, "Count elements of an array")
+  t.equal(
+    countWith({
+      subject: "Math",
+      score: value => value > 5,
+    })([
+      { name: "Bob", score: 1, subject: "CS" },
+      { name: "Alice", score: 10, subject: "Math" },
+      { name: "Hatter", score: 10, subject: "Math" },
+    ]),
+    2,
+    "Count items that match subset"
+  )
 
   t.end()
 })

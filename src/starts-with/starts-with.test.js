@@ -1,22 +1,7 @@
-const test = require("tape")
-const startsWith = require("./starts-with.js")
+import test from "tape"
+import { startsWith } from ".."
 
-/**
- * Test if string starts with substring
- *
- * @param  {string}  search  Search string
- * @param  {string}  source  Source string
- *
- * @return {boolean}
- *
- * @tag String
- * @signature (search: string) => (source: string): boolean
- *
- * @example
- * startsWith("lorem")("lorem ipsum")
- * // => true
- */
-test("string::startsWith", t => {
+test("startsWith", t => {
   t.equals(
     startsWith("lorem")("lorem ipsum"),
     true,

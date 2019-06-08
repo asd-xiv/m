@@ -1,3 +1,5 @@
+import { all } from "../all/all"
+
 const byValue = ({ shouldBe, value, not }) =>
   not ? shouldBe !== value : shouldBe === value
 
@@ -10,6 +12,7 @@ const byFn = ({ shouldBe, value, not }) => {
 /**
  * Determines if one object's properties are equal to another
  *
+ * @name   isMatch
  * @tag Core
  * @signature (subset: Object)(source: Object): boolean
  *
@@ -21,7 +24,6 @@ const byFn = ({ shouldBe, value, not }) => {
  *                    otherwise false
  *
  * @example
- *
  * isMatch({
  *  id: 2,
  *  parentId: null,
@@ -42,23 +44,16 @@ const byFn = ({ shouldBe, value, not }) => {
  * })
  * // false
  */
-module.exports = subset => source => {
-  const subsetEntries = Object.entries(subset)
+const isMatch = subset => source =>
+  all(([key, shouldBe]) => {
+    const shouldTestNegation = key[0] === "!"
 
-  for (let i = 0, length = subsetEntries.length; i < length; i++) {
-    const [key, shouldBe] = subsetEntries[i]
-    const not = key[0] === "!"
-    const cleanKey = key.replace("!", "")
+    const sourceKey = key.replace("!", "")
+    const value = source[sourceKey]
 
-    const isFieldMatch =
-      typeof shouldBe === "function"
-        ? byFn({ shouldBe, value: source[cleanKey], not })
-        : byValue({ shouldBe, value: source[cleanKey], not })
+    return typeof shouldBe === "function"
+      ? byFn({ shouldBe, value, not: shouldTestNegation })
+      : byValue({ shouldBe, value, not: shouldTestNegation })
+  })(Object.entries(subset))
 
-    if (isFieldMatch === false) {
-      return false
-    }
-  }
-
-  return true
-}
+export { isMatch }

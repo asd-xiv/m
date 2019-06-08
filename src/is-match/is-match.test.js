@@ -1,40 +1,6 @@
-const test = require("tape")
-const isMatch = require("./is-match")
+import test from "tape"
+import { isMatch } from ".."
 
-/**
- * Determines one object's properties are equal to another
- *
- * @tag Core
- * @signature ( subset: Object )( source: Object ): boolean
- *
- * @param  {Object}   subset  Set of properties that should match
- * @param  {Object}   source  Object matching against
- *
- * @return {boolean}  True if all "subset" properties are of equal value to
- * properties in "source" object
- *
- * @example
- *
- * isMatch({
- *  id: 2,
- *  parentId: null,
- * })({
- *  id: 2,
- *  parentId: null
- *  name: "John",
- * })
- * // true
- *
- * isMatch({
- *  "!parentId": null,
- *  "name": "John",
- * })({
- *  id: 2,
- *  parentId: null,
- *  name: "John",
- * })
- * // false
- */
 test("core::isMatch", t => {
   t.deepEqual(
     isMatch({

@@ -1,22 +1,7 @@
-const test = require("tape")
-const contains = require("./contains")
+import test from "tape"
+import { contains } from ".."
 
-/**
- * Test if string contains substring
- *
- * @param  {string}  search  Search string
- * @param  {string}  source  Source string
- *
- * @return {boolean}
- *
- * @tag String
- * @signature (search: string) => (source: string): boolean
- *
- * @example
- * contains("ipsum")("lorem ipsum")
- * // => true
- */
-test("string::contains", t => {
+test("contains", t => {
   t.equals(
     contains("lorem")("lorem ipsum"),
     true,

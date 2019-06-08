@@ -19,5 +19,7 @@
  * equal([1])([1])
  * // => false
  */
-module.exports = one => two =>
+const equals = one => two =>
   Number.isNaN(one) && Number.isNaN(two) ? true : one === two
+
+export { equals }

@@ -1,28 +1,7 @@
-const test = require("tape")
-const equals = require("./equals")
+import test from "tape"
+import { equals } from ".."
 
-/**
- * Check if a is equal to b (strict equality)
- *
- * @param  {mixed}  one  First value
- * @param  {mixed}  two  Second value
- *
- * @return  {boolean}
- *
- * @tag Core
- * @signature (a: mixed) => (b: mixed): boolean
- *
- * @example
- * equal(2)(2)
- * // => true
- * equal("2")(2)
- * // => false
- * equal(NaN)(NaN)
- * // => true
- * equal([1])([1])
- * // => false
- */
-test("core::equals", t => {
+test("equals", t => {
   t.equals(equals(2)(2), true, "Compare two equal primitives")
 
   t.equals(equals("2")(2), false, "Compare two not-equal primitives")

@@ -1,3 +1,5 @@
-module.exports = error => {
+const raise = error => {
   throw error
 }
+
+export { raise }

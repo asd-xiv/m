@@ -1,10 +1,10 @@
-const { sep } = require("path")
+import { sep } from "path"
 
-const trim = require("../trim/trim")
-const split = require("../split/split")
-const push = require("../push/push")
-const join = require("../join/join")
-const dropLast = require("../drop-last/drop-last")
+import { trim } from "../trim/trim"
+import { split } from "../split/split"
+import { push } from "../push/push"
+import { join } from "../join/join"
+import { dropLast } from "../drop-last/drop-last"
 
 const removeTrailingSlash = source =>
   source[source.length - 1] === sep ? source.slice(0, -1) : source
@@ -17,10 +17,12 @@ const removeTrailingSlash = source =>
  *
  * @return {string}
  */
-module.exports = newName => filePath =>
+const renameFile = newName => filePath =>
   filePath
   |> removeTrailingSlash
   |> split(sep)
   |> dropLast
   |> push(trim(sep)(newName))
   |> join(sep)
+
+export { renameFile }

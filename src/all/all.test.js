@@ -1,34 +1,32 @@
-const test = require("tape")
-const all = require("./all")
-const is = require("../is/is")
+import test from "tape"
+import { all, allWith, is } from ".."
 
 const isEven = source => source % 2 === 0
 const hasId = source => is(source.id)
 
-/**
- * Test if all elements of array satisfy function
- *
- * @param {Function}  fn      Function that all elements need to satisfy
- * @param {Array}     source  Source array
- *
- * @return {boolea
- * n}
- *
- * @tag Core
- * @signature (fn: Function) => (source: Array): boolean
- *
- * @example
- * all(isNumber)([1, 2, 3])
- * // => true
- * all(is)([1, "asd", null])
- * // => false
- */
-test("core::all", t => {
+test("all(With)", t => {
   t.equal(all(isEven)([2, 6, 4]), true, "Check all number are even")
+
   t.equal(
     all(hasId)([{}, { id: 2 }, {}]),
     false,
     'Check all elements have "id" property'
+  )
+
+  t.equal(
+    allWith({
+      id: value => is(value),
+    })([{}, { id: 2 }, {}]),
+    false,
+    'Not all elements have "id" property via match subset'
+  )
+
+  t.equal(
+    allWith({
+      id: value => is(value),
+    })([{ id: 1 }, { id: 2 }, { id: 3, name: "test" }]),
+    true,
+    'All elements have "id" property via match subset'
   )
 
   t.end()

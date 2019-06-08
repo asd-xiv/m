@@ -14,5 +14,7 @@
  * head([])
  * // => undefined
  */
-module.exports = source =>
+const head = source =>
   Array.isArray(source) && source.length !== 0 ? source[0] : undefined
+
+export { head }

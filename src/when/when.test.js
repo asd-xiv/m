@@ -1,30 +1,9 @@
-const test = require("tape")
-const when = require("./when")
-const inc = require("../inc/inc")
-const dec = require("../dec/dec")
+import test from "tape"
+import { inc, dec, when } from ".."
 
 const isEven = source => source % 2 !== 0
 
-/**
- * Functional if-then-else
- *
- * @param  {Function}  ifFn    Condition function
- * @param  {Function}  thenFn  Then function
- * @param  {Function}  elseFn  Else function, if not specified will return
- *                             source
- *
- * @return {mixed}
- *
- * @tag Core
- * @signature (ifFn: Function, thenFn: Function, elseFn: Function) => (source: mixed): mixed
- *
- * @example
- * when(isEven, increment, decrement)(5)
- * // => 6
- * when(isOdd, increment)(6)
- * // => 6
- */
-test("core::when", t => {
+test("when", t => {
   t.equals(
     when(isEven, inc, dec)(5),
     6,

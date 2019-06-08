@@ -1,18 +1,7 @@
-const test = require("tape")
-const dropLast = require("./drop-last")
+import test from "tape"
+import { dropLast } from ".."
 
-/**
- * Remove elements from end of array
- *
- * @param  {number|Array}  count   Number of element to remove
- * @param  {Array}         source  Source array
- *
- * @return {Array}
- *
- * @tag Array
- * @signature (count: number|Array) => (source: Array): Array
- */
-test("array::dropLast", t => {
+test("dropLast", t => {
   t.deepEqual(
     dropLast([1, 1, 3]),
     [1, 1],

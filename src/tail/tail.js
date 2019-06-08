@@ -14,5 +14,6 @@
  * tail([])
  * // => null
  */
-module.exports = source =>
-  source.length === 0 ? null : source[source.length - 1]
+const tail = source => (source.length === 0 ? null : source[source.length - 1])
+
+export { tail }

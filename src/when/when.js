@@ -1,4 +1,4 @@
-const type = require("../type/type")
+import { type } from "../type/type"
 
 /**
  * Functional if-then-else
@@ -19,9 +19,11 @@ const type = require("../type/type")
  * when(isOdd, increment)(6)
  * // => 6
  */
-module.exports = (ifFn, thenFn, elseFn) => source =>
+const when = (ifFn, thenFn, elseFn) => source =>
   ifFn(source)
     ? thenFn(source)
     : type(elseFn) === "Function"
     ? elseFn(source)
     : source
+
+export { when }

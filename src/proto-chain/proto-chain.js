@@ -15,4 +15,4 @@ const protoChain = (source, acc = []) => {
   return proto ? protoChain(proto, [...acc, proto.constructor.name]) : acc
 }
 
-module.exports = protoChain
+export { protoChain }

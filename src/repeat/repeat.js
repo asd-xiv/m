@@ -15,7 +15,7 @@
  * repeat(index=>index+1)(3)
  * // => [1, 2, 3]
  */
-module.exports = fn => (count = 0) => {
+const repeat = fn => (count = 0) => {
   const result = []
 
   for (let i = 0; i < count; i++) {
@@ -24,3 +24,5 @@ module.exports = fn => (count = 0) => {
 
   return result
 }
+
+export { repeat }

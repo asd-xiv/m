@@ -26,10 +26,12 @@ const drop = count => source => {
  * @tag Array
  * @signature (count: number|Array) => (source: Array): Array
  */
-module.exports = count => {
+const dropLast = count => {
   if (Array.isArray(count)) {
     return drop(1)(count)
   }
 
   return drop(count)
 }
+
+export { dropLast }
