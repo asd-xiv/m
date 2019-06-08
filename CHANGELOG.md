@@ -9,6 +9,26 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.22] - 8 June 2019
+
+### :boom: Bracking change
+
+- Rename all `*By` -> `*With`. Functions relying on `isMatch` and required a subset object. 
+
+### Add
+
+- Add [`any(With)`](src/any/any.js) - Test if at least one element of array satisfies function
+- Add [`curry`](src/curry/curry.js) - Partially apply a function
+
+### Change 
+
+- Refactor to ES6 import/export
+
+### Remove
+
+- Remove `findFiles`. Use [`glob`](https://www.npmjs.com/package/glob)
+- Remove `coinToss`
+
 ## [0.21] - 16 April 2019
 
 ### Add
@@ -206,6 +226,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 [Unreleased]: https://github.com/asd14/m/compare/v0.21...HEAD
 
+[0.22]: https://github.com/asd14/m/compare/v0.21...v0.22
 [0.21]: https://github.com/asd14/m/compare/v0.20...v0.21
 [0.20]: https://github.com/asd14/m/compare/v0.19...v0.20.0
 [0.19]: https://github.com/asd14/m/compare/v0.18.0...v0.19

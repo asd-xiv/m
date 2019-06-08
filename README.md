@@ -4,23 +4,50 @@
 
 # m
 
-> Point free style, functional library for Javascript
+> [Point free](https://en.wikipedia.org/wiki/Tacit_programming) style, functional library for Javascript
 
-Changes a lot. Use [Ramda](https://github.com/ramda/ramda).
+Experimental. Use [Ramda](https://github.com/ramda/ramda).
 
 ---
 
 <!-- vim-markdown-toc GFM -->
 
+* ["With" pattern](#with-pattern)
 * [|> pipe](#-pipe)
 * [Install](#install)
 * [Develop](#develop)
 * [Use](#use)
 * [Changelog](#changelog)
-  * [0.21 - 16 April 2019](#021---16-april-2019)
+  * [0.22 - 8 June 2019](#022---8-june-2019)
+    * [:boom: Bracking change](#boom-bracking-change)
     * [Add](#add)
+    * [Change](#change)
+    * [Remove](#remove)
 
 <!-- vim-markdown-toc -->
+
+## "With" pattern
+
+```js
+import { find, findWith, filterWith, is } from "@asd14/m"
+
+const todos = [
+  {id: 1, name: "lorem", tagId: 2,},
+  {id: 2, name: "ipsum", tagId: null},
+  {id: 3, name: "dolor", tagId: null},
+]
+
+find(item => item.id === 2)(todos)
+// or
+findWith({id: 2})(todos)
+//=> {id: 2, name: "ipsum"}
+
+filterWith({
+  // tagId: value => is(value)
+  tagId: is
+})(todos)
+// [{id:1, name: "lorem", tagId: 2}]
+```
 
 ## |> pipe
 
@@ -98,8 +125,22 @@ const renameFile = newName => pipe(
 
 History of all changes in [CHANGELOG.md](CHANGELOG.md)
 
-### 0.21 - 16 April 2019
+### 0.22 - 8 June 2019
+
+#### :boom: Bracking change
+
+- Rename all `*By` -> `*With`. Functions relying on `isMatch` and required a subset object. 
 
 #### Add
 
-- Add [`last`](src/last/last.js) - Return last element in array
+- Add [`any(With)`](src/any/any.js) - Test if at least one element of array satisfies function
+- Add [`curry`](src/curry/curry.js) - Partially apply a function
+
+#### Change 
+
+- Refactor to ES6 import/export
+
+#### Remove
+
+- Remove `findFiles`. Use [`glob`](https://www.npmjs.com/package/glob)
+- Remove `coinToss`
