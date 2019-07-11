@@ -5,7 +5,7 @@
 version: 2
 
 #
-# Templates
+# YAML variable templates
 #
 job_defaults: &job_defaults
   working_directory: ~/m-repo
@@ -19,7 +19,7 @@ job_filter: &job_filter
         - master
 
 #
-#
+# Run all jobs in sequence
 #
 workflows:
   version: 2
@@ -41,7 +41,7 @@ workflows:
             - coverage
 
 #
-#
+# Define atomic jobs
 #
 jobs:
   setup:
