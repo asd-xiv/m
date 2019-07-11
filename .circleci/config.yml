@@ -6,10 +6,9 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
       - image: circleci/node:8
 
-    working_directory: ~/repo
+    working_directory: ~/m-repo
 
     steps:
       - checkout
@@ -18,15 +17,24 @@ jobs:
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
 
-      - run: npm run setup
+      - run:
+          name: m: Install npm packages
+          command: npm run setup:ci
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      # run tests!
-      - run: npm test
+      - run:
+          name: m: Run linter
+          command: npm run lint
+
+      - run:
+          name: m: Run tests
+          command: npm test
+
+      - run:
+          name: m: Publish test coverage to COVERALLS
+          command: npm run coverage
