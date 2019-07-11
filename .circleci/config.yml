@@ -4,25 +4,6 @@
 #
 version: 2
 
-workflows:
-  version: 2
-  build_test_coverage_publish:
-    filters:
-      branches:
-        only:
-          - master
-    jobs:
-      - setup
-      - test:
-          requires:
-            - setup
-      - coverage:
-          requires:
-            - test
-      - publish:
-          requires:
-            - coverage
-
 #
 # Templates
 #
@@ -30,6 +11,34 @@ job_defaults: &job_defaults
   working_directory: ~/m-repo
   docker:
     - image: circleci/node:8
+
+job_filter: &job_filter
+  filters:
+    branches:
+      only:
+        - master
+
+#
+#
+#
+workflows:
+  version: 2
+  build_test_coverage_publish:
+    jobs:
+      - setup:
+          <<: *job_filter
+      - test:
+          <<: *job_filter
+          requires:
+            - setup
+      - coverage:
+          <<: *job_filter
+          requires:
+            - test
+      - publish:
+          <<: *job_filter
+          requires:
+            - coverage
 
 #
 #
