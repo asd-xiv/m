@@ -4,12 +4,13 @@
 #
 version: 2
 
-#
-#
-#
 workflows:
   version: 2
-  deploy:
+  build_test_coverage_publish:
+    filters:
+      branches:
+        only:
+          - master
     jobs:
       - setup
       - test:
@@ -23,13 +24,19 @@ workflows:
             - coverage
 
 #
+# Templates
+#
+job_defaults: &job_defaults
+  working_directory: ~/m-repo
+  docker:
+    - image: circleci/node:8
+
+#
 #
 #
 jobs:
   setup:
-    docker:
-      - image: circleci/node:8
-    working_directory: ~/m-repo
+    <<: *job_defaults
 
     steps:
       - checkout
@@ -38,15 +45,18 @@ jobs:
           name: "m: Install npm packages"
           command: "npm run setup:ci"
 
+      - run:
+          name: "m: Babel compile"
+          command: "npm run build:ci"
+
       - save_cache:
           paths:
             - node_modules
+            - dist
           key: m-{{ .Branch }}-{{ checksum "package.json" }}
 
   test:
-    docker:
-      - image: circleci/node:8
-    working_directory: ~/m-repo
+    <<: *job_defaults
 
     steps:
       - checkout
@@ -61,12 +71,10 @@ jobs:
 
       - run:
           name: "m: Run tests"
-          command: "npm test"
+          command: "npm run test:ci"
 
   coverage:
-    docker:
-      - image: circleci/node:8
-    working_directory: ~/m-repo
+    <<: *job_defaults
 
     steps:
       - checkout
@@ -75,15 +83,12 @@ jobs:
           keys:
             - m-{{ .Branch }}-{{ checksum "package.json" }}
 
-      # Uses COVERALLS environment variables
       - run:
           name: "m: Publish test coverage to COVERALLS"
-          command: "npm run coverage"
+          command: "npm run coverage:ci"
 
   publish:
-    docker:
-      - image: circleci/node:8
-    working_directory: ~/m-repo
+    <<: *job_defaults
 
     steps:
       - checkout
