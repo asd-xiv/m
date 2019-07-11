@@ -3,20 +3,36 @@
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
 version: 2
-jobs:
-  build:
-    docker:
-      - image: circleci/node:8
 
+docker:
+  - image: circleci/node:8
+
+#
+#
+#
+workflows:
+  deploy:
+    jobs:
+      - setup
+      - test:
+          requires:
+            - setup
+      - coverage:
+          requires:
+            - test
+      - publish:
+          requires:
+            - coverage
+
+#
+#
+#
+jobs:
+  setup:
     working_directory: ~/m-repo
 
     steps:
       - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
 
       - run:
           name: "m: Install npm packages"
@@ -25,7 +41,20 @@ jobs:
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: m-{{ .Branch }}-{{ checksum "package-lock.json" }}
+
+  test:
+    docker:
+      - image: circleci/node:8
+
+    working_directory: ~/m-repo
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - m-{{ .Branch }}-{{ checksum "package-lock.json" }}
 
       - run:
           name: "m: Run linter"
@@ -35,6 +64,38 @@ jobs:
           name: "m: Run tests"
           command: "npm test"
 
+  coverage:
+    docker:
+      - image: circleci/node:8
+
+    working_directory: ~/m-repo
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - m-{{ .Branch }}-{{ checksum "package-lock.json" }}
+
+      # Uses COVERALLS environment variables
       - run:
           name: "m: Publish test coverage to COVERALLS"
           command: "npm run coverage"
+
+  publish:
+    docker:
+      - image: circleci/node:8
+
+    working_directory: ~/m-repo
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - m-{{ .Branch }}-{{ checksum "package-lock.json" }}
+
+      - run:
+          name: "m: Release to npm with semantic-release"
+          command: "npx semantic-release"
+
