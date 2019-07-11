@@ -1,9 +1,9 @@
 <!-- markdownlint-disable first-line-h1 line-length -->
 
+[![CircleCI](https://circleci.com/gh/asd14/m/tree/master.svg?style=svg)](https://circleci.com/gh/asd14/m/tree/master)
 [![npm package version](https://badge.fury.io/js/%40asd14%2Fm.svg)](https://badge.fury.io/js/%40asd14%2Fm)
 [![dev-badge](https://david-dm.org/asd14/m.svg)](https://david-dm.org/asd14/m)
 [![Coverage Status](https://coveralls.io/repos/github/asd14/m/badge.svg)](https://coveralls.io/github/asd14/m)
-[![CircleCI](https://circleci.com/gh/asd14/m/tree/master.svg?style=svg)](https://circleci.com/gh/asd14/m/tree/master)
 
 # m
 
