@@ -19,6 +19,7 @@
   "scripts": {
     "----UTIL": "",
     "setup": "rm -rf ./node_modules && npm i && npm audit fix",
+    "setup:ci": "npm ci && npm audit fix",
     "update": "npm-check --update --save-exact",
     "----BUNDLE": "",
     "build:docs": "---TBD---",
