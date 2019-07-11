@@ -41,7 +41,7 @@ jobs:
       - save_cache:
           paths:
             - node_modules
-          key: m-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          key: m-{{ .Branch }}-{{ checksum "package.json" }}
 
   test:
     docker:
@@ -53,7 +53,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - m-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - m-{{ .Branch }}-{{ checksum "package.json" }}
 
       - run:
           name: "m: Run linter"
@@ -73,7 +73,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - m-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - m-{{ .Branch }}-{{ checksum "package.json" }}
 
       # Uses COVERALLS environment variables
       - run:
@@ -90,7 +90,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - m-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - m-{{ .Branch }}-{{ checksum "package.json" }}
 
       - run:
           name: "m: Release to npm with semantic-release"
