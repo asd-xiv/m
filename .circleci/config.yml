@@ -19,8 +19,8 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
 
       - run:
-          name: m: Install npm packages
-          command: npm run setup:ci
+          name: "m: Install npm packages"
+          command: "npm run setup:ci"
 
       - save_cache:
           paths:
@@ -28,13 +28,13 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
-          name: m: Run linter
-          command: npm run lint
+          name: "m: Run linter"
+          command: "npm run lint"
 
       - run:
-          name: m: Run tests
-          command: npm test
+          name: "m: Run tests"
+          command: "npm test"
 
       - run:
-          name: m: Publish test coverage to COVERALLS
-          command: npm run coverage
+          name: "m: Publish test coverage to COVERALLS"
+          command: "npm run coverage"
