@@ -27,8 +27,8 @@
     "prepare": "npm run build",
     "prepublishOnly": "npm audit fix && npm test && npm run lint && npm run coverage",
     "----TEST": "",
-    "tdd": "nodemon --watch src --exec \"npm test | tap-diff\"",
-    "test": "tape -r @babel/register src/*.test.js src/**/*.test.js",
+    "tdd": "nodemon --watch src --exec \"npm test\"",
+    "test": "tape -r @babel/register src/*.test.js src/**/*.test.js | tap-summary",
     "test-ui": "tape-ui -r @babel/register src/*.test.js src/**/*.test.js",
     "lint": "npm run lint:js && npm run lint:md",
     "lint:js": "eslint src",
@@ -72,7 +72,8 @@
     "prettier": "1.18.2",
     "pretty-error": "2.1.1",
     "ramda": "0.26.1",
-    "tap-diff": "0.1.1",
+    "semantic-release": "15.13.18",
+    "tap-summary": "4.0.0",
     "tape": "4.11.0",
     "underscore": "1.9.1"
   }
