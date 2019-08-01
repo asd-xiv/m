@@ -144,4 +144,3 @@ Using Angular's [conventions](https://github.com/angular/angular.js/blob/master/
 ## Changelog
 
 See the [releases section](https://github.com/asd14/m/releases) for details.
-
