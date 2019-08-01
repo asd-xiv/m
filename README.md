@@ -41,7 +41,7 @@ find(item => item.id === 2)(todos)
 findWith({id: 2})(todos)
 //=> {id: 2, name: "ipsum"}
 
-// predicate style filter 
+// predicate style filter
 filterWith({
     tagId: is // or "tagId: value => is(value)"
 })(todos)
