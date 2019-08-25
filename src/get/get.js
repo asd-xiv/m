@@ -5,12 +5,6 @@ const isObject = source => typeof source === "object" && source !== null
 const fromObject = (source, key) =>
   source.hasOwnProperty(key) ? source[key] : undefined
 
-const getFromPath = (propsPath, source) =>
-  reduce(
-    (acc, item) => (isObject(acc) ? fromObject(acc, item) : undefined),
-    source
-  )(propsPath)
-
 /**
  * Get value from obj property
  *
@@ -25,12 +19,15 @@ const getFromPath = (propsPath, source) =>
  * @example
  * get( "lorem" )( { lorem: "ipsum" } ) // => "ipsum"
  * get( "not-exist" )( { lorem: "ipsum" } ) // => undefined
- * get( "a.b" )( { a: { b: "c" } } ) // => "c"
- * get( "a.test" )( { a: { b: "c" } } ) // => undefined
+ * get( "a", "b" )( { a: { b: "c" } } ) // => "c"
+ * get( "a", "test" )( { a: { b: "c" } } ) // => undefined
  */
 const get = (...propsPath) => source =>
   typeof source === "object" && source !== null
-    ? getFromPath(propsPath, source)
+    ? reduce(
+        (acc, item) => (isObject(acc) ? fromObject(acc, item) : undefined),
+        source
+      )(propsPath)
     : undefined
 
 export { get }
