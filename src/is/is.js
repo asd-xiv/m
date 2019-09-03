@@ -20,4 +20,7 @@
 const is = source =>
   source !== null && source !== undefined && !Number.isNaN(source)
 
-export { is }
+const isNothing = source =>
+  source === null || source === undefined || Number.isNaN(source)
+
+export { is, isNothing }
