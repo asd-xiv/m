@@ -23,4 +23,8 @@ const is = source =>
 const isNothing = source =>
   source === null || source === undefined || Number.isNaN(source)
 
-export { is, isNothing }
+const isTrue = source => source === true
+
+const isFalse = source => source === false
+
+export { is, isNothing, isTrue, isFalse }
