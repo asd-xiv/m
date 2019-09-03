@@ -23,7 +23,7 @@ const fromObject = (source, key) =>
  * get( "a", "test" )( { a: { b: "c" } } ) // => undefined
  */
 const get = (...propsPath) => source =>
-  typeof source === "object" && source !== null
+  isObject(source)
     ? reduce(
         (acc, item) => (isObject(acc) ? fromObject(acc, item) : undefined),
         source
