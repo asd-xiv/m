@@ -1,9 +1,9 @@
 <!-- markdownlint-disable first-line-h1 line-length -->
 
-[![CircleCI](https://circleci.com/gh/asd14/m/tree/master.svg?style=svg)](https://circleci.com/gh/asd14/m/tree/master)
-[![npm package version](https://badge.fury.io/js/%40asd14%2Fm.svg)](https://badge.fury.io/js/%40asd14%2Fm)
-[![dev-badge](https://david-dm.org/asd14/m.svg)](https://david-dm.org/asd14/m)
-[![Coverage Status](https://coveralls.io/repos/github/asd14/m/badge.svg)](https://coveralls.io/github/asd14/m)
+[![Coverage Status](https://coveralls.io/repos/github/mutantlove/m/badge.svg)](https://coveralls.io/github/mutantlove/m)
+[![npm package version](https://badge.fury.io/js/%40mutantlove%2Fm.svg)](https://badge.fury.io/js/%40mutantlove%2Fm)
+[![dev-badge](https://david-dm.org/mutantlove/m.svg)](https://david-dm.org/mutantlove/m)
+[![Coverage Status](https://coveralls.io/repos/github/mutantlove/m/badge.svg)](https://coveralls.io/github/mutantlove/m)
 
 # m
 
@@ -28,7 +28,7 @@ Experimental. Use [Ramda](https://github.com/ramda/ramda).
 ## "With" pattern
 
 ```js
-import { find, findWith, filterWith, is } from "@asd14/m"
+import { find, findWith, filterWith, is } from "@mutantlove/m"
 
 const todos = [
   {id: 1, name: "lorem", tagId: 2,},
@@ -64,7 +64,7 @@ it makes sense to choose the _syntactic_ more aligned with our intuition and con
 
 ```js
 const { sep } = require("path")
-const { pipe, compose, join, push, dropLast, split } = require("@asd14/m")
+const { pipe, compose, join, push, dropLast, split } = require("@mutantlove/m")
 
 // Compose - g(f(x))
 const renameFile = newName => filePath =>
@@ -86,13 +86,13 @@ const renameFile = newName => filePath =>
 ## Install
 
 ```bash
-npm i --save-exact @asd14/m
+npm i --save-exact @mutantlove/m
 ```
 
 ## Develop
 
 ```bash
-git clone git@github.com:asd14/m.git && \
+git clone git@github.com:mutantlove/m.git && \
   cd m && \
   npm run setup
 
@@ -106,7 +106,7 @@ npm run tdd
 ## Use
 
 ```js
-import { pipe, trim, split, dropLast, push, join } from "@asd14/m"
+import { pipe, trim, split, dropLast, push, join } from "@mutantlove/m"
 
 const removeTrailingSlash = source =>
   source[source.length - 1] === sep ? source.slice(0, -1) : source
@@ -143,4 +143,4 @@ Using Angular's [conventions](https://github.com/angular/angular.js/blob/master/
 
 ## Changelog
 
-See the [releases section](https://github.com/asd14/m/releases) for details.
+See the [releases section](https://github.com/mutantlove/m/releases) for details.

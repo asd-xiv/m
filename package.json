@@ -1,18 +1,19 @@
 {
-  "name": "@asd14/m",
+  "name": "@mutantlove/m",
   "version": "0.23.0",
   "description": "Point free style, functional Javascript library",
-  "homepage": "https://github.com/asd14/m",
+  "homepage": "https://github.com/mutantlove/m",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/asd14/m.git"
+    "url": "git+https://github.com/mutantlove/m.git"
   },
   "bugs": {
-    "url": "https://github.com/asd14/m/issues"
+    "url": "https://github.com/mutantlove/m/issues"
   },
   "author": {
     "name": "Andrei Dumitrescu",
-    "url": "https://github.com/andreidcm"
+    "url": "https://github.com/andreidcm",
+    "web": "https://mutant.love"
   },
   "main": "dist/index.js",
   "license": "BSD-3-Clause",
