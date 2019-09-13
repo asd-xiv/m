@@ -62,7 +62,7 @@ jobs:
           paths:
             - node_modules
             - dist
-          key: m-{{ .Branch }}-{{ checksum "package.json" }}
+          key: m-{{ .Branch }}-{{ .Revision }}
 
   test:
     <<: *job_defaults
@@ -72,7 +72,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - m-{{ .Branch }}-{{ checksum "package.json" }}
+            - m-{{ .Branch }}-{{ .Revision }}
 
       - run:
           name: "m: Run linter"
@@ -90,7 +90,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - m-{{ .Branch }}-{{ checksum "package.json" }}
+            - m-{{ .Branch }}-{{ .Revision }}
 
       - run:
           name: "m: Publish test coverage to COVERALLS"
@@ -104,7 +104,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - m-{{ .Branch }}-{{ checksum "package.json" }}
+            - m-{{ .Branch }}-{{ .Revision }}
 
       - run:
           name: "m: Release to npm with semantic-release"
