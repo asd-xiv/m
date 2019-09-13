@@ -1,5 +1,5 @@
 /**
- * Curried funtion that always returns the same parameter
+ * Curried funtion that always returns the input given
  *
  * @param {any} source Something, anything
  *
