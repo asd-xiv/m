@@ -35,9 +35,7 @@
     "lint:js": "eslint src",
     "lint:md": "markdownlint *.md",
     "coverage:report": "nyc npm test && nyc report --reporter=html",
-    "coverage:ci": "nyc npm run test && nyc report --reporter=text-lcov | coveralls",
-    "----OTHER": "",
-    "bench": "node src/core__deep-equal/deep-equal.bench.js"
+    "coverage:ci": "nyc npm run test && nyc report --reporter=text-lcov | coveralls"
   },
   "keywords": [
     "point-free",
