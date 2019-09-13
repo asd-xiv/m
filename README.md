@@ -1,6 +1,6 @@
 <!-- markdownlint-disable first-line-h1 line-length -->
 
-[![Coverage Status](https://coveralls.io/repos/github/mutantlove/m/badge.svg)](https://coveralls.io/github/mutantlove/m)
+[![CircleCI](https://circleci.com/gh/mutantlove/m.svg?style=svg)](https://circleci.com/gh/mutantlove/m)
 [![npm package version](https://badge.fury.io/js/%40mutantlove%2Fm.svg)](https://badge.fury.io/js/%40mutantlove%2Fm)
 [![dev-badge](https://david-dm.org/mutantlove/m.svg)](https://david-dm.org/mutantlove/m)
 [![Coverage Status](https://coveralls.io/repos/github/mutantlove/m/badge.svg)](https://coveralls.io/github/mutantlove/m)
