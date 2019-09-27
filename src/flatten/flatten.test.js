@@ -2,6 +2,7 @@ import test from "tape"
 import { flatten } from ".."
 
 test("flatten", t => {
+  t.equals(flatten(3), 3, "Flatten primitive returns same value")
   t.deepEqual(flatten([]), [], "[] should equal []")
   t.deepEqual(flatten([[[]]]), [], "[[[]]] should equal []")
   t.deepEqual(flatten([[[1]]]), [1], "[[[1]]] should equal [1]")
