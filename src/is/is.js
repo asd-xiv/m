@@ -23,8 +23,11 @@ const is = source =>
 const isNothing = source =>
   source === null || source === undefined || Number.isNaN(source)
 
+const isObject = source =>
+  source !== null && typeof source === "object" && !Array.isArray(source)
+
 const isTrue = source => source === true
 
 const isFalse = source => source === false
 
-export { is, isNothing, isTrue, isFalse }
+export { is, isNothing, isTrue, isFalse, isObject }

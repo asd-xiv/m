@@ -1,5 +1,5 @@
 import test from "tape"
-import { is, isNothing, isTrue, isFalse } from ".."
+import { is, isNothing, isTrue, isFalse, isObject } from ".."
 
 /**
  * Test if something is not `null` or `undefined`
@@ -40,6 +40,11 @@ test("core::is", t => {
   t.equal(isNothing(null), true, '"null" is nothing')
   t.equal(isNothing(undefined), true, '"undefined" is nothing')
   t.equal(isNothing(NaN), true, '"NaN" is nothing')
+
+  t.equal(isObject(null), false, "null is not object")
+  t.equal(isObject({}), true, "{} is object")
+  t.equal(isObject([]), false, "[] is not object")
+  t.equal(isObject("lorem"), false, "string is not object")
 
   t.end()
 })
