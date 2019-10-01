@@ -1,33 +1,50 @@
 import { reduce } from "../reduce/reduce"
-
-const isObject = source => typeof source === "object" && source !== null
-
-const fromObject = (source, key) =>
-  source.hasOwnProperty(key) ? source[key] : undefined
+import { is, isNothing } from "../is/is"
+import { when } from "../when/when"
+import { pipe } from "../pipe/pipe"
+import { same } from "../same/same"
 
 /**
  * Get value from obj property
  *
- * @param  {string}  path    Property name or dot path of props
- * @param  {object}  source  Source object
+ * @param  {string|string[]}  path          Property name or dot path of props
+ * @param  {mixed}            defaultValue  Value to return if not found
+ * @param  {object}           source        Source object
  *
  * @return {mixed}
  *
  * @tag Object
- * @signature ( key: string ) => ( source: Object ): mixed
+ * @signature (path: string|string[]) => (source: Object|Array): mixed
  *
  * @example
- * get( "lorem" )( { lorem: "ipsum" } ) // => "ipsum"
- * get( "not-exist" )( { lorem: "ipsum" } ) // => undefined
- * get( "a", "b" )( { a: { b: "c" } } ) // => "c"
- * get( "a", "test" )( { a: { b: "c" } } ) // => undefined
+ * get("lorem")({ lorem: "ipsum" })
+ * // => "ipsum"
+ *
+ * get("not-exist")({ lorem: "ipsum" })
+ * // => undefined
+ *
+ * get("not-exist-with-default", "dolor")({ lorem: "ipsum" })
+ * // => "dolor"
+ *
+ * get(["a", "b"])({ a: { b: "c" } })
+ * // => "c"
+ *
+ * get(["a", "test"])({ a: { b: "c" } })
+ * // => undefined
  */
-const get = (...propsPath) => source =>
-  isObject(source)
-    ? reduce(
-        (acc, item) => (isObject(acc) ? fromObject(acc, item) : undefined),
+const get = (path, defaultValue) => source => {
+  if (is(source) && typeof source === "object") {
+    return pipe(
+      reduce(
+        (acc, item) =>
+          is(acc) && typeof acc === "object" ? acc[item] : undefined,
         source
-      )(propsPath)
-    : undefined
+      ),
+      when(isNothing, same(defaultValue))
+    )(Array.isArray(path) ? path : [path])
+  }
+
+  return undefined
+}
 
 export { get }

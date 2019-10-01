@@ -37,25 +37,31 @@ test("get", t => {
   )
 
   t.equal(
-    get("a", "b")({ a: { b: "lorem" } }),
+    get(["a", "b"])({ a: { b: "lorem" } }),
     "lorem",
     "Get existing prop from nested objects"
   )
 
   t.equal(
-    get("a", "c")({ a: { b: "lorem" } }),
+    get(["a", "c"])({ a: { b: "lorem" } }),
     undefined,
     "Get non-existing prop from nested objects"
   )
 
   t.equal(
-    get("0", "a")([{ a: "array element" }]),
+    get(["a", "c"], "dolor")({ a: { b: "lorem" } }),
+    "dolor",
+    "Get non-existing prop with default from nested objects"
+  )
+
+  t.equal(
+    get(["0", "a"])([{ a: "array element" }]),
     "array element",
     "Get existing prop from array"
   )
 
   t.equal(
-    get("a", 0, "b")({ a: [{ b: "array element" }] }),
+    get(["a", 0, "b"])({ a: [{ b: "array element" }] }),
     "array element",
     "Get existing prop from array"
   )
