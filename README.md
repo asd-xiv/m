@@ -130,6 +130,7 @@ Using Angular's [conventions](https://github.com/angular/angular.js/blob/master/
 <body>
 <BLANK LINE>
 <footer>
+BREAKING CHANGE: Half of features not working anymore
 ```
 
 * **feat**: A new feature
