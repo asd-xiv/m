@@ -1,8 +1,6 @@
 import { reduce } from "../reduce/reduce"
 import { is, isNothing } from "../is/is"
-import { when } from "../when/when"
 import { pipe } from "../pipe/pipe"
-import { same } from "../same/same"
 
 /**
  * Get value from obj property
@@ -42,7 +40,7 @@ const get = (path, defaultValue) => source => {
       ),
 
       // only return default value if it's explicitly set.
-      // this way values set to "null", "NaN" or "undefined" go through
+      // this way values of "null", "NaN" are not masked
       value => (isNothing(value) && is(defaultValue) ? defaultValue : value)
     )(Array.isArray(path) ? path : [path])
   }
