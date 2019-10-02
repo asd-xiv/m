@@ -40,7 +40,10 @@ const get = (path, defaultValue) => source => {
           is(acc) && typeof acc === "object" ? acc[item] : undefined,
         source
       ),
-      when(isNothing, same(defaultValue))
+
+      // only return default value if it's explicitly set.
+      // this way values set to "null", "NaN" or "undefined" go through
+      value => (isNothing(value) && is(defaultValue) ? defaultValue : value)
     )(Array.isArray(path) ? path : [path])
   }
 

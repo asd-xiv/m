@@ -86,7 +86,7 @@ const renameFile = newName => filePath =>
 ## Install
 
 ```bash
-npm i --save-exact @mutantlove/m
+npm install @mutantlove/m
 ```
 
 ## Develop
