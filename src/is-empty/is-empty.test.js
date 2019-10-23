@@ -1,5 +1,5 @@
 import test from "tape"
-import { isEmpty } from ".."
+import { isEmpty, isNotEmpty } from ".."
 
 test("core::isEmpty", t => {
   t.equal(isEmpty({}), true, "{} should equal true")
@@ -15,5 +15,13 @@ test("core::isEmpty", t => {
   t.equal(isEmpty(() => {}), false, "() => {} should equal false")
   t.equal(isEmpty(new Date()), false, "Date() should equal false")
   t.equal(isEmpty(Promise.resolve(2)), false, "Promise() should equal false")
+  t.end()
+})
+
+test("core::isNotEmpty", t => {
+  t.equal(isNotEmpty({ a: 2 }), true, "{a:2} should equal true")
+  t.equal(isNotEmpty({}), false, "{} should equal false")
+  t.equal(isNotEmpty([2]), true, "[2] should equal true")
+  t.equal(isNotEmpty([]), false, "[] should equal false")
   t.end()
 })

@@ -38,4 +38,6 @@ const isEmpty = source => {
   return byType[sourceType] ? byType[sourceType]() : false
 }
 
-export { isEmpty }
+const isNotEmpty = source => !isEmpty(source)
+
+export { isEmpty, isNotEmpty }
