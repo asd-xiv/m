@@ -23,10 +23,12 @@ import { reduce } from "../reduce/reduce"
  */
 const partition = fn =>
   reduce(
-    (acc, val) => {
+    (acc, val, index, array) => {
       const [pass, fail] = acc
 
-      return fn(val) ? [[...pass, val], fail] : [pass, [...fail, val]]
+      return fn(val, index, array)
+        ? [[...pass, val], fail]
+        : [pass, [...fail, val]]
     },
     [[], []]
   )
