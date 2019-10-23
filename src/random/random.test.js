@@ -1,7 +1,7 @@
 import test from "tape"
 import chiSquaredTest from "chi-squared-test"
 
-import { random, repeat, get, gt, hist } from ".."
+import { random, repeat, get, lt, hist } from ".."
 
 test("random", t => {
   const [min, max, observationCount] = [5, 10, 600]
@@ -19,7 +19,7 @@ test("random", t => {
   t.equals(
     chiSquaredTest(observationsHist, expectedHist, 1)
       |> get("chiSquared")
-      |> gt(11.07),
+      |> lt(11.07),
     true,
     `Generate ${observationCount} integers between ${min} and ${max}}`
   )

@@ -1,8 +1,11 @@
 /**
- * Less compare
+ * Less compare.
  *
- * @param  {number}  first   First number
+ * Since this will mostly be used in pipe, the first param in the curry chain
+ * is the second operand.
+ *
  * @param  {number}  second  Second number
+ * @param  {number}  first   First number
  *
  * @return {boolean}
  *
@@ -10,11 +13,11 @@
  * @signarute (first: number) => (second: number): boolean
  *
  * @example
- * lt(4)(10)
+ * lt(10)(4)
  * // => true
- * lt(14)(10)
+ * lt(10)(14)
  * // => false
  */
-const lt = first => second => first < second
+const lt = second => first => first < second
 
 export { lt }

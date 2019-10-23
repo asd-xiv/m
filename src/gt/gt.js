@@ -1,20 +1,23 @@
 /**
- * Grater compare
+ * Grater compare.
  *
- * @param  {number}  first   First number
+ * Since this will mostly be used in pipe, the first param in the curry chain
+ * is the second operand.
+ *
  * @param  {number}  second  Second number
+ * @param  {number}  first   First number
  *
  * @return {boolean}
  *
  * @tag Core
- * @signarute (first: number) => (second: number): boolean
+ * @signarute (second: number) => (first: number): boolean
  *
  * @example
- * gt(4)(10)
+ * gt(10)(4)
  * // => false
- * gt(14)(10)
+ * gt(10)(14)
  * // => true
  */
-const gt = first => second => first > second
+const gt = second => first => first > second
 
 export { gt }
