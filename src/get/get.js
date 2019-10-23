@@ -31,8 +31,10 @@ import { pipe } from "../pipe/pipe"
  * // => undefined
  */
 const get = (path, defaultValue) => source => {
+  let result = undefined
+
   if (is(source) && typeof source === "object") {
-    return pipe(
+    result = pipe(
       reduce(
         (acc, item) =>
           is(acc) && typeof acc === "object" ? acc[item] : undefined,
@@ -45,7 +47,7 @@ const get = (path, defaultValue) => source => {
     )(Array.isArray(path) ? path : [path])
   }
 
-  return undefined
+  return isNothing(result) && is(defaultValue) ? defaultValue : result
 }
 
 export { get }

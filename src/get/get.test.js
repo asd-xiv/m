@@ -84,6 +84,12 @@ test("get", t => {
     "Get existing prop from object that is also NaN with default value"
   )
 
+  t.equal(
+    get(["a", "b"], "default value")({}),
+    "default value",
+    "Get existing prop from object that is also NaN with default value"
+  )
+
   t.ok(
     Number.isNaN(get(["a"])({ a: NaN })),
     "Get existing prop from object that is also NaN"
