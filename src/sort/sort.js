@@ -15,7 +15,7 @@ import { is } from "../is/is"
  * sort((a,b) => a.id-b.id)([{id:2}, {id: 1}])
  * // => [{id:1}, {id: 2}]
  */
-const sort = fn => source => [...source.sort(fn)]
+const sort = fn => source => [...source].sort(fn)
 
 /**
  * Sort an array of objects by a custom field
@@ -55,6 +55,8 @@ const sortWith = (field, direction = "asc") => {
 
     return a[field] === null && b[field] === undefined
       ? -1
+      : b[field] === null && a[field] === undefined
+      ? 1
       : aValue < bValue
       ? direction === "asc"
         ? -1

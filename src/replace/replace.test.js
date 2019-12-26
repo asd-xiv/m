@@ -37,16 +37,25 @@ test("replace(With)", t => {
   )
 
   t.deepEqual(
-    replaceWith({ id: 2 }, { id: 2, title: "boss", isBoss: true })([
+    replaceWith(
+      { id: 2 },
+      { id: 2, title: "boss", isBoss: true }
+    )([
       { id: 2, title: "minion" },
       { id: 3, title: "minion" },
     ]),
-    [{ id: 2, title: "boss", isBoss: true }, { id: 3, title: "minion" }],
+    [
+      { id: 2, title: "boss", isBoss: true },
+      { id: 3, title: "minion" },
+    ],
     "Replace existing object"
   )
 
   t.deepEqual(
-    replaceWith({ "!name": "alice" }, { name: "bobby", title: "tables" })([
+    replaceWith(
+      { "!name": "alice" },
+      { name: "bobby", title: "tables" }
+    )([
       { name: "alice", title: "first" },
       { name: "bob", title: "second" },
       { name: "george", title: "third" },

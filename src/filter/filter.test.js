@@ -23,8 +23,15 @@ test("array::filter", t => {
   t.deepEqual(
     filterWith({
       items: 2,
-    })([{ id: 2, items: 2 }, { id: 3, items: 1 }, { id: 4, items: 2 }]),
-    [{ id: 2, items: 2 }, { id: 4, items: 2 }],
+    })([
+      { id: 2, items: 2 },
+      { id: 3, items: 1 },
+      { id: 4, items: 2 },
+    ]),
+    [
+      { id: 2, items: 2 },
+      { id: 4, items: 2 },
+    ],
     "Keep items in array that have properties that equal"
   )
 

@@ -11,7 +11,11 @@ test("type", t => {
   t.equal(type([]), "Array", "[] should equal Array")
   t.equal(type({}), "Object", "{} should equal Object")
   t.equal(type(new Date()), "Date", "new Date() should equal Date")
-  t.equal(type(() => {}), "Function", "() => {} should equal Function")
+  t.equal(
+    type(() => {}),
+    "Function",
+    "() => {} should equal Function"
+  )
   t.equal(type(/[A-z]/), "RegExp", "/[A-z]/ should equal RegExp")
   t.equal(
     type(Promise.resolve(2)),

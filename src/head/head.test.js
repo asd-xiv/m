@@ -6,7 +6,11 @@ test("head", t => {
   t.equal(head([]), undefined, "From empty array should return undefined")
   t.equal(head(2), undefined, "From number should return undefined")
   t.equal(head({}), undefined, "From object should return undefined")
-  t.equal(head(() => {}), undefined, "From function should return undefined")
+  t.equal(
+    head(() => {}),
+    undefined,
+    "From function should return undefined"
+  )
 
   t.end()
 })

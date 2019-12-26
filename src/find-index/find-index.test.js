@@ -2,7 +2,10 @@ import test from "tape"
 import { findIndex, findIndexWith } from ".."
 
 test("findIndex(With)", t => {
-  const comments = [{ id: 1, body: "" }, { id: 2, body: "dolor" }]
+  const comments = [
+    { id: 1, body: "" },
+    { id: 2, body: "dolor" },
+  ]
 
   t.equals(
     findIndex(element => element.id === 2)(comments),

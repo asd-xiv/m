@@ -15,6 +15,6 @@ import { escape } from "../escape/escape"
  * escapeRegExp( "lorem. ipsum [dolor]" )
  * // => "lorem \\. ipsum \\[dolor\\]"
  */
-const escapeRegExp = escape(/[|\\{}<>()[\]^$+*?.]/g)
+const escapeRegExp = escape(/[$()*+.<>?[\\\]^{|}]/g)
 
 export { escapeRegExp }

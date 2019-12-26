@@ -13,14 +13,20 @@ test("cases", t => {
   )
 
   t.equal(
-    cases([[x => x % 2 === 0, x => x * 2], [x => x === 2, x => x / 2]])(3),
+    cases([
+      [x => x % 2 === 0, x => x * 2],
+      [x => x === 2, x => x / 2],
+    ])(3),
     3,
     "cases should return the original value otherwise"
   )
 
   t.equal(
     cases(
-      [[x => x % 2 === 0, x => x * 2], [x => x === 2, x => x / 2]],
+      [
+        [x => x % 2 === 0, x => x * 2],
+        [x => x === 2, x => x / 2],
+      ],
       x => x * 3
     )(3),
     9,

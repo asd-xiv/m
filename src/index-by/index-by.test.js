@@ -3,7 +3,10 @@ import { indexBy } from ".."
 
 test("indexBy", t => {
   t.deepEqual(
-    indexBy("id")([{ id: 1, label: "test" }, { id: 2, label: "foo" }]),
+    indexBy("id")([
+      { id: 1, label: "test" },
+      { id: 2, label: "foo" },
+    ]),
     {
       1: { id: 1, label: "test" },
       2: { id: 2, label: "foo" },

@@ -10,19 +10,11 @@ test("pipeP", t => {
       }, 100)
     })
 
-  return Promise.all([
-    pipeP(
-      sum,
-      inc
-    )(2),
-    pipeP(
-      sum,
-      inc,
-      inc
-    )(2, 2),
-  ]).then(([first, second]) => {
-    t.equal(first, 3, "first input arity 1")
-    t.equal(second, 6, "first input arity 2")
-    t.end()
-  })
+  return Promise.all([pipeP(sum, inc)(2), pipeP(sum, inc, inc)(2, 2)]).then(
+    ([first, second]) => {
+      t.equal(first, 3, "first input arity 1")
+      t.equal(second, 6, "first input arity 2")
+      t.end()
+    }
+  )
 })

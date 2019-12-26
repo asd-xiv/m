@@ -1,6 +1,6 @@
 const escapeHTML = source =>
   source.replace(
-    /[\"&'\/<>]/g,
+    /["&'/<>]/g,
     char =>
       ({
         '"': "&quot;",

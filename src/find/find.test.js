@@ -2,7 +2,10 @@ import test from "tape"
 import { find, findWith } from ".."
 
 test("array::find", t => {
-  const comments = [{ id: 1, body: "" }, { id: 2, body: "dolor" }]
+  const comments = [
+    { id: 1, body: "" },
+    { id: 2, body: "dolor" },
+  ]
 
   t.deepEqual(
     find(element => element.id === 2)(comments),

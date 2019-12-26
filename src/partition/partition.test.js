@@ -7,7 +7,10 @@ test("array::partition", t => {
 
   t.deepEqual(
     partition(equalsTwo)([2, 2, 1, 1, 2]),
-    [[2, 2, 2], [1, 1]],
+    [
+      [2, 2, 2],
+      [1, 1],
+    ],
     "(equalsTwo)([2,2,1,1,2]) // => [[2,2,2],[1,1]]"
   )
 
