@@ -21,7 +21,7 @@ test("array::find", t => {
 
   t.deepEqual(
     findWith({ id: 2 })([]),
-    undefined,
+    {},
     "find with id:2 in empty array should return undefined"
   )
 
@@ -31,9 +31,9 @@ test("array::find", t => {
     "find with id:2 should return found object"
   )
 
-  t.equal(
+  t.deepEqual(
     findWith({ id: 3 })(comments),
-    undefined,
+    {},
     "find with id:3 should return undefined (not found)"
   )
 
