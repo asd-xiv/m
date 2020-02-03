@@ -10,7 +10,7 @@ version: 2
 job_defaults: &job_defaults
   working_directory: ~/m-repo
   docker:
-    - image: circleci/node:8
+    - image: circleci/node:lts
 
 job_filter: &job_filter
   filters:
