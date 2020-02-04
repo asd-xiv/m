@@ -23,7 +23,7 @@ const find = (fn, notFoundDefault) => source => {
   return notFoundDefault
 }
 
-const findWith = (subset, notFoundDefault = {}) =>
+const findWith = (subset, notFoundDefault) =>
   find(isMatch(subset), notFoundDefault)
 
 export { find, findWith }
