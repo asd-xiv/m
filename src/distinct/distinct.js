@@ -24,7 +24,7 @@ const distinct = source => {
     for (let j = 0, resLength = result.length; j < resLength; j++) {
       const resElement = result[j]
 
-      if (deepEqual(newElement)(resElement)) {
+      if (deepEqual(newElement, resElement)) {
         shouldAdd = false
         break
       }

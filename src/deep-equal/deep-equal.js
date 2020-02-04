@@ -15,7 +15,7 @@ const byType = {
     }
 
     for (let i = 0, length = a.length; i < length; i++) {
-      if (!deepEqual(a[i])(b[i])) {
+      if (!deepEqual(a[i], b[i])) {
         return false
       }
     }
@@ -42,7 +42,7 @@ const byType = {
     for (let i = 0, length = aliceEntries.length; i < length; i++) {
       const [aliceKey, aliceValue] = aliceEntries[i]
 
-      if (!deepEqual(b[aliceKey])(aliceValue)) {
+      if (!deepEqual(b[aliceKey], aliceValue)) {
         return false
       }
     }
@@ -118,7 +118,7 @@ const type = source =>
  * )
  * // => false
  */
-const deepEqual = a => b => {
+const deepEqual = (a, b) => {
   // added 100k ops/sec
   if (a === b) {
     return true

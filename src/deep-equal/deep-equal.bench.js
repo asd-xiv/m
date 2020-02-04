@@ -60,7 +60,7 @@ const suite1 = new Benchmark.Suite({
     console.log(String(event.target))
   })
   .add("- functies#deepEqual", () => {
-    deepEqual(sourceA1)(sourceA2)
+    deepEqual(sourceA1, sourceA2)
   })
   .add("- lodash#isEqual", () => {
     deepEqualL(sourceA1, sourceA2)
@@ -85,7 +85,7 @@ const suite2 = new Benchmark.Suite({
     console.log(String(event.target))
   })
   .add("- functies#deepEqual", () => {
-    deepEqual(sourceB1)(sourceB2)
+    deepEqual(sourceB1, sourceB2)
   })
   .add("- lodash#isEqual", () => {
     deepEqualL(sourceB1, sourceB2)
