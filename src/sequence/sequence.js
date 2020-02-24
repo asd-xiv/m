@@ -3,7 +3,7 @@ import { is } from "../is/is"
 const alwaysTrue = () => true
 
 export const sequenceWhile = (predicateFn, source) => {
-  if (typeof predicate !== "function") {
+  if (typeof predicateFn !== "function") {
     throw new TypeError(
       `Invalid predicate control function. Expected function but got "${JSON.stringify(
         predicateFn
