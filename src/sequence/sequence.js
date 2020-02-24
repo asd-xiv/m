@@ -2,11 +2,11 @@ import { is } from "../is/is"
 
 const alwaysTrue = () => true
 
-export const sequenceWhile = (predicate, source) => {
+export const sequenceWhile = (predicateFn, source) => {
   if (typeof predicate !== "function") {
     throw new TypeError(
       `Invalid predicate control function. Expected function but got "${JSON.stringify(
-        predicate
+        predicateFn
       )}"`
     )
   }
@@ -29,18 +29,19 @@ export const sequenceWhile = (predicate, source) => {
     promise.then(result => {
       resolved.push(result)
 
-      if (predicate(result) === true) {
+      if (predicateFn(result) === true) {
         const nextPromiseFn = source[++index]
 
         if (is(nextPromiseFn)) {
           return queueNext(Promise.resolve(nextPromiseFn(result)))
         }
 
-        // no more promise fn to process
+        // no more functions to process
         return resolved
       }
 
-      // control function failed, return what was successfully resolved
+      // predicate function failed, return what already resolved and stop
+      // processing further
       return resolved
     })
 
