@@ -1,50 +1,50 @@
-/**
- * Create an array of numbers between range
- *
- * @tag Number
- * @signature (step: number) => (start: number, end: number): number[]
- *
- * @param  {number}  step   The step
- * @param  {number}  start  Left side interval
- * @param  {number}  end    Right side interval
- *
- * @return {number[]}
- *
- * @example
- *
- * sequence(1)(1, 5)   // [1, 2, 3, 4, 5]
- * sequence(3)(1, 5)   // [1, 4]
- * sequence(-1)(2, -3) // [ 2, 1, 0, -1, -2, -3 ]
- */
-const sequence = step => (start, end) => {
-  if (step === 0) {
-    throw new Error(
-      `Invalid "step" value, must be non zero. Got "step": ${step}, "start": ${start}, "end": ${end}`
+import { is } from "../is/is"
+
+const alwaysTrue = () => true
+
+export const sequenceWhile = (predicate, source) => {
+  if (typeof predicate !== "function") {
+    throw new TypeError(
+      `Invalid predicate control function. Expected function but got "${JSON.stringify(
+        predicate
+      )}"`
     )
   }
 
-  if (start < end && step < 0) {
-    throw new Error(
-      `Invalid "step" value, if start < end then "step" must be positive. Got "step": ${step}, "start": ${start}, "end": ${end}`
+  if (
+    !Array.isArray(source) ||
+    (Array.isArray(source) && source.length === 0)
+  ) {
+    throw new TypeError(
+      `Invalid source array. Expected array of functions but got "${JSON.stringify(
+        source
+      )}"`
     )
   }
 
-  if (start > end && step > 0) {
-    throw new Error(
-      `Invalid "step" value, if start > end then "step" must be negative. Got "step": ${step}, "start": ${start}, "end": ${end}`
-    )
-  }
+  let index = 0
+  const resolved = []
 
-  let current = start
-  const result = []
+  const queueNext = promise =>
+    promise.then(result => {
+      resolved.push(result)
 
-  while ((step > 0 && current <= end) || (step < 0 && current >= end)) {
-    result.push(current)
+      if (predicate(result) === true) {
+        const nextPromiseFn = source[++index]
 
-    current = current + step
-  }
+        if (is(nextPromiseFn)) {
+          return queueNext(Promise.resolve(nextPromiseFn(result)))
+        }
 
-  return result
+        // no more promise fn to process
+        return resolved
+      }
+
+      // control function failed, return what was successfully resolved
+      return resolved
+    })
+
+  return queueNext(Promise.resolve(source[0]()))
 }
 
-export { sequence }
+export const sequence = source => sequenceWhile(alwaysTrue, source)

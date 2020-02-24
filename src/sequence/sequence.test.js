@@ -1,65 +1,128 @@
 import test from "tape"
-import { sequence } from ".."
+import { isTrue } from "../is/is"
+import { sequence, sequenceWhile } from ".."
+
+const delay = (ms, val) =>
+  new Promise(resolve => setTimeout(() => resolve(val), ms))
 
 test("sequence", t => {
   t.throws(
-    () => sequence(0)(1, 10),
-    /Invalid "step" value, must be non zero/,
-    'Invalid "step" value, must be non zero'
+    () => sequence(),
+    /Invalid source array. Expected array of functions but got "undefined"/,
+    "Throw error when source array is not array"
   )
 
   t.throws(
-    () => sequence(1)(1, -10),
-    /^Error: Invalid "step" value, if start > end then "step" must be negative/,
-    'Invalid "step" value, if start > end then "step" must be negative'
+    () => sequence([]),
+    /Invalid source array. Expected array of functions but got "\[]"/,
+    "Throw error when source array is empty"
   )
 
+  let sum = 0
+
+  const source = [
+    () => {
+      sum++
+
+      return 1
+    },
+    prev => {
+      sum += prev
+
+      return delay(10, 2)
+    },
+    prev => {
+      sum += prev
+
+      return Promise.resolve("abc")
+    },
+    prev => {
+      sum += prev
+
+      return Promise.all([Promise.resolve(3), Promise.resolve(4)])
+    },
+  ]
+
+  return sequence(source).then(result => {
+    t.deepEqual(
+      [sum, result],
+      [`${1 + 1 + 2}abc`, [1, 2, "abc", [3, 4]]],
+      "All promise functions run in sequence, each having access to previous result"
+    )
+
+    t.end()
+  })
+})
+
+test("sequenceWith", t => {
   t.throws(
-    () => sequence(-1)(1, 10),
-    /^Error: Invalid "step" value, if start < end then "step" must be positive/,
-    'Invalid "step" value, if start < end then "step" must be positive'
+    () => sequenceWhile(),
+    /Invalid predicate control function. Expected function but got "undefined"/,
+    "Throw error when predicate function invalid"
   )
 
-  t.deepEqual(
-    sequence(1)(1, 5),
-    [1, 2, 3, 4, 5],
-    "Create a sequence from 1 to 5 with step 1"
-  )
+  let sum = 1
 
-  t.deepEqual(
-    sequence(3)(1, 5),
-    [1, 4],
-    "Create a sequence from 1 to 5 with step 3"
-  )
+  return sequenceWhile(isTrue, [() => true, () => false])
+    .then(result => {
+      t.deepEqual(
+        result,
+        [true, false],
+        "Two promise fn resolve with array of both resolved values"
+      )
+    })
+    .then(() => sequenceWhile(isTrue, [() => true]))
+    .then(result => {
+      t.deepEqual(
+        result,
+        [true],
+        "One successfull promise fn resolve with array of resolved value"
+      )
+    })
+    .then(() => sequenceWhile(isTrue, [() => false]))
+    .then(result => {
+      t.deepEqual(
+        result,
+        [false],
+        "One failing promise fn resolve with array of resolved value"
+      )
+    })
+    .then(() =>
+      sequenceWhile(source => source <= 5, [
+        () => 1,
 
-  t.deepEqual(
-    sequence(-1)(2, -3),
-    [2, 1, 0, -1, -2, -3],
-    "Create a sequence from 2 to -3 with step -1"
-  )
+        prev => {
+          sum += prev
 
-  t.deepEqual(
-    sequence(1)(-3, -2),
-    [-3, -2],
-    "Create a sequence from -3 to -2 with step 1"
-  )
+          return delay(10, 2)
+        },
 
-  t.deepEqual(
-    sequence(-2)(-2, -5),
-    [-2, -4],
-    "Create a sequence from -2 to -5 with step -2"
-  )
+        prev => {
+          sum += prev
 
-  t.deepEqual(
-    sequence(2)(-5, 5),
-    [-5, -3, -1, 1, 3, 5],
-    "Create a sequence from -5 to 5 with step 2"
-  )
+          return delay(10, 100)
+        },
 
-  /*
-   * 1. what to do if "step" is grater than "end"?
-   * 2. should start & end always be included in resulting array?
-   */
+        prev => {
+          sum += prev
 
-  t.end()
+          return delay(10, 2)
+        },
+
+        prev => {
+          sum += prev
+
+          return delay(10, 5)
+        },
+      ])
+    )
+    .then(result => {
+      t.deepEqual(
+        [sum, result],
+        [1 + 1 + 2, [1, 2, 100]],
+        "Promise functions run in sequence until control fn fails. No further promises will run"
+      )
+
+      t.end()
+    })
 })
