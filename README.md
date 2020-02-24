@@ -1,7 +1,7 @@
 <!-- markdownlint-disable first-line-h1 line-length -->
 
 [![CircleCI](https://circleci.com/gh/mutant-ws/m.svg?style=svg)](https://circleci.com/gh/mutant-ws/m)
-[![npm package version](https://badge.fury.io/js/%mutant-ws%2Fm.svg)](https://badge.fury.io/js/%mutant-ws%2Fm)
+[![npm version](https://badge.fury.io/js/%40mutant-ws%2Fm.svg)](https://badge.fury.io/js/%40mutant-ws%2Fm)
 [![dev-badge](https://david-dm.org/mutant-ws/m.svg)](https://david-dm.org/mutant-ws/m)
 [![Coverage Status](https://coveralls.io/repos/github/mutant-ws/m/badge.svg)](https://coveralls.io/github/mutant-ws/m)
 
