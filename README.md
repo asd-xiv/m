@@ -1,9 +1,9 @@
 <!-- markdownlint-disable first-line-h1 line-length -->
 
-[![CircleCI](https://circleci.com/gh/mutantlove/m.svg?style=svg)](https://circleci.com/gh/mutantlove/m)
-[![npm package version](https://badge.fury.io/js/%40mutantlove%2Fm.svg)](https://badge.fury.io/js/%40mutantlove%2Fm)
-[![dev-badge](https://david-dm.org/mutantlove/m.svg)](https://david-dm.org/mutantlove/m)
-[![Coverage Status](https://coveralls.io/repos/github/mutantlove/m/badge.svg)](https://coveralls.io/github/mutantlove/m)
+[![CircleCI](https://circleci.com/gh/mutant-ws/m.svg?style=svg)](https://circleci.com/gh/mutant-ws/m)
+[![npm package version](https://badge.fury.io/js/%mutant-ws%2Fm.svg)](https://badge.fury.io/js/%mutant-ws%2Fm)
+[![dev-badge](https://david-dm.org/mutant-ws/m.svg)](https://david-dm.org/mutant-ws/m)
+[![Coverage Status](https://coveralls.io/repos/github/mutant-ws/m/badge.svg)](https://coveralls.io/github/mutant-ws/m)
 
 # m
 
@@ -28,7 +28,7 @@ Experimental. Use [Ramda](https://github.com/ramda/ramda).
 ## "With" pattern
 
 ```js
-import { find, findWith, filterWith, is } from "@mutantlove/m"
+import { find, findWith, filterWith, is } from "@mutant-ws/m"
 
 const todos = [
   {id: 1, name: "lorem", tagId: 2,},
@@ -64,7 +64,7 @@ it makes sense to choose the _syntactic_ more aligned with our intuition and con
 
 ```js
 const { sep } = require("path")
-const { pipe, compose, join, push, dropLast, split } = require("@mutantlove/m")
+const { pipe, compose, join, push, dropLast, split } = require("@mutant-ws/m")
 
 // Compose - g(f(x))
 const renameFile = newName => filePath =>
@@ -86,13 +86,13 @@ const renameFile = newName => filePath =>
 ## Install
 
 ```bash
-npm install @mutantlove/m
+npm install @mutant-ws/m
 ```
 
 ## Develop
 
 ```bash
-git clone git@github.com:mutantlove/m.git && \
+git clone git@github.com:mutant-ws/m.git && \
   cd m && \
   npm run setup
 
@@ -106,7 +106,7 @@ npm run tdd
 ## Use
 
 ```js
-import { pipe, trim, split, dropLast, push, join } from "@mutantlove/m"
+import { pipe, trim, split, dropLast, push, join } from "@mutant-ws/m"
 
 const removeTrailingSlash = source =>
   source[source.length - 1] === sep ? source.slice(0, -1) : source
@@ -144,4 +144,4 @@ BREAKING CHANGE: Half of features not working anymore
 
 ## Changelog
 
-See the [releases section](https://github.com/mutantlove/m/releases) for details.
+See the [releases section](https://github.com/mutant-ws/m/releases) for details.
