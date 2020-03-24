@@ -6,6 +6,7 @@ test("core::debounce", t => {
    * Debounce with defaults
    */
   let defaultCounter = 0
+
   let callCount = 0
   const defaultSet = debounce(source => {
     callCount = callCount + 1
@@ -28,6 +29,7 @@ test("core::debounce", t => {
    * Debounce with custom
    */
   let customCounter = 0
+
   let customCallCount = 0
   const customSet = debounce(
     source => {

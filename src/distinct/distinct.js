@@ -19,6 +19,7 @@ const distinct = source => {
 
   for (let i = 0, length = source.length; i < length; i++) {
     const newElement = source[i]
+
     let shouldAdd = true
 
     for (let j = 0, resLength = result.length; j < resLength; j++) {

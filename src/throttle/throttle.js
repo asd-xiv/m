@@ -13,6 +13,7 @@ const throttle = (
   { timeWindow = 50, bind = null, hasLastCall = false } = {}
 ) => {
   let lastExecution = new Date(new Date().getTime() - timeWindow)
+
   let finalRunTimer
 
   return (...args) => {
