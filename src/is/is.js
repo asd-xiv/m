@@ -30,4 +30,6 @@ const isTrue = source => source === true
 
 const isFalse = source => source === false
 
-export { is, isNothing, isTrue, isFalse, isObject }
+const not = fn => source => !fn(source)
+
+export { is, not, isNothing, isTrue, isFalse, isObject }

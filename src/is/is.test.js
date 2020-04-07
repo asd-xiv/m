@@ -1,5 +1,5 @@
 import test from "tape"
-import { is, isNothing, isTrue, isFalse, isObject } from ".."
+import { is, isNothing, isTrue, not, isFalse, isObject } from ".."
 
 /**
  * Test if something is not `null` or `undefined`
@@ -27,6 +27,8 @@ test("core::is", t => {
   t.equal(is(null), false, 'Is "null" something')
   t.equal(is(undefined), false, 'Is "undefined" something')
   t.equal(is(NaN), false, 'Is "NaN" something')
+
+  t.equal(not(is)(NaN), true, '"NaN" is not something')
 
   t.equal(isTrue(""), false, "empty string is not true")
   t.equal(isTrue(true), true, "boolean value true is true")
