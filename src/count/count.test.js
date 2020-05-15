@@ -2,6 +2,14 @@ import test from "tape"
 import { count, countWith } from ".."
 
 test("count(With)", t => {
+  t.equal(count("123"), 3, "Count chars in string")
+
+  t.equal(
+    count({ 1: "1", 2: "2", 3: "3" }),
+    3,
+    "Count key/value pairs in object"
+  )
+
   t.equal(count([1, 2, 3]), 3, "Count items of array")
 
   t.equal(

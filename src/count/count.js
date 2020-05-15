@@ -1,5 +1,31 @@
 import { isMatch } from "../is-match/is-match"
 
+const byFn = fn => source => {
+  let _count = 0
+
+  for (let i = 0, length = source.length; i < length; i++) {
+    if (fn.call(null, source[i]) === true) {
+      _count = _count + 1
+    }
+  }
+
+  return _count
+}
+
+const byObject = source => {
+  let result = 0
+
+  let key
+
+  for (key in source) {
+    if (source.hasOwnProperty(key)) {
+      result = result + 1
+    }
+  }
+
+  return result
+}
+
 /**
  * Count the number of elements that satisfies a function
  *
@@ -29,20 +55,24 @@ import { isMatch } from "../is-match/is-match"
  * count(element => element.score === 10)(scores)
  * // => 2
  */
-const count = fn =>
-  Array.isArray(fn)
-    ? fn.length
-    : source => {
-        let _count = 0
+const count = fn => {
+  const type = Array.isArray(fn) ? "array" : typeof fn
 
-        for (let i = 0, length = source.length; i < length; i++) {
-          if (fn.call(null, source[i]) === true) {
-            _count = _count + 1
-          }
-        }
+  switch (type) {
+    case "array":
+    case "string":
+      return fn.length
 
-        return _count
-      }
+    case "function":
+      return byFn(fn)
+
+    case "object":
+      return fn === null ? 0 : byObject(fn)
+
+    default:
+      return 0
+  }
+}
 
 const countWith = subset => count(isMatch(subset))
 
