@@ -12,7 +12,7 @@
   },
   "author": {
     "name": "Andrei Dumitrescu",
-    "url": "https://github.com/andrei-dumitrescu"
+    "url": "https://github.com/andreid-asd"
   },
   "main": "dist/index.js",
   "license": "BSD-3-Clause",
@@ -63,7 +63,7 @@
     "eslint-plugin-unicorn": "^20.0.0",
     "fast-deep-equal": "^3.1.1",
     "lodash": "^4.17.15",
-    "markdownlint-cli": "^0.23.0",
+    "markdownlint-cli": "^0.23.1",
     "nodemon": "^2.0.4",
     "npm-check": "^5.9.2",
     "nyc": "^15.0.1",
