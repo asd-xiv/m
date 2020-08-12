@@ -12,8 +12,11 @@
  * tail([1, 2, 3])
  * // => 3
  * tail([])
- * // => null
+ * // => undefined
  */
-const tail = source => (source.length === 0 ? null : source[source.length - 1])
+const tail = source =>
+  (Array.isArray(source) || typeof source === "string") && source.length !== 0
+    ? source[source.length - 1]
+    : undefined
 
 export { tail }

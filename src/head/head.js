@@ -11,10 +11,13 @@
  * @example
  * head([1, 2, 3])
  * // => 1
+ *
  * head([])
  * // => undefined
  */
 const head = source =>
-  Array.isArray(source) && source.length !== 0 ? source[0] : undefined
+  (Array.isArray(source) || typeof source === "string") && source.length !== 0
+    ? source[0]
+    : undefined
 
 export { head }
