@@ -26,25 +26,45 @@ Experimental. Use [Ramda](https://github.com/ramda/ramda).
 
 ## "With" pattern
 
+Most array functions have a `*With` variant. `find` has `findWith`, `filter` has `filterWith` etc. They allow for less boilerplate and more intuitive way of handling object arrays.
+
 ```js
-import { find, findWith, filterWith, is } from "@mutant-ws/m"
+import { find, findWith, filterWith, not, is } from "@mutant-ws/m"
 
 const todos = [
   {id: 1, name: "lorem", tagId: 2,},
   {id: 2, name: "ipsum", tagId: null},
   {id: 3, name: "dolor", tagId: null},
 ]
+```
 
-find(item => item.id === 2)(todos)
-// or
-findWith({id: 2})(todos)
-//=> {id: 2, name: "ipsum"}
+```js
+/* Predicate fn */
+find(
+  item => item.id === 1
+)(todos)
+// => {id: 1, name: "lorem", tagId: 2}
 
-// predicate style filter
-filterWith({
-    tagId: is // or "tagId: value => is(value)"
+/* Matching object */
+findWith({
+  "id": 1
 })(todos)
-// [{id:1, name: "lorem", tagId: 2}]
+// => {id: 1, name: "lorem", tagId: 2}
+
+/* Matching object & predicate fn */
+filterWith({
+  "tagId": is // same as `tagId: source => is(source)`
+})(todos)
+// => [{id: 1, name: "lorem", tagId: 2}]
+
+/* Syntactic sugar */
+filterWith({
+  "!tagId": is // same as `tagId: not(is)`
+})(todos)
+// => [
+//  {id: 2, name: "ipsum", tagId: null}, 
+//  {id: 3, name: "dolor", tagId: null}
+// ]
 ```
 
 ## |> pipe
@@ -59,25 +79,25 @@ Given that:
 * [left/back is in the past, right/front is the future](https://medium.com/@cwodtke/the-intuitive-and-the-unlearnable-cccffd9a762)
 * a lot of piping going on in your terminal
 
-it makes sense to choose the _syntactic_ more aligned with our intuition and context. The transformations are applied in a certain order with time as a medium - `input -> t0 -> t1 -> tn -> output`. The way is forward.
+it makes sense to choose the _syntax_ more aligned with our intuition and context. The transformations are applied in a certain order with time as a medium - `input -> t0 -> t1 -> tn -> output`. The way is forward :godmode:.
 
 ```js
 const { sep } = require("path")
 const { pipe, compose, join, push, dropLast, split } = require("@mutant-ws/m")
 
-// Compose - g(f(x))
+// Compose: g(f(x))
 const renameFile = newName => filePath =>
   compose(
     join(sep), push(newName), dropLast, split(sep)
   )(filePath)
 
-// Pipe - x -> f -> g
+// Pipe: x -> f -> g
 const renameFile = newName => filePath =>
   pipe(
     split(sep), dropLast, push(newName), join(sep)
   )(filePath)
 
-// Using the pipeline operator, things are more expressive
+// More expressive with pipeline operator
 const renameFile = newName => filePath =>
   filePath |> split(sep) |> dropLast |> push(newName) |> join(sep)
 ```
