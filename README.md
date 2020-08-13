@@ -62,7 +62,7 @@ filterWith({
   "!tagId": is // same as `tagId: not(is)`
 })(todos)
 // => [
-//  {id: 2, name: "ipsum", tagId: null}, 
+//  {id: 2, name: "ipsum", tagId: null},
 //  {id: 3, name: "dolor", tagId: null}
 // ]
 ```
