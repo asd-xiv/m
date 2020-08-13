@@ -10,7 +10,7 @@
  * @return  {string}
  *
  * @example
- * join( "," )( [ "lorem", "ipsum" ] )
+ * join(",")(["lorem", "ipsum"])
  * // => "lorem,ipsum"
  */
 const join = separator => source => [].join.call(source, separator)

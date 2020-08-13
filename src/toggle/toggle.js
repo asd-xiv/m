@@ -14,10 +14,11 @@ import { push } from "../push/push"
  * @signature (element: mixed) => (source: Array): Array
  *
  * @example
- * toggle( 1 )( [ 1, 2 ] )
- * // => [ 2 ]
- * toggle( 1 )( [ 2 ] )
- * // => [ 1, 2 ]
+ * toggle(1)([1, 2])
+ * // => [2]
+ *
+ * toggle(1)([2])
+ * // => [1, 2]
  */
 const toggle = element => source => {
   if (source.length === 0) {

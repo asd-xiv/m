@@ -12,6 +12,7 @@
  * @example
  * repeat(2)(3)
  * // => [2, 2, 2]
+ *
  * repeat(index=>index+1)(3)
  * // => [1, 2, 3]
  */
