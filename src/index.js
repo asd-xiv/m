@@ -17,6 +17,7 @@ export { debounce } from "./debounce/debounce"
 
 // Core
 export { map } from "./map/map"
+export { mapMatrix } from "./map-matrix/map-matrix"
 export { reduce } from "./reduce/reduce"
 export { forEach } from "./for-each/for-each"
 export { pipe } from "./pipe/pipe"
