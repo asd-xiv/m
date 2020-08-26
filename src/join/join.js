@@ -2,17 +2,24 @@
  * Join all elements of an array into a string
  *
  * @tag Array
- * @signature ( separator: string )( source: Array ): string
+ * @signature (separator: String)(source: Array): String
+ * @signature (separator: String, source: Array): String
  *
- * @param   {string}  separator  Separator between each adjacent elements
- * @param   {string}  source     Source string
+ * @param {String} separator Separator between each adjacent elements
+ * @param {[]}     source    Source array
  *
- * @return  {string}
+ * @return {String}
  *
  * @example
  * join(",")(["lorem", "ipsum"])
  * // => "lorem,ipsum"
  */
-const join = separator => source => [].join.call(source, separator)
+const join = (separator, ...rest) => {
+  if (rest.length === 0) {
+    return source => [].join.call(source, separator)
+  }
+
+  return [].join.call(rest[0], separator)
+}
 
 export { join }
