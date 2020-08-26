@@ -5,6 +5,12 @@ test("map", t => {
   const square = value => value * value
 
   t.deepEqual(
+    map(square, [1, 2, 3]),
+    [1, 4, 9],
+    "(square, [1,2,3]) // => [1,4,9]"
+  )
+
+  t.deepEqual(
     map(square)([1, 2, 3]),
     [1, 4, 9],
     "(square)([1,2,3]) // => [1,4,9]"
@@ -17,7 +23,7 @@ test("map", t => {
   )
 
   t.deepEqual(
-    map(square, square)([1, 2, 3]),
+    map([square, square], [1, 2, 3]),
     [1, 16, 81],
     "(square,square)([1,2,3]) // => [1,16,82]"
   )
