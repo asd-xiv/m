@@ -141,4 +141,4 @@ const renameFile = newName => pipe(
 
 ## Changelog
 
-See the [releases section](https://github.com/mutant-ws/m/releases) for details.
+See the [releases section](https://github.com/andreidmt/m/releases) for details.
