@@ -1,9 +1,9 @@
-import { type } from "../type/type"
+import { is } from "../is/is"
 
 /**
  * Functional if-then-else
  *
- * @param  {Function}  ifFn    Condition function
+ * @param  {Function}  ifFn    Condition
  * @param  {Function}  thenFn  Then function
  * @param  {Function}  elseFn  Else function, if not specified will return
  *                             source
@@ -16,14 +16,18 @@ import { type } from "../type/type"
  * @example
  * when(isEven, increment, decrement)(5)
  * // => 6
+ *
  * when(isOdd, increment)(6)
  * // => 6
  */
-const when = (ifFn, thenFn, elseFn) => source =>
-  ifFn(source)
-    ? thenFn(source)
-    : type(elseFn) === "Function"
-    ? elseFn(source)
-    : source
+export const when = (ifFn, thenFn, elseFn) => source => {
+  if (ifFn(source)) {
+    return typeof thenFn === "function" ? thenFn(source) : thenFn
+  }
 
-export { when }
+  if (typeof elseFn === "function") {
+    return elseFn(source)
+  }
+
+  return is(elseFn) ? elseFn : source
+}

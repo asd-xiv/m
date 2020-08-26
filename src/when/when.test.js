@@ -5,6 +5,18 @@ const isEven = source => source % 2 !== 0
 
 test("when", t => {
   t.equals(
+    when(isEven, "even", "odd")(5),
+    "even",
+    "Primitive instead of then function"
+  )
+
+  t.equals(
+    when(isEven, "even", "odd")(6),
+    "odd",
+    "Primitive instead of else function"
+  )
+
+  t.equals(
     when(isEven, inc, dec)(5),
     6,
     'Increment even input with "then" & "else" defined'
