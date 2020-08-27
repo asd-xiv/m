@@ -25,7 +25,7 @@ test("map", t => {
   t.deepEqual(
     map([square, square], [1, 2, 3]),
     [1, 16, 81],
-    "(square,square)([1,2,3]) // => [1,16,82]"
+    "([square, square], [1,2,3]) // => [1,16,82]"
   )
 
   t.deepEqual(map(square)([]), [], "iteration over [] should equal []")
@@ -39,6 +39,21 @@ test("map", t => {
 
     return currentValue * currentValue
   })([1, 2])
+
+  map(
+    [
+      (currentValue, index, array) => {
+        t.equal(
+          currentValue,
+          array[index],
+          `callback element "${currentValue}" should equal [${array}][${index}]`
+        )
+
+        return currentValue * currentValue
+      },
+    ],
+    [1, 2]
+  )
 
   const imutableTestArray = [1, 2, 3]
 

@@ -6,7 +6,9 @@ const _map = (fn, _source) => {
 
   for (let i = 0, valuesCount = source.length; i < valuesCount; ++i) {
     result.push(
-      Array.isArray(fn) ? pipe(...fn)(source[i]) : fn(source[i], i, source)
+      Array.isArray(fn)
+        ? pipe(...fn)(source[i], i, source)
+        : fn(source[i], i, source)
     )
   }
 
