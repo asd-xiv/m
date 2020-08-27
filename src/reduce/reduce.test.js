@@ -2,7 +2,17 @@ import test from "tape"
 import { reduce } from ".."
 
 test("reduce", t => {
-  t.equals(reduce((acc, next) => acc + next, 0)([1, 2, 3]), 6, "Sum an array")
+  t.equals(
+    reduce((acc, item) => acc + item, 0, [1, 2, 3]),
+    6,
+    "Sum an array - uncurried"
+  )
+
+  t.equals(
+    reduce((acc, next) => acc + next, 0)([1, 2, 3]),
+    6,
+    "Sum an array-curried"
+  )
 
   t.equals(
     reduce((acc, next) => acc + next, 0)(12),
@@ -17,7 +27,7 @@ test("reduce", t => {
   )
 
   t.equals(
-    reduce((acc = 0, next) => acc + next, 0)([]),
+    reduce((acc, next) => acc + next, 0)([]),
     0,
     "Reducing empty array return default acc"
   )
