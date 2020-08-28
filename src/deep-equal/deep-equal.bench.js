@@ -2,7 +2,7 @@
 
 import Benchmark from "benchmark"
 
-import { deepEqual } from "./deep-equal"
+import { isDeepEqual } from "./deep-equal"
 import { isEqual as deepEqualL } from "lodash"
 import { equals as deepEqualR } from "ramda"
 import { isEqual as deepEqualU } from "underscore"
@@ -60,7 +60,7 @@ const suite1 = new Benchmark.Suite({
     console.log(String(event.target))
   })
   .add("- functies#deepEqual", () => {
-    deepEqual(sourceA1, sourceA2)
+    isDeepEqual(sourceA1, sourceA2)
   })
   .add("- lodash#isEqual", () => {
     deepEqualL(sourceA1, sourceA2)
@@ -85,7 +85,7 @@ const suite2 = new Benchmark.Suite({
     console.log(String(event.target))
   })
   .add("- functies#deepEqual", () => {
-    deepEqual(sourceB1, sourceB2)
+    isDeepEqual(sourceB1, sourceB2)
   })
   .add("- lodash#isEqual", () => {
     deepEqualL(sourceB1, sourceB2)

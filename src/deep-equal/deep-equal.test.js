@@ -1,56 +1,56 @@
 import test from "tape"
-import { deepEqual } from ".."
+import { isDeepEqual } from ".."
 
-test("deepEqual", t => {
-  t.equal(deepEqual(1, 1), true, "Primitives: 1 === 1")
+test("isDeepEqual", t => {
+  t.equal(isDeepEqual(1, 1), true, "Primitives: 1 === 1")
 
-  t.equal(deepEqual(1, "3"), false, 'Primitives: 1 !== "3"')
+  t.equal(isDeepEqual(1, "3"), false, 'Primitives: 1 !== "3"')
 
   const fn = () => {}
 
-  t.equal(deepEqual(fn, fn), true, "Functions: fn === fn")
+  t.equal(isDeepEqual(fn, fn), true, "Functions: fn === fn")
 
   t.equal(
-    deepEqual(new RegExp("test", "gu"), new RegExp("test")),
+    isDeepEqual(new RegExp("test", "gu"), new RegExp("test")),
     false,
     "RegExp: /test/gu !== /test/"
   )
 
   t.equal(
-    deepEqual(new RegExp("test", "gu"), new RegExp("test", "ug")),
+    isDeepEqual(new RegExp("test", "gu"), new RegExp("test", "ug")),
     true,
     "RegExp: /test/gu === /test/ug"
   )
 
-  t.equal(deepEqual([1, 2, 3], [2, 1]), false, "Array: [1, 2, 3] !== [2, 1]")
+  t.equal(isDeepEqual([1, 2, 3], [2, 1]), false, "Array: [1, 2, 3] !== [2, 1]")
 
-  t.equal(deepEqual([1, 2], [2, 1]), false, "Array: [1, 2] !== [2, 1]")
+  t.equal(isDeepEqual([1, 2], [2, 1]), false, "Array: [1, 2] !== [2, 1]")
 
-  t.equal(deepEqual([1, "2"], [2, 1]), false, 'Array: [1, "2"] !== [2, 1]')
+  t.equal(isDeepEqual([1, "2"], [2, 1]), false, 'Array: [1, "2"] !== [2, 1]')
 
   /**
    * Objects
    */
   t.equal(
-    deepEqual({ a: 2, b: 3 }, { b: 3, a: 2 }),
+    isDeepEqual({ a: 2, b: 3 }, { b: 3, a: 2 }),
     true,
     "Compare equal objects with keys arranged differently"
   )
 
   t.equal(
-    deepEqual({ a: 2, b: 3 }, { b: 3, a: 1 }),
+    isDeepEqual({ a: 2, b: 3 }, { b: 3, a: 1 }),
     false,
     "Compare non equal objects with keys arranged differently"
   )
 
   t.equal(
-    deepEqual({ a: 2, b: 3 }, { a: 2, b: 3, c: 1 }),
+    isDeepEqual({ a: 2, b: 3 }, { a: 2, b: 3, c: 1 }),
     false,
     "Compare objects with different number of keys"
   )
 
   t.equal(
-    deepEqual(
+    isDeepEqual(
       {
         lvl1: {},
         lvl2: { a: [1], b: 3 },
@@ -65,7 +65,7 @@ test("deepEqual", t => {
   )
 
   t.equal(
-    deepEqual(
+    isDeepEqual(
       {
         lvl1: [1, 2, 3],
         "lvl1-1": { a: [1, 2], b: 3 },
@@ -80,13 +80,13 @@ test("deepEqual", t => {
   )
 
   t.equal(
-    deepEqual({ 1: 2, 2: 3 }, [2, 1]),
+    isDeepEqual({ 1: 2, 2: 3 }, [2, 1]),
     false,
     "Compare different types, object and array"
   )
 
   t.equal(
-    deepEqual(new RegExp("test"), [2, 1]),
+    isDeepEqual(new RegExp("test"), [2, 1]),
     false,
     "Compare different types, regexp and array"
   )
