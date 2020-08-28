@@ -1,13 +1,12 @@
 import { pipe } from "../pipe/pipe"
 
-const _reduce = (fn, defaultAcc, _source) => {
+const _reduce = (_fn, defaultAcc, _source) => {
   let acc = defaultAcc
   const source = Array.isArray(_source) ? _source : [_source]
+  const fn = Array.isArray(_fn) ? pipe(..._fn) : _fn
 
   for (let i = 0, length = source.length; i < length; i++) {
-    acc = Array.isArray(fn)
-      ? pipe(...fn)(acc, source[i], i, source)
-      : fn(acc, source[i], i, source)
+    acc = fn(acc, source[i], i, source)
   }
 
   return acc
@@ -23,6 +22,7 @@ const _reduce = (fn, defaultAcc, _source) => {
  *
  * @return {mixed}
  *
+ * @name reduce
  * @tag Array
  * @signature (fn: Function, defaultAcc: mixed) => (source: Array): mixed
  * @signature (fn: Function, defaultAcc: mixed, source: Array): mixed
@@ -34,21 +34,11 @@ const _reduce = (fn, defaultAcc, _source) => {
  * // => 3
  */
 export const reduce = (...params) => {
-  /*
-   * @signature (fn: Fn|Fn[], defaultAcc: mixed) => (source: []): mixed
-   *
-   * reduce(sum, 0)([1, 2])
-   * // => 3
-   */
-  if (params.length < 3) {
+  // @signature (fn, defaultAcc) => (source)
+  if (params.length <= 2) {
     return source => _reduce(params[0], params[1], source)
   }
 
-  /*
-   * @signature (fn: Fn|Fn[], defaultAcc: mixed, source: []): mixed
-   *
-   * reduce(sum, 0, [1, 2])
-   * // => 3
-   */
+  // @signature (fn, defaultAcc, source)
   return _reduce(...params)
 }

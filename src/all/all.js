@@ -1,29 +1,12 @@
+import { pipe } from "../pipe/pipe"
 import { isMatch } from "../is-match/is-match"
 
-/**
- * Test if all elements of array satisfy function
- *
- * @tag Core
- * @signature (fn: Function) => (source: Array): boolean
- * @see        {@link allWith}
- * @see        {@link isMatch}
- * @see        {@link any}
- * @see        {@link anyWith}
- *
- * @param {Function}  fn      Function that all elements need to satisfy
- * @param {Array}     source  Source array
- *
- * @return {boolean}
- *
- * @example
- * all(isNumber)([1, 2, 3])
- * // => true
- * all(is)([1, "asd", null])
- * // => false
- */
-const all = fn => source => {
-  for (let i = 0, length = source.length - 1; i <= length; i++) {
-    if (fn.call(null, source[i]) !== true) {
+const _all = (_fn, _source) => {
+  const source = Array.isArray(_source) ? _source : [_source]
+  const fn = Array.isArray(_fn) ? pipe(..._fn) : _fn
+
+  for (let i = 0, length = source.length; i < length; i++) {
+    if (fn(source[i]) !== true) {
       return false
     }
   }
@@ -31,6 +14,46 @@ const all = fn => source => {
   return true
 }
 
-const allWith = subset => all(isMatch(subset))
+/**
+ * Test if all elements of array satisfy a function
+ *
+ * @param {Fn|Fn[]} fn     Test function called on each elements
+ * @param {Array}   source Source array to iterate over
+ *
+ * @return {Boolean} True if all elements pass, otherwise false
+ *
+ * @name all
+ * @tag Array
+ * @signature (fn: Function) => (source: Array): Boolean
+ * @signature (fn: Function, source: Array): Boolean
+ *
+ * @see {@link allWith}
+ * @see {@link any}
+ * @see {@link anyWith}
+ *
+ * @example
+ * all(isNumber)([1, 2, 3])
+ * // => true
+ *
+ * all(is, [1, "asd", null])
+ * // => false
+ */
+export const all = (...params) => {
+  // @signature (fn) => (source)
+  if (params.length <= 1) {
+    return source => _all(params[0], source)
+  }
 
-export { all, allWith }
+  // @signature (fn, source)
+  return _all(...params)
+}
+
+export const allWith = (...params) => {
+  // @signature (subset) => (source)
+  if (params.length <= 1) {
+    return source => _all(isMatch(params[0]), source)
+  }
+
+  // @signature (subset, source)
+  return _all(isMatch(params[0]), params[1])
+}

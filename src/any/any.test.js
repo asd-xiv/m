@@ -1,5 +1,5 @@
 import test from "tape"
-import { any, anyWith } from ".."
+import { get, any, anyWith } from ".."
 
 const isNumber = source => Number.isFinite(source)
 
@@ -7,7 +7,22 @@ test("any(With)", t => {
   t.equal(
     any(isNumber)([1, "string", NaN]),
     true,
-    "Check any element is number"
+    "Check any element is number (curried)"
+  )
+
+  t.equal(
+    any(isNumber, [1, "string", NaN]),
+    true,
+    "Check any element is number (uncurried)"
+  )
+
+  t.equal(
+    any(
+      [get("boolFlag"), item => item === true],
+      [null, "2", { boolFlag: true }]
+    ),
+    true,
+    "Check any element has a field (uncurried, multiple functions)"
   )
 
   t.equal(any(isNumber)([null, "2", {}]), false, "Check any element is number")

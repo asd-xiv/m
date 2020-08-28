@@ -33,7 +33,7 @@ test("reduce", t => {
   )
 
   t.deepEquals(
-    reduce((acc, next) => ({ ...acc, [next]: next }), {})([1, 2, 3]),
+    reduce((acc, next) => ({ ...acc, [next]: next }), {}, [1, 2, 3]),
     { 1: 1, 2: 2, 3: 3 },
     "From array to object with default acc"
   )
