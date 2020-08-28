@@ -44,5 +44,16 @@ test("mapMatrix", t => {
     ],
     "Multiple transform functions ([square, inc], [[1, 2], [3, 4]]) // => [[2, 5], [10, 17]]"
   )
+
+  mapMatrix((currentValue, rowIndex, columIndex, array) => {
+    t.equal(
+      currentValue,
+      array[rowIndex][columIndex],
+      `callback element "${currentValue}" should equal [${array}][${rowIndex}][${columIndex}]`
+    )
+
+    return currentValue * currentValue
+  })([[1, 2]])
+
   t.end()
 })
