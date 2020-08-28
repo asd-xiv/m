@@ -18,16 +18,18 @@ const _find = (_fn, notFoundDefault, source) => {
 /**
  * Find the first element that satisfies a predicate function
  *
- * @param {Fn|Fn[]} fn              Predicate applied to each element
+ * @param {Fn|Fn[]} fn              Match function applied to each element
  * @param {Any}     notFoundDefault Return if no item found
  * @param {Array}   source          Source array to iterate over
  *
- * @return {Any|undefined} First element found or undefined
+ * @return {Any} First element found or undefined
  *
  * @name find
  * @tag Array
  * @signature (fn: Fn|Fn[], notFoundDefault: Any) => (source: Array): Any
  * @signature (fn: Fn|Fn[], notFoundDefault: Any, source: Array) => Any
+ *
+ * @see {@link findWith}
  *
  * @example
  * const comments = [{id: 1, body: ""}, {id: 2, body: "dolor"}]

@@ -1,4 +1,3 @@
-import { i } from "../i/i"
 import { map } from "../map/map"
 import { reduce } from "../reduce/reduce"
 import { type } from "../type/type"
@@ -7,14 +6,15 @@ import { type } from "../type/type"
  * Creates a new instance of the object with same properties than original.
  * Will not inherit prototype, only own enumerable properties.
  *
- * @name       clone
- * @tag        Core
- * @signature  <T>(source: T): T
- * @see        {@link deepEqual}
+ * @param {Any} source Source input value
  *
- * @param  {any}  source  Input value
+ * @returns {Any} New instance of source
  *
- * @returns  {any}  Cloned value
+ * @name clone
+ * @tag Core
+ * @signature (source: Any): Any
+ *
+ * @see {@link deepEqual}
  *
  * @example
  * let x = {a: [1]}
@@ -25,21 +25,32 @@ import { type } from "../type/type"
  * close(x) === x
  * // => false
  */
-const clone = source => {
-  const byType = {
-    Date: () => new Date(source.getTime()),
-    Array: () => map(clone)(source),
-    Object: () =>
-      reduce((acc, [key, elm]) => {
+export const clone = source => {
+  const sourceType = type(source)
+
+  if (sourceType === "Array") {
+    return map(clone, source)
+  }
+
+  if (sourceType === "Object") {
+    return reduce(
+      (acc, [key, elm]) => {
         acc[key] = clone(elm)
 
         return acc
-      }, {})(Object.entries(source)),
+      },
+      {},
+      Object.entries(source)
+    )
   }
 
-  const sourceType = type(source)
+  if (sourceType === "Date") {
+    return new Date(source.getTime())
+  }
 
-  return byType[sourceType] ? byType[sourceType](source) : i(source)
+  if (sourceType === "RegExp") {
+    return new RegExp(sourceType.toString())
+  }
+
+  return source
 }
-
-export { clone }

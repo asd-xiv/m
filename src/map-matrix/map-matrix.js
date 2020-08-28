@@ -25,12 +25,14 @@ const _mapMatrix = (_fn, source) => {
  * @param {Fn|Fn[]} fn     Transform function called on all elements
  * @param {[][]}    source Two-dimensional array to iterate over
  *
+ * @return {[][]} New array instance
+ *
  * @name mapMatrix
  * @tag Array
  * @signature (fn: Fn|Fn[]) => (source: [][]) => [][]
  * @signature (fn: Fn|Fn[], source: [][]) => [][]
  *
- * @return {[][]} New array instance
+ * @see {@link map}
  *
  * @example
  * const inc = x => x + 1
