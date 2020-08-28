@@ -1,12 +1,16 @@
 import { pipe } from "../pipe/pipe"
 
-const _converge = (_accFn, _extractFn, source) => {
+const _converge = (_accFn, _extractFn, ...source) => {
   const accFn = Array.isArray(_accFn) ? pipe(..._accFn) : _accFn
   const extractFn = Array.isArray(_extractFn) ? _extractFn : [_extractFn]
   const extractValues = []
 
-  for (let i = 0; i < extractFn.length; ++i) {
-    extractValues.push(extractFn[i](source))
+  for (
+    let i = 0, extractFnLength = extractFn.length;
+    i < extractFnLength;
+    ++i
+  ) {
+    extractValues.push(extractFn[i](...source))
   }
 
   return accFn(...extractValues)
@@ -24,8 +28,8 @@ const _converge = (_accFn, _extractFn, source) => {
  *
  * @name converge
  * @tag Core
- * @signature (accFn: Fn|Fn[], extractFn: Fn|Fn[]) => (source: Array): Any
- * @signature (accFn: Fn|Fn[], extractFn: Fn|Fn[], source: Array): Any
+ * @signature (accFn: Fn|Fn[], extractFn: Fn|Fn[]) => (...source: Array): Any
+ * @signature (accFn: Fn|Fn[], extractFn: Fn|Fn[], ...source: Array): Any
  *
  * @example
  * const divide = () => ...
@@ -38,7 +42,7 @@ const _converge = (_accFn, _extractFn, source) => {
 export const converge = (...params) => {
   // @signature (accFn, extractFn) => (source)
   if (params.length <= 2) {
-    return source => _converge(params[0], params[1], source)
+    return (...source) => _converge(params[0], params[1], ...source)
   }
 
   // @signature (accFn, extractFn, source)
