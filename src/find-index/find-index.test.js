@@ -14,6 +14,12 @@ test("findIndex(With)", t => {
   )
 
   t.equals(
+    findIndex([element => element.id, item => item === 2], comments),
+    1,
+    "index with id:2 should be 1 (uncurried multipe functions)"
+  )
+
+  t.equals(
     findIndex(element => element.id === 3)(comments),
     -1,
     "index with id:3 should be -1 (not found)"

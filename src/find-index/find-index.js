@@ -1,26 +1,9 @@
+import { pipe } from "../pipe/pipe"
 import { isMatch } from "../is-match/is-match"
 
-/**
- * Find the position of first element that satisfies a function
- *
- * @param  {Function}    fn      Match function
- * @param  {Object[]}    source  Source array
- *
- * @return {number}
- *
- * @name findIndex
- * @tag Array
- * @signature (fn: Function) => (source: Object[]): number
- *
- * @example
- * const comments = [{ id: 1, body: "" }, { id: 2, body: "dolor" }]
- *
- * findIndex(item => item.id === 2)(comments)
- * // => 1
- * findIndex(item => item.id === 3)(comments)
- * // => -1
- */
-const findIndex = fn => source => {
+const _findIndex = (_fn, source) => {
+  const fn = Array.isArray(_fn) ? pipe(..._fn) : _fn
+
   for (let i = 0, length = source.length; i < length; i++) {
     const found = fn(source[i], i, source)
 
@@ -32,6 +15,44 @@ const findIndex = fn => source => {
   return -1
 }
 
-const findIndexWith = subset => findIndex(isMatch(subset))
+/**
+ * Find the position the first element that satisfies a predicate function
+ *
+ * @param {Fn|Fn[]}  fn     Predicate applied to each element
+ * @param {Object[]} source Source array to iterate over
+ *
+ * @return {Number} Position of found element or -1 if not found
+ *
+ * @name findIndex
+ * @tag Array
+ * @signature (fn: Function) => (source: Object[]): Number
+ * @signature (fn: Function, source: Object[]): Number
+ *
+ * @example
+ * const comments = [{id: 1, body: ""}, {id: 2, body: "dolor"}]
+ *
+ * findIndex(item => item.body === "lorem")(comments)
+ * // => -1
+ *
+ * findIndex([get("body"), equals("dolor")], null, comments)
+ * // => 1
+ */
+export const findIndex = (...params) => {
+  // @signature (fn) => (source)
+  if (params.length <= 1) {
+    return source => _findIndex(params[0], source)
+  }
 
-export { findIndex, findIndexWith }
+  // @signature (fn, source)
+  return _findIndex(...params)
+}
+
+export const findIndexWith = (...params) => {
+  // @signature (subset) => (source)
+  if (params.length <= 1) {
+    return source => _findIndex(isMatch(params[0]), source)
+  }
+
+  // @signature (subset, source)
+  return _findIndex(isMatch(params[0]), params[1], params[2])
+}

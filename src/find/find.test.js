@@ -8,6 +8,12 @@ test("array::find", t => {
   ]
 
   t.deepEqual(
+    find([element => element.id, item => item === 2], null, comments),
+    { id: 2, body: "dolor" },
+    "find with id:2 should return found object (uncurried multipe functions)"
+  )
+
+  t.deepEqual(
     find(element => element.id === 2)(comments),
     { id: 2, body: "dolor" },
     "find with id:2 should return found object"
@@ -17,6 +23,12 @@ test("array::find", t => {
     find(element => element.id === 3)(comments),
     undefined,
     "find with id:3 should return undefined (not found)"
+  )
+
+  t.deepEqual(
+    find(element => element.id === 3, {})(comments),
+    {},
+    "find with id:3 should return default not found value"
   )
 
   t.deepEqual(
