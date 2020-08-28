@@ -1,11 +1,8 @@
-export { curry } from "./curry/curry"
-export { zipToObj } from "./zip-to-obj/zip-to-obj"
 export { isDeepEqual, isDeepEqual as deepEqual } from "./deep-equal/deep-equal"
 export { elapsedTime } from "./elapsed-time/elapsed-time"
 export { groupBy } from "./group-by/group-by"
 export { indexBy } from "./index-by/index-by"
 export { hist } from "./hist/hist"
-export { isMatch } from "./is-match/is-match"
 export { protoChain } from "./proto-chain/proto-chain"
 export { renameFile } from "./rename-file/rename-file"
 export { sequence, sequenceWhile } from "./sequence/sequence"
@@ -16,9 +13,11 @@ export { throttle } from "./throttle/throttle"
 export { debounce } from "./debounce/debounce"
 
 // Core
+export { curry } from "./curry/curry"
 export { map } from "./map/map"
 export { mapMatrix } from "./map-matrix/map-matrix"
 export { reduce } from "./reduce/reduce"
+export { converge } from "./converge/converge"
 export { forEach } from "./for-each/for-each"
 export { pipe } from "./pipe/pipe"
 export { pipeP } from "./pipeP/pipeP"
@@ -37,12 +36,14 @@ export { any, anyWith } from "./any/any"
 export { all, allWith } from "./all/all"
 export { when } from "./when/when"
 export { cases } from "./cases/cases"
+export { isMatch } from "./is-match/is-match"
 
 // Object
 export { pick } from "./pick/pick"
 export { pluck } from "./pluck/pluck"
 export { merge } from "./merge/merge"
 export { keys } from "./keys/keys"
+export { zipToObj } from "./zip-to-obj/zip-to-obj"
 
 // Array
 export { top } from "./top/top"
