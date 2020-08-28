@@ -1,40 +1,31 @@
-import { deepEqual } from "../deep-equal/deep-equal"
+import { any } from "../any/any"
+import { isDeepEqual } from "../deep-equal/deep-equal"
 
 /**
  * Remove repeating values
  *
- * @param  {Array}  source  The source
+ * @param {Array} source Source input array
  *
  * @return {Array}
  *
+ * @name distinct
  * @tag Array
- * @signature ( source: Array ): Array
+ * @signature (source: Array): Array
  *
  * @example
- * distinct( [1, 1, 2] )
+ * distinct([1, 1, 2])
  * // => [1, 2]
  */
-const distinct = source => {
+export const distinct = source => {
   const result = []
 
   for (let i = 0, length = source.length; i < length; i++) {
     const newElement = source[i]
 
-    let shouldAdd = true
-
-    for (let j = 0, resLength = result.length; j < resLength; j++) {
-      const resElement = result[j]
-
-      if (deepEqual(newElement, resElement)) {
-        shouldAdd = false
-        break
-      }
+    if (any(isDeepEqual(newElement), result) === false) {
+      result.push(newElement)
     }
-
-    shouldAdd && result.push(newElement)
   }
 
   return result
 }
-
-export { distinct }
