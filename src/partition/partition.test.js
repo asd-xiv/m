@@ -1,5 +1,6 @@
 import test from "tape"
 import { is } from "../is/is"
+import { read } from "../read/read"
 import { partition, partitionWith } from ".."
 
 test("array::partition", t => {
@@ -12,6 +13,21 @@ test("array::partition", t => {
       [1, 1],
     ],
     "(equalsTwo)([2,2,1,1,2]) // => [[2,2,2],[1,1]]"
+  )
+
+  t.deepEqual(
+    partition(equalsTwo, [2, 2, 1, 1, 2]),
+    [
+      [2, 2, 2],
+      [1, 1],
+    ],
+    "(equalsTwo, [2,2,1,1,2]) // => [[2,2,2],[1,1]]"
+  )
+
+  t.deepEqual(
+    partition([read("comments"), is], [{ id: 1, comments: [] }, { id: 2 }]),
+    [[{ id: 1, comments: [] }], [{ id: 2 }]],
+    "(equalsTwo, [2,2,1,1,2]) // => [[2,2,2],[1,1]]"
   )
 
   t.deepEqual(
