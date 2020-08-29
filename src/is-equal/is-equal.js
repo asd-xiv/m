@@ -12,14 +12,15 @@
  * @example
  * equal(2)(2)
  * // => true
+ *
  * equal("2")(2)
  * // => false
+ *
  * equal(NaN)(NaN)
  * // => true
+ *
  * equal([1])([1])
  * // => false
  */
-const equals = one => two =>
+export const isEqual = one => two =>
   Number.isNaN(one) && Number.isNaN(two) ? true : one === two
-
-export { equals }
