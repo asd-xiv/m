@@ -15,10 +15,11 @@
  * @example
  * between(2, 5)(5)
  * // => false
+ *
  * between(2, 5, {closed: true})(5)
  * // => true
  */
-const between = (left, right, { closed = false } = {}) => source => {
+export const isBetween = (left, right, { closed = false } = {}) => source => {
   if (left > right) {
     throw new Error("Left interval limit must be less than right limit")
   }
@@ -27,5 +28,3 @@ const between = (left, right, { closed = false } = {}) => source => {
     ? source > left && source < right
     : source >= left && source <= right
 }
-
-export { between }
