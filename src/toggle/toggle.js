@@ -1,5 +1,5 @@
 import { when } from "../when/when"
-import { has } from "../has/has"
+import { any } from "../any/any"
 import { remove } from "../remove/remove"
 import { push } from "../push/push"
 
@@ -25,7 +25,7 @@ const toggle = element => source => {
     return [element]
   }
 
-  return when(has(element), remove(element), push(element))(source)
+  return when(any(element), remove(element), push(element))(source)
 }
 
 export { toggle }
