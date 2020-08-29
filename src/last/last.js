@@ -9,14 +9,14 @@
  * @signature (source: Array): mixed
  *
  * @example
- * tail([1, 2, 3])
+ * last([1, 2, 3])
  * // => 3
- * tail([])
+ * last([])
  * // => undefined
  */
-const tail = source =>
+const last = source =>
   (Array.isArray(source) || typeof source === "string") && source.length !== 0
     ? source[source.length - 1]
     : undefined
 
-export { tail }
+export { last }
