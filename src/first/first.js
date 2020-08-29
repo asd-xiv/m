@@ -9,15 +9,15 @@
  * @signature (source: Array): mixed
  *
  * @example
- * head([1, 2, 3])
+ * first([1, 2, 3])
  * // => 1
  *
- * head([])
+ * first([])
  * // => undefined
  */
-const head = source =>
+const first = source =>
   (Array.isArray(source) || typeof source === "string") && source.length !== 0
     ? source[0]
     : undefined
 
-export { head }
+export { first }
