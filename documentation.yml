@@ -1,0 +1,48 @@
+toc:
+  - name: "Core"
+  - converge
+  - find
+  - findWith
+  - forEach
+  - i
+  - map
+  - mapMatrix
+  - pipe
+  - read
+  - reduce
+  - same
+  - write
+  - name: "Array"
+  - bottom
+  - count
+  - countWith
+  - distinct
+  - filter
+  - filterWith
+  - find
+  - findWith
+  - first
+  - flatten
+  - last
+  - partition
+  - partitionWith
+  - pluck
+  - remove
+  - removeWith
+  - top
+  - name: "Boolean"
+  - all
+  - allWith
+  - any
+  - anyWith
+  - is
+  - isBetween
+  - isEmpty
+  - isEqual
+  - isMatch
+  - when
+  - name: "Object"
+  - keys
+  - merge
+  - pick
+  - zipToObj
