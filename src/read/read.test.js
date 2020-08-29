@@ -1,9 +1,9 @@
 import test from "tape"
-import { get } from ".."
+import { read } from ".."
 
-test("get", t => {
+test("read", t => {
   t.equal(
-    get("lorem")({
+    read("lorem")({
       lorem: "ipsum",
     }),
     "ipsum",
@@ -11,7 +11,7 @@ test("get", t => {
   )
 
   t.equal(
-    get("not-exist")({
+    read("not-exist")({
       lorem: "ipsum",
     }),
     undefined,
@@ -19,79 +19,79 @@ test("get", t => {
   )
 
   t.equal(
-    get("not-exist")(undefined),
+    read("not-exist")(undefined),
     undefined,
     "Get prop from undefined // undefined"
   )
 
   t.equal(
-    get("not-exist-on-null")(null),
+    read("not-exist-on-null")(null),
     undefined,
     "Get prop from null // undefined"
   )
 
   t.equal(
-    get("not-exist")(2),
+    read("not-exist")(2),
     undefined,
     "Get prop from non object // undefined"
   )
 
   t.equal(
-    get(["a", "b"])({ a: { b: "lorem" } }),
+    read(["a", "b"])({ a: { b: "lorem" } }),
     "lorem",
     "Get existing prop from nested objects"
   )
 
   t.equal(
-    get(["a", "c"])({ a: { b: "lorem" } }),
+    read(["a", "c"])({ a: { b: "lorem" } }),
     undefined,
     "Get non-existing prop from nested objects"
   )
 
   t.equal(
-    get(["a", "c"], "dolor")({ a: { b: "lorem" } }),
+    read(["a", "c"], "dolor")({ a: { b: "lorem" } }),
     "dolor",
     "Get non-existing prop with default from nested objects"
   )
 
   t.equal(
-    get(["0", "a"])([{ a: "array element" }]),
+    read(["0", "a"])([{ a: "array element" }]),
     "array element",
     "Get existing prop from array"
   )
 
   t.equal(
-    get(["a", 0, "b"])({ a: [{ b: "array element" }] }),
+    read(["a", 0, "b"])({ a: [{ b: "array element" }] }),
     "array element",
     "Get existing prop from array"
   )
 
   t.equal(
-    get(["a"])({ a: null }),
+    read(["a"])({ a: null }),
     null,
     "Get existing prop from object that is also null"
   )
 
   t.equal(
-    get(["a"], "default value")({ a: null }),
+    read(["a"], "default value")({ a: null }),
     "default value",
     "Get existing prop from object that is also null with default value"
   )
 
   t.equal(
-    get(["a"], "default value")({ a: NaN }),
+    read(["a"], "default value")({ a: NaN }),
     "default value",
     "Get existing prop from object that is also NaN with default value"
   )
 
   t.equal(
-    get(["a", "b"], "default value")({}),
+    read(["a", "b"], "default value")({}),
     "default value",
     "Get existing prop from object that is also NaN with default value"
   )
 
   t.ok(
-    Number.isNaN(get(["a"])({ a: NaN })),
+    Number.isNaN(read(["a"])({ a: NaN })),
     "Get existing prop from object that is also NaN"
   )
 

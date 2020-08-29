@@ -8,16 +8,17 @@
  *
  * @return     {Object}
  *
+ * @name write
  * @tag Object
  * @signature ( key: string, value: mixed ) => ( source: Object ): Object
  *
  * @example
- * set( "a", "lorem" )( { b: "ipsum" } )
+ * write( "a", "lorem" )( { b: "ipsum" } )
  * // => { a: "lorem", b: "ipsum" }
  */
-const set = (key, value) => source => ({
+const write = (key, value) => source => ({
   ...source,
   [key]: value,
 })
 
-export { set }
+export { write }

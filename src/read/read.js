@@ -11,26 +11,27 @@ import { pipe } from "../pipe/pipe"
  *
  * @return {mixed}
  *
+ * @name read
  * @tag Object
  * @signature (path: string|string[]) => (source: Object|Array): mixed
  *
  * @example
- * get("lorem")({ lorem: "ipsum" })
+ * read("lorem")({ lorem: "ipsum" })
  * // => "ipsum"
  *
- * get("not-exist")({ lorem: "ipsum" })
+ * read("not-exist")({ lorem: "ipsum" })
  * // => undefined
  *
- * get("not-exist-with-default", "dolor")({ lorem: "ipsum" })
+ * read("not-exist-with-default", "dolor")({ lorem: "ipsum" })
  * // => "dolor"
  *
- * get(["a", "b"])({ a: { b: "c" } })
+ * read(["a", "b"])({ a: { b: "c" } })
  * // => "c"
  *
- * get(["a", "test"])({ a: { b: "c" } })
+ * read(["a", "test"])({ a: { b: "c" } })
  * // => undefined
  */
-const get = (path, defaultValue) => source => {
+const read = (path, defaultValue) => source => {
   let result = undefined
 
   if (is(source) && typeof source === "object") {
@@ -50,4 +51,4 @@ const get = (path, defaultValue) => source => {
   return isNothing(result) && is(defaultValue) ? defaultValue : result
 }
 
-export { get }
+export { read }
