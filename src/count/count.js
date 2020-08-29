@@ -30,7 +30,7 @@ const byObject = source => {
  * Count the number of elements that satisfies a function
  *
  * @tag Array
- * @signature (fn: Function)(source: Array <Object>): number
+ * @signature (fn: Function)(source: Object[]): Number
  *
  * @param  {Function}  fn      Match function
  * @param  {Object[]}  source  Source array
@@ -74,6 +74,36 @@ const count = fn => {
   }
 }
 
+/**
+ * Count elements that match a predicate
+ *
+ * @param  {Function}  subset      Match function
+ * @param  {Object[]}  source  Source array
+ *
+ * @return  {number}
+ *
+ * @name countWith
+ * @tag Array
+ * @signature (subset: Object)(source: Object[]): Number
+ *
+ * @example
+ * const scores = [{
+ *  name   : "Bob",
+ *  score  : 1,
+ *  subject: "Math"
+ * }, {
+ *  name   : "Alice",
+ *  score  : 10,
+ *  subject: "Math"
+ * }, {
+ *  name   : "Hatter",
+ *  score  : 10,
+ *  subject: "Math"
+ * }]
+ *
+ * countWith({ score: gt(5) })(scores)
+ * // => 2
+ */
 const countWith = subset => count(isMatch(subset))
 
 export { count, countWith }

@@ -5,6 +5,12 @@ const isNumber = source => Number.isFinite(source)
 
 test("any(With)", t => {
   t.equal(
+    any(1, [1, "string", NaN]),
+    true,
+    "Check any element is equal to primitive"
+  )
+
+  t.equal(
     any(isNumber)([1, "string", NaN]),
     true,
     "Check any element is number (curried)"
@@ -43,14 +49,17 @@ test("any(With)", t => {
   )
 
   t.equal(
-    anyWith({
-      id: isNumber,
-      name: "lorem",
-    })([
-      { id: "uuid", name: "lorem" },
-      { id: 2, name: "foo" },
-      { id: "3", name: "lorem", foo: "bar" },
-    ]),
+    anyWith(
+      {
+        id: isNumber,
+        name: "lorem",
+      },
+      [
+        { id: "uuid", name: "lorem" },
+        { id: 2, name: "foo" },
+        { id: "3", name: "lorem", foo: "bar" },
+      ]
+    ),
     false,
     "Array should not contain object that satisfies conditions"
   )

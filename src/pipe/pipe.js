@@ -8,7 +8,7 @@
  *
  * @return {Any}
  *
- * @name reduce
+ * @name pipe
  * @tag Core
  * @signature (...fn: Fn[]) => (...source: Array): Any
  *

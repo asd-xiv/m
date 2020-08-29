@@ -17,15 +17,15 @@ const _all = (_fn, _source) => {
 /**
  * Test if all elements of array satisfy a function
  *
- * @param {Fn|Fn[]} fn     Test function called on each elements
- * @param {Array}   source Source array to iterate over
+ * @param {Function|Function[]} fn     Test function called on each elements
+ * @param {Array}               source Source array to iterate over
  *
  * @return {Boolean} True if all elements pass, otherwise false
  *
  * @name all
  * @tag Array
- * @signature (fn: Function) => (source: Array): Boolean
- * @signature (fn: Function, source: Array): Boolean
+ * @signature (fn: Function|Function[]) => (source: Array): Boolean
+ * @signature (fn: Function|Function[], source: Array): Boolean
  *
  * @see {@link allWith}
  * @see {@link any}
@@ -48,6 +48,31 @@ export const all = (...params) => {
   return _all(...params)
 }
 
+/**
+ * Test if all elements in array match object
+ *
+ * @param {Object} subset Match object
+ * @param {Array}  source Source array to iterate over
+ *
+ * @return {Boolean} True if all elements match, otherwise false
+ *
+ * @name allWith
+ * @tag Array
+ * @signature (subset: Object) => (source: Array): Boolean
+ * @signature (subset: Object, source: Array): Boolean
+ *
+ * @see {@link all}
+ * @see {@link any}
+ * @see {@link anyWith}
+ * @see {@link isMatch}
+ *
+ * @example
+ * allWith(isNumber)([1, 2, 3])
+ * // => true
+ *
+ * allWith(is, [1, "asd", null])
+ * // => false
+ */
 export const allWith = (...params) => {
   // @signature (subset) => (source)
   if (params.length <= 1) {

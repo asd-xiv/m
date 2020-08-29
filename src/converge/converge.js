@@ -17,12 +17,12 @@ const _converge = (_accFn, _extractFn, ...source) => {
 }
 
 /**
- * Apply a list of function, extract functions, on the same input and use
- * those results as parameters for another accumulator function.
+ * Apply a list of function (extract functions) on the same input and use
+ * the results as parameters for a final accumulator function.
  *
  * @param {Fn|Fn[]} accFn     Accumulator or final aggreate function
  * @param {Fn|Fn[]} extractFn List of functions to be applied on input
- * @param {Any}     source    Source input
+ * @param {Any}     ...source Source input
  *
  * @return {Any}
  *
@@ -32,9 +32,9 @@ const _converge = (_accFn, _extractFn, ...source) => {
  * @signature (accFn: Fn|Fn[], extractFn: Fn|Fn[], ...source: Array): Any
  *
  * @example
- * const divide = () => ...
- * const sum = () => ...
- * const count = () => ...
+ * const divide = () => {}
+ * const sum = () => {}
+ * const count = () => {}
  *
  * converge(divide, [sum, count], [1, 2, 3, 4, 5, 6, 7])
  * // => 4

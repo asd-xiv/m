@@ -16,7 +16,7 @@ const _find = (_fn, notFoundDefault, source) => {
 }
 
 /**
- * Find the first element that satisfies a predicate function
+ * Find the first element that matches a predicate
  *
  * @param {Fn|Fn[]} fn              Match function applied to each element
  * @param {Any}     notFoundDefault Return if no item found
@@ -51,6 +51,32 @@ export const find = (...params) => {
   return _find(...params)
 }
 
+/**
+ * Find the first element that matches an object
+ *
+ * @param {Object} subset          Match object
+ * @param {Any}    notFoundDefault Return if no item found
+ * @param {Array}  source          Source array to iterate over
+ *
+ * @return {Any} First element found or undefined
+ *
+ * @name findWith
+ * @tag Array
+ * @signature (subset: Object, notFoundDefault: Any) => (source: Array): Any
+ * @signature (subset: Object, notFoundDefault: Any, source: Array) => Any
+ *
+ * @see {@link find}
+ * @see {@link isMatch}
+ *
+ * @example
+ * const comments = [{id: 1, body: ""}, {id: 2, body: "dolor"}]
+ *
+ * findWith({id: 2})(comments)
+ * // => {id: 2, body: "dolor"}
+ *
+ * find({id: "404"}, {default: "value"}, comments)
+ * // => {default: "value"}
+ */
 export const findWith = (...params) => {
   // @signature (subset, notFoundDefault) => (source)
   if (params.length <= 2) {
