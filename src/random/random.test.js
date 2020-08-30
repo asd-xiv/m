@@ -1,25 +1,27 @@
 import test from "tape"
 import chiSquaredTest from "chi-squared-test"
 
-import { random, repeat, get, lt, hist } from ".."
+import { random, repeat, get, lt, hist, pipe } from ".."
 
 test("random", t => {
   const [min, max, observationCount] = [5, 10, 600]
 
-  const observationsHist =
-    observationCount
-    |> repeat(() => random({ min, max }))
-    |> hist
-    |> Object.values
+  const observationsHist = pipe(
+    repeat(() => random(min, max)),
+    hist,
+    Object.values
+  )(observationCount)
 
-  const expectedHist =
+  const expectedHist = repeat(() => observationCount / observationsHist.length)(
     observationsHist.length
-    |> repeat(() => observationCount / observationsHist.length)
+  )
 
   t.equals(
-    chiSquaredTest(observationsHist, expectedHist, 1)
-      |> get("chiSquared")
-      |> lt(11.07),
+    pipe(chiSquaredTest, get("chiSquared"), lt(11.07))(
+      observationsHist,
+      expectedHist,
+      1
+    ),
     true,
     `Generate ${observationCount} integers between ${min} and ${max}}`
   )
