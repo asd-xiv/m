@@ -45,7 +45,6 @@
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.11.4",
-    "@babel/plugin-proposal-pipeline-operator": "^7.10.5",
     "@babel/preset-env": "^7.11.0",
     "@babel/register": "^7.10.5",
     "@mutant-ws/eslint-config": "^5.11.0",

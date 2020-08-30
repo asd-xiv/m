@@ -8,14 +8,5 @@
      } ]
   ],
 
-  "plugins": [
-    // let result = "hello"
-    //   |> doubleSay
-    //   |> capitalize
-    //   |> exclaim;
-    // result //=> "Hello, hello!"
-    [ "@babel/plugin-proposal-pipeline-operator", {
-      "proposal": "minimal"
-    } ]
-  ]
+  "plugins": []
 }

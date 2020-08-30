@@ -1,5 +1,6 @@
 import { sep } from "path"
 
+import { pipe } from "../pipe/pipe"
 import { trim } from "../trim/trim"
 import { split } from "../split/split"
 import { push } from "../push/push"
@@ -17,12 +18,13 @@ const removeTrailingSlash = source =>
  *
  * @return {string}
  */
-const renameFile = newName => filePath =>
-  filePath
-  |> removeTrailingSlash
-  |> split(sep)
-  |> dropLast
-  |> push(trim(sep)(newName))
-  |> join(sep)
+const renameFile = newName =>
+  pipe(
+    removeTrailingSlash,
+    split(sep),
+    dropLast,
+    push(trim(sep)(newName)),
+    join(sep)
+  )
 
 export { renameFile }
