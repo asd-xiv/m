@@ -3,9 +3,15 @@ import { startsWith } from ".."
 
 test("startsWith", t => {
   t.equals(
+    startsWith("lorem", "lorem ipsum"),
+    true,
+    "Source string starts with search string (uncurried)"
+  )
+
+  t.equals(
     startsWith("lorem")("lorem ipsum"),
     true,
-    "Source string starts with search string"
+    "Source string starts with search string (curried)"
   )
 
   t.equals(

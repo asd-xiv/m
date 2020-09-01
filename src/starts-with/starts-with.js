@@ -1,19 +1,4 @@
-/**
- * Test if string starts with substring
- *
- * @param  {string}  search  Search string
- * @param  {string}  source  Source string
- *
- * @return {boolean}
- *
- * @tag String
- * @signature (search: string) => (source: string): boolean
- *
- * @example
- * startsWith("lorem")("lorem ipsum")
- * // => true
- */
-const startsWith = search => source => {
+const _startsWith = (search, source) => {
   if (search.length > source.length) {
     return false
   }
@@ -27,4 +12,31 @@ const startsWith = search => source => {
   return searchPosition === 0
 }
 
-export { startsWith }
+/**
+ * Test if string starts with substring
+ *
+ * @param {String} search Search string
+ * @param {String} source Source string
+ *
+ * @return {Boolean}
+ *
+ * @name startsWith
+ * @tag String
+ * @signature (search: String) => (source: String): Boolean
+ *
+ * @example
+ * startsWith("lorem", "lorem ipsum")
+ * // => true
+ *
+ * startsWith("dolor")("lorem ipsum")
+ * // false
+ */
+export const startsWith = (...params) => {
+  // @signature (search) => (source)
+  if (params.length <= 1) {
+    return source => _startsWith(params[0], source)
+  }
+
+  // @signature (search, source)
+  return _startsWith(...params)
+}
