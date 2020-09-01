@@ -1,3 +1,29 @@
+import { is } from "../is/is"
+
+const _merge = (fn, source) => {
+  let result = {}
+
+  for (let i = 0, length = source.length; i < length; i++) {
+    const sourceEntries = Object.entries(source[i])
+
+    if (is(fn)) {
+      result = fn(result, source[i])
+    } else {
+      for (
+        let j = 0, sourceEntriesLength = sourceEntries.length;
+        j < sourceEntriesLength;
+        j++
+      ) {
+        const [key, value] = sourceEntries[j]
+
+        result[key] = value
+      }
+    }
+  }
+
+  return result
+}
+
 /**
  * Combine from left to right, 2 or more objects into a new single one.
  * Properties will be shallow copied. Those with the same name will be
@@ -14,26 +40,24 @@
  * merge({a: "lorem"}, {b: "ipsum", c: 41}, {c: 42, b: undefined})
  * // => { a: "lorem", b: "ipsum", c: 42 }
  */
-const merge = (...sources) => {
-  const result = {}
-
-  for (let i = 0, length = sources.length; i < length; i++) {
-    const sourceEntries = Object.entries(sources[i])
-
-    for (
-      let j = 0, sourceEntriesLength = sourceEntries.length;
-      j < sourceEntriesLength;
-      j++
-    ) {
-      const [key, value] = sourceEntries[j]
-
-      if (value !== undefined) {
-        result[key] = value
-      }
-    }
+export const merge = (...params) => {
+  // @signature (obj1) => (obj2)
+  if (params.length <= 1) {
+    return obj2 => _merge(null, [params[0], obj2])
   }
 
-  return result
+  // @signature (obj1, obj2)
+  return _merge(null, ...params)
 }
 
-export { merge }
+export const mergeBy = (...params) => {
+  // @signature (fn) => (source)
+  if (params.length <= 1) {
+    return source => _merge(params[0], source)
+  }
+
+  // @signature (fn, source)
+  return _merge(...params)
+}
+
+export const mergeAll = source => _merge(null, source)

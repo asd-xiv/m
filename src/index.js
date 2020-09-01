@@ -42,7 +42,7 @@ export { isMatch } from "./is-match/is-match"
 // Object
 export { pick } from "./pick/pick"
 export { pluck } from "./pluck/pluck"
-export { merge } from "./merge/merge"
+export { merge, mergeAll, mergeBy } from "./merge/merge"
 export { keys } from "./keys/keys"
 export { zipToObj } from "./zip-to-obj/zip-to-obj"
 

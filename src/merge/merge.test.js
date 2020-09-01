@@ -1,25 +1,34 @@
 import test from "tape"
-import { merge } from ".."
+import { merge, mergeAll, mergeBy } from ".."
 
-test("merge", t => {
+test("merge, mergeAll", t => {
   const obj1 = { a: undefined }
   const obj2 = { a: "lorem", b: "ipsum", c: 41 }
   const obj3 = { c: 42, b: undefined }
-  const result = merge(obj1, obj2, obj3)
-
-  const resultAgain = merge(result, obj1, obj2, obj3)
 
   t.deepEqual(
-    result,
-    { a: "lorem", b: "ipsum", c: 42 },
-    "3 objects should be merged into one"
+    mergeBy((a, b) => ({ ...a, ...b }), [obj1, obj2, obj3]),
+    { a: "lorem", b: undefined, c: 42 },
+    "mergeBy 3 objects - uncurried"
   )
 
-  t.deepEqual(result, resultAgain, "Idempotence")
+  t.deepEqual(
+    mergeBy((a, b) => ({ ...a, ...b }))([obj1, obj2, obj3]),
+    { a: "lorem", b: undefined, c: 42 },
+    "mergeBy 3 objects - curried"
+  )
 
-  t.notEqual(result, obj1, "Imutability - first object")
-  t.notEqual(result, obj2, "Imutability - second object")
-  t.notEqual(result, obj3, "Imutability - third object")
+  t.deepEqual(
+    mergeAll([obj1, obj2, obj3]),
+    { a: "lorem", b: undefined, c: 42 },
+    "mergeAll 3 objects - uncurried"
+  )
+
+  t.deepEqual(
+    merge(obj1)(obj2),
+    { a: "lorem", b: "ipsum", c: 41 },
+    "merge 2 objects - curried"
+  )
 
   t.end()
 })
