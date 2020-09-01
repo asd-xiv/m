@@ -1,14 +1,14 @@
 {
-  "name": "@mutant-ws/m",
+  "name": "@asd14/m",
   "version": "0.0.1",
   "description": "Point free style, functional Javascript library",
-  "homepage": "https://github.com/andreidmt/m",
+  "homepage": "https://github.com/asd14-xyz/m",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andreidmt/m.git"
+    "url": "git+https://github.com/asd14-xyz/m.git"
   },
   "bugs": {
-    "url": "https://github.com/andreidmt/m/issues"
+    "url": "https://github.com/asd14-xyz/m/issues"
   },
   "author": {
     "name": "Andrei Dumitrescu",
@@ -53,7 +53,7 @@
     "chi-squared-test": "^1.1.0",
     "coveralls": "^3.1.0",
     "documentation": "^13.0.2",
-    "eslint": "^7.8.0",
+    "eslint": "^7.8.1",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-json": "^2.1.2",
