@@ -6,5 +6,5 @@
  *
  * @return {Integer}
  */
-export const random = (min, max) =>
-  Math.floor(min+ Math.random() * (max - min + 1))
+export const random = (min = 0, max = 1) =>
+  Math.floor(min + Math.random() * (max - min + 1))
