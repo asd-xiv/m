@@ -1,9 +1,9 @@
 <!-- markdownlint-disable first-line-h1 line-length -->
 
-[![CircleCI](https://circleci.com/gh/andreidmt/m.svg?style=svg)](https://circleci.com/gh/andreidmt/m)
-[![npm version](https://badge.fury.io/js/%40mutant-ws%2Fm.svg)](https://badge.fury.io/js/%40mutant-ws%2Fm)
-[![dev-badge](https://david-dm.org/andreidmt/m.svg)](https://david-dm.org/andreidmt/m)
-[![Coverage Status](https://coveralls.io/repos/github/mutant-ws/m/badge.svg)](https://coveralls.io/github/mutant-ws/m)
+[![CircleCI](https://circleci.com/gh/andreidmt/mxyz.svg?style=svg)](https://circleci.com/gh/andreidmt/mxyz)
+[![npm version](https://badge.fury.io/js/andreidmt%2Fmxyz.svg)](https://badge.fury.io/js/andreidmt%2Fmxyz)
+[![dev-badge](https://david-dm.org/andreidmt/mxyz.svg)](https://david-dm.org/andreidmt/mxyz)
+[![Coverage Status](https://coveralls.io/repos/github/andreidmt/mxyz/badge.svg)](https://coveralls.io/github/andreidmt/mxyz)
 
 # m
 
@@ -29,7 +29,7 @@ Experimental. Use [Ramda](https://github.com/ramda/ramda).
 Most array functions have a `*With` variant. `find` has `findWith`, `filter` has `filterWith` etc. They allow for less boilerplate and more intuitive way of handling object arrays.
 
 ```js
-import { find, findWith, filterWith, not, is } from "@mutant-ws/m"
+import { find, findWith, filterWith, not, is } from "mxyz"
 
 const todos = [
   {id: 1, name: "lorem", tagId: 2,},
@@ -83,7 +83,7 @@ it makes sense to choose the _syntax_ more aligned with our intuition and contex
 
 ```js
 const { sep } = require("path")
-const { pipe, compose, join, push, dropLast, split } = require("@mutant-ws/m")
+const { pipe, compose, join, push, dropLast, split } = require("mxyz")
 
 // Compose: g(f(x))
 const renameFile = newName => filePath =>
@@ -105,13 +105,13 @@ const renameFile = newName => filePath =>
 ## Install
 
 ```bash
-npm install @mutant-ws/m
+npm install mxyz
 ```
 
 ## Develop
 
 ```bash
-git clone git@github.com:mutant-ws/m.git && \
+git clone git@github.com:andreidmt/mxyz.git && \
   cd m && \
   npm run setup
 
@@ -125,7 +125,7 @@ npm run tdd
 ## Use
 
 ```js
-import { pipe, trim, split, dropLast, push, join } from "@mutant-ws/m"
+import { pipe, trim, split, dropLast, push, join } from "mxyz"
 
 const removeTrailingSlash = source =>
   source[source.length - 1] === sep ? source.slice(0, -1) : source
@@ -141,4 +141,4 @@ const renameFile = newName => pipe(
 
 ## Changelog
 
-See the [releases section](https://github.com/andreidmt/m/releases) for details.
+See the [releases section](https://github.com/andreidmt/mxyz/releases) for details.
