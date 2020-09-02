@@ -1,21 +1,21 @@
 {
-  "name": "@asd14/m",
+  "name": "mxyz",
   "version": "0.0.1",
   "description": "Point free style, functional Javascript library",
-  "homepage": "https://github.com/asd14-xyz/m",
+  "homepage": "https://github.com/andreidmt/mxyz",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/asd14-xyz/m.git"
+    "url": "git+https://github.com/andreidmt/mxyz.git"
   },
   "bugs": {
-    "url": "https://github.com/asd14-xyz/m/issues"
+    "url": "https://github.com/andreidmt/mxyz/issues"
   },
   "author": {
     "name": "Andrei Dumitrescu",
     "url": "https://github.com/andreidmt"
   },
   "main": "dist/index.js",
-  "license": "BSD-3-Clause",
+  "license": "MIT",
   "scripts": {
     "----UTIL": "",
     "setup": "rm -rf ./node_modules && npm i && npm audit fix",
