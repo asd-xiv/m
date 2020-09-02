@@ -1,7 +1,7 @@
 <!-- markdownlint-disable first-line-h1 line-length -->
 
 [![CircleCI](https://circleci.com/gh/andreidmt/mxyz.svg?style=svg)](https://circleci.com/gh/andreidmt/mxyz)
-[![npm version](https://badge.fury.io/js/andreidmt%2Fmxyz.svg)](https://badge.fury.io/js/andreidmt%2Fmxyz)
+[![npm version](https://badge.fury.io/js/mxyz.svg)](https://www.npmjs.com/package/mxyz)
 [![dev-badge](https://david-dm.org/andreidmt/mxyz.svg)](https://david-dm.org/andreidmt/mxyz)
 [![Coverage Status](https://coveralls.io/repos/github/andreidmt/mxyz/badge.svg)](https://coveralls.io/github/andreidmt/mxyz)
 
