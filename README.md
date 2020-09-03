@@ -1,9 +1,9 @@
 <!-- markdownlint-disable first-line-h1 line-length -->
 
-[![CircleCI](https://circleci.com/gh/andreidmt/mxyz.svg?style=svg)](https://circleci.com/gh/andreidmt/mxyz)
-[![npm version](https://badge.fury.io/js/mxyz.svg)](https://www.npmjs.com/package/mxyz)
-[![dev-badge](https://david-dm.org/andreidmt/mxyz.svg)](https://david-dm.org/andreidmt/mxyz)
-[![Coverage Status](https://coveralls.io/repos/github/andreidmt/mxyz/badge.svg)](https://coveralls.io/github/andreidmt/mxyz)
+[![CircleCI](https://circleci.com/gh/andreidmt/m.xyz.svg?style=svg)](https://circleci.com/gh/andreidmt/m.xyz)
+[![npm version](https://badge.fury.io/js/m.xyz.svg)](https://www.npmjs.com/package/m.xyz)
+[![dev-badge](https://david-dm.org/andreidmt/m.xyz.svg)](https://david-dm.org/andreidmt/m.xyz)
+[![Coverage Status](https://coveralls.io/repos/github/andreidmt/m.xyz/badge.svg)](https://coveralls.io/github/andreidmt/m.xyz)
 
 # m
 
