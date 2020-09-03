@@ -30,5 +30,11 @@ test("merge, mergeAll", t => {
     "merge 2 objects - curried"
   )
 
+  t.deepEqual(
+    merge(obj1, obj2),
+    { a: "lorem", b: "ipsum", c: 41 },
+    "merge 2 objects - curried"
+  )
+
   t.end()
 })

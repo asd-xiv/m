@@ -47,7 +47,7 @@ export const merge = (...params) => {
   }
 
   // @signature (obj1, obj2)
-  return _merge(null, ...params)
+  return _merge(null, params)
 }
 
 export const mergeBy = (...params) => {
