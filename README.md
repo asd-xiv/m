@@ -29,7 +29,7 @@ Experimental. Use [Ramda](https://github.com/ramda/ramda).
 Most array functions have a `*With` variant. `find` has `findWith`, `filter` has `filterWith` etc. They allow for less boilerplate and more intuitive way of handling object arrays.
 
 ```js
-import { find, findWith, filterWith, not, is } from "mxyz"
+import { find, findWith, filterWith, not, is } from "m.xyz"
 
 const todos = [
   {id: 1, name: "lorem", tagId: 2,},
@@ -83,7 +83,7 @@ it makes sense to choose the _syntax_ more aligned with our intuition and contex
 
 ```js
 const { sep } = require("path")
-const { pipe, compose, join, push, dropLast, split } = require("mxyz")
+const { pipe, compose, join, push, dropLast, split } = require("m.xyz")
 
 // Compose: g(f(x))
 const renameFile = newName => filePath =>
@@ -105,13 +105,13 @@ const renameFile = newName => filePath =>
 ## Install
 
 ```bash
-npm install mxyz
+npm install m.xyz
 ```
 
 ## Develop
 
 ```bash
-git clone git@github.com:andreidmt/mxyz.git && \
+git clone git@github.com:andreidmt/m.xyz.git && \
   cd m && \
   npm run setup
 
@@ -125,7 +125,7 @@ npm run tdd
 ## Use
 
 ```js
-import { pipe, trim, split, dropLast, push, join } from "mxyz"
+import { pipe, trim, split, dropLast, push, join } from "m.xyz"
 
 const removeTrailingSlash = source =>
   source[source.length - 1] === sep ? source.slice(0, -1) : source
@@ -141,4 +141,4 @@ const renameFile = newName => pipe(
 
 ## Changelog
 
-See the [releases section](https://github.com/andreidmt/mxyz/releases) for details.
+See the [releases section](https://github.com/andreidmt/m.xyz/releases) for details.
