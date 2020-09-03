@@ -1,7 +1,7 @@
 {
   "parser": "babel-eslint",
   "root": true,
-  "extends": [ "@mutant-ws/eslint-config/targets/node" ],
+  "extends": [ "./node_modules/eslint-config.xyz/targets/node" ],
   "settings": {
     // Recommended if you use eslint_d
     "import/cache": {

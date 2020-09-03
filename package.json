@@ -1,14 +1,14 @@
 {
-  "name": "mxyz",
+  "name": "m.xyz",
   "version": "0.0.1",
   "description": "Point free style, functional Javascript library",
-  "homepage": "https://github.com/andreidmt/mxyz",
+  "homepage": "https://github.com/andreidmt/m.xyz",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andreidmt/mxyz.git"
+    "url": "git+https://github.com/andreidmt/m.xyz.git"
   },
   "bugs": {
-    "url": "https://github.com/andreidmt/mxyz/issues"
+    "url": "https://github.com/andreidmt/m.xyz/issues"
   },
   "author": {
     "name": "Andrei Dumitrescu",
@@ -47,7 +47,6 @@
     "@babel/core": "^7.11.5",
     "@babel/preset-env": "^7.11.5",
     "@babel/register": "^7.11.5",
-    "@mutant-ws/eslint-config": "^5.11.0",
     "babel-eslint": "^10.1.0",
     "benchmark": "^2.1.4",
     "chi-squared-test": "^1.1.0",
@@ -55,6 +54,7 @@
     "documentation": "^13.0.2",
     "eslint": "^7.8.1",
     "eslint-config-prettier": "^6.11.0",
+    "eslint-config.xyz": "^5.13.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-json": "^2.1.2",
     "eslint-plugin-no-inferred-method-name": "^2.0.0",
