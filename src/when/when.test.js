@@ -5,21 +5,15 @@ const isEven = source => source % 2 !== 0
 
 test("when", t => {
   t.equals(
-    when(isEven, "even", "odd")(5),
-    "even",
-    "Primitive instead of then function"
-  )
-
-  t.equals(
-    when(isEven, "even", "odd")(6),
-    "odd",
-    "Primitive instead of else function"
-  )
-
-  t.equals(
     when(isEven, inc, dec)(5),
     6,
-    'Increment even input with "then" & "else" defined'
+    'Increment even input with "then" & "else" defined (curried)'
+  )
+
+  t.equals(
+    when(isEven, inc, dec, 5),
+    6,
+    'Increment even input with "then" & "else" defined (uncurried)'
   )
 
   t.equals(
@@ -29,9 +23,33 @@ test("when", t => {
   )
 
   t.equals(
+    when(isEven, [inc, inc], dec)(5),
+    7,
+    'Run "then" as a pipe array of functions'
+  )
+
+  t.equals(
+    when(isEven, inc, [dec, dec])(6),
+    4,
+    'Run "else" as a pipe array of functions'
+  )
+
+  t.equals(
+    when([inc, isEven], inc, dec)(4),
+    5,
+    'Run "if" as a pipe array of functions'
+  )
+
+  t.equals(
     when(isEven, inc)(5),
     6,
-    'Increment even input with only "then" defined'
+    'Increment even input with only "then" defined (curried)'
+  )
+
+  t.equals(
+    when(isEven, inc)(6),
+    6,
+    'Return same input when "if" is false with only "then" defined'
   )
 
   t.equals(
