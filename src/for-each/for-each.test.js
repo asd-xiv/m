@@ -1,12 +1,28 @@
 import test from "tape"
-import { forEach } from ".."
+
+import { inc } from "../inc/inc"
+import { forEach } from "./for-each"
 
 test("forEach", t => {
   const tmp = []
 
-  forEach(elm => tmp.push(elm))([1, 2, 3])
+  forEach(item => tmp.push(item))([1, 2, 3])
 
-  t.deepEqual(tmp, [1, 2, 3], "Run function over each element of array")
+  t.deepEqual(
+    tmp,
+    [1, 2, 3],
+    "Run function over each element of array - curried"
+  )
+
+  const tmp2 = []
+
+  forEach([inc, item => tmp2.push(item)], [1, 2, 3])
+
+  t.deepEqual(
+    tmp2,
+    [2, 3, 4],
+    "Run piped functions over each element of array - uncurried"
+  )
 
   t.end()
 })
