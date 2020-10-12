@@ -64,7 +64,7 @@ const todos = [
 ```js
 /* Predicate fn */
 find(
-  item => item.id === 1, 
+  item => item.id === 1,
   todos
 )
 // => {id: 1, name: "lorem", tagId: 2}
@@ -73,7 +73,7 @@ find(
 findWith(
   {
     "id": 1
-  }, 
+  },
   todos
 )
 // => {id: 1, name: "lorem", tagId: 2}
@@ -82,7 +82,7 @@ findWith(
 filterWith(
   {
     "tagId": is // same as `tagId: source => is(source)`
-  }, 
+  },
   todos
 )
 // => [{id: 1, name: "lorem", tagId: 2}]
@@ -91,7 +91,7 @@ filterWith(
 filterWith(
   {
     "!tagId": is // same as `tagId: not(is)`
-  }, 
+  },
   todos
 )
 // => [
