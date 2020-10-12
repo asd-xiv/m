@@ -1,14 +1,14 @@
 {
-  "name": "m.xyz",
+  "name": "@asd14/m",
   "version": "0.0.1",
   "description": "Point free style, functional Javascript library",
-  "homepage": "https://github.com/andreidmt/m.xyz",
+  "homepage": "https://github.com/asd14-xyz/m",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andreidmt/m.xyz.git"
+    "url": "git+https://github.com/asd14-xyz/m.git"
   },
   "bugs": {
-    "url": "https://github.com/andreidmt/m.xyz/issues"
+    "url": "https://github.com/asd14-xyz/m/issues"
   },
   "author": {
     "name": "Andrei Dumitrescu",
@@ -43,6 +43,7 @@
     "library"
   ],
   "devDependencies": {
+    "@asd14/eslint-config": "^5.15.0",
     "@babel/cli": "^7.11.6",
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
@@ -52,9 +53,8 @@
     "chi-squared-test": "^1.1.0",
     "coveralls": "^3.1.0",
     "documentation": "^13.0.2",
-    "eslint": "^7.10.0",
+    "eslint": "^7.11.0",
     "eslint-config-prettier": "^6.12.0",
-    "eslint-config.xyz": "^5.13.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-json": "^2.1.2",
     "eslint-plugin-no-inferred-method-name": "^2.0.0",
@@ -70,7 +70,7 @@
     "prettier": "^2.1.2",
     "pretty-error": "^2.1.1",
     "ramda": "^0.27.1",
-    "semantic-release": "^17.1.2",
+    "semantic-release": "^17.2.1",
     "tap-nirvana": "^1.1.0",
     "tape": "^5.0.1",
     "underscore": "^1.11.0"

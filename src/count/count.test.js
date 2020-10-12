@@ -1,38 +1,94 @@
 import test from "tape"
-import { count, countWith } from ".."
 
-test("count(With)", t => {
-  t.equal(count("123"), 3, "Count chars in string")
+import { is } from "../is/is"
+import { read } from "../read/read"
+import { gt } from "../gt/gt"
+
+import { count, countBy, countWith } from "./count"
+
+test("count", t => {
+  t.equal(count([1, 2, 3, null]), 4, "Given array, should return length")
+
+  t.equal(count([]), 0, "Given empty array, should return 0")
 
   t.equal(
-    count({ 1: "1", 2: "2", 3: "3" }),
-    3,
-    "Count key/value pairs in object"
-  )
-
-  t.equal(count([1, 2, 3]), 3, "Count items of array")
-
-  t.equal(
-    count(item => item.score === 10)([
-      { name: "Bob", score: 1 },
-      { name: "Alice", score: 10, subject: "Math" },
-      { name: "Hatter", score: 10, subject: "Math" },
-    ]),
+    count({ a: 1, b: 2 }),
     2,
-    "Count items that satisfy function"
+    "Given object, should return number of key/value pairs"
   )
 
+  t.equal(count({}), 0, "Given empty object, should return 0")
+
+  t.equal(count("xyz"), 3, "Given string, should return length")
+
+  t.equal(count(3), 0, "Given number, should return 0")
+
+  t.equal(count(null), 0, "Given number, should return 0")
+
+  t.equal(count(undefined), 0, "Given number, should return 0")
+
+  t.end()
+})
+
+test("countBy", t => {
+  t.equal(
+    countBy(is)([1, 2, 3, null]),
+    3,
+    "Count items with predicate and array - curried"
+  )
+
+  t.equal(
+    countBy(is, [1, 2, 3, null]),
+    3,
+    "Count items with predicate and array - uncurried"
+  )
+
+  t.equal(countBy(is, []), 0, "Count items with predicate and empty array")
+
+  t.equal(
+    countBy(
+      [read("score"), gt(5)],
+      [
+        { name: "Bob", score: 1, subject: "CS" },
+        { name: "Alice", score: 10, subject: "Math" },
+        { name: "Hatter", score: 10, subject: "Math" },
+      ]
+    ),
+    2,
+    "Count items that match subset"
+  )
+
+  t.end()
+})
+
+test("countWith", t => {
   t.equal(
     countWith({
       subject: "Math",
-      score: value => value > 5,
+      score: gt(5),
     })([
       { name: "Bob", score: 1, subject: "CS" },
       { name: "Alice", score: 10, subject: "Math" },
       { name: "Hatter", score: 10, subject: "Math" },
     ]),
     2,
-    "Count items that match subset"
+    "Count items that match subset - curried"
+  )
+
+  t.equal(
+    countWith(
+      {
+        subject: "Math",
+        score: gt(5),
+      },
+      [
+        { name: "Bob", score: 1, subject: "CS" },
+        { name: "Alice", score: 10, subject: "Math" },
+        { name: "Hatter", score: 10, subject: "Math" },
+      ]
+    ),
+    2,
+    "Count items that match subset - uncurried"
   )
 
   t.end()

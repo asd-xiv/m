@@ -1,7 +1,7 @@
 {
   "parser": "babel-eslint",
   "root": true,
-  "extends": [ "./node_modules/eslint-config.xyz/targets/node" ],
+  "extends": [ "@asd14/eslint-config/targets/node" ],
   "settings": {
     // Recommended if you use eslint_d
     "import/cache": {
