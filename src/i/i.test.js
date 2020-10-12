@@ -1,7 +1,8 @@
 import test from "tape"
-import { i } from ".."
 
-test("core::i", t => {
+import { i } from "./i"
+
+test("i", t => {
   t.equals(i(true), true, "Identity boolean")
   t.equals(i(3), 3, "Identity string")
   t.equals(i("asd"), "asd", "Identity string")

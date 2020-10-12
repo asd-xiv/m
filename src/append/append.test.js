@@ -23,13 +23,7 @@ test("append", t => {
 
   t.deepEquals(append(" ipsum", "lorem"), "lorem ipsum", "Append 2 strings")
 
-  t.deepEquals(append([])([]), [], "Append 2 empty arrays")
-
-  t.deepEquals(
-    append()([1]),
-    [1],
-    "Append undefined should not change source array"
-  )
+  t.deepEquals(append([], []), [], "Append 2 empty arrays")
 
   t.end()
 })

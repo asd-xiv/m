@@ -15,9 +15,7 @@
  * first([])
  * // => undefined
  */
-const first = source =>
+export const first = source =>
   (Array.isArray(source) || typeof source === "string") && source.length !== 0
     ? source[0]
     : undefined
-
-export { first }

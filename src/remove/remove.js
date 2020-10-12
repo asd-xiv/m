@@ -1,3 +1,4 @@
+import { curry } from "../curry/curry"
 import { pipe } from "../pipe/pipe"
 import { isMatch } from "../is-match/is-match"
 
@@ -37,15 +38,7 @@ const _remove = (_fn, source) => {
  * remove(_ => _ === 3)([1, 2, 3])
  * // => [1, 2]
  */
-export const remove = (...params) => {
-  // @signature (fn) => (source)
-  if (params.length <= 1) {
-    return source => _remove(params[0], source)
-  }
-
-  // @signature (fn, source)
-  return _remove(...params)
-}
+export const remove = curry(_remove)
 
 /**
  * Remove element(s) by matching object
@@ -67,12 +60,6 @@ export const remove = (...params) => {
  * remove(_ => _ === 3)([1, 2, 3])
  * // => [1, 2]
  */
-export const removeWith = (...params) => {
-  // @signature (subset) => (source)
-  if (params.length <= 1) {
-    return source => _remove(isMatch(params[0]), source)
-  }
-
-  // @signature (subset, source)
-  return _remove(isMatch(params[0]), params[1])
-}
+export const removeWith = curry((subset, source) =>
+  _remove(isMatch(subset), source)
+)

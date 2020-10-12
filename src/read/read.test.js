@@ -1,5 +1,6 @@
 import test from "tape"
-import { read } from ".."
+
+import { read } from "./read"
 
 test("read", t => {
   t.equal(

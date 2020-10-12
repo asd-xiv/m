@@ -1,3 +1,4 @@
+import { curry } from "../curry/curry"
 import { pipe } from "../pipe/pipe"
 
 const _mapMatrix = (_fn, source) => {
@@ -43,12 +44,4 @@ const _mapMatrix = (_fn, source) => {
  * mapMatrix([inc, inc], [[1, 2], [3, 4]])
  * // => [[3, 4], [5, 6]]
  */
-export const mapMatrix = (...params) => {
-  // @signature (fn) => (source)
-  if (params.length <= 1) {
-    return source => _mapMatrix(params[0], source)
-  }
-
-  // @signature (fn, source)
-  return _mapMatrix(...params)
-}
+export const mapMatrix = curry(_mapMatrix)

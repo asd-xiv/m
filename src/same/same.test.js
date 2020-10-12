@@ -1,5 +1,6 @@
 import test from "tape"
-import { same } from ".."
+
+import { same } from "./same"
 
 test("same", t => {
   const obj = {}

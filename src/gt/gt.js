@@ -1,23 +1,24 @@
+import { curry } from "../curry/curry"
+
+const _gt = (a, b) => a < b
+
 /**
  * Grater compare.
  *
- * Since this will mostly be used in pipe, the first param in the curry chain
- * is the second operand.
+ * @param {Number} a First number
+ * @param {Number} b Second number
  *
- * @param  {number}  second  Second number
- * @param  {number}  first   First number
- *
- * @return {boolean}
+ * @return {Boolean}
  *
  * @tag Core
- * @signarute (second: number) => (first: number): boolean
+ * @signature (a: Number) => (b: Number): Boolean
+ * @signature (a: Number, b: Number): Boolean
  *
  * @example
  * gt(10)(4)
  * // => false
- * gt(10)(14)
+ *
+ * gt(10, 14)
  * // => true
  */
-const gt = second => first => first > second
-
-export { gt }
+export const gt = curry(_gt)

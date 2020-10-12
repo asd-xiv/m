@@ -1,20 +1,11 @@
 import test from "tape"
-import { join } from ".."
+
+import { join } from "./join"
 
 test("join", t => {
   const source = ["lorem", "ipsum"]
 
-  t.equals(
-    join(",")(source),
-    "lorem,ipsum",
-    "Join array with 2 string into 1 (curried)"
-  )
-
-  t.equals(
-    join(",", source),
-    "lorem,ipsum",
-    "Join array with 2 string into 1 (uncurried)"
-  )
+  t.equals(join(",", source), "lorem,ipsum", "Join array with 2 string into 1")
 
   t.end()
 })

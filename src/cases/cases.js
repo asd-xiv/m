@@ -25,11 +25,9 @@ import { i } from "../i/i"
  * ], x => x + 1)(2)
  * // => 3
  */
-const cases = ([[conditionFn, thenFn], ...rest], otherwise = i) =>
+export const cases = ([[conditionFn, thenFn], ...rest], otherwise = i) =>
   when(
     conditionFn,
     thenFn,
     rest.length === 0 ? otherwise : cases(rest, otherwise)
   )
-
-export { cases }

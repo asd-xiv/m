@@ -1,8 +1,10 @@
 import { pipe } from "../pipe/pipe"
+import { curry } from "../curry/curry"
 import { isMatch } from "../is-match/is-match"
 
-const _findIndex = (_fn, source) => {
+const _findIndex = (_fn, _source) => {
   const fn = Array.isArray(_fn) ? pipe(..._fn) : _fn
+  const source = Array.isArray(_source) ? _source : [_source]
 
   for (let i = 0, length = source.length; i < length; i++) {
     const found = fn(source[i], i, source)
@@ -25,7 +27,6 @@ const _findIndex = (_fn, source) => {
  *
  * @name findIndex
  * @tag Array
- * @signature (fn: Function) => (source: Object[]): Number
  * @signature (fn: Function, source: Object[]): Number
  *
  * @example
@@ -37,22 +38,8 @@ const _findIndex = (_fn, source) => {
  * findIndex([get("body"), equals("dolor")], null, comments)
  * // => 1
  */
-export const findIndex = (...params) => {
-  // @signature (fn) => (source)
-  if (params.length <= 1) {
-    return source => _findIndex(params[0], source)
-  }
+export const findIndex = curry(_findIndex)
 
-  // @signature (fn, source)
-  return _findIndex(...params)
-}
-
-export const findIndexWith = (...params) => {
-  // @signature (subset) => (source)
-  if (params.length <= 1) {
-    return source => _findIndex(isMatch(params[0]), source)
-  }
-
-  // @signature (subset, source)
-  return _findIndex(isMatch(params[0]), params[1], params[2])
-}
+export const findIndexWith = curry((subset, source) =>
+  _findIndex(isMatch(subset), source)
+)

@@ -1,5 +1,6 @@
 import test from "tape"
-import { debounce } from ".."
+
+import { debounce } from "./debounce"
 
 test("core::debounce", t => {
   /**

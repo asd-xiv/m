@@ -1,4 +1,4 @@
-const escapeHTML = source =>
+export const escapeHTML = source =>
   source.replace(
     /["&'/<>]/g,
     char =>
@@ -11,5 +11,3 @@ const escapeHTML = source =>
         ">": "&gt;",
       }[char])
   )
-
-export { escapeHTML }

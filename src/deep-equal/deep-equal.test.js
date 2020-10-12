@@ -1,5 +1,6 @@
 import test from "tape"
-import { isDeepEqual } from ".."
+
+import { isDeepEqual } from "./deep-equal"
 
 test("isDeepEqual", t => {
   t.equal(isDeepEqual(1, 1), true, "Primitives: 1 === 1")

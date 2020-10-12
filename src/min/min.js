@@ -1,35 +1,9 @@
-/**
- * Find min value using language operator
- *
- * @param  {Array}  source  Source input
- *
- * @return {mixed}
- */
-const minByValue = source => {
-  if (source.length === 0) {
-    return undefined
-  }
+import { pipe } from "../pipe/pipe"
+import { curry } from "../curry/curry"
 
-  let [result] = source
+const _minBy = (_fn, source) => {
+  const fn = Array.isArray(_fn) ? pipe(..._fn) : _fn
 
-  for (let i = 0, length = source.length; i < length; i++) {
-    if (result > source[i]) {
-      result = source[i]
-    }
-  }
-
-  return result
-}
-
-/**
- * Find min value using function to transform element into numeric
- *
- * @param  {Function}  fn      Transform function
- * @param  {Array}     source  Source input
- *
- * @return {mixed}
- */
-const minByFunction = fn => source => {
   if (source.length === 0) {
     return undefined
   }
@@ -52,10 +26,9 @@ const minByFunction = fn => source => {
 /**
  * Find the minimum value in a source array
  *
- * @param  {Array|Function} arg1    Custom transform function or source array
- * @param  {number[]}       source  Array of numbers
+ * @param  {Number[]} source Array of numbers
  *
- * @return {number}
+ * @return {Number}
  *
  * @name min
  * @tag Array
@@ -75,7 +48,20 @@ const minByFunction = fn => source => {
  * min(fn)(source)
  * // => {time: "2018-05-15T11:20:07.754110Z"}
  */
-const min = arg1 =>
-  Array.isArray(arg1) ? minByValue(arg1) : minByFunction(arg1)
+export const min = source => {
+  if (source.length === 0) {
+    return undefined
+  }
 
-export { min }
+  let [result] = source
+
+  for (let i = 0, length = source.length; i < length; i++) {
+    if (result > source[i]) {
+      result = source[i]
+    }
+  }
+
+  return result
+}
+
+export const minBy = curry(_minBy)

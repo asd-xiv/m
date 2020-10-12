@@ -1,9 +1,17 @@
 import test from "tape"
-import { hasKey } from ".."
+
+import { hasKey } from "./has-key"
 
 test("hasKey", t => {
-  t.equals(hasKey("test")({}), false, "Primitive exists in array")
-  t.equals(hasKey("test", { test: "1" }), true, "Primitive exists in array")
+  t.equals(hasKey("test")({}), false, "Key does not exist")
+
+  t.equals(hasKey("test", { test: "1" }), true, "Key exists")
+
+  t.equals(
+    hasKey("test", { test: undefined }),
+    true,
+    "Key exists even if undefined"
+  )
 
   t.end()
 })

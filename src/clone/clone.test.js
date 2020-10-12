@@ -1,4 +1,5 @@
 import test from "tape"
+
 import { clone } from "./clone"
 
 test("clone", t => {

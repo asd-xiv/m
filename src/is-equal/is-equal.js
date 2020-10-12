@@ -1,13 +1,18 @@
+import { curry } from "../curry/curry"
+
+const _isEqual = (a, b) => (Number.isNaN(a) && Number.isNaN(b) ? true : a === b)
+
 /**
- * Check if a is equal to b (strict equality)
+ * Check if a tripple-equals b (accounts for null, undefined and NaN)
  *
- * @param  {mixed}  one  First value
- * @param  {mixed}  two  Second value
+ * @param {Mixed} a First value
+ * @param {Mixed} b Second value
  *
- * @return  {boolean}
+ * @return {Boolean}
  *
  * @tag Core
- * @signature (a: mixed) => (b: mixed): boolean
+ * @signature (a: Mixed) => (b: Mixed): Boolean
+ * @signature (a: Mixed, b: Mixed): Boolean
  *
  * @example
  * equal(2)(2)
@@ -22,5 +27,4 @@
  * equal([1])([1])
  * // => false
  */
-export const isEqual = one => two =>
-  Number.isNaN(one) && Number.isNaN(two) ? true : one === two
+export const isEqual = curry(_isEqual)

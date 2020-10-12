@@ -1,3 +1,4 @@
+import { curry } from "../curry/curry"
 /**
  * Less compare.
  *
@@ -18,6 +19,4 @@
  * lt(10)(14)
  * // => false
  */
-const lt = second => first => first < second
-
-export { lt }
+export const lt = curry((second, first) => first < second)

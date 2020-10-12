@@ -2,36 +2,7 @@ import { reduce } from "../reduce/reduce"
 import { is, isNothing } from "../is/is"
 import { pipe } from "../pipe/pipe"
 
-/**
- * Get value from obj property
- *
- * @param  {string|string[]}  path          Property name or dot path of props
- * @param  {mixed}            defaultValue  Value to return if not found
- * @param  {object}           source        Source object
- *
- * @return {mixed}
- *
- * @name read
- * @tag Object
- * @signature (path: string|string[]) => (source: Object|Array): mixed
- *
- * @example
- * read("lorem")({ lorem: "ipsum" })
- * // => "ipsum"
- *
- * read("not-exist")({ lorem: "ipsum" })
- * // => undefined
- *
- * read("not-exist-with-default", "dolor")({ lorem: "ipsum" })
- * // => "dolor"
- *
- * read(["a", "b"])({ a: { b: "c" } })
- * // => "c"
- *
- * read(["a", "test"])({ a: { b: "c" } })
- * // => undefined
- */
-const read = (path, defaultValue) => source => {
+const _read = (path, defaultValue, source) => {
   let result = undefined
 
   if (is(source) && typeof source === "object") {
@@ -51,4 +22,40 @@ const read = (path, defaultValue) => source => {
   return isNothing(result) && is(defaultValue) ? defaultValue : result
 }
 
-export { read }
+/**
+ * Get value from obj property
+ *
+ * @param  {String|String[]} path         Property name or dot path of props
+ * @param  {Any}             defaultValue Value to return if not found
+ * @param  {Object}          source       Source object
+ *
+ * @return {Any}
+ *
+ * @name read
+ * @tag Object
+ * @signature (path: String|String[], source: Object|Array): mixed
+ * @signature (path: String|String[], defaultValue: Any, source: Object|Array): mixed
+ *
+ * @example
+ * read("lorem")({ lorem: "ipsum" })
+ * // => "ipsum"
+ *
+ * read("not-exist")({ lorem: "ipsum" })
+ * // => undefined
+ *
+ * read("not-exist-with-default", "dolor")({ lorem: "ipsum" })
+ * // => "dolor"
+ *
+ * read(["a", "b"])({ a: { b: "c" } })
+ * // => "c"
+ *
+ * read(["a", "test"])({ a: { b: "c" } })
+ * // => undefined
+ */
+export const read = (...params) => {
+  if (params.length <= 2) {
+    return source => _read(params[0], params[1], source)
+  }
+
+  return _read(...params)
+}

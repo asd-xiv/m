@@ -1,6 +1,6 @@
-import { is } from ".."
+import { is } from "../is/is"
 
-const bottomX = (limit, source) => {
+const _bottom = (limit, source) => {
   if (
     (!Array.isArray(source) && typeof source !== "string") ||
     source.length <= 1
@@ -23,7 +23,6 @@ const bottomX = (limit, source) => {
  *
  * @tag Array
  * @signature (limit: integer, source: Array): Array
- * @signature (limit: integer) => (source: Array): Array
  * @signature (source: Array): Array
  *
  * @example
@@ -39,35 +38,17 @@ const bottomX = (limit, source) => {
  * bottom(2)([1, 2, 3])
  * // => [2, 3]
  */
-const bottom = (...params) => {
-  /*
-   * @signature (limit: integer) => (source: Array): Array
-   *
-   * bottom(2)([1, 2, 3, 4]) => [3, 4]
-   */
+export const bottom = (...params) => {
+  // @signature (limit: Integer) => (source: Array): Array
   if (params.length === 1 && typeof params[0] === "number") {
-    const [limit] = params
-
-    return source => bottomX(limit, source)
+    return source => _bottom(params[0], source)
   }
 
-  /*
-   * @signature (source: Array): Array
-   *
-   * bottom([1, 2, 3, 4]) => [2, 3, 4]
-   */
+  // @signature (source: Array): Array
   if (params.length === 1 && typeof params[0] !== "number") {
-    const [source] = params
-
-    return bottomX(null, source)
+    return _bottom(null, params[0])
   }
 
-  /*
-   * @signature (limit: integer, source: Array): Array
-   *
-   * bottom(2, [1, 2, 3, 4]) => [3, 4]
-   */
-  return bottomX(params[0], params[1])
+  // @signature (limit: integer, source: Array): Array
+  return _bottom(...params)
 }
-
-export { bottom }

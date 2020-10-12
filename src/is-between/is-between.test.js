@@ -1,5 +1,6 @@
 import test from "tape"
-import { isBetween } from ".."
+
+import { isBetween } from "./is-between"
 
 test("isBetween", t => {
   t.equals(isBetween(2, 5)(3), true, "Number isBetween default open interval")

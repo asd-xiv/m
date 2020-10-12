@@ -1,5 +1,6 @@
 import test from "tape"
-import { isEqual } from ".."
+
+import { isEqual } from "./is-equal"
 
 test("isEqual", t => {
   t.equals(isEqual(2)(2), true, "Compare two equal primitives")

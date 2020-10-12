@@ -1,9 +1,11 @@
 import test from "tape"
-import { get, any, anyWith } from ".."
+
+import { any, anyWith } from "./any"
+import { read } from "../read/read"
 
 const isNumber = source => Number.isFinite(source)
 
-test("any(With)", t => {
+test("any", t => {
   t.equal(
     any(1, [1, "string", NaN]),
     true,
@@ -11,43 +13,28 @@ test("any(With)", t => {
   )
 
   t.equal(
-    any(isNumber)([1, "string", NaN]),
-    true,
-    "Check any element is number (curried)"
-  )
-
-  t.equal(
     any(isNumber, [1, "string", NaN]),
     true,
-    "Check any element is number (uncurried)"
+    "Check any element is number"
   )
 
   t.equal(
     any(
-      [get("boolFlag"), item => item === true],
+      [read("boolFlag"), item => item === true],
       [null, "2", { boolFlag: true }]
     ),
     true,
-    "Check any element has a field (uncurried, multiple functions)"
+    "Check any element has a field using piped functions"
   )
 
-  t.equal(any(isNumber)([null, "2", {}]), false, "Check any element is number")
+  t.equal(any(isNumber, [null, "2", {}]), false, "Check any element is number")
 
-  t.equal(any(isNumber)(2), true, "Check non array input")
+  t.equal(any(isNumber, 2), true, "Check non array input")
 
-  t.equal(
-    anyWith({
-      id: isNumber,
-      name: "lorem",
-    })([
-      { id: "uuid", name: "lorem" },
-      { id: 2, name: "foo" },
-      { id: 3, name: "lorem", foo: "bar" },
-    ]),
-    true,
-    "Array should contain object that satisfies conditions"
-  )
+  t.end()
+})
 
+test("anyWith", t => {
   t.equal(
     anyWith(
       {
@@ -57,11 +44,11 @@ test("any(With)", t => {
       [
         { id: "uuid", name: "lorem" },
         { id: 2, name: "foo" },
-        { id: "3", name: "lorem", foo: "bar" },
+        { id: 3, name: "lorem", foo: "bar" },
       ]
     ),
-    false,
-    "Array should not contain object that satisfies conditions"
+    true,
+    "Array should contain object that satisfies conditions"
   )
 
   t.end()

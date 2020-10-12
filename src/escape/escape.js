@@ -1,3 +1,3 @@
-const escape = match => source => source.replace(match, "\\$&")
+import { curry } from "../curry/curry"
 
-export { escape }
+export const escape = curry((match, source) => source.replace(match, "\\$&"))

@@ -5,6 +5,4 @@
  *
  * @returns {any}
  */
-const same = source => () => source
-
-export { same }
+export const same = source => () => source

@@ -1,3 +1,21 @@
+import { curry } from "../curry/curry"
+
+const _groupBy = (field, source) => {
+  const result = {}
+
+  for (let i = 0, length = source.length; i < length; i++) {
+    const groupKey = String(source[i][field])
+
+    if (result[groupKey]) {
+      result[groupKey].push(source[i])
+    } else {
+      result[groupKey] = [source[i]]
+    }
+  }
+
+  return Object.values(result)
+}
+
 /**
  * Group an array of objects by field.
  *
@@ -20,20 +38,4 @@
  * //   [{id: 4, user_id: null}],
  * // ]
  */
-const groupBy = field => input => {
-  const result = {}
-
-  for (let i = 0, length = input.length; i < length; i++) {
-    const groupKey = String(input[i][field])
-
-    if (result[groupKey]) {
-      result[groupKey].push(input[i])
-    } else {
-      result[groupKey] = [input[i]]
-    }
-  }
-
-  return Object.values(result)
-}
-
-export { groupBy }
+export const groupBy = curry(_groupBy)

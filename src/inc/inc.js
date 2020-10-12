@@ -12,6 +12,4 @@
  * inc(2)
  * // => 3
  */
-const inc = source => source + 1
-
-export { inc }
+export const inc = source => source + 1

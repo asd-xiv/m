@@ -1,3 +1,5 @@
+import { curry } from "../curry/curry"
+
 /**
  * Test if something is not `null` or `undefined`
  *
@@ -30,6 +32,6 @@ const isTrue = source => source === true
 
 const isFalse = source => source === false
 
-const not = fn => source => !fn(source)
+const not = curry((fn, source) => !fn(source))
 
 export { is, not, isNothing, isTrue, isFalse, isObject }

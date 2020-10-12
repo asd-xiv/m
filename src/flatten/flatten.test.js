@@ -1,5 +1,6 @@
 import test from "tape"
-import { flatten } from ".."
+
+import { flatten } from "./flatten"
 
 test("flatten", t => {
   t.equals(flatten(3), 3, "Flatten primitive returns same value")

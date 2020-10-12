@@ -1,5 +1,6 @@
 import test from "tape"
-import { escapeRegExp } from ".."
+
+import { escapeRegExp } from "./escapeRegExp"
 
 test("escapeRegExp", t => {
   const actualT1 = escapeRegExp("lorem. ipsum [dolor] (sit amet)?")

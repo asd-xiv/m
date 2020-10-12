@@ -24,7 +24,7 @@ import { type } from "../type/type"
  * isEmpty(() => {})         // false
  * isEmpty(Promise.resolve() // false
  */
-const isEmpty = source => {
+export const isEmpty = source => {
   const sourceType = type(source)
   const byType = {
     Null: () => true,
@@ -38,6 +38,4 @@ const isEmpty = source => {
   return byType[sourceType] ? byType[sourceType]() : false
 }
 
-const isNotEmpty = source => !isEmpty(source)
-
-export { isEmpty, isNotEmpty }
+export const isNotEmpty = source => !isEmpty(source)

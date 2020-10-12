@@ -1,13 +1,15 @@
 import test from "tape"
 
-import { intersect } from ".."
+import { intersect } from "./intersect"
 
-test("array::intersect", t => {
+test("intersect", t => {
   t.deepEqual(
     intersect(
       (a, b) => a === b,
-      a => a
-    )([], [1, 2, 3]),
+      a => a,
+      [],
+      [1, 2, 3]
+    ),
     [1, 2, 3],
     "First array empty"
   )
@@ -15,8 +17,10 @@ test("array::intersect", t => {
   t.deepEqual(
     intersect(
       (a, b) => a === b,
-      a => a
-    )([1, 2, 3], []),
+      a => a,
+      [1, 2, 3],
+      []
+    ),
     [1, 2, 3],
     "Second array empty"
   )
@@ -24,8 +28,10 @@ test("array::intersect", t => {
   t.deepEqual(
     intersect(
       (a, b) => a === b,
-      a => a
-    )([1, 2, 3], [3, 4, 5]),
+      a => a,
+      [1, 2, 3],
+      [3, 4, 5]
+    ),
     [1, 2, 3, 4, 5],
     "Join with common"
   )
@@ -33,8 +39,10 @@ test("array::intersect", t => {
   t.deepEqual(
     intersect(
       (a, b) => a === b,
-      a => a
-    )([1, 2], [3, 4, 5]),
+      a => a,
+      [1, 2],
+      [3, 4, 5]
+    ),
     [1, 2, 3, 4, 5],
     "Join without common"
   )
@@ -42,8 +50,7 @@ test("array::intersect", t => {
   t.deepEqual(
     intersect(
       (a, b) => a.id === b.id,
-      (a, b) => ({ ...a, ...b })
-    )(
+      (a, b) => ({ ...a, ...b }),
       [{ id: 1, overwrite: 1 }, { id: 2 }],
       [{ id: 1, overwrite: 2 }, { id: 3 }]
     ),

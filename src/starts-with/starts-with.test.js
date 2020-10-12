@@ -1,5 +1,6 @@
 import test from "tape"
-import { startsWith } from ".."
+
+import { startsWith } from "./starts-with"
 
 test("startsWith", t => {
   t.equals(

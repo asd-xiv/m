@@ -1,4 +1,5 @@
 import { pipe } from "../pipe/pipe"
+import { curry } from "../curry/curry"
 import { isMatch } from "../is-match/is-match"
 
 const _any = (_fn, _source) => {
@@ -15,6 +16,8 @@ const _any = (_fn, _source) => {
   return false
 }
 
+const _anyWith = (subset, source) => _any(isMatch(subset), source)
+
 /**
  * Test if at least one element in array matches predicate
  *
@@ -26,7 +29,6 @@ const _any = (_fn, _source) => {
  * @name any
  * @alias has
  * @tag Array
- * @signature (fn: Function|Function[]) => (source: Array): Boolean
  * @signature (fn: Function|Function[], source: Array): Boolean
  *
  * @see {@link anyWith}
@@ -40,15 +42,7 @@ const _any = (_fn, _source) => {
  * any([get("id"), is], [{title: ""}, {}])
  * // => false
  */
-export const any = (...params) => {
-  // @signature (fn) => (source)
-  if (params.length <= 1) {
-    return source => _any(params[0], source)
-  }
-
-  // @signature (fn, source)
-  return _any(...params)
-}
+export const any = curry(_any)
 
 /**
  * Test if at least one element in array matches object
@@ -61,7 +55,6 @@ export const any = (...params) => {
  * @name anyWith
  * @alias hasWith
  * @tag Array
- * @signature (subset: Object) => (source: Array): Boolean
  * @signature (subset: Object, source: Array): Boolean
  *
  * @see {@link any}
@@ -76,12 +69,4 @@ export const any = (...params) => {
  * anyWith({ tags: is })([{id: 1}, {id: 2, comments: []}])
  * // => false
  */
-export const anyWith = (...params) => {
-  // @signature (subset) => (source)
-  if (params.length <= 1) {
-    return source => _any(isMatch(params[0]), source)
-  }
-
-  // @signature (subset, source)
-  return _any(isMatch(params[0]), params[1])
-}
+export const anyWith = curry(_anyWith)

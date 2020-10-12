@@ -1,4 +1,5 @@
 import { pipe } from "../pipe/pipe"
+import { curry } from "../curry/curry"
 
 const _map = (_fn, _source) => {
   const result = []
@@ -37,12 +38,4 @@ const _map = (_fn, _source) => {
  * map([inc, inc], [1, 2])
  * // => [3, 4]
  */
-export const map = (...params) => {
-  // @signature (fn) => (source)
-  if (params.length <= 1) {
-    return source => _map(params[0], source)
-  }
-
-  // @signature (fn, source)
-  return _map(...params)
-}
+export const map = curry(_map)

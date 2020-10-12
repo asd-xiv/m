@@ -1,3 +1,5 @@
+import { curry } from "../curry/curry"
+
 const oneDay = 60 * 60 * 24
 const oneHour = 60 * 60
 const oneMinute = 60
@@ -22,7 +24,7 @@ const oneSecond = 1000
  * )
  * // => { days: 0, hours: 3, minutes: 24, seconds: 0 }
  */
-const elapsedTime = startDate => endDate => {
+export const elapsedTime = curry((startDate, endDate) => {
   const timePassedInSec = Math.abs(startDate - endDate) / oneSecond
 
   // Number of days
@@ -47,6 +49,4 @@ const elapsedTime = startDate => endDate => {
     minutes,
     seconds,
   }
-}
-
-export { elapsedTime }
+})

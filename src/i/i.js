@@ -5,6 +5,4 @@
  *
  * @return {mixed}
  */
-const i = source => source
-
-export { i }
+export const i = source => source

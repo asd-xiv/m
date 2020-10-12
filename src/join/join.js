@@ -1,3 +1,7 @@
+import { curry } from "../curry/curry"
+
+const _join = (separator, source) => [].join.call(source, separator)
+
 /**
  * Join all elements of an array into a string
  *
@@ -14,12 +18,4 @@
  * join(",")(["lorem", "ipsum"])
  * // => "lorem,ipsum"
  */
-const join = (separator, ...rest) => {
-  if (rest.length === 0) {
-    return source => [].join.call(source, separator)
-  }
-
-  return [].join.call(rest[0], separator)
-}
-
-export { join }
+export const join = curry(_join)

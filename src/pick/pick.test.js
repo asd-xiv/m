@@ -1,5 +1,6 @@
 import test from "tape"
-import { pick } from ".."
+
+import { pick } from "./pick"
 
 test("pick", t => {
   const source = {

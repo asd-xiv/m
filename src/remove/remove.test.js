@@ -1,9 +1,16 @@
 import test from "tape"
+
 import { isEmpty } from "../is-empty/is-empty"
 import { read } from "../read/read"
-import { remove, removeWith } from ".."
+import { remove, removeWith } from "./remove"
 
-test("remove(With)", t => {
+test("remove", t => {
+  t.deepEqual(
+    remove(isEmpty, []),
+    [],
+    "Remove elements from empty array should return empty array"
+  )
+
   t.deepEqual(
     remove(_ => _ === 3)([1, 2, 3]),
     [1, 2],
@@ -25,6 +32,10 @@ test("remove(With)", t => {
     "Remove existing element from array of objects using predicate pipeline"
   )
 
+  t.end()
+})
+
+test("removeWith", t => {
   t.deepEqual(
     removeWith({ author: null })([
       { id: 1, author: null },
@@ -44,10 +55,6 @@ test("remove(With)", t => {
     [{ id: 3, author: 3 }],
     "Remove multiple elements from array by matching a subset (uncurried)"
   )
-
-  const source = [1, 2, 3]
-
-  t.notEqual(remove(3)(source), source, "Imutable")
 
   t.end()
 })

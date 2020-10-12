@@ -100,9 +100,11 @@ const _isDeepEqual = (a, b) => {
  * // => false
  */
 export const isDeepEqual = (...params) => {
+  // @signature (a) => (b)
   if (params.length <= 1) {
     return b => _isDeepEqual(params[0], b)
   }
 
+  // @signature (a, b)
   return _isDeepEqual(...params)
 }

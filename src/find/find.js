@@ -1,8 +1,9 @@
 import { pipe } from "../pipe/pipe"
 import { isMatch } from "../is-match/is-match"
 
-const _find = (_fn, notFoundDefault, source) => {
+const _find = (_fn, notFoundDefault, _source) => {
   const fn = Array.isArray(_fn) ? pipe(..._fn) : _fn
+  const source = Array.isArray(_source) ? _source : [_source]
 
   for (let i = 0, length = source.length; i < length; i++) {
     const isFound = fn(source[i], i, source)

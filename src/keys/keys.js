@@ -18,7 +18,7 @@
  * keys("foo"), keys(12), keys(null), etc
  * // => []
  */
-const keys = source => {
+export const keys = source => {
   const type = Array.isArray(source)
     ? "array"
     : source !== null && typeof source === "object"
@@ -41,5 +41,3 @@ const keys = source => {
       return []
   }
 }
-
-export { keys }

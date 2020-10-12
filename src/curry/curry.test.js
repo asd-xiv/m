@@ -1,5 +1,6 @@
 import test from "tape"
-import { curry } from ".."
+
+import { curry } from "./curry"
 
 test("curry", t => {
   const sum = (a, b) => a + b

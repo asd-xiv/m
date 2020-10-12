@@ -1,13 +1,27 @@
+import { pipe } from "../pipe/pipe"
+import { curry } from "../curry/curry"
 import { all } from "../all/all"
 
-const byValue = ({ shouldBe, value, not }) =>
+const byValue = (shouldBe, value, not) =>
   not ? shouldBe !== value : shouldBe === value
 
-const byFn = ({ shouldBe, value, not }) => {
+const byFn = (shouldBe, value, not) => {
   const result = shouldBe(value) === true
 
   return not ? !result : result
 }
+
+const _isMatch = (subset, source) =>
+  all(([key, _shouldBe]) => {
+    const shouldBe = Array.isArray(_shouldBe) ? pipe(..._shouldBe) : _shouldBe
+    const shouldTestNegation = key[0] === "!"
+    const sourceKey = key.replace("!", "")
+    const value = source[sourceKey]
+
+    return typeof shouldBe === "function"
+      ? byFn(shouldBe, value, shouldTestNegation)
+      : byValue(shouldBe, value, shouldTestNegation)
+  })(Object.entries(subset))
 
 /**
  * Determines if one object's properties are equal to another
@@ -44,16 +58,4 @@ const byFn = ({ shouldBe, value, not }) => {
  * })
  * // false
  */
-const isMatch = subset => source =>
-  all(([key, shouldBe]) => {
-    const shouldTestNegation = key[0] === "!"
-
-    const sourceKey = key.replace("!", "")
-    const value = source[sourceKey]
-
-    return typeof shouldBe === "function"
-      ? byFn({ shouldBe, value, not: shouldTestNegation })
-      : byValue({ shouldBe, value, not: shouldTestNegation })
-  })(Object.entries(subset))
-
-export { isMatch }
+export const isMatch = curry(_isMatch)

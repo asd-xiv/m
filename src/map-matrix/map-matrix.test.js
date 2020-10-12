@@ -1,5 +1,6 @@
 import test from "tape"
-import { mapMatrix } from ".."
+
+import { mapMatrix } from "./map-matrix"
 
 test("mapMatrix", t => {
   const square = value => value * value

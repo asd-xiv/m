@@ -1,5 +1,6 @@
 import test from "tape"
-import { reduce } from ".."
+
+import { reduce } from "./reduce"
 
 test("reduce", t => {
   t.equals(

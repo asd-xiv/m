@@ -1,9 +1,10 @@
 import test from "tape"
+
 import { is } from "../is/is"
 import { read } from "../read/read"
-import { partition, partitionWith } from ".."
+import { partition, partitionWith } from "./partition"
 
-test("array::partition", t => {
+test("partition", t => {
   const equalsTwo = x => x === 2
 
   t.deepEqual(
@@ -36,6 +37,10 @@ test("array::partition", t => {
     "(equalsTwo)([1]) // => [[], [1]]"
   )
 
+  t.end()
+})
+
+test("partitionWith", t => {
   t.deepEqual(
     partitionWith({
       parentId: is,

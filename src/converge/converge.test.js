@@ -1,5 +1,8 @@
 import test from "tape"
-import { converge, reduce, read } from ".."
+
+import { converge } from "./converge"
+import { reduce } from "../reduce/reduce"
+import { read } from "../read/read"
 
 test("converge", t => {
   const source = [{ a: 1, b: 2 }]

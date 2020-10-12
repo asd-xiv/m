@@ -1,37 +1,25 @@
-/**
- * { lambda_description }
- *
- * @param  {number}  count  The count
- *
- * @return {Array}   { description_of_the_return_value }
- */
-const drop = count => source => {
-  const result = []
+import { curry } from "../curry/curry"
 
-  for (let i = 0, length = source.length - count; i < length; i++) {
-    result.push(source[i])
-  }
-
-  return result
-}
+const _dropLast = curry((count, source) =>
+  count > source.length ? [] : source.slice(0, source.length - count)
+)
 
 /**
  * Remove elements from end of array
  *
- * @param  {number|Array}  count   Number of element to remove
- * @param  {Array}         source  Source array
+ * @param {number} count  Number of element to remove (default 1)
+ * @param {Array}  source Source array
  *
  * @return {Array}
  *
  * @tag Array
- * @signature (count: number|Array) => (source: Array): Array
+ * @signature (count: number, source: Array): Array
+ * @signature (source: Array): Array
  */
-const dropLast = count => {
+export const dropLast = count => {
   if (Array.isArray(count)) {
-    return drop(1)(count)
+    return _dropLast(1, count)
   }
 
-  return drop(count)
+  return _dropLast(count)
 }
-
-export { dropLast }

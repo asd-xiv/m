@@ -1,3 +1,5 @@
+import { curry } from "../curry/curry"
+
 const _prepend = (subset, source) => {
   if (Array.isArray(source)) {
     return Array.isArray(subset)
@@ -17,21 +19,11 @@ const _prepend = (subset, source) => {
  * @returns {Array}
  *
  * @tag Array
- * @signature (subset: String) => (source: String) => String
  * @signature (subset: String, source: String) => String
- * @signature (subset: mixed|Array) => (source: Array) => Array
  * @signature (subset: mixed|Array, source: Array) => Array
  *
  * @example
- * concat([1])([4, 5])
+ * prepend([1])([4, 5])
  * // => [1, 4, 5]
  */
-export const prepend = (...params) => {
-  // @signature (subset) => (source)
-  if (params.length <= 1) {
-    return source => _prepend(params[0], source)
-  }
-
-  // @signature (subset, source)
-  return _prepend(...params)
-}
+export const prepend = curry(_prepend)

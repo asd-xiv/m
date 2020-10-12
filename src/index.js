@@ -31,7 +31,7 @@ export { curry } from "./curry/curry"
 // Boolean
 export { is, isNothing, not, isTrue, isFalse, isObject } from "./is/is"
 export { isEmpty, isNotEmpty } from "./is-empty/is-empty"
-export { isEqual, isEqual as equals } from "./is-equal/is-equal"
+export { isEqual, isEqual as equals, isEqual as eq } from "./is-equal/is-equal"
 export { isBetween, isBetween as between } from "./is-between/is-between"
 export { any, any as has, anyWith, anyWith as hasWith } from "./any/any"
 export { all, allWith } from "./all/all"
@@ -63,7 +63,13 @@ export { append, append as concat } from "./append/append"
 export { prepend } from "./prepend/prepend"
 export { toggle } from "./toggle/toggle"
 export { partition, partitionWith } from "./partition/partition"
-export { count, countWith, size, size as length } from "./count/count"
+export {
+  count,
+  count as length,
+  count as size,
+  countBy,
+  countWith,
+} from "./count/count"
 export { replace, replaceWith } from "./replace/replace"
 export { sort, sortWith } from "./sort/sort"
 export { remove, removeWith } from "./remove/remove"

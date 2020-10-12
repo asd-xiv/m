@@ -1,6 +1,7 @@
 import test from "tape"
+
 import { isTrue } from "../is/is"
-import { sequence, sequenceWhile } from ".."
+import { sequence, sequenceWhile } from "./sequence"
 
 const delay = (ms, val) =>
   new Promise(resolve => setTimeout(() => resolve(val), ms))

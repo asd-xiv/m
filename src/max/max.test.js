@@ -1,13 +1,22 @@
 import test from "tape"
-import { i, max } from ".."
+
+import { i } from "../i/i"
+import { max, maxBy } from "./max"
 
 test("max", t => {
   t.equals(max([-1, 1, 10, 3]), 10, "Find max in numeric array")
   t.equals(max([]), undefined, "Find max in empty array (=> undefined)")
   t.equals(max([-1, -10, -3]), -1, "Find max in all negative numeric array")
   t.equals(max([1, 10, 3]), 10, "Find max in all positive numeric array")
+
+  t.end()
+})
+
+test("maxBy", t => {
+  t.equals(maxBy(i, [1, 10, 3]), 10, "Find max in all positive numeric array")
+
   t.equals(
-    max(i)([]),
+    maxBy(i, []),
     undefined,
     "Find max in empty array using transform function (=> undefined)"
   )
@@ -20,7 +29,7 @@ test("max", t => {
   ]
 
   t.deepEquals(
-    max(fn)(source),
+    maxBy(fn, source),
     { time: "2018-06-11T09:01:54.337344Z" },
     "Custom transform function"
   )

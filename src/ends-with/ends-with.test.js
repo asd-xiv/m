@@ -1,11 +1,18 @@
 import test from "tape"
-import { endsWith } from ".."
+
+import { endsWith } from "./ends-with"
 
 test("string::endsWith", t => {
   t.equals(
     endsWith("ipsum")("lorem ipsum"),
     true,
-    "Source string ends with search string"
+    "Source string ends with search string - curried"
+  )
+
+  t.equals(
+    endsWith("ipsum", "lorem ipsum"),
+    true,
+    "Source string ends with search string - uncurried"
   )
 
   t.equals(

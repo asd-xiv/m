@@ -1,25 +1,6 @@
-/**
- * Index an array of objects by field. Only truthy fields will be indexed.
- *
- * @param  {string}  field  The field to index by
- * @param  {Array}   array  Input
- *
- * @return {Object}
- *
- * @tag Array
- * @signature (field: string) => (source: Object[]): Object
- *
- * @example
- * indexBy("id")([
- *   {id: 1, user_id: 2},
- *   {id: 2, user_id: 3},
- * ])
- * // => {
- * //   1: {id: 1, user_id: 2},
- * //   2: {id: 2, user_id: 3},
- * // }
- */
-const indexBy = field => source => {
+import { curry } from "../curry/curry"
+
+const _indexBy = field => source => {
   const result = {}
 
   for (let i = 0, length = source.length; i < length; i++) {
@@ -33,4 +14,25 @@ const indexBy = field => source => {
   return result
 }
 
-export { indexBy }
+/**
+ * Index an array of objects by field. Only truthy fields will be indexed.
+ *
+ * @param  {string}  field  The field to index by
+ * @param  {Array}   array  Input
+ *
+ * @return {Object}
+ *
+ * @tag Array
+ * @signature (field: string, source: Object[]): Object
+ *
+ * @example
+ * indexBy("id")([
+ *   {id: 1, user_id: 2},
+ *   {id: 2, user_id: 3},
+ * ])
+ * // => {
+ * //   1: {id: 1, user_id: 2},
+ * //   2: {id: 2, user_id: 3},
+ * // }
+ */
+export const indexBy = curry(_indexBy)

@@ -1,5 +1,6 @@
 import test from "tape"
-import { dropLast } from ".."
+
+import { dropLast } from "./drop-last"
 
 test("dropLast", t => {
   t.deepEqual(

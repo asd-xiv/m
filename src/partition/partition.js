@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars*/
 
-import { isMatch } from "../is-match/is-match"
 import { pipe } from "../pipe/pipe"
 import { reduce } from "../reduce/reduce"
+import { curry } from "../curry/curry"
+import { isMatch } from "../is-match/is-match"
 
 const _partition = (_fn, source) => {
   const fn = Array.isArray(_fn) ? pipe(..._fn) : _fn
@@ -33,22 +34,13 @@ const _partition = (_fn, source) => {
  *
  * @name partition
  * @tag Array
- * @signature (fn: Function|Funciton[]) => (source: Array) => [[], []]
  * @signature (fn: Function|Funciton[], source: Array) => [[], []]
  *
  * @example
  * partition(x => x % 2 === 0)([1, 2, 3, 4, 5])
  * // => [[2, 4], [1, 3, 5]]
  */
-export const partition = (...params) => {
-  // @signature (fn) => (source)
-  if (params.length <= 1) {
-    return source => _partition(params[0], source)
-  }
-
-  // @signature (fn, source)
-  return _partition(...params)
-}
+export const partition = curry(_partition)
 
 /**
  * Split a list based on object matching
@@ -63,19 +55,12 @@ export const partition = (...params) => {
  *
  * @name partitionWith
  * @tag Array
- * @signature (subset: Object) => (source: Array) => [[], []]
  * @signature (subset: Object, source: Array) => [[], []]
  *
  * @example
  * partitionWith({comments: is}, [{id: 1}, {id: 2, comments: []}])
  * // => [[{id: 1}], [{id: 2, comments: []}]]
  */
-export const partitionWith = (...params) => {
-  // @signature (subset) => (source)
-  if (params.length <= 1) {
-    return source => _partition(isMatch(params[0]), source)
-  }
-
-  // @signature (subset, source)
-  return _partition(isMatch(params[0]), params[1])
-}
+export const partitionWith = curry((subset, source) =>
+  _partition(isMatch(subset), source)
+)

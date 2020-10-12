@@ -1,13 +1,23 @@
 import test from "tape"
-import { i, min } from ".."
+
+import { i } from "../i/i"
+import { min, minBy } from "./min"
 
 test("min", t => {
   t.equals(min([-1, 1, 10, 3]), -1, "Find min in numeric array")
+
   t.equals(min([]), undefined, "Find min in empty array (=> undefined)")
+
   t.equals(min([1, 10, 3]), 1, "Find min in all positive numeric array")
+
   t.equals(min([-1, -10, -3]), -10, "Find min in all negative numeric array")
+
+  t.end()
+})
+
+test("minBy", t => {
   t.equals(
-    min(i)([]),
+    minBy(i, []),
     undefined,
     "Find min in empty array using transform function (=> undefined)"
   )
@@ -20,7 +30,7 @@ test("min", t => {
   ]
 
   t.deepEquals(
-    min(fn)(source),
+    minBy(fn, source),
     { time: "2018-05-15T11:20:07.754110Z" },
     "Custom transform function"
   )

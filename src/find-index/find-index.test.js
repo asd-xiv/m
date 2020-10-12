@@ -1,7 +1,8 @@
 import test from "tape"
-import { findIndex, findIndexWith } from ".."
 
-test("findIndex(With)", t => {
+import { findIndex, findIndexWith } from "./find-index"
+
+test("findIndex", t => {
   const comments = [
     { id: 1, body: "" },
     { id: 2, body: "dolor" },
@@ -24,6 +25,15 @@ test("findIndex(With)", t => {
     -1,
     "index with id:3 should be -1 (not found)"
   )
+
+  t.end()
+})
+
+test("findIndexWith", t => {
+  const comments = [
+    { id: 1, body: "" },
+    { id: 2, body: "dolor" },
+  ]
 
   t.equals(
     findIndexWith({ id: 2 })([]),

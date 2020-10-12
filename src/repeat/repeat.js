@@ -6,7 +6,7 @@ const _repeat = (_fn, count = 0) => {
   const isFunction = typeof fn === "function"
 
   for (let i = 0; i < count; i++) {
-    result.push(isFunction ? fn(i) : fn)
+    result.push(isFunction ? fn(i, result) : fn)
   }
 
   return result
@@ -22,7 +22,7 @@ const _repeat = (_fn, count = 0) => {
  *
  * @name repeat
  * @tag Array
- * @signature (fn: Function|mixed) => (count: Number): Array
+ * @signature (fn: Function|Mixed) => (count: Number): Array
  *
  * @example
  * repeat(2)(3)

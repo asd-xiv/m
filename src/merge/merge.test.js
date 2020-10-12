@@ -1,5 +1,6 @@
 import test from "tape"
-import { merge, mergeAll, mergeBy } from ".."
+
+import { merge, mergeAll, mergeBy } from "./merge"
 
 test("merge, mergeAll", t => {
   const obj1 = { a: undefined }

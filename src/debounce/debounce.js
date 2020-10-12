@@ -1,5 +1,5 @@
 /**
- * Call function after `wait` milliseconds have elapsed
+ * Run function after `wait` milliseconds have elapsed since last call
  *
  * @name       debounce
  * @tag        Core
@@ -15,14 +15,13 @@
  *                       passed without calling
  *
  * @example
- * // constructor
- * this.debouncedAutocomplete = debounce(autocompleteFromAPI, {
+ * const debouncedAutocomplete = debounce(autocompleteFromAPI, {
  *   wait: 100,
  *   bind: this
  * })
  *
  * // render
- * <input onChange={this.debouncedAutocomplete} ... />
+ * <input onChange={debouncedAutocomplete} ... />
  */
 const debounce = (fn, { wait = 50, bind = null } = {}) => {
   let finalRunTimer

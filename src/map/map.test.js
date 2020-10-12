@@ -1,5 +1,6 @@
 import test from "tape"
-import { map } from ".."
+
+import { map } from "./map"
 
 test("map", t => {
   const square = value => value * value

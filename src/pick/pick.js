@@ -1,3 +1,20 @@
+import { curry } from "../curry/curry"
+
+const _pick = (keys, source) => {
+  const result = {}
+
+  for (let i = 0, length = keys.length; i < length; i++) {
+    const key = keys[i]
+    const value = source[key]
+
+    if (Object.hasOwnProperty.call(source, key)) {
+      result[key] = value
+    }
+  }
+
+  return result
+}
+
 /**
  * Returns a partial copy of an object containing only the keys specified.
  * If the key does not exist, the property is ignored.
@@ -14,19 +31,4 @@
  * pick(["id", "name"])({id: 2, name: "lorem", description: "lorem ipsum"})
  * // => {id: 2, name: lorem}
  */
-const pick = keys => source => {
-  const result = {}
-
-  for (let i = 0, length = keys.length; i < length; i++) {
-    const key = keys[i]
-    const value = source[key]
-
-    if (Object.hasOwnProperty.call(source, key)) {
-      result[key] = value
-    }
-  }
-
-  return result
-}
-
-export { pick }
+export const pick = curry(_pick)

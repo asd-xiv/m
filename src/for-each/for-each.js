@@ -1,3 +1,4 @@
+import { curry } from "../curry/curry"
 import { pipe } from "../pipe/pipe"
 
 const _forEach = (_fn, _source) => {
@@ -18,17 +19,6 @@ const _forEach = (_fn, _source) => {
  * @return {undefined}
  *
  * @tag Array
- * @signature (fn: Function|Function[]) => (source: Array): undefined
  * @signature (fn: Function|Function[], source: Array): undefined
  */
-const forEach = (...params) => {
-  // @signature (fn) => (source)
-  if (params.length <= 1) {
-    return source => _forEach(params[0], source)
-  }
-
-  // @signature (fn, source)
-  return _forEach(...params)
-}
-
-export { forEach }
+export const forEach = curry(_forEach)

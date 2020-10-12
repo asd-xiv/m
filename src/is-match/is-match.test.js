@@ -1,7 +1,10 @@
 import test from "tape"
-import { isMatch } from ".."
 
-test("core::isMatch", t => {
+import { isEqual } from "../is-equal/is-equal"
+import { read } from "../read/read"
+import { isMatch } from "./is-match"
+
+test("isMatch", t => {
   t.deepEqual(
     isMatch({
       id: 2,
@@ -13,6 +16,20 @@ test("core::isMatch", t => {
     }),
     true,
     "Properties are present and have equal values"
+  )
+
+  t.deepEqual(
+    isMatch(
+      {
+        tag: [read("userId"), isEqual(2)],
+      },
+      {
+        id: 2,
+        tag: { id: 1, userId: 2 },
+      }
+    ),
+    true,
+    "Match using piped functions"
   )
 
   t.deepEqual(

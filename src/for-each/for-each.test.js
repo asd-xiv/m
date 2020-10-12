@@ -8,21 +8,13 @@ test("forEach", t => {
 
   forEach(item => tmp.push(item))([1, 2, 3])
 
-  t.deepEqual(
-    tmp,
-    [1, 2, 3],
-    "Run function over each element of array - curried"
-  )
+  t.deepEqual(tmp, [1, 2, 3], "Run function over each element of array")
 
   const tmp2 = []
 
   forEach([inc, item => tmp2.push(item)], [1, 2, 3])
 
-  t.deepEqual(
-    tmp2,
-    [2, 3, 4],
-    "Run piped functions over each element of array - uncurried"
-  )
+  t.deepEqual(tmp2, [2, 3, 4], "Run piped functions over each element of array")
 
   t.end()
 })

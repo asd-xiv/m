@@ -1,7 +1,8 @@
 import test from "tape"
-import { isEmpty, isNotEmpty } from ".."
 
-test("core::isEmpty", t => {
+import { isEmpty, isNotEmpty } from "./is-empty"
+
+test("isEmpty", t => {
   t.equal(isEmpty({}), true, "{} should equal true")
   t.equal(isEmpty({ a: 2 }), false, "{a:2} should equal false")
   t.equal(isEmpty([]), true, "[] should equal true")

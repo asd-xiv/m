@@ -1,5 +1,6 @@
 import test from "tape"
-import { pluck } from ".."
+
+import { pluck } from "./pluck"
 
 test("pluck", t => {
   const source = [
@@ -17,7 +18,7 @@ test("pluck", t => {
   t.deepEqual(pluck("position")(source), [3, -1], "Array with extracted field")
 
   t.deepEqual(
-    pluck("onlyHere")(source),
+    pluck("onlyHere", source),
     [1, undefined],
     "Array with extracted field not available in all source elements"
   )

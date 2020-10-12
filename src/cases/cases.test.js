@@ -1,5 +1,6 @@
 import test from "tape"
-import { cases } from ".."
+
+import { cases } from "./cases"
 
 test("cases", t => {
   t.equal(

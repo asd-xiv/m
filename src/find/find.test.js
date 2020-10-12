@@ -1,7 +1,8 @@
 import test from "tape"
-import { find, findWith } from ".."
 
-test("array::find", t => {
+import { find, findWith } from "./find"
+
+test("find", t => {
   const comments = [
     { id: 1, body: "" },
     { id: 2, body: "dolor" },
@@ -30,6 +31,15 @@ test("array::find", t => {
     {},
     "find with id:3 should return default not found value"
   )
+
+  t.end()
+})
+
+test("findWith", t => {
+  const comments = [
+    { id: 1, body: "" },
+    { id: 2, body: "dolor" },
+  ]
 
   t.deepEqual(
     findWith({ id: 2 })([]),

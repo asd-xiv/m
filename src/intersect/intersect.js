@@ -1,6 +1,7 @@
 import { findIndex } from "../find-index/find-index"
+import { curry } from "../curry/curry"
 
-export const intersect = (predicateFn, unionFn) => (aList, bList) => {
+const _intersect = (predicateFn, unionFn, aList, bList) => {
   if (aList.length === 0) {
     return bList
   }
@@ -24,3 +25,5 @@ export const intersect = (predicateFn, unionFn) => (aList, bList) => {
 
   return result
 }
+
+export const intersect = curry(_intersect)

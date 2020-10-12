@@ -16,9 +16,7 @@
  *
  * curry(sum)(1)(2) = 3
  */
-const curry = fn => (...args) =>
+export const curry = fn => (...args) =>
   args.length >= fn.length
     ? fn(...args)
     : (...rest) => curry(fn)(...args, ...rest)
-
-export { curry }

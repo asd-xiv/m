@@ -1,17 +1,20 @@
 import test from "tape"
-import { filter, filterWith } from ".."
 
-test("array::filter", t => {
+import { isEqual } from "../is-equal/is-equal"
+import { read } from "../read/read"
+import { filter, filterWith } from "./filter"
+
+test("filter", t => {
   t.deepEqual(
     filter(filterElm => filterElm <= 3)([1, 2, 3, 4, 5, 6]),
     [1, 2, 3],
-    "Keep items lower or equal than 3"
+    "Keep items lower or equal than 3 - curried"
   )
 
   t.deepEqual(
-    filter(filterElm => filterElm <= 3)("asd"),
+    filter(filterElm => filterElm <= 3, "asd"),
     [],
-    "Run filter for non-array input, treat as array of one (input does not match function)"
+    "Run filter for non-array input, treat as array of one (input does not match function) - uncurried"
   )
 
   t.deepEqual(
@@ -20,6 +23,20 @@ test("array::filter", t => {
     "Run filter for non-array input, treat as array of one (input matches function)"
   )
 
+  t.deepEqual(
+    filter([read("items"), isEqual(1)])([
+      { id: 2, items: 2 },
+      { id: 3, items: 1 },
+      { id: 4, items: 2 },
+    ]),
+    [{ id: 3, items: 1 }],
+    "Keep items in array that have properties that equal - curried"
+  )
+
+  t.end()
+})
+
+test("filterWith", t => {
   t.deepEqual(
     filterWith({
       items: 2,
@@ -32,15 +49,18 @@ test("array::filter", t => {
       { id: 2, items: 2 },
       { id: 4, items: 2 },
     ],
-    "Keep items in array that have properties that equal"
+    "Keep items in array that have properties that equal - curried"
   )
 
   t.deepEqual(
-    filterWith({
-      "!id": 2,
-    })([{ lorem: 2 }, { lorem: 3 }, { id: 2 }]),
+    filterWith(
+      {
+        "!id": 2,
+      },
+      [{ lorem: 2 }, { lorem: 3 }, { id: 2 }]
+    ),
     [{ lorem: 2 }, { lorem: 3 }],
-    "Keep items in array that have properties that dont equal"
+    "Keep items in array that have properties that dont equal - uncurried"
   )
 
   t.end()

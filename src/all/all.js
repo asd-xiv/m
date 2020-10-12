@@ -1,4 +1,5 @@
 import { pipe } from "../pipe/pipe"
+import { curry } from "../curry/curry"
 import { isMatch } from "../is-match/is-match"
 
 const _all = (_fn, _source) => {
@@ -14,6 +15,8 @@ const _all = (_fn, _source) => {
   return true
 }
 
+const _allWith = (subset, source) => _all(isMatch(subset), source)
+
 /**
  * Test if all elements of array satisfy a function
  *
@@ -24,7 +27,6 @@ const _all = (_fn, _source) => {
  *
  * @name all
  * @tag Array
- * @signature (fn: Function|Function[]) => (source: Array): Boolean
  * @signature (fn: Function|Function[], source: Array): Boolean
  *
  * @see {@link allWith}
@@ -38,15 +40,7 @@ const _all = (_fn, _source) => {
  * all(is, [1, "asd", null])
  * // => false
  */
-export const all = (...params) => {
-  // @signature (fn) => (source)
-  if (params.length <= 1) {
-    return source => _all(params[0], source)
-  }
-
-  // @signature (fn, source)
-  return _all(...params)
-}
+export const all = curry(_all)
 
 /**
  * Test if all elements in array match object
@@ -58,7 +52,6 @@ export const all = (...params) => {
  *
  * @name allWith
  * @tag Array
- * @signature (subset: Object) => (source: Array): Boolean
  * @signature (subset: Object, source: Array): Boolean
  *
  * @see {@link all}
@@ -73,12 +66,4 @@ export const all = (...params) => {
  * allWith(is, [1, "asd", null])
  * // => false
  */
-export const allWith = (...params) => {
-  // @signature (subset) => (source)
-  if (params.length <= 1) {
-    return source => _all(isMatch(params[0]), source)
-  }
-
-  // @signature (subset, source)
-  return _all(isMatch(params[0]), params[1])
-}
+export const allWith = curry(_allWith)
