@@ -12,6 +12,4 @@
  * toLower("Lorem Ipsum")
  * // "lorem ipsum"
  */
-const toLower = source => "".toLowerCase.call(source)
-
-export { toLower }
+export const toLower = source => "".toLowerCase.call(source)
