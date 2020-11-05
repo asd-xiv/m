@@ -68,3 +68,6 @@ dist/
 *.sublime-project
 *.sublime-workspace
 .tern-port
+
+# Vim ctags
+tags
