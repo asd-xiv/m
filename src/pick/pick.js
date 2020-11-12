@@ -22,10 +22,10 @@ const _pick = (keys, source) => {
  * @tag Object
  * @signature ( keys: string[] ) => ( source: Object ): Object
  *
- * @param      {string[]}  keys   The properties to be filtered out
- * @param      {Object}         source  The source object
+ * @param {string[]} keys   The properties to be filtered out
+ * @param {object}   source The source object
  *
- * @return     {Object}
+ * @returns     {object}
  *
  * @example
  * pick(["id", "name"])({id: 2, name: "lorem", description: "lorem ipsum"})

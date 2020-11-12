@@ -1,11 +1,11 @@
 /**
  * Get a subset array using offset and limit
  *
- * @param  {number}  offset  Start position
- * @param  {number}  limit   How many items
- * @param  {Array}   source  Input array
+ * @param {number} offset Start position
+ * @param {number} limit  How many items
+ * @param {Array}  source Input array
  *
- * @return {Array}
+ * @returns {Array}
  *
  * @example
  * page({

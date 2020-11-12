@@ -1,10 +1,11 @@
 /**
  * Add element at end of array
  *
- * @param  {mixed}  element  Element to be added
- * @param  {Array}  input    Array to add to
+ * @param {mixed}  element  Element to be added
+ * @param {Array}  input    Array to add to
+ * @param {...any} elements Function parameters
  *
- * @return {Array}
+ * @returns {Array}
  *
  * @tag Array
  * @signature (...elements: mixed) => (input: Array): Array

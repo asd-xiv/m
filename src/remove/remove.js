@@ -24,7 +24,7 @@ const _remove = (_fn, source) => {
  * @param {Function|mixed} fn     Value to remove or predicate to match
  * @param {Array}          source Source array
  *
- * @return {Array}
+ * @returns {Array}
  *
  * @name remove
  * @tag Array
@@ -43,10 +43,10 @@ export const remove = curry(_remove)
 /**
  * Remove element(s) by matching object
  *
- * @param {Object} subset Match object
+ * @param {object} subset Match object
  * @param {Array}  source Source array
  *
- * @return {Array}
+ * @returns {Array}
  *
  * @name removeWith
  * @tag Array

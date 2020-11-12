@@ -5,9 +5,9 @@
  * Does not attempt to distinguish user Object types any further, reporting
  * them all as "Object".
  *
- * @param {mixed}  input  Something to check type on
+ * @param {mixed} input Something to check type on
  *
- * @return {string}
+ * @returns {string}
  *
  * @example
  * type({})                // "Object"

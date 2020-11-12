@@ -20,7 +20,7 @@ const _endsWith = (search, source) => {
  * @param {string} search Search string
  * @param {string} source Source string
  *
- * @return {boolean}
+ * @returns {boolean}
  *
  * @tag String
  * @signature (search: String, source: String): Boolean

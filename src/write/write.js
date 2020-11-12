@@ -2,11 +2,11 @@
  * Shallow clone of an object, setting or overriding a property with the given
  * value
  *
- * @param      {string}  key     Property name
- * @param      {mixed}   value   Property value
- * @param      {Object}  source  Source object
+ * @param {string} key    Property name
+ * @param {mixed}  value  Property value
+ * @param {object} source Source object
  *
- * @return     {Object}
+ * @returns {object}
  *
  * @name write
  * @tag Object

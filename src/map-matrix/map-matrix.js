@@ -26,7 +26,7 @@ const _mapMatrix = (_fn, source) => {
  * @param {Fn|Fn[]} fn     Transform function called on all elements
  * @param {[][]}    source Two-dimensional array to iterate over
  *
- * @return {[][]} New array instance
+ * @returns {[][]} New array instance
  *
  * @name mapMatrix
  * @tag Array

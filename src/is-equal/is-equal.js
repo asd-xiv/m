@@ -8,7 +8,7 @@ const _isEqual = (a, b) => (Number.isNaN(a) && Number.isNaN(b) ? true : a === b)
  * @param {Mixed} a First value
  * @param {Mixed} b Second value
  *
- * @return {Boolean}
+ * @returns {boolean}
  *
  * @tag Core
  * @signature (a: Mixed) => (b: Mixed): Boolean

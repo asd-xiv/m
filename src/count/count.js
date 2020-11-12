@@ -21,11 +21,10 @@ const _countBy = (_fn, _source) => {
 /**
  * Count the number of elements that satisfies a function
  *
- * @param {Function|Function[]} fn     Match function
- * @param {Array|Object}        source Source array, if object passed,
- *                                     Object.entries will be iterated over
+ * @param {Function|Function[]} fn Match function
+ * @param {Array                |  object}        source Source array, if object passed, Object.entries will be iterated over
  *
- * @return  {Number}
+ * @returns  {number}
  *
  * @name count
  * @tag Array
@@ -57,11 +56,10 @@ export const countBy = curry(_countBy)
 /**
  * Count elements in array or object that match object
  *
- * @param {Object}       subset Match object
- * @param {Array|Object} source Source array, if object passed, Object.entries
- *                              will be iterated over
+ * @param {object} subset Match object
+ * @param {Array   |      object} source Source array, if object passed, Object.entries will be iterated over
  *
- * @return {Number}
+ * @returns {number}
  *
  * @name countWith
  * @tag Array

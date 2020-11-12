@@ -19,9 +19,9 @@ const _filter = (_fn, _source) => {
 /**
  * Filter elements matching a predicate
  *
- * @param  {Function}  fn  Predicate functions
+ * @param {Function} fn Predicate functions
  *
- * @return {Array}
+ * @returns {Array}
  *
  * @name filter
  * @tag Array
@@ -33,9 +33,9 @@ export const filter = curry(_filter)
 /**
  * Filter elements matching an object
  *
- * @param  {Object}  subset  The function
+ * @param {object} subset The function
  *
- * @return {Array}
+ * @returns {Array}
  *
  * @name filterWith
  * @tag Array

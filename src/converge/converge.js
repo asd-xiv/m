@@ -23,8 +23,9 @@ const _converge = (_accFn, _extractFn, ...source) => {
  * @param {Fn|Fn[]} accFn     Accumulator or final aggreate function
  * @param {Fn|Fn[]} extractFn List of functions to be applied on input
  * @param {Any}     ...source Source input
+ * @param {...any}  params    Function params
  *
- * @return {Any}
+ * @returns {Any}
  *
  * @name converge
  * @tag Core
@@ -32,6 +33,7 @@ const _converge = (_accFn, _extractFn, ...source) => {
  * @signature (accFn: Fn|Fn[], extractFn: Fn|Fn[], ...source: Array): Any
  *
  * @example
+ *
  * const divide = () => {}
  * const sum = () => {}
  * const count = () => {}

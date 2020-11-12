@@ -5,10 +5,10 @@ import { type } from "../type/type"
 /**
  * Replace substring in string
  *
- * @param  {string}  oldString  The old string
- * @param  {string}  newString  The new string
+ * @param {string} oldString The old string
+ * @param {string} newString The new string
  *
- * @return {string}
+ * @returns {string}
  */
 const replaceString = (oldString, newString) => source =>
   "".replace.call(source, oldString, newString)
@@ -16,10 +16,10 @@ const replaceString = (oldString, newString) => source =>
 /**
  * Replace element in array (shallow equal)
  *
- * @param  {mixed}  oldElm  The old elm
- * @param  {mixed}  newElm  The new elm
+ * @param {mixed} oldElm The old elm
+ * @param {mixed} newElm The new elm
  *
- * @return {Array}
+ * @returns {Array}
  */
 const replaceArray = (oldElm, newElm) => source => {
   const result = []
@@ -39,11 +39,11 @@ const replaceArray = (oldElm, newElm) => source => {
  * Replace substring if source is string, replace element (shallow equal) if
  * source is Array
  *
- * @param {string|mixed}  oldElm  To be cloned
- * @param {string|mixed}  newElm  Copy of this object.
- * @param {string|Array}  source  Source array
+ * @param {string|mixed} oldElm To be cloned
+ * @param {string|mixed} newElm Copy of this object.
+ * @param {string|Array} source Source array
  *
- * @return {string|Array}
+ * @returns {string|Array}
  *
  * @tag String,Array
  * @signature (oldElm: string|mixed, newElm: string|mixed) => (source: Array): Array
@@ -65,11 +65,11 @@ const replace = (oldElm, newElm) => source => {
  * @tag Array
  * @signature (filter: Obj, replace: Obj|Function) => (source: Obj[]): Obj[]
  *
- * @param  {Object}    filter    Filter object to match against each element
- * @param  {Object}    newValue  Object to replace matching elements
- * @param  {Object[]}  source    Source array
+ * @param {object}   filter   Filter object to match against each element
+ * @param {object}   newValue Object to replace matching elements
+ * @param {object[]} source   Source array
  *
- * @return {Array}
+ * @returns {Array}
  *
  * @example
  * replaceWith(

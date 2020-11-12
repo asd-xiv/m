@@ -3,9 +3,9 @@ import { type } from "../type/type"
 /**
  * Check if variable is considered empty
  *
- * @param   {Any}      source  Source input
+ * @param {Any} source Source input
  *
- * @return  {boolean}  True if empty, False otherwise
+ * @returns  {boolean}  True if empty, False otherwise
  *
  * @tag Core
  * @signature (source: any): boolean

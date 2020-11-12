@@ -23,7 +23,7 @@ const _allWith = (subset, source) => _all(isMatch(subset), source)
  * @param {Function|Function[]} fn     Test function called on each elements
  * @param {Array}               source Source array to iterate over
  *
- * @return {Boolean} True if all elements pass, otherwise false
+ * @returns {boolean} True if all elements pass, otherwise false
  *
  * @name all
  * @tag Array
@@ -45,10 +45,10 @@ export const all = curry(_all)
 /**
  * Test if all elements in array match object
  *
- * @param {Object} subset Match object
+ * @param {object} subset Match object
  * @param {Array}  source Source array to iterate over
  *
- * @return {Boolean} True if all elements match, otherwise false
+ * @returns {boolean} True if all elements match, otherwise false
  *
  * @name allWith
  * @tag Array

@@ -21,9 +21,9 @@ const _findIndex = (_fn, _source) => {
  * Find the position the first element that satisfies a predicate function
  *
  * @param {Fn|Fn[]}  fn     Predicate applied to each element
- * @param {Object[]} source Source array to iterate over
+ * @param {object[]} source Source array to iterate over
  *
- * @return {Number} Position of found element or -1 if not found
+ * @returns {number} Position of found element or -1 if not found
  *
  * @name findIndex
  * @tag Array

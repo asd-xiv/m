@@ -10,7 +10,7 @@ const _dropLast = curry((count, source) =>
  * @param {number} count  Number of element to remove (default 1)
  * @param {Array}  source Source array
  *
- * @return {Array}
+ * @returns {Array}
  *
  * @tag Array
  * @signature (count: number, source: Array): Array

@@ -6,7 +6,7 @@ import { isDeepEqual } from "../deep-equal/deep-equal"
  *
  * @param {Array} source Source input array
  *
- * @return {Array}
+ * @returns {Array}
  *
  * @name distinct
  * @tag Array

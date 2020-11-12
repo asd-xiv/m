@@ -5,10 +5,10 @@ import { curry } from "../curry/curry"
  * Since this will mostly be used in pipe, the first param in the curry chain
  * is the second operand.
  *
- * @param  {number}  second  Second number
- * @param  {number}  first   First number
+ * @param {number} second Second number
+ * @param {number} first  First number
  *
- * @return {boolean}
+ * @returns {boolean}
  *
  * @tag Core
  * @signarute (first: number) => (second: number): boolean

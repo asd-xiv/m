@@ -6,7 +6,7 @@
  * @param {Function[]} rest   Remaining functions
  * @param {Array}      source First function arguments
  *
- * @return {Any}
+ * @returns {Any}
  *
  * @name pipe
  * @tag Core

@@ -1,9 +1,9 @@
 /**
  * Add one
  *
- * @param  {number}  source  Source input
+ * @param {number} source Source input
  *
- * @return {number}
+ * @returns {number}
  *
  * @tag Number
  * @signature (source: number): number

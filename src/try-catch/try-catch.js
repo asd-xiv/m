@@ -4,7 +4,7 @@
  * @param {Function} tryer   Try to do something with source input
  * @param {Function} catcher Run if tryer throws exception
  *
- * @return {any}
+ * @returns {any}
  *
  * @tag Core
  *

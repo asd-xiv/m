@@ -1,10 +1,10 @@
 /**
  * Generate random number between interval
  *
- * @param {Number} min Minimum value
- * @param {Number} max Maximum value
+ * @param {number} min Minimum value
+ * @param {number} max Maximum value
  *
- * @return {Integer}
+ * @returns {Integer}
  */
 export const random = (min = 0, max = 1) =>
   Math.floor(min + Math.random() * (max - min + 1))

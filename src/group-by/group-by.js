@@ -19,11 +19,10 @@ const _groupBy = (field, source) => {
 /**
  * Group an array of objects by field.
  *
- * @param  {string}  field   The field to index by. Value will be cast to string
- *                           before indexing.
- * @param  {Array}   source  Input array
+ * @param {string} field  The field to index by. Value will be cast to string before indexing.
+ * @param {Array}  source Input array
  *
- * @return {Array<Array>}
+ * @returns {Array<Array>}
  *
  * @example
  * groupBy("user_id")([

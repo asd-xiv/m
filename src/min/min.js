@@ -26,9 +26,9 @@ const _minBy = (_fn, source) => {
 /**
  * Find the minimum value in a source array
  *
- * @param  {Number[]} source Array of numbers
+ * @param {number[]} source Array of numbers
  *
- * @return {Number}
+ * @returns {number}
  *
  * @name min
  * @tag Array

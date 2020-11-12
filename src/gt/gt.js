@@ -5,10 +5,10 @@ const _gt = (a, b) => a < b
 /**
  * Grater compare.
  *
- * @param {Number} a First number
- * @param {Number} b Second number
+ * @param {number} a First number
+ * @param {number} b Second number
  *
- * @return {Boolean}
+ * @returns {boolean}
  *
  * @tag Core
  * @signature (a: Number) => (b: Number): Boolean

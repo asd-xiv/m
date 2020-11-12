@@ -73,10 +73,11 @@ const _isDeepEqual = (a, b) => {
 /**
  * Determine if two variables are structurally equal
  *
- * @param {Any} a Source input
- * @param {Any} b Other source input
+ * @param {Any}    a      Source input
+ * @param {Any}    b      Other source input
+ * @param {...any} params Function params
  *
- * @returns {Boolean} True if inputs are structurally equal, false otherwise
+ * @returns {boolean} True if inputs are structurally equal, false otherwise
  *
  * @name isDeepEqual
  * @tag Core
@@ -86,16 +87,17 @@ const _isDeepEqual = (a, b) => {
  * @see {@link clone}
  *
  * @example
+ *
  * deepEqual(
- *   {b: 3, a: 2},
- *   {a: 2, b: 3}
+ * {b: 3, a: 2},
+ * {a: 2, b: 3}
  * )
  * // => true
  *
  * deepEqual(
- *   {a :[1, 2]}
+ * {a :[1, 2]}
  * )(
- *   {a: [2, 1]}
+ * {a: [2, 1]}
  * )
  * // => false
  */

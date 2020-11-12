@@ -1,9 +1,9 @@
 /**
  * Get left most element of array
  *
- * @param  {Array}  source  The source
+ * @param {Array} source The source
  *
- * @return {mixed}
+ * @returns {mixed}
  *
  * @tag Array
  * @signature (source: Array): mixed

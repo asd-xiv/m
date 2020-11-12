@@ -16,7 +16,7 @@ const _forEach = (_fn, _source) => {
  * @param {Function|Function[]} fn     Iterator function
  * @param {Array}               source Source array
  *
- * @return {undefined}
+ * @returns {undefined}
  *
  * @tag Array
  * @signature (fn: Function|Function[], source: Array): undefined

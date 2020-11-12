@@ -8,7 +8,7 @@ import { curry } from "../curry/curry"
  *
  * @param {any} source Source variable
  *
- * @return {boolean}
+ * @returns {boolean}
  *
  * @example
  *

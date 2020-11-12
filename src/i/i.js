@@ -1,8 +1,8 @@
 /**
  * Identity function
  *
- * @param  {mixed}  source  Source input
+ * @param {mixed} source Source input
  *
- * @return {mixed}
+ * @returns {mixed}
  */
 export const i = source => source

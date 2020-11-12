@@ -16,10 +16,11 @@ const _bottom = (limit, source) => {
 /**
  * Get all but first element from array
  *
- * @param {integer} limit  How many elements from the bottom
- * @param {Array}   source The source
+ * @param {number} limit  How many elements from the bottom
+ * @param {Array}  source The source
+ * @param {...any} params Function parameters
  *
- * @return {mixed}
+ * @returns {mixed}
  *
  * @tag Array
  * @signature (limit: integer, source: Array): Array

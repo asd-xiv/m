@@ -4,9 +4,9 @@ import { is } from "../is/is"
 /**
  * Count the number of occurances of each element
  *
- * @param  {Array}  source  Source input
+ * @param {Array} source Source input
  *
- * @return {Object}
+ * @returns {object}
  */
 const byArray = source => {
   const result = {}
@@ -21,9 +21,9 @@ const byArray = source => {
 /**
  * Count the number of occurances of each object by a field
  *
- * @param  {string}  field  The field
+ * @param {string} field The field
  *
- * @return {Object}
+ * @returns {object}
  */
 const byKey = field => source => {
   const result = {}
@@ -51,10 +51,10 @@ const byType = {
  * @tag Array
  * @signature (field: string)(source: Object[]): Object
  *
- * @param   {string}    field   Field name to count
- * @param   {Object[]}  source  Array of objects
+ * @param {string}   field  Field name to count
+ * @param {object[]} source Array of objects
  *
- * @return  {Object}
+ * @returns  {object}
  *
  * @example
  *

@@ -11,9 +11,9 @@ import { reduce } from "../reduce/reduce"
  * @signature  (...fn) => (...input): any
  * @see        {@link pipe}
  *
- * @param  {Function}    first   First function in chain
- * @param  {Function[]}  rest    Remaining bottom functions
- * @param  {Array}       source  First function arguments
+ * @param {Function}   first  First function in chain
+ * @param {Function[]} rest   Remaining bottom functions
+ * @param {Array}      source First function arguments
  *
  * @returns  {Promise<any>}
  *

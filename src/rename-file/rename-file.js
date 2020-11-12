@@ -13,10 +13,10 @@ const removeTrailingSlash = source =>
 /**
  * Rename a file
  *
- * @param  {string}  newName   New file name
- * @param  {string}  filePath  Absolute file path
+ * @param {string} newName  New file name
+ * @param {string} filePath Absolute file path
  *
- * @return {string}
+ * @returns {string}
  */
 const renameFile = newName =>
   pipe(

@@ -1,16 +1,15 @@
 /**
  * Check if value is inside open or closed interval
  *
- * @param  {number}   left         Left limit
- * @param  {number}   right        Right limit
- * @param  {Object}   arg3         Props
- * @param  {boolean}  arg3.closed  If intervals is closed or not
+ * @param {number}  left        Left limit
+ * @param {number}  right       Right limit
+ * @param {object}  arg3        Props
+ * @param {boolean} arg3.closed If intervals is closed or not
  *
- * @return {boolean}
+ * @returns {boolean}
  *
  * @tag Number
- * @signature (left: number, right: number, props: Object)
- *  => (source: number): boolean
+ * @signature (left: number, right: number, props: Object) => (source: number): boolean
  *
  * @example
  * between(2, 5)(5)

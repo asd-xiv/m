@@ -30,12 +30,11 @@ const _isMatch = (subset, source) =>
  * @tag Core
  * @signature (subset: Object)(source: Object): boolean
  *
- * @param  {Object}   subset  Set of properties that should match
- * @param  {Object}   source  Object matching against
+ * @param {object} subset Set of properties that should match
+ * @param {object} source Object matching against
  *
- * @return {boolean}  True if all "subset" properties are of equal (shallow
- *                    compare) value to properties in "source" object,
- *                    otherwise false
+ * @returns {boolean}  True if all "subset" properties are of equal (shallow
+ * compare) value to properties in "source" object, otherwise false
  *
  * @example
  * isMatch({

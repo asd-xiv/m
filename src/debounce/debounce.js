@@ -5,14 +5,12 @@
  * @tag        Core
  * @signature  (fn: Function, { wait: number, bind: Object }): Function
  *
- * @param  {Function}  fn                 Source function
- * @param  {Object}    [props]            Properties
- * @param  {number}    [props.wait=50]    Time in milliseconds to wait without
- *                                        calling until invoke
- * @param  {Object}    [props.bind=null]  `this` provided for the call to `fn`
+ * @param {Function} fn                Source function
+ * @param {object}   [props]           Properties
+ * @param {number}   [props.wait=50]   Time in milliseconds to wait without calling until invoke
+ * @param {object}   [props.bind=null] `this` provided for the call to `fn`
  *
- * @returns  {Function}  Wrapper function that calls `fn` after `wait`
- *                       passed without calling
+ * @returns  {Function}  Wrapper function that calls `fn` after `wait` passed without calling
  *
  * @example
  * const debouncedAutocomplete = debounce(autocompleteFromAPI, {

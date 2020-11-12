@@ -24,9 +24,9 @@ const _partition = (_fn, source) => {
 /**
  * Split a list based on a predicate function
  *
- * @param  {Function} fn  A predicate function.
+ * @param {Function} fn A predicate function.
  *
- * @return {[[], []]}
+ * @returns {[[], []]}
  * A function taking a `A[]` and returning a two-tuple of `A[]`s.
  * The first element of the tuple consists of elements for which
  * the predicate returned `true`, the second of elements for which
@@ -45,9 +45,9 @@ export const partition = curry(_partition)
 /**
  * Split a list based on object matching
  *
- * @param {Object} subset A predicate function.
+ * @param {object} subset A predicate function.
  *
- * @return {[[], []]}
+ * @returns {[[], []]}
  * A function taking a `A[]` and returning a two-tuple of `A[]`s.
  * The first element of the tuple consists of elements for which
  * the predicate returned `true`, the second of elements for which

@@ -12,17 +12,16 @@ const _when = (_ifFn, _thenFn, _elseFn = i, source) => {
 /**
  * Functional if-then-else
  *
- * @param  {Function}  ifFn    Condition
- * @param  {Function}  thenFn  Then function
- * @param  {Function}  elseFn  Else function, if not specified will return
- *                             source
+ * @param {Function} ifFn   Condition
+ * @param {Function} thenFn Then function
+ * @param {Function} elseFn Else function, if not specified will return source
+ * @param {...any}   params Function params
  *
- * @return {mixed}
+ * @returns {mixed}
  *
  * @tag Core
  * @signature (ifFn: Function, thenFn: Function, elseFn: Function, source: mixed): mixed
- * @signature (ifFn: Function, thenFn: Function, elseFn: Function) => (source: mixed): mixed
- * @signature (ifFn: Function, thenFn: Function) => (source: mixed): mixed
+ * @signature (ifFn: Function, thenFn: Function, source: mixed): mixed
  *
  * @example
  * when(isEven, increment, decrement)(5)

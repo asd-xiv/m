@@ -17,10 +17,11 @@ const _reduce = (_fn, defaultAcc, _source) => {
  * left to right) to reduce it to a single value.
  *
  * @param {Function} fn         Reduce function
- * @param {Object}   defaultAcc Default accumulator value
+ * @param {object}   defaultAcc Default accumulator value
  * @param {Array}    source     Source input
+ * @param {...any}   params     Function params
  *
- * @return {mixed}
+ * @returns {mixed}
  *
  * @name reduce
  * @tag Array

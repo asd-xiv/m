@@ -8,17 +8,16 @@ import { i } from "../i/i"
  * @tag Core
  * @see {@link when}
  *
- * @param {[ifFn, thenFn][]} conditions  List of 2-tuples of functions (if, then)
- * @param {Function}         otherwise   Function to call if no condition matches
- *                                       Defaults to identity.
- * @param {any}              source      Value to check
+ * @param {Array<Function, Function>}    conditions  List of 2-tuples of functions (if, then)
+ * @param {Function}       [otherwise=i] Function to call if no condition matches, Defaults to identity.
+ * @param {any}            source        Value to check
  *
  * @returns {any}
  * The result of calling the first matching then function or the
  * otherwise function on the input.
  *
- *
  * @example
+ *
  * cases([
  *  [x === 0, x => x * 2],
  *  [x === 1, x => x],

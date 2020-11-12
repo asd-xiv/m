@@ -6,9 +6,9 @@ import { push } from "../push/push"
 /**
  * Add element if not exists, remove otherwise
  *
- * @param  {mixed}  element  Toggable value
+ * @param {mixed} element Toggable value
  *
- * @return {Array}
+ * @returns {Array}
  *
  * @tag Array
  * @signature (element: mixed) => (source: Array): Array

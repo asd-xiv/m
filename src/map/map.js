@@ -20,7 +20,7 @@ const _map = (_fn, _source) => {
  * @param {Fn|Fn[]} fn     Transform function called on each element
  * @param {Array}   source Source array to iterate over
  *
- * @return {Array} Returns new instance
+ * @returns {Array} Returns new instance
  *
  * @name map
  * @tag Array

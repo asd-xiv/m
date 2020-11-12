@@ -17,10 +17,10 @@ const _indexBy = field => source => {
 /**
  * Index an array of objects by field. Only truthy fields will be indexed.
  *
- * @param  {string}  field  The field to index by
- * @param  {Array}   array  Input
+ * @param {string} field The field to index by
+ * @param {Array}  array Input
  *
- * @return {Object}
+ * @returns {object}
  *
  * @tag Array
  * @signature (field: string, source: Object[]): Object

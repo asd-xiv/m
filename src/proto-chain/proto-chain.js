@@ -1,8 +1,8 @@
 /**
  * Return an array of constructor function names based on the prototype chain
  *
- * @param {Object}    source  Source input
- * @param {string[]}  acc     Accumulator array
+ * @param {object}   source Source input
+ * @param {string[]} acc    Accumulator array
  *
  * @returns {string[]}
  *

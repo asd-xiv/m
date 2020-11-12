@@ -4,9 +4,9 @@
  * @tag String
  * @signature ( source: string ): string
  *
- * @param   {string}  source  Source string
+ * @param {string} source Source string
  *
- * @return  {string}
+ * @returns {string}
  *
  * @example
  * toLower("Lorem Ipsum")

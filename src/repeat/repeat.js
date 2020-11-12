@@ -16,9 +16,10 @@ const _repeat = (_fn, count = 0) => {
  * Return an array of fixed size containing a specified value or function result
  *
  * @param {Function|mixed} fn     Function or value to repeat
- * @param {Number}         source Number of times
+ * @param {number}         source Number of times
+ * @param {...any}         params Function params
  *
- * @return {Array}
+ * @returns {Array}
  *
  * @name repeat
  * @tag Array

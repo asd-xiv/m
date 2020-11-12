@@ -3,10 +3,10 @@ import { is } from "../is/is"
 /**
  * Sort array using custom function
  *
- * @param  {Function}  fn      Sort function
- * @param  {Array}     source  Array
+ * @param {Function} fn     Sort function
+ * @param {Array}    source Array
  *
- * @return {Array}
+ * @returns {Array}
  *
  * @tag Array
  * @signature ( fn: Function ) => ( source: Array ): Array
@@ -23,11 +23,11 @@ const sort = fn => source => [...source].sort(fn)
  * @tag Array
  * @signature ( field: string, direction: string ) => ( source: Array ): Array
  *
- * @param  {string}  field      Sort field name
- * @param  {string}  direction  Sort direction
- * @param  {Array}   source     Input array
+ * @param {string} field     Sort field name
+ * @param {string} direction Sort direction
+ * @param {Array}  source    Input array
  *
- * @return {Array}
+ * @returns {Array}
  *
  * @example
  * sortWith( "position" )( [

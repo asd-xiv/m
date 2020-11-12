@@ -14,10 +14,10 @@ const _pluck = (field, source) => {
  * Returns a new list by extracting the same named property off all objects in
  * the source list
  *
- * @param  {string}    field    Field name to extract values from
- * @param  {Object[]}  source   Array of objects
+ * @param {string}   field  Field name to extract values from
+ * @param {object[]} source Array of objects
  *
- * @return {number}
+ * @returns {number}
  *
  * @tag Array
  * @signature ( field: string ) => ( source: Object[] ): mixed[]

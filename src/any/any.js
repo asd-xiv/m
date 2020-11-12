@@ -24,7 +24,7 @@ const _anyWith = (subset, source) => _any(isMatch(subset), source)
  * @param {Fn|Fn[]} fn     Predicate function
  * @param {Array}   source Source array to iterate over
  *
- * @return {Boolean} True if at least one element passes, otherwise false
+ * @returns {boolean} True if at least one element passes, otherwise false
  *
  * @name any
  * @alias has
@@ -47,10 +47,10 @@ export const any = curry(_any)
 /**
  * Test if at least one element in array matches object
  *
- * @param {Object} subset Match object
+ * @param {object} subset Match object
  * @param {Array}  source Source array to iterate over
  *
- * @return {Boolean} True if at least one element pass, otherwise false
+ * @returns {boolean} True if at least one element pass, otherwise false
  *
  * @name anyWith
  * @alias hasWith

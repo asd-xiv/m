@@ -15,10 +15,11 @@ const _startsWith = (search, source) => {
 /**
  * Test if string starts with substring
  *
- * @param {String} search Search string
- * @param {String} source Source string
+ * @param {string} search Search string
+ * @param {string} source Source string
+ * @param {...any} params Function params
  *
- * @return {Boolean}
+ * @returns {boolean}
  *
  * @name startsWith
  * @tag String

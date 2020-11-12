@@ -9,10 +9,10 @@ const _join = (separator, source) => [].join.call(source, separator)
  * @signature (separator: String)(source: Array): String
  * @signature (separator: String, source: Array): String
  *
- * @param {String} separator Separator between each adjacent elements
+ * @param {string} separator Separator between each adjacent elements
  * @param {[]}     source    Source array
  *
- * @return {String}
+ * @returns {string}
  *
  * @example
  * join(",")(["lorem", "ipsum"])

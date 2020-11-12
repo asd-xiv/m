@@ -6,7 +6,7 @@
  *
  * @param {string} source Source string
  *
- * @return {string}
+ * @returns {string}
  *
  * @example
  * toUpper("Lorem Ipsum")

@@ -8,8 +8,9 @@ const topX = (limit, source) =>
  *
  * @param {integer} limit  How many elements from the top
  * @param {Array}   source The source
+ * @param {...any}  params Function params
  *
- * @return {mixed}
+ * @returns {mixed}
  *
  * @tag Array
  * @signature (limit: integer, source: Array): Array

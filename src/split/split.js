@@ -6,10 +6,10 @@
  * @tag String
  * @signature ( separator: string|RegExp )( source: string ): Array
  *
- * @param   {string|RegExp}  separator  Points where each split should occur
- * @param   {string}         source     Source string
+ * @param {string|RegExp} separator Points where each split should occur
+ * @param {string}        source    Source string
  *
- * @return  {Array}
+ * @returns  {Array}
  *
  * @example
  * split( "," )( "lorem,ipsum" )

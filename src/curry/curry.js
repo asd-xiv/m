@@ -3,10 +3,10 @@
  *
  * @signature (...args: mixed[]): Function|mixed
  *
- * @param {Function}  fn    The function to apply
- * @param {any}       args  The arguments to apply, in order
+ * @param {Function} fn   The function to apply
+ * @param {any}      args The arguments to apply, in order
  *
- * @return  {Function|mixed}  If the number of arguments provided is sufficient
+ * @returns  {Function|mixed}  If the number of arguments provided is sufficient
  * to call the function, call the function and return the result. Otherwise,
  * return a new function which takes additional parameters, returning the result
  * of calling `curry` on the function with the provided parameters.

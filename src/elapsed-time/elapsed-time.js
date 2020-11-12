@@ -8,10 +8,10 @@ const oneSecond = 1000
 /**
  * Calculate elapsed time between to dates. In days, hours, minutes and seconds
  *
- * @param  {Data}  startDate  Start date
- * @param  {Data}  endDate    End date
+ * @param {Data} startDate Start date
+ * @param {Data} endDate   End date
  *
- * @return {Object}
+ * @returns {object}
  *
  * @tag Data
  * @signature (startDate: Object) => (endDate: Object): Object

@@ -9,10 +9,11 @@ const _trim = (char = " ", source) => {
 /**
  * Remove char from beginning and end of string
  *
- * @param {String} char   Character to be removed
- * @param {String} source Source string
+ * @param {string} char   Character to be removed
+ * @param {string} source Source string
+ * @param {...any} params Function params
  *
- * @return {String}
+ * @returns {string}
  *
  * @tag String
  * @signature (char: String) => (source: String): String

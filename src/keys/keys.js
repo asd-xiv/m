@@ -4,9 +4,9 @@
  * @tag Array,Object
  * @signature (source: Array|Object): string[]
  *
- * @param {Array|Object} source Array or Object to extract keys from
+ * @param {Array | object} source Array or Object to extract keys from
  *
- * @return  {string[]} List of property names
+ * @returns  {string[]} List of property names
  *
  * @example
  * keys(["lorem", "ipsum"])

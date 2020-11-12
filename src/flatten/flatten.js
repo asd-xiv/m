@@ -23,9 +23,9 @@ const flattenObject = (source, prefix = null) =>
 /**
  * Recursively concat all arrays intro a single array
  *
- * @param  {Array|Object}  source  Array or Object to flatten
+ * @param {Array | object} source Array or Object to flatten
  *
- * @return {Array}  1 level deep array
+ * @returns {Array}  1 level deep array
  *
  * @example
  * flatten([1, [2], [3, [4]]])
