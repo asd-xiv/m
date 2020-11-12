@@ -45,6 +45,7 @@ export { pluck } from "./pluck/pluck"
 export { merge, mergeAll, mergeBy } from "./merge/merge"
 export { keys } from "./keys/keys"
 export { zipToObj } from "./zip-to-obj/zip-to-obj"
+export { mutate } from "./mutate/mutate"
 
 // Array
 export { top } from "./top/top"
