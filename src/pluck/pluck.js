@@ -1,29 +1,65 @@
-import { curry } from "../curry/curry"
+import { map } from "../map/map"
 
-const _pluck = (field, source) => {
-  const result = []
+/**
+ * @param {string[]} keys   The properties to be filtered out
+ * @param {object}   source The source object
+ *
+ * @returns {object}
+ */
+const _pluckOne = (keys, source) => {
+  const result = {}
 
-  for (let i = 0, length = source.length; i < length; i++) {
-    result.push(source[i][field])
+  for (let i = 0, length = keys.length; i < length; i++) {
+    const key = keys[i]
+    const value = source[key]
+
+    if (Object.hasOwnProperty.call(source, key)) {
+      result[key] = value
+    }
   }
 
   return result
 }
 
 /**
- * Returns a new list by extracting the same named property off all objects in
- * the source list
+ * @param {string[]}        keys
+ * @param {object|object[]} source
  *
- * @param {string}   field  Field name to extract values from
- * @param {object[]} source Array of objects
+ * @returns {object|object[]}
+ */
+const _pluck = (keys, source) =>
+  Array.isArray(source)
+    ? map(item => _pluckOne(keys, item), source)
+    : _pluckOne(keys, source)
+
+/**
+ * Returns a partial copy of an object containing only the keys specified.
+ * If the key does not exist, the property is ignored.
  *
- * @returns {number}
+ * @param {...any} params
  *
- * @tag Array
- * @signature ( field: string ) => ( source: Object[] ): mixed[]
+ * @returns {object|object[]}
+ *
+ * @tag Object
+ * @signature (keys: string[]) => (source: Object): Object
  *
  * @example
- * pluck("position")([{id: 1, position: 3}, {id:2, position: -1}])
- * // => [3, -1]
+ * pluck(
+ *  ["id", "name"],
+ *  {
+ *    id: 2,
+ *    name: "lorem",
+ *    description: "lorem ipsum"
+ *  }
+ * )
+ * // => {id: 2, name: lorem}
  */
-export const pluck = curry(_pluck)
+export const pluck = (...params) => {
+  // @signature (keys) => (source)
+  if (params.length <= 1) {
+    return source => _pluck(params[0], source)
+  }
+
+  // @signature (keys, source)
+  return _pluck(...params)
+}
