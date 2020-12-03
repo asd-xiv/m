@@ -27,5 +27,15 @@ test("mutate", t => {
     "Mutating existing but undefined property should return changed object"
   )
 
+  t.deepEqual(
+    mutate({ id: source => source + 1 }, [
+      { id: 1 },
+      { id: 2 },
+      { test: "dolor" },
+    ]),
+    [{ id: 2 }, { id: 3 }, { test: "dolor" }],
+    "Mutating existing but undefined property should return changed object"
+  )
+
   t.end()
 })

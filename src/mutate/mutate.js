@@ -1,6 +1,6 @@
-import { curry } from "../curry/curry"
+import { map } from "../map/map"
 
-const _mutate = (transformations, source) => {
+const _mutateOne = (transformations, source) => {
   const entries = Object.entries(transformations)
   const result = { ...source }
 
@@ -13,4 +13,17 @@ const _mutate = (transformations, source) => {
   return result
 }
 
-export const mutate = curry(_mutate)
+const _mutate = (transformations, source) =>
+  Array.isArray(source)
+    ? map(item => _mutateOne(transformations, item), source)
+    : _mutateOne(transformations, source)
+
+export const mutate = (...params) => {
+  // @signature (transformations) => (source)
+  if (params.length <= 1) {
+    return source => _mutate(params[0], source)
+  }
+
+  // @signature (transformations, source)
+  return _mutate(...params)
+}
