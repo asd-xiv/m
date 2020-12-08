@@ -1,16 +1,19 @@
 import test from "tape"
-import { upsert } from ".."
+import { upsertWith } from "./upsert"
 
-test("upsertBy", t => {
+test("upsertWith", t => {
   t.deepEquals(
-    upsert({ id: 2 }, { id: 2, foo: "bar" })([{}]),
+    upsertWith({ id: 2 }, { id: 2, foo: "bar" })([{}]),
     [{}, { id: 2, foo: "bar" }],
     "Add if doesnt exist"
   )
 
   t.deepEquals(
-    upsert({ id: 2 }, { id: 2, foo: "bar" })([{ id: 2 }]),
-    [{ id: 2, foo: "bar" }],
+    upsertWith(
+      { id: 2 },
+      { id: 2, title: [source => `${source} ipsum`], foo: "bar" }
+    )([{ id: 2, title: "lorem" }]),
+    [{ id: 2, title: "lorem ipsum", foo: "bar" }],
     "Update value if exists"
   )
 
