@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { mutate } from "./mutate"
+import { mutate, mutateMany, mutateWith } from "./mutate"
 
 test("mutate", t => {
   t.deepEqual(
@@ -9,10 +9,18 @@ test("mutate", t => {
     "Mutating existing property should return changed object"
   )
 
+  const inc = x => x + 1
+
   t.deepEqual(
-    mutate({ test: source => source + 1 })({ test: 2 }),
+    mutate({ test: inc })({ test: 2 }),
     { test: 3 },
     "Mutating existing property with function should return changed object"
+  )
+
+  t.deepEqual(
+    mutate({ test: [inc, inc] })({ test: 2 }),
+    { test: 4 },
+    "Mutating existing property with array if piped functions should return changed object"
   )
 
   t.deepEqual(
@@ -27,14 +35,33 @@ test("mutate", t => {
     "Mutating existing but undefined property should return changed object"
   )
 
+  t.end()
+})
+
+test("mutateMany", t => {
   t.deepEqual(
-    mutate({ id: source => source + 1 }, [
+    mutateMany({ id: source => source + 1 }, [
       { id: 1 },
       { id: 2 },
       { test: "dolor" },
     ]),
     [{ id: 2 }, { id: 3 }, { test: "dolor" }],
     "Mutating existing but undefined property should return changed object"
+  )
+
+  t.end()
+})
+
+test("mutateWith", t => {
+  const inc = x => x + 1
+
+  t.deepEqual(
+    mutateWith({ id: 2 }, { count: [inc], other: 2 }, [
+      { id: 1 },
+      { id: 2, count: 1 },
+    ]),
+    [{ id: 1 }, { id: 2, count: 2 }],
+    "Mutating item inside array should return new array with changed object"
   )
 
   t.end()
