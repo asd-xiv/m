@@ -6,7 +6,7 @@ const upsertWith = (filter, value) => source => {
   const index = findIndexWith(filter, source)
 
   if (index === -1) {
-    result.push(value)
+    result.push(update(value, {}))
   } else {
     const prev = result[index]
 

@@ -17,5 +17,14 @@ test("upsertWith", t => {
     "Update value if exists"
   )
 
+  t.deepEquals(
+    upsertWith(
+      { id: 1 },
+      { id: 1, title: [source => `${source} ipsum`] }
+    )([{ id: 2 }]),
+    [{ id: 2 }, { id: 1, title: "undefined ipsum" }],
+    "Update value if exists"
+  )
+
   t.end()
 })
