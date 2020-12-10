@@ -11,7 +11,9 @@ const _mutate = (transformations, source) => {
       const transform = Array.isArray(value) ? pipe(...value) : value
 
       result[key] =
-        typeof transform === "function" ? transform(source[key]) : transform
+        typeof transform === "function"
+          ? transform(source[key], source)
+          : transform
     }
   }
 

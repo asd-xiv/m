@@ -1,5 +1,4 @@
 import { map } from "../map/map"
-import { pipe } from "../pipe/pipe"
 import { isMatch } from "../is-match/is-match"
 
 const _update = (transformations, source) => {
@@ -7,10 +6,8 @@ const _update = (transformations, source) => {
   const result = { ...source }
 
   for (const [key, value] of entries) {
-    const transform = Array.isArray(value) ? pipe(...value) : value
-
     result[key] =
-      typeof transform === "function" ? transform(source[key]) : transform
+      typeof value === "function" ? value(source[key], source) : value
   }
 
   return result

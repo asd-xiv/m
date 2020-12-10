@@ -18,15 +18,26 @@ test("update", t => {
   )
 
   t.deepEqual(
-    update({ test: [inc, inc] })({ test: 2 }),
-    { test: 4 },
-    "Updating existing property with array if piped functions should return changed object"
-  )
-
-  t.deepEqual(
     update({ notExist: 2 }, { test: "Lorem Ipsum" }),
     { test: "Lorem Ipsum", notExist: 2 },
     "Updating non-existing property should return changed object"
+  )
+
+  t.deepEqual(
+    update(
+      {
+        test: (source, item) => `${source} ${item.foo}`,
+      },
+      {
+        foo: "bar",
+        test: "Lorem Ipsum",
+      }
+    ),
+    {
+      foo: "bar",
+      test: "Lorem Ipsum bar",
+    },
+    "Updating existing property based on other field should return changed object"
   )
 
   t.end()
@@ -56,7 +67,7 @@ test("updateWith", t => {
         id: 2,
       },
       {
-        count: [inc],
+        count: inc,
         other: 2,
       },
       [{ id: 1 }, { id: 2, count: 1 }]

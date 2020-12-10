@@ -35,6 +35,23 @@ test("mutate", t => {
     "Mutating existing but undefined property should return changed object"
   )
 
+  t.deepEqual(
+    mutate(
+      {
+        test: (source, item) => `${source} ${item.foo}`,
+      },
+      {
+        foo: "bar",
+        test: "Lorem Ipsum",
+      }
+    ),
+    {
+      foo: "bar",
+      test: "Lorem Ipsum bar",
+    },
+    "Mutating existing property based on other field should return changed object"
+  )
+
   t.end()
 })
 
