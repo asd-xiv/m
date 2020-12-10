@@ -22,6 +22,12 @@ test("renameKeys", t => {
   )
 
   t.deepEqual(
+    renameKeys({ foo: "lorem" }, { foo: "bar", lorem: "ipsum" }),
+    { lorem: "bar" },
+    "Renaming existing key to other existing shoud return new object replaced value"
+  )
+
+  t.deepEqual(
     renameKeys({ test: "changed" }, [
       { test: "Lorem Ipsum" },
       { cant: "touch this" },
