@@ -28,10 +28,8 @@ const _renameOne = (mappings, source) => {
  *
  * @returns {object|object[]}
  */
-const _rename = (mappings, source) =>
-  Array.isArray(source)
-    ? map(item => _renameOne(mappings, item), source)
-    : _renameOne(mappings, source)
+const _renameMany = (mappings, source) =>
+  map(item => _renameOne(mappings, item), source)
 
 /**
  * Rename keys inside an object
@@ -52,12 +50,22 @@ const _rename = (mappings, source) =>
  * rename({ old: "new" }, [{ old: 42 }, { old: 41 }])
  * // => [{ new: 42 }, { new: 41 }]
  */
-export const renameKeys = (...params) => {
+export const rename = (...params) => {
   // @signature (mappings) => (source)
   if (params.length <= 1) {
-    return source => _rename(params[0], source)
+    return source => _renameOne(params[0], source)
   }
 
   // @signature (mappings, source)
-  return _rename(...params)
+  return _renameOne(...params)
+}
+
+export const renameMany = (...params) => {
+  // @signature (mappings) => (source)
+  if (params.length <= 1) {
+    return source => _renameMany(params[0], source)
+  }
+
+  // @signature (mappings, source)
+  return _renameMany(...params)
 }
