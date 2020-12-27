@@ -1,4 +1,3 @@
-import { curry } from "../curry/curry"
 import { pipe } from "../pipe/pipe"
 import { isMatch } from "../is-match/is-match"
 
@@ -21,8 +20,9 @@ const _remove = (_fn, source) => {
 /**
  * Remove element(s) from array by value or by predicate
  *
- * @param {Function|mixed} fn     Value to remove or predicate to match
- * @param {Array}          source Source array
+ * @param {...any}         params
+ * @param {Function|mixed} params.fn     Value to remove or predicate to match
+ * @param {Array}          params.source Source array
  *
  * @returns {Array}
  *
@@ -30,7 +30,6 @@ const _remove = (_fn, source) => {
  * @tag Array
  * @signature (fn: Any) => (source: Array): Array
  * @signature (fn: Any, source: Array): Array
- *
  * @example
  * remove(3)([1, 2, 3])
  * // => [1, 2]
@@ -38,13 +37,22 @@ const _remove = (_fn, source) => {
  * remove(_ => _ === 3)([1, 2, 3])
  * // => [1, 2]
  */
-export const remove = curry(_remove)
+export const remove = (...params) => {
+  // @signature (fn) => (source)
+  if (params.length <= 1) {
+    return source => _remove(params[0], source)
+  }
+
+  // @signature (fn, source)
+  return _remove(...params)
+}
 
 /**
  * Remove element(s) by matching object
  *
- * @param {object} subset Match object
- * @param {Array}  source Source array
+ * @param {...any} params
+ * @param {object} params.subset Match object
+ * @param {Array}  params.source Source array
  *
  * @returns {Array}
  *
@@ -52,14 +60,26 @@ export const remove = curry(_remove)
  * @tag Array
  * @signature (subset: Object) => (source: Array): Array
  * @signature (subset: Object, source: Array): Array
- *
  * @example
- * remove(3)([1, 2, 3])
- * // => [1, 2]
- *
- * remove(_ => _ === 3)([1, 2, 3])
- * // => [1, 2]
+ * removeWith(
+ *   {
+ *     tag: not(is)
+ *   },
+ *   [
+ *     {id: 1, tag: 2},
+ *     {id: 2}
+ *   ]
+ * )
+ * // => [{id: 1, tag: 2}]
  */
-export const removeWith = curry((subset, source) =>
-  _remove(isMatch(subset), source)
-)
+export const removeWith = (...params) => {
+  const [subset, ...rest] = params
+
+  // @signature (subset) => (source)
+  if (params.length <= 1) {
+    return source => _remove(isMatch(subset), source)
+  }
+
+  // @signature (subset, source)
+  return _remove(isMatch(subset), ...rest)
+}
