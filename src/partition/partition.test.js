@@ -4,9 +4,9 @@ import { is } from "../is/is"
 import { read } from "../read/read"
 import { partition, partitionWith } from "./partition"
 
-test("partition", t => {
-  const equalsTwo = x => x === 2
+const equalsTwo = x => x === 2
 
+test("partition", t => {
   t.deepEqual(
     partition(equalsTwo)([2, 2, 1, 1, 2]),
     [

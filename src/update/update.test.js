@@ -2,14 +2,14 @@ import test from "tape"
 
 import { update, updateMany, updateWith } from "./update"
 
+const inc = x => x + 1
+
 test("update", t => {
   t.deepEqual(
     update({ test: "changed" }, { test: "Lorem Ipsum" }),
     { test: "changed" },
     "Updating existing property should return changed object"
   )
-
-  const inc = x => x + 1
 
   t.deepEqual(
     update({ test: inc })({ test: 2 }),
@@ -59,8 +59,6 @@ test("updateMany", t => {
 })
 
 test("updateWith", t => {
-  const inc = x => x + 1
-
   t.deepEqual(
     updateWith(
       {

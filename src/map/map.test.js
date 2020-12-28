@@ -2,9 +2,9 @@ import test from "tape"
 
 import { map } from "./map"
 
-test("map", t => {
-  const square = value => value * value
+const square = value => value * value
 
+test("map", t => {
   t.deepEqual(
     map(square, [1, 2, 3]),
     [1, 4, 9],

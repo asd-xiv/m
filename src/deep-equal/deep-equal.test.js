@@ -2,12 +2,12 @@ import test from "tape"
 
 import { isDeepEqual } from "./deep-equal"
 
+const fn = () => {}
+
 test("isDeepEqual", t => {
   t.equal(isDeepEqual(1, 1), true, "Primitives: 1 === 1")
 
   t.equal(isDeepEqual(1, "3"), false, 'Primitives: 1 !== "3"')
-
-  const fn = () => {}
 
   t.equal(isDeepEqual(fn, fn), true, "Functions: fn === fn")
 

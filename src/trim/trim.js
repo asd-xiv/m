@@ -1,4 +1,4 @@
-import { escapeRegExp } from "../escapeRegExp/escapeRegExp"
+import { escapeRegExp } from "../escape-reg-exp/escape-reg-exp"
 
 const _trim = (char = " ", source) => {
   const safeChar = escapeRegExp(char)

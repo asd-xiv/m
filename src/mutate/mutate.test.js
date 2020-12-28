@@ -2,14 +2,14 @@ import test from "tape"
 
 import { mutate, mutateMany, mutateWith } from "./mutate"
 
+const inc = x => x + 1
+
 test("mutate", t => {
   t.deepEqual(
     mutate({ test: "changed" }, { test: "Lorem Ipsum" }),
     { test: "changed" },
     "Mutating existing property should return changed object"
   )
-
-  const inc = x => x + 1
 
   t.deepEqual(
     mutate({ test: inc })({ test: 2 }),
@@ -70,8 +70,6 @@ test("mutateMany", t => {
 })
 
 test("mutateWith", t => {
-  const inc = x => x + 1
-
   t.deepEqual(
     mutateWith({ id: 2 }, { count: [inc], other: 2 }, [
       { id: 1 },

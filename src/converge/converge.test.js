@@ -4,9 +4,10 @@ import { converge } from "./converge"
 import { reduce } from "../reduce/reduce"
 import { read } from "../read/read"
 
+const sum = (...params) => reduce((acc, item) => acc + item, 0, params)
+
 test("converge", t => {
   const source = [{ a: 1, b: 2 }]
-  const sum = (...params) => reduce((acc, item) => acc + item, 0, params)
 
   t.equals(
     converge(sum, [read([0, "a"], 0), read([0, "b"], 0)])(source),

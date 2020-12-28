@@ -15,6 +15,8 @@ test("min", t => {
   t.end()
 })
 
+const toDate = element => new Date(element.time)
+
 test("minBy", t => {
   t.equals(
     minBy(i, []),
@@ -22,15 +24,12 @@ test("minBy", t => {
     "Find min in empty array using transform function (=> undefined)"
   )
 
-  const fn = element => new Date(element.time)
-  const source = [
-    { time: "2018-06-11T09:01:54.337344Z" },
-    { time: "2018-06-08T08:26:12.711071Z" },
-    { time: "2018-05-15T11:20:07.754110Z" },
-  ]
-
   t.deepEquals(
-    minBy(fn, source),
+    minBy(toDate, [
+      { time: "2018-06-11T09:01:54.337344Z" },
+      { time: "2018-06-08T08:26:12.711071Z" },
+      { time: "2018-05-15T11:20:07.754110Z" },
+    ]),
     { time: "2018-05-15T11:20:07.754110Z" },
     "Custom transform function"
   )

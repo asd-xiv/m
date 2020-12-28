@@ -1,10 +1,12 @@
 import test from "tape"
-
 import { curry } from "./curry"
 
-test("curry", t => {
-  const sum = (a, b) => a + b
+const sum = (a, b) => a + b
 
+// can curry multiple times and pass multiple parameters on each curry
+const sumThree = (a, b, c) => a + b + c
+
+test("curry", t => {
   // does nothing if there are enough parameters
   t.equal(curry(sum)(2, 3), 5)
 
@@ -12,9 +14,6 @@ test("curry", t => {
   const addTwo = curry(sum)(2)
 
   t.equal(addTwo(3), 5)
-
-  // can curry multiple times and pass multiple parameters on each curry
-  const sumThree = (a, b, c) => a + b + c
 
   const addOne = curry(sumThree)(1)
   const addFourA = curry(addOne)(3)

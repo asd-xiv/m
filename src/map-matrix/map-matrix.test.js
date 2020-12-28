@@ -2,9 +2,10 @@ import test from "tape"
 
 import { mapMatrix } from "./map-matrix"
 
-test("mapMatrix", t => {
-  const square = value => value * value
+const square = x => x * x
+const inc = x => x + 1
 
+test("mapMatrix", t => {
   t.deepEqual(
     mapMatrix(square)([
       [1, 2],
@@ -28,8 +29,6 @@ test("mapMatrix", t => {
     ],
     "Uncurried (square, [[1, 2], [3, 4]]) // => [[1, 4], [9, 16]]"
   )
-
-  const inc = x => x + 1
 
   t.deepEqual(
     mapMatrix(

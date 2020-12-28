@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { escapeHTML } from "./escapeHTML"
+import { escapeHTML } from "./escape-html"
 
 test("escapeHTML", t => {
   const actual = escapeHTML(
