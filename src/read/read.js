@@ -1,10 +1,12 @@
 import { reduce } from "../reduce/reduce"
-import { is, isNothing } from "../is/is"
+import { is } from "../is/is"
 import { pipe } from "../pipe/pipe"
+import { map } from "../map/map"
 
 const _read = (path, defaultValue, source) => {
   let result = undefined
 
+  // walk down an object or array
   if (is(source) && typeof source === "object") {
     result = pipe(
       reduce(
@@ -15,12 +17,18 @@ const _read = (path, defaultValue, source) => {
 
       // only return default value if it's explicitly set.
       // this way values of "null", "NaN" are not masked
-      value => (isNothing(value) && is(defaultValue) ? defaultValue : value)
+      value =>
+        value === undefined && defaultValue !== undefined ? defaultValue : value
     )(Array.isArray(path) ? path : [path])
   }
 
-  return isNothing(result) && is(defaultValue) ? defaultValue : result
+  return result === undefined && defaultValue !== undefined
+    ? defaultValue
+    : result
 }
+
+const _readMany = (path, defaultValue, source) =>
+  map(item => _read(path, defaultValue, item), source)
 
 /**
  * Get value from obj property
@@ -44,7 +52,7 @@ const _read = (path, defaultValue, source) => {
  * read("not-exist")({ lorem: "ipsum" })
  * // => undefined
  *
- * read("not-exist-with-default", "dolor")({ lorem: "ipsum" })
+ * read("not-exist-with-default", "dolor", { lorem: "ipsum" })
  * // => "dolor"
  *
  * read(["a", "b"])({ a: { b: "c" } })
@@ -59,4 +67,12 @@ export const read = (...params) => {
   }
 
   return _read(...params)
+}
+
+export const readMany = (...params) => {
+  if (params.length <= 2) {
+    return source => _readMany(params[0], params[1], source)
+  }
+
+  return _readMany(...params)
 }

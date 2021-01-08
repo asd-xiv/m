@@ -1,100 +1,125 @@
-import test from "tape"
+import { describe } from "riteway"
 
-import { read } from "./read"
+import { read, readMany } from "./read"
 
-test("read", t => {
-  t.equal(
-    read("lorem")({
+describe("read", async assert => {
+  assert({
+    given: "object as source, reading property",
+    should: "return value of property",
+    actual: read("lorem")({
       lorem: "ipsum",
     }),
-    "ipsum",
-    "Get existing property"
-  )
+    expected: "ipsum",
+  })
 
-  t.equal(
-    read("not-exist")({
+  assert({
+    given: "object as source, reading non-existing property",
+    should: "return undefined",
+    actual: read("not-exist")({
       lorem: "ipsum",
     }),
-    undefined,
-    "Get non-existing property // undefined"
-  )
+    expected: undefined,
+  })
 
-  t.equal(
-    read("not-exist")(undefined),
-    undefined,
-    "Get prop from undefined // undefined"
-  )
+  assert({
+    given: "undefined as source, reading property",
+    should: "return undefined",
+    actual: read("not-exist")(undefined),
+    expected: undefined,
+  })
 
-  t.equal(
-    read("not-exist-on-null")(null),
-    undefined,
-    "Get prop from null // undefined"
-  )
+  assert({
+    given: "null as source, reading property",
+    should: "return undefined",
+    actual: read("not-exist")(null),
+    expected: undefined,
+  })
 
-  t.equal(
-    read("not-exist")(2),
-    undefined,
-    "Get prop from non object // undefined"
-  )
+  assert({
+    given: "number as source, reading property",
+    should: "return undefined",
+    actual: read("not-exist")(2),
+    expected: undefined,
+  })
 
-  t.equal(
-    read(["a", "b"])({ a: { b: "lorem" } }),
-    "lorem",
-    "Get existing prop from nested objects"
-  )
+  assert({
+    given: "object as source, reading property path",
+    should: "return value of property",
+    actual: read(["a", "b"])({ a: { b: "lorem" } }),
+    expected: "lorem",
+  })
 
-  t.equal(
-    read(["a", "c"])({ a: { b: "lorem" } }),
-    undefined,
-    "Get non-existing prop from nested objects"
-  )
+  assert({
+    given: "object as source, reading non-existing property path",
+    should: "return undefined",
+    actual: read(["x", "y"])({ a: { b: "lorem" } }),
+    expected: undefined,
+  })
 
-  t.equal(
-    read(["a", "c"], "dolor")({ a: { b: "lorem" } }),
-    "dolor",
-    "Get non-existing prop with default from nested objects"
-  )
+  assert({
+    given:
+      "object as source, reading non-existing property path with default value set",
+    should: "return default value",
+    actual: read(["a", "c"], "dolor", {}),
+    expected: "dolor",
+  })
 
-  t.equal(
-    read(["0", "a"])([{ a: "array element" }]),
-    "array element",
-    "Get existing prop from array"
-  )
+  assert({
+    given: "array of objects as source, reading property path",
+    should: "return value of property",
+    actual: read([0, "foo"])([{ foo: "bar" }]),
+    expected: "bar",
+  })
 
-  t.equal(
-    read(["a", 0, "b"])({ a: [{ b: "array element" }] }),
-    "array element",
-    "Get existing prop from array"
-  )
+  assert({
+    given: "object with array values as source, reading property path",
+    should: "return value of property",
+    actual: read(["foo", "0", "lorem"])({ foo: [{ lorem: "ipsum" }] }),
+    expected: "ipsum",
+  })
 
-  t.equal(
-    read(["a"])({ a: null }),
-    null,
-    "Get existing prop from object that is also null"
-  )
+  assert({
+    given: "object as source, reading property path of key who's value is null",
+    should: "return null",
+    actual: read(["foo"])({ foo: null }),
+    expected: null,
+  })
 
-  t.equal(
-    read(["a"], "default value")({ a: null }),
-    "default value",
-    "Get existing prop from object that is also null with default value"
-  )
+  assert({
+    given:
+      "object as source, reading property path of key who's value is null with default value set",
+    should: "return null",
+    actual: read(["foo"], "default value", { foo: null }),
+    expected: null,
+  })
 
-  t.equal(
-    read(["a"], "default value")({ a: NaN }),
-    "default value",
-    "Get existing prop from object that is also NaN with default value"
-  )
+  assert({
+    given:
+      "object as source, reading property path of key who's value is NaN with default value set",
+    should: "return null",
+    actual: read(["foo"], "default value", { foo: NaN }),
+    expected: NaN,
+  })
+})
 
-  t.equal(
-    read(["a", "b"], "default value")({}),
-    "default value",
-    "Get existing prop from object that is also NaN with default value"
-  )
+describe("readMany", async assert => {
+  assert({
+    given: "array of objects as source, reading sometime existing property",
+    should: "return array with property value of each object",
+    actual: readMany("id")([{ id: "1" }, { id: "2" }, { foo: "bar" }]),
+    expected: ["1", "2", undefined],
+  })
 
-  t.ok(
-    Number.isNaN(read(["a"])({ a: NaN })),
-    "Get existing prop from object that is also NaN"
-  )
-
-  t.end()
+  assert({
+    given:
+      "array of objects as source, reading sometime existing property path",
+    should: "return array with property value of each object",
+    actual: readMany(["id"], "default-id", [
+      { id: "1" },
+      { id: "2" },
+      { id: null, foo: "bar" },
+      { foo: "bar" },
+    ]),
+    expected: ["1", "2", null, "default-id"],
+  })
 })
