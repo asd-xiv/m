@@ -559,16 +559,6 @@
               
                 
                 <li><a
-                  href='#renamefile'
-                  class="">
-                  renameFile
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
                   href='#trycatch'
                   class="">
                   tryCatch
@@ -659,6 +649,66 @@
               
                 
                 <li><a
+                  href='#_pick'
+                  class="">
+                  _pick
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#_pluckone'
+                  class="">
+                  _pluckOne
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#_pluck'
+                  class="">
+                  _pluck
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#_renameone'
+                  class="">
+                  _renameOne
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#_renamemany'
+                  class="">
+                  _renameMany
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#renamekeys'
+                  class="">
+                  renameKeys
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#page'
                   class="">
                   page
@@ -679,49 +729,9 @@
               
                 
                 <li><a
-                  href='#maxbyvalue'
-                  class="">
-                  maxByValue
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#maxbyfunction'
-                  class="">
-                  maxByFunction
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
                   href='#max'
                   class="">
                   max
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#minbyvalue'
-                  class="">
-                  minByValue
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#minbyfunction'
-                  class="">
-                  minByFunction
                   
                 </a>
                 
@@ -739,9 +749,19 @@
               
                 
                 <li><a
-                  href='#drop'
+                  href='#_move'
                   class="">
-                  drop
+                  _move
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#move'
+                  class="">
+                  move
                   
                 </a>
                 
@@ -759,9 +779,19 @@
               
                 
                 <li><a
-                  href='#concat'
+                  href='#append'
                   class="">
-                  concat
+                  append
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#prepend'
+                  class="">
+                  prepend
                   
                 </a>
                 
@@ -909,6 +939,16 @@
               
                 
                 <li><a
+                  href='#splitingroupsof'
+                  class="">
+                  splitInGroupsOf
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#startswith'
                   class="">
                   startsWith
@@ -932,6 +972,16 @@
                   href='#tolower'
                   class="">
                   toLower
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#toupper'
+                  class="">
+                  toUpper
                   
                 </a>
                 
@@ -1050,6 +1100,15 @@ the results as parameters for a final accumulator function.</p>
           
         </div>
       
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
+	    Function params
+
+          </div>
+          
+        </div>
+      
     </div>
   
 
@@ -1073,9 +1132,9 @@ the results as parameters for a final accumulator function.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> divide = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {}
-<span class="hljs-keyword">const</span> sum = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {}
-<span class="hljs-keyword">const</span> count = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {}
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> divide = <span class="hljs-function">() =&gt;</span> {}
+<span class="hljs-keyword">const</span> sum = <span class="hljs-function">() =&gt;</span> {}
+<span class="hljs-keyword">const</span> count = <span class="hljs-function">() =&gt;</span> {}
 
 converge(divide, [sum, count], [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>])
 <span class="hljs-comment">// =&gt; 4</span></pre>
@@ -1126,8 +1185,8 @@ converge(divide, [sum, count], [<span class="hljs-number">1</span>, <span class=
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>fn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
-	    Function
+            <span class='code bold'>fn</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a> | <a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>>))</code>
+	    Iterator function
 
           </div>
           
@@ -1591,7 +1650,7 @@ any arity, the remaining functions must be unary.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>defaultValue</span> <code class='quiet'>(mixed)</code>
+            <span class='code bold'>defaultValue</span> <code class='quiet'>(Any)</code>
 	    Value to return if not found
 
           </div>
@@ -1607,6 +1666,15 @@ any arity, the remaining functions must be unary.</p>
           
         </div>
       
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
+	    Function params
+
+          </div>
+          
+        </div>
+      
     </div>
   
 
@@ -1615,7 +1683,7 @@ any arity, the remaining functions must be unary.</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>mixed</code>:
+      <code>Any</code>:
         
 
       
@@ -1630,19 +1698,19 @@ any arity, the remaining functions must be unary.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>read(<span class="hljs-string">"lorem"</span>)({ <span class="hljs-attr">lorem</span>: <span class="hljs-string">"ipsum"</span> })
-<span class="hljs-comment">// =&gt; "ipsum"</span>
+      <pre class='p1 overflow-auto round fill-light'>read(<span class="hljs-string">&quot;lorem&quot;</span>)({ <span class="hljs-attr">lorem</span>: <span class="hljs-string">&quot;ipsum&quot;</span> })
+<span class="hljs-comment">// =&gt; &quot;ipsum&quot;</span>
 
-read(<span class="hljs-string">"not-exist"</span>)({ <span class="hljs-attr">lorem</span>: <span class="hljs-string">"ipsum"</span> })
+read(<span class="hljs-string">&quot;not-exist&quot;</span>)({ <span class="hljs-attr">lorem</span>: <span class="hljs-string">&quot;ipsum&quot;</span> })
 <span class="hljs-comment">// =&gt; undefined</span>
 
-read(<span class="hljs-string">"not-exist-with-default"</span>, <span class="hljs-string">"dolor"</span>)({ <span class="hljs-attr">lorem</span>: <span class="hljs-string">"ipsum"</span> })
-<span class="hljs-comment">// =&gt; "dolor"</span>
+read(<span class="hljs-string">&quot;not-exist-with-default&quot;</span>, <span class="hljs-string">&quot;dolor&quot;</span>, { <span class="hljs-attr">lorem</span>: <span class="hljs-string">&quot;ipsum&quot;</span> })
+<span class="hljs-comment">// =&gt; &quot;dolor&quot;</span>
 
-read([<span class="hljs-string">"a"</span>, <span class="hljs-string">"b"</span>])({ <span class="hljs-attr">a</span>: { <span class="hljs-attr">b</span>: <span class="hljs-string">"c"</span> } })
-<span class="hljs-comment">// =&gt; "c"</span>
+read([<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>])({ <span class="hljs-attr">a</span>: { <span class="hljs-attr">b</span>: <span class="hljs-string">&quot;c&quot;</span> } })
+<span class="hljs-comment">// =&gt; &quot;c&quot;</span>
 
-read([<span class="hljs-string">"a"</span>, <span class="hljs-string">"test"</span>])({ <span class="hljs-attr">a</span>: { <span class="hljs-attr">b</span>: <span class="hljs-string">"c"</span> } })
+read([<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;test&quot;</span>])({ <span class="hljs-attr">a</span>: { <span class="hljs-attr">b</span>: <span class="hljs-string">&quot;c&quot;</span> } })
 <span class="hljs-comment">// =&gt; undefined</span></pre>
     
   
@@ -1701,7 +1769,7 @@ left to right) to reduce it to a single value.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>defaultAcc</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
+            <span class='code bold'>defaultAcc</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
 	    Default accumulator value
 
           </div>
@@ -1712,6 +1780,15 @@ left to right) to reduce it to a single value.</p>
           <div>
             <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
 	    Source input
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
+	    Function params
 
           </div>
           
@@ -1882,7 +1959,7 @@ value</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
 	    Source object
 
           </div>
@@ -1897,7 +1974,7 @@ value</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="#object">Object</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
         
 
       
@@ -1912,8 +1989,8 @@ value</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>write( <span class="hljs-string">"a"</span>, <span class="hljs-string">"lorem"</span> )( { <span class="hljs-attr">b</span>: <span class="hljs-string">"ipsum"</span> } )
-<span class="hljs-comment">// =&gt; { a: "lorem", b: "ipsum" }</span></pre>
+      <pre class='p1 overflow-auto round fill-light'>write( <span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;lorem&quot;</span> )( { <span class="hljs-attr">b</span>: <span class="hljs-string">&quot;ipsum&quot;</span> } )
+<span class="hljs-comment">// =&gt; { a: &quot;lorem&quot;, b: &quot;ipsum&quot; }</span></pre>
     
   
 
@@ -1975,15 +2052,16 @@ value</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>params</span> <code class='quiet'>(...any)</code>
-	    
+            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
+	    Function parameters
+
           </div>
           
         </div>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>limit</span> <code class='quiet'>(integer)</code>
+            <span class='code bold'>limit</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
 	    How many elements from the bottom
 
           </div>
@@ -2080,7 +2158,7 @@ bottom(<span class="hljs-number">2</span>)([<span class="hljs-number">1</span>, 
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>fn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
+            <span class='code bold'>fn</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a> | <a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>>))</code>
 	    Match function
 
           </div>
@@ -2089,8 +2167,8 @@ bottom(<span class="hljs-number">2</span>)([<span class="hljs-number">1</span>, 
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="#object">Object</a>>)</code>
-	    Source array
+            <span class='code bold'>source</span> <code class='quiet'>((<a href="#array">Array</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>))</code>
+	    Source array, if object passed, Object.entries will be iterated over
 
           </div>
           
@@ -2112,6 +2190,14 @@ bottom(<span class="hljs-number">2</span>)([<span class="hljs-number">1</span>, 
   
 
   
+    <div class='py1 quiet mt1 prose-big'>Related</div>
+    
+      
+        <a href="#countwith">countWith</a>
+
+      
+    
+  
 
   
 
@@ -2120,17 +2206,17 @@ bottom(<span class="hljs-number">2</span>)([<span class="hljs-number">1</span>, 
     
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> scores = [{
- <span class="hljs-attr">name</span>   : <span class="hljs-string">"Bob"</span>,
+ <span class="hljs-attr">name</span>   : <span class="hljs-string">&quot;Bob&quot;</span>,
  <span class="hljs-attr">score</span>  : <span class="hljs-number">1</span>,
- <span class="hljs-attr">subject</span>: <span class="hljs-string">"Math"</span>
+ <span class="hljs-attr">subject</span>: <span class="hljs-string">&quot;Math&quot;</span>
 }, {
- <span class="hljs-attr">name</span>   : <span class="hljs-string">"Alice"</span>,
+ <span class="hljs-attr">name</span>   : <span class="hljs-string">&quot;Alice&quot;</span>,
  <span class="hljs-attr">score</span>  : <span class="hljs-number">10</span>,
- <span class="hljs-attr">subject</span>: <span class="hljs-string">"Math"</span>
+ <span class="hljs-attr">subject</span>: <span class="hljs-string">&quot;Math&quot;</span>
 }, {
- <span class="hljs-attr">name</span>   : <span class="hljs-string">"Hatter"</span>,
+ <span class="hljs-attr">name</span>   : <span class="hljs-string">&quot;Hatter&quot;</span>,
  <span class="hljs-attr">score</span>  : <span class="hljs-number">10</span>,
- <span class="hljs-attr">subject</span>: <span class="hljs-string">"Math"</span>
+ <span class="hljs-attr">subject</span>: <span class="hljs-string">&quot;Math&quot;</span>
 }]
 
 count(<span class="hljs-function"><span class="hljs-params">element</span> =&gt;</span> element.score === <span class="hljs-number">10</span>)(scores)
@@ -2163,7 +2249,7 @@ count(<span class="hljs-function"><span class="hljs-params">element</span> =&gt;
   </div>
   
 
-  <p>Count elements that match a predicate</p>
+  <p>Count elements in array or object that match object</p>
 
     <div class='pre p1 fill-light mt0'>countWith</div>
   
@@ -2182,8 +2268,8 @@ count(<span class="hljs-function"><span class="hljs-params">element</span> =&gt;
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>subset</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
-	    Match function
+            <span class='code bold'>subset</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    Match object
 
           </div>
           
@@ -2191,8 +2277,8 @@ count(<span class="hljs-function"><span class="hljs-params">element</span> =&gt;
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="#object">Object</a>>)</code>
-	    Source array
+            <span class='code bold'>source</span> <code class='quiet'>((<a href="#array">Array</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>))</code>
+	    Source array, if object passed, Object.entries will be iterated over
 
           </div>
           
@@ -2214,6 +2300,14 @@ count(<span class="hljs-function"><span class="hljs-params">element</span> =&gt;
   
 
   
+    <div class='py1 quiet mt1 prose-big'>Related</div>
+    
+      
+        <a href="#count">count</a>
+
+      
+    
+  
 
   
 
@@ -2222,20 +2316,23 @@ count(<span class="hljs-function"><span class="hljs-params">element</span> =&gt;
     
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> scores = [{
- <span class="hljs-attr">name</span>   : <span class="hljs-string">"Bob"</span>,
+ <span class="hljs-attr">name</span>   : <span class="hljs-string">&quot;Bob&quot;</span>,
  <span class="hljs-attr">score</span>  : <span class="hljs-number">1</span>,
- <span class="hljs-attr">subject</span>: <span class="hljs-string">"Math"</span>
+ <span class="hljs-attr">subject</span>: <span class="hljs-string">&quot;Math&quot;</span>
 }, {
- <span class="hljs-attr">name</span>   : <span class="hljs-string">"Alice"</span>,
+ <span class="hljs-attr">name</span>   : <span class="hljs-string">&quot;Alice&quot;</span>,
  <span class="hljs-attr">score</span>  : <span class="hljs-number">10</span>,
- <span class="hljs-attr">subject</span>: <span class="hljs-string">"Math"</span>
+ <span class="hljs-attr">subject</span>: <span class="hljs-string">&quot;Math&quot;</span>
 }, {
- <span class="hljs-attr">name</span>   : <span class="hljs-string">"Hatter"</span>,
+ <span class="hljs-attr">name</span>   : <span class="hljs-string">&quot;Hatter&quot;</span>,
  <span class="hljs-attr">score</span>  : <span class="hljs-number">10</span>,
- <span class="hljs-attr">subject</span>: <span class="hljs-string">"Math"</span>
+ <span class="hljs-attr">subject</span>: <span class="hljs-string">&quot;Math&quot;</span>
 }]
 
-countWith({ <span class="hljs-attr">score</span>: gt(<span class="hljs-number">5</span>) })(scores)
+countWith(
+  { <span class="hljs-attr">score</span>: gt(<span class="hljs-number">5</span>) },
+  scores
+)
 <span class="hljs-comment">// =&gt; 2</span></pre>
     
   
@@ -2435,7 +2532,7 @@ countWith({ <span class="hljs-attr">score</span>: gt(<span class="hljs-number">5
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>subset</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
+            <span class='code bold'>subset</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
 	    The function
 
           </div>
@@ -2532,6 +2629,15 @@ countWith({ <span class="hljs-attr">score</span>: gt(<span class="hljs-number">5
           
         </div>
       
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
+	    Function params
+
+          </div>
+          
+        </div>
+      
     </div>
   
 
@@ -2563,13 +2669,13 @@ countWith({ <span class="hljs-attr">score</span>: gt(<span class="hljs-number">5
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> comments = [{<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">body</span>: <span class="hljs-string">""</span>}, {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">body</span>: <span class="hljs-string">"dolor"</span>}]
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> comments = [{<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">body</span>: <span class="hljs-string">&quot;&quot;</span>}, {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">body</span>: <span class="hljs-string">&quot;dolor&quot;</span>}]
 
-find(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> item.body === <span class="hljs-string">"dolor"</span>)(comments)
-<span class="hljs-comment">// =&gt; {id: 2, body: "dolor"}</span>
+find(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> item.body === <span class="hljs-string">&quot;dolor&quot;</span>)(comments)
+<span class="hljs-comment">// =&gt; {id: 2, body: &quot;dolor&quot;}</span>
 
-find([<span class="hljs-keyword">get</span>("body"), equals("dolor")], null, comments)
-// =&gt; {id: <span class="hljs-number">2</span>, <span class="hljs-attr">boby</span>: <span class="hljs-string">"dolor"</span> }</pre>
+find([get(<span class="hljs-string">&quot;body&quot;</span>), equals(<span class="hljs-string">&quot;dolor&quot;</span>)], <span class="hljs-literal">null</span>, comments)
+<span class="hljs-comment">// =&gt; {id: 2, boby: &quot;dolor&quot; }</span></pre>
     
   
 
@@ -2617,7 +2723,7 @@ find([<span class="hljs-keyword">get</span>("body"), equals("dolor")], null, com
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>subset</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
+            <span class='code bold'>subset</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
 	    Match object
 
           </div>
@@ -2637,6 +2743,15 @@ find([<span class="hljs-keyword">get</span>("body"), equals("dolor")], null, com
           <div>
             <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
 	    Source array to iterate over
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
+	    Function params
 
           </div>
           
@@ -2678,13 +2793,13 @@ find([<span class="hljs-keyword">get</span>("body"), equals("dolor")], null, com
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> comments = [{<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">body</span>: <span class="hljs-string">""</span>}, {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">body</span>: <span class="hljs-string">"dolor"</span>}]
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> comments = [{<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">body</span>: <span class="hljs-string">&quot;&quot;</span>}, {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">body</span>: <span class="hljs-string">&quot;dolor&quot;</span>}]
 
 findWith({<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>})(comments)
-<span class="hljs-comment">// =&gt; {id: 2, body: "dolor"}</span>
+<span class="hljs-comment">// =&gt; {id: 2, body: &quot;dolor&quot;}</span>
 
-find({<span class="hljs-attr">id</span>: <span class="hljs-string">"404"</span>}, {<span class="hljs-attr">default</span>: <span class="hljs-string">"value"</span>}, comments)
-<span class="hljs-comment">// =&gt; {default: "value"}</span></pre>
+find({<span class="hljs-attr">id</span>: <span class="hljs-string">&quot;404&quot;</span>}, {<span class="hljs-attr">default</span>: <span class="hljs-string">&quot;value&quot;</span>}, comments)
+<span class="hljs-comment">// =&gt; {default: &quot;value&quot;}</span></pre>
     
   
 
@@ -2814,7 +2929,7 @@ first([])
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>((<a href="#array">Array</a> | <a href="#object">Object</a>))</code>
+            <span class='code bold'>source</span> <code class='quiet'>((<a href="#array">Array</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>))</code>
 	    Array or Object to flatten
 
           </div>
@@ -3070,7 +3185,7 @@ it returned
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>subset</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
+            <span class='code bold'>subset</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
 	    A predicate function.
 
           </div>
@@ -3141,8 +3256,8 @@ it returned
   </div>
   
 
-  <p>Returns a new list by extracting the same named property off all objects in
-the source list</p>
+  <p>Returns a partial copy of an object containing only the keys specified.
+If the key does not exist, the property is ignored.</p>
 
     <div class='pre p1 fill-light mt0'>pluck</div>
   
@@ -3161,18 +3276,8 @@ the source list</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>field</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    Field name to extract values from
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="#object">Object</a>>)</code>
-	    Array of objects
-
+            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
+	    
           </div>
           
         </div>
@@ -3185,7 +3290,7 @@ the source list</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>)</code>:
         
 
       
@@ -3200,8 +3305,15 @@ the source list</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>pluck(<span class="hljs-string">"position"</span>)([{<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">position</span>: <span class="hljs-number">3</span>}, {<span class="hljs-attr">id</span>:<span class="hljs-number">2</span>, <span class="hljs-attr">position</span>: <span class="hljs-number">-1</span>}])
-<span class="hljs-comment">// =&gt; [3, -1]</span></pre>
+      <pre class='p1 overflow-auto round fill-light'>pluck(
+ [<span class="hljs-string">&quot;id&quot;</span>, <span class="hljs-string">&quot;name&quot;</span>],
+ {
+   <span class="hljs-attr">id</span>: <span class="hljs-number">2</span>,
+   <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;lorem&quot;</span>,
+   <span class="hljs-attr">description</span>: <span class="hljs-string">&quot;lorem ipsum&quot;</span>
+ }
+)
+<span class="hljs-comment">// =&gt; {id: 2, name: lorem}</span></pre>
     
   
 
@@ -3249,19 +3361,43 @@ the source list</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>fn</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a> | mixed))</code>
-	    Value to remove or predicate to match
-
+            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
+	    
           </div>
           
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
-	    Source array
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>params.fn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a> | mixed)</code>
+  </td>
+  <td class='break-word'><span>Value to remove or predicate to match
+</span></td>
+</tr>
 
-          </div>
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>params.source</span> <code class='quiet'><a href="#array">Array</a></code>
+  </td>
+  <td class='break-word'><span>Source array
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
           
         </div>
       
@@ -3340,19 +3476,43 @@ remove(<span class="hljs-function"><span class="hljs-params">_</span> =&gt;</spa
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>subset</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
-	    Match object
-
+            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
+	    
           </div>
           
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
-	    Source array
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>params.subset</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>
+  </td>
+  <td class='break-word'><span>Match object
+</span></td>
+</tr>
 
-          </div>
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>params.source</span> <code class='quiet'><a href="#array">Array</a></code>
+  </td>
+  <td class='break-word'><span>Source array
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
           
         </div>
       
@@ -3379,11 +3539,16 @@ remove(<span class="hljs-function"><span class="hljs-params">_</span> =&gt;</spa
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>remove(<span class="hljs-number">3</span>)([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
-<span class="hljs-comment">// =&gt; [1, 2]</span>
-
-remove(<span class="hljs-function"><span class="hljs-params">_</span> =&gt;</span> _ === <span class="hljs-number">3</span>)([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
-<span class="hljs-comment">// =&gt; [1, 2]</span></pre>
+      <pre class='p1 overflow-auto round fill-light'>removeWith(
+  {
+    <span class="hljs-attr">tag</span>: not(is)
+  },
+  [
+    {<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">tag</span>: <span class="hljs-number">2</span>},
+    {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>}
+  ]
+)
+<span class="hljs-comment">// =&gt; [{id: 1, tag: 2}]</span></pre>
     
   
 
@@ -3431,8 +3596,9 @@ remove(<span class="hljs-function"><span class="hljs-params">_</span> =&gt;</spa
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>params</span> <code class='quiet'>(...any)</code>
-	    
+            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
+	    Function params
+
           </div>
           
         </div>
@@ -3574,7 +3740,7 @@ top(<span class="hljs-number">2</span>)([<span class="hljs-number">1</span>, <sp
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="#boolean">Boolean</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
         True if all elements pass, otherwise false
 
       
@@ -3610,7 +3776,7 @@ top(<span class="hljs-number">2</span>)([<span class="hljs-number">1</span>, <sp
       <pre class='p1 overflow-auto round fill-light'>all(isNumber)([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
 <span class="hljs-comment">// =&gt; true</span>
 
-all(is, [<span class="hljs-number">1</span>, <span class="hljs-string">"asd"</span>, <span class="hljs-literal">null</span>])
+all(is, [<span class="hljs-number">1</span>, <span class="hljs-string">&quot;asd&quot;</span>, <span class="hljs-literal">null</span>])
 <span class="hljs-comment">// =&gt; false</span></pre>
     
   
@@ -3659,7 +3825,7 @@ all(is, [<span class="hljs-number">1</span>, <span class="hljs-string">"asd"</sp
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>subset</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
+            <span class='code bold'>subset</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
 	    Match object
 
           </div>
@@ -3683,7 +3849,7 @@ all(is, [<span class="hljs-number">1</span>, <span class="hljs-string">"asd"</sp
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="#boolean">Boolean</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
         True if all elements match, otherwise false
 
       
@@ -3724,7 +3890,7 @@ all(is, [<span class="hljs-number">1</span>, <span class="hljs-string">"asd"</sp
       <pre class='p1 overflow-auto round fill-light'>allWith(isNumber)([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
 <span class="hljs-comment">// =&gt; true</span>
 
-allWith(is, [<span class="hljs-number">1</span>, <span class="hljs-string">"asd"</span>, <span class="hljs-literal">null</span>])
+allWith(is, [<span class="hljs-number">1</span>, <span class="hljs-string">&quot;asd&quot;</span>, <span class="hljs-literal">null</span>])
 <span class="hljs-comment">// =&gt; false</span></pre>
     
   
@@ -3797,7 +3963,7 @@ allWith(is, [<span class="hljs-number">1</span>, <span class="hljs-string">"asd"
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="#boolean">Boolean</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
         True if at least one element passes, otherwise false
 
       
@@ -3830,10 +3996,10 @@ allWith(is, [<span class="hljs-number">1</span>, <span class="hljs-string">"asd"
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>any(isNumber)([<span class="hljs-number">1</span>, <span class="hljs-string">"string"</span>, <span class="hljs-literal">NaN</span>])
+      <pre class='p1 overflow-auto round fill-light'>any(isNumber)([<span class="hljs-number">1</span>, <span class="hljs-string">&quot;string&quot;</span>, <span class="hljs-literal">NaN</span>])
 <span class="hljs-comment">// =&gt; true</span>
 
-any([<span class="hljs-keyword">get</span>("id"), is], [{title: <span class="hljs-string">""</span>}, {}])
+any([get(<span class="hljs-string">&quot;id&quot;</span>), is], [{<span class="hljs-attr">title</span>: <span class="hljs-string">&quot;&quot;</span>}, {}])
 <span class="hljs-comment">// =&gt; false</span></pre>
     
   
@@ -3882,7 +4048,7 @@ any([<span class="hljs-keyword">get</span>("id"), is], [{title: <span class="hlj
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>subset</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
+            <span class='code bold'>subset</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
 	    Match object
 
           </div>
@@ -3906,7 +4072,7 @@ any([<span class="hljs-keyword">get</span>("id"), is], [{title: <span class="hlj
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="#boolean">Boolean</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
         True if at least one element pass, otherwise false
 
       
@@ -4029,7 +4195,7 @@ anyWith({ <span class="hljs-attr">tags</span>: is })([{<span class="hljs-attr">i
       <pre class='p1 overflow-auto round fill-light'>is(<span class="hljs-literal">null</span>)      <span class="hljs-comment">// =&gt; false</span>
 is(<span class="hljs-number">0</span>)         <span class="hljs-comment">// =&gt; true</span>
 is(<span class="hljs-literal">undefined</span>) <span class="hljs-comment">// =&gt; false</span>
-is(<span class="hljs-string">""</span>)        <span class="hljs-comment">// =&gt; true</span>
+is(<span class="hljs-string">&quot;&quot;</span>)        <span class="hljs-comment">// =&gt; true</span>
 is(<span class="hljs-literal">false</span>)     <span class="hljs-comment">// =&gt; true</span>
 is(<span class="hljs-literal">NaN</span>)       <span class="hljs-comment">// =&gt; false</span></pre>
     
@@ -4097,7 +4263,7 @@ is(<span class="hljs-literal">NaN</span>)       <span class="hljs-comment">// =&
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>arg3</span> <code class='quiet'>(<a href="#object">Object</a>
+            <span class='code bold'>arg3</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>
             = <code>{}</code>)</code>
 	    Props
 
@@ -4240,14 +4406,14 @@ between(<span class="hljs-number">2</span>, <span class="hljs-number">5</span>, 
       <pre class='p1 overflow-auto round fill-light'>isEmpty({})               <span class="hljs-comment">// true</span>
 isEmpty(<span class="hljs-number">1</span>)                <span class="hljs-comment">// false</span>
 isEmpty(<span class="hljs-literal">false</span>)            <span class="hljs-comment">// false</span>
-isEmpty(<span class="hljs-string">""</span>)               <span class="hljs-comment">// true</span>
+isEmpty(<span class="hljs-string">&quot;&quot;</span>)               <span class="hljs-comment">// true</span>
 isEmpty(<span class="hljs-literal">null</span>)             <span class="hljs-comment">// true</span>
 isEmpty(<span class="hljs-literal">undefined</span>)        <span class="hljs-comment">// true</span>
 isEmpty([])               <span class="hljs-comment">// true</span>
 isEmpty(<span class="hljs-literal">NaN</span>)              <span class="hljs-comment">// true</span>
 isEmpty(<span class="hljs-regexp">/[A-z]/</span>)          <span class="hljs-comment">// false</span>
 isEmpty(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>())       <span class="hljs-comment">// false</span>
-isEmpty(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {})         <span class="hljs-comment">// false</span>
+isEmpty(<span class="hljs-function">() =&gt;</span> {})         <span class="hljs-comment">// false</span>
 isEmpty(<span class="hljs-built_in">Promise</span>.resolve() <span class="hljs-comment">// false</span></pre>
     
   
@@ -4277,7 +4443,7 @@ isEmpty(<span class="hljs-built_in">Promise</span>.resolve() <span class="hljs-c
   </div>
   
 
-  <p>Check if a is equal to b (strict equality)</p>
+  <p>Check if a tripple-equals b (accounts for null, undefined and NaN)</p>
 
     <div class='pre p1 fill-light mt0'>isEqual</div>
   
@@ -4296,7 +4462,7 @@ isEmpty(<span class="hljs-built_in">Promise</span>.resolve() <span class="hljs-c
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>one</span> <code class='quiet'>(mixed)</code>
+            <span class='code bold'>a</span> <code class='quiet'>(Mixed)</code>
 	    First value
 
           </div>
@@ -4305,7 +4471,7 @@ isEmpty(<span class="hljs-built_in">Promise</span>.resolve() <span class="hljs-c
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>two</span> <code class='quiet'>(mixed)</code>
+            <span class='code bold'>b</span> <code class='quiet'>(Mixed)</code>
 	    Second value
 
           </div>
@@ -4338,7 +4504,7 @@ isEmpty(<span class="hljs-built_in">Promise</span>.resolve() <span class="hljs-c
       <pre class='p1 overflow-auto round fill-light'>equal(<span class="hljs-number">2</span>)(<span class="hljs-number">2</span>)
 <span class="hljs-comment">// =&gt; true</span>
 
-equal(<span class="hljs-string">"2"</span>)(<span class="hljs-number">2</span>)
+equal(<span class="hljs-string">&quot;2&quot;</span>)(<span class="hljs-number">2</span>)
 <span class="hljs-comment">// =&gt; false</span>
 
 equal(<span class="hljs-literal">NaN</span>)(<span class="hljs-literal">NaN</span>)
@@ -4393,7 +4559,7 @@ equal([<span class="hljs-number">1</span>])([<span class="hljs-number">1</span>]
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>subset</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
+            <span class='code bold'>subset</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
 	    Set of properties that should match
 
           </div>
@@ -4402,7 +4568,7 @@ equal([<span class="hljs-number">1</span>])([<span class="hljs-number">1</span>]
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
 	    Object matching against
 
           </div>
@@ -4419,8 +4585,7 @@ equal([<span class="hljs-number">1</span>])([<span class="hljs-number">1</span>]
       <div class='py1 quiet mt1 prose-big'>Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
         True if all "subset" properties are of equal (shallow
-compare) value to properties in "source" object,
-otherwise false
+compare) value to properties in "source" object, otherwise false
 
       
     
@@ -4440,17 +4605,17 @@ otherwise false
 })({
  <span class="hljs-attr">id</span>: <span class="hljs-number">2</span>,
  <span class="hljs-attr">parentId</span>: <span class="hljs-literal">null</span>
- <span class="hljs-attr">name</span>: <span class="hljs-string">"John"</span>,
+ <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;John&quot;</span>,
 })
 <span class="hljs-comment">// true</span>
 
 isMatch({
- <span class="hljs-string">"!parentId"</span>: <span class="hljs-literal">null</span>,
- <span class="hljs-string">"name"</span>: <span class="hljs-string">"John"</span>,
+ <span class="hljs-string">&quot;!parentId&quot;</span>: <span class="hljs-literal">null</span>,
+ <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;John&quot;</span>,
 })({
  <span class="hljs-attr">id</span>: <span class="hljs-number">2</span>,
  <span class="hljs-attr">parentId</span>: <span class="hljs-literal">null</span>,
- <span class="hljs-attr">name</span>: <span class="hljs-string">"John"</span>,
+ <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;John&quot;</span>,
 })
 <span class="hljs-comment">// false</span></pre>
     
@@ -4500,6 +4665,15 @@ isMatch({
       
         <div class='space-bottom0'>
           <div>
+            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
+	    Function params
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
             <span class='code bold'>ifFn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
 	    Condition
 
@@ -4519,8 +4693,7 @@ isMatch({
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>elseFn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
-	    Else function, if not specified will return
-source
+	    Else function, if not specified will return source
 
           </div>
           
@@ -4615,7 +4788,7 @@ when(isOdd, increment)(<span class="hljs-number">6</span>)
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>((<a href="#array">Array</a> | <a href="#object">Object</a>))</code>
+            <span class='code bold'>source</span> <code class='quiet'>((<a href="#array">Array</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>))</code>
 	    Array or Object to extract keys from
 
           </div>
@@ -4645,13 +4818,13 @@ when(isOdd, increment)(<span class="hljs-number">6</span>)
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>keys([<span class="hljs-string">"lorem"</span>, <span class="hljs-string">"ipsum"</span>])
-<span class="hljs-comment">// =&gt; ["0", "1"]</span>
+      <pre class='p1 overflow-auto round fill-light'>keys([<span class="hljs-string">&quot;lorem&quot;</span>, <span class="hljs-string">&quot;ipsum&quot;</span>])
+<span class="hljs-comment">// =&gt; [&quot;0&quot;, &quot;1&quot;]</span>
 
-keys({ <span class="hljs-attr">foo</span>: <span class="hljs-string">"bar"</span>, <span class="hljs-attr">lorem</span>: <span class="hljs-string">"ipsum"</span>})
-<span class="hljs-comment">// =&gt; ["foo", "lorem"]</span>
+keys({ <span class="hljs-attr">foo</span>: <span class="hljs-string">&quot;bar&quot;</span>, <span class="hljs-attr">lorem</span>: <span class="hljs-string">&quot;ipsum&quot;</span>})
+<span class="hljs-comment">// =&gt; [&quot;foo&quot;, &quot;lorem&quot;]</span>
 
-keys(<span class="hljs-string">"foo"</span>), keys(<span class="hljs-number">12</span>), keys(<span class="hljs-literal">null</span>), etc
+keys(<span class="hljs-string">&quot;foo&quot;</span>), keys(<span class="hljs-number">12</span>), keys(<span class="hljs-literal">null</span>), etc
 <span class="hljs-comment">// =&gt; []</span></pre>
     
   
@@ -4702,15 +4875,16 @@ overwriten by right most object.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>params</span> <code class='quiet'>(...any)</code>
-	    
+            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
+	    Function params
+
           </div>
           
         </div>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="#object">Object</a>>)</code>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>)</code>
 	    Array of objects
 
           </div>
@@ -4725,7 +4899,7 @@ overwriten by right most object.</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="#object">Object</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
         
 
       
@@ -4740,8 +4914,8 @@ overwriten by right most object.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>merge({<span class="hljs-attr">a</span>: <span class="hljs-string">"lorem"</span>}, {<span class="hljs-attr">b</span>: <span class="hljs-string">"ipsum"</span>, <span class="hljs-attr">c</span>: <span class="hljs-number">41</span>}, {<span class="hljs-attr">c</span>: <span class="hljs-number">42</span>, <span class="hljs-attr">b</span>: <span class="hljs-literal">undefined</span>})
-<span class="hljs-comment">// =&gt; { a: "lorem", b: "ipsum", c: 42 }</span></pre>
+      <pre class='p1 overflow-auto round fill-light'>merge({<span class="hljs-attr">a</span>: <span class="hljs-string">&quot;lorem&quot;</span>}, {<span class="hljs-attr">b</span>: <span class="hljs-string">&quot;ipsum&quot;</span>, <span class="hljs-attr">c</span>: <span class="hljs-number">41</span>}, {<span class="hljs-attr">c</span>: <span class="hljs-number">42</span>, <span class="hljs-attr">b</span>: <span class="hljs-literal">undefined</span>})
+<span class="hljs-comment">// =&gt; { a: &quot;lorem&quot;, b: &quot;ipsum&quot;, c: 42 }</span></pre>
     
   
 
@@ -4770,8 +4944,8 @@ overwriten by right most object.</p>
   </div>
   
 
-  <p>Returns a partial copy of an object containing only the keys specified.
-If the key does not exist, the property is ignored.</p>
+  <p>Returns a new list by extracting the same named property off all objects in
+the source list</p>
 
     <div class='pre p1 fill-light mt0'>pick</div>
   
@@ -4790,18 +4964,8 @@ If the key does not exist, the property is ignored.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>keys</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>)</code>
-	    The properties to be filtered out
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
-	    The source object
-
+            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
+	    
           </div>
           
         </div>
@@ -4814,7 +4978,7 @@ If the key does not exist, the property is ignored.</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="#object">Object</a></code>:
+      <code><a href="#array">Array</a></code>:
         
 
       
@@ -4829,8 +4993,8 @@ If the key does not exist, the property is ignored.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>pick([<span class="hljs-string">"id"</span>, <span class="hljs-string">"name"</span>])({<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">"lorem"</span>, <span class="hljs-attr">description</span>: <span class="hljs-string">"lorem ipsum"</span>})
-<span class="hljs-comment">// =&gt; {id: 2, name: lorem}</span></pre>
+      <pre class='p1 overflow-auto round fill-light'>pick(<span class="hljs-string">&quot;position&quot;</span>)([{<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">position</span>: <span class="hljs-number">3</span>}, {<span class="hljs-attr">id</span>:<span class="hljs-number">2</span>, <span class="hljs-attr">position</span>: -<span class="hljs-number">1</span>}])
+<span class="hljs-comment">// =&gt; [3, -1]</span></pre>
     
   
 
@@ -4903,7 +5067,7 @@ Bost arrays will be trimmed to the smallest length.</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="#object">Object</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
         
 
       
@@ -4983,6 +5147,15 @@ zipToObj( [ a ] )( [ <span class="hljs-number">1</span>, <span class="hljs-numbe
           
         </div>
       
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
+	    Function params
+
+          </div>
+          
+        </div>
+      
     </div>
   
 
@@ -4991,7 +5164,7 @@ zipToObj( [ a ] )( [ <span class="hljs-number">1</span>, <span class="hljs-numbe
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="#boolean">Boolean</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
         True if inputs are structurally equal, false otherwise
 
       
@@ -5015,15 +5188,15 @@ zipToObj( [ a ] )( [ <span class="hljs-number">1</span>, <span class="hljs-numbe
     
       
       <pre class='p1 overflow-auto round fill-light'>deepEqual(
-  {<span class="hljs-attr">b</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">a</span>: <span class="hljs-number">2</span>},
-  {<span class="hljs-attr">a</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">b</span>: <span class="hljs-number">3</span>}
+{<span class="hljs-attr">b</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">a</span>: <span class="hljs-number">2</span>},
+{<span class="hljs-attr">a</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">b</span>: <span class="hljs-number">3</span>}
 )
 <span class="hljs-comment">// =&gt; true</span>
 
 deepEqual(
-  {<span class="hljs-attr">a</span> :[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]}
+{<span class="hljs-attr">a</span> :[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]}
 )(
-  {<span class="hljs-attr">a</span>: [<span class="hljs-number">2</span>, <span class="hljs-number">1</span>]}
+{<span class="hljs-attr">a</span>: [<span class="hljs-number">2</span>, <span class="hljs-number">1</span>]}
 )
 <span class="hljs-comment">// =&gt; false</span></pre>
     
@@ -5097,7 +5270,7 @@ deepEqual(
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="#object">Object</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
         
 
       
@@ -5113,9 +5286,9 @@ deepEqual(
     
       
       <pre class='p1 overflow-auto round fill-light'>elapsedTime(
-  <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">"June 1, 2018 00:00:00"</span>)
+  <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">&quot;June 1, 2018 00:00:00&quot;</span>)
 )(
-  <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">"June 1, 2018 03:24:00"</span>)
+  <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">&quot;June 1, 2018 03:24:00&quot;</span>)
 )
 <span class="hljs-comment">// =&gt; { days: 0, hours: 3, minutes: 24, seconds: 0 }</span></pre>
     
@@ -5166,8 +5339,7 @@ deepEqual(
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>field</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    The field to index by. Value will be cast to string
-before indexing.
+	    The field to index by. Value will be cast to string before indexing.
 
           </div>
           
@@ -5205,7 +5377,7 @@ before indexing.
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>groupBy(<span class="hljs-string">"user_id"</span>)([
+      <pre class='p1 overflow-auto round fill-light'>groupBy(<span class="hljs-string">&quot;user_id&quot;</span>)([
   {<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">user_id</span>: <span class="hljs-number">2</span>},
   {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">user_id</span>: <span class="hljs-number">3</span>},
   {<span class="hljs-attr">id</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">user_id</span>: <span class="hljs-number">2</span>},
@@ -5287,7 +5459,7 @@ before indexing.
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="#object">Object</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
         
 
       
@@ -5302,7 +5474,7 @@ before indexing.
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>indexBy(<span class="hljs-string">"id"</span>)([
+      <pre class='p1 overflow-auto round fill-light'>indexBy(<span class="hljs-string">&quot;id&quot;</span>)([
   {<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">user_id</span>: <span class="hljs-number">2</span>},
   {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">user_id</span>: <span class="hljs-number">3</span>},
 ])
@@ -5372,7 +5544,7 @@ before indexing.
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="#object">Object</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
         
 
       
@@ -5444,7 +5616,7 @@ before indexing.
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="#object">Object</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
         
 
       
@@ -5511,7 +5683,7 @@ before indexing.
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="#object">Object</a>>)</code>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>)</code>
 	    Array of objects
 
           </div>
@@ -5526,7 +5698,7 @@ before indexing.
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="#object">Object</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
         
 
       
@@ -5542,21 +5714,21 @@ before indexing.
     
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> scores = [{
- <span class="hljs-attr">name</span>   : <span class="hljs-string">"Bob"</span>,
+ <span class="hljs-attr">name</span>   : <span class="hljs-string">&quot;Bob&quot;</span>,
  <span class="hljs-attr">score</span>  : <span class="hljs-number">1</span>,
- <span class="hljs-attr">subject</span>: <span class="hljs-string">"Math"</span>
+ <span class="hljs-attr">subject</span>: <span class="hljs-string">&quot;Math&quot;</span>
 }, {
- <span class="hljs-attr">name</span>   : <span class="hljs-string">"Alice"</span>,
+ <span class="hljs-attr">name</span>   : <span class="hljs-string">&quot;Alice&quot;</span>,
  <span class="hljs-attr">score</span>  : <span class="hljs-number">10</span>,
- <span class="hljs-attr">subject</span>: <span class="hljs-string">"Math"</span>
+ <span class="hljs-attr">subject</span>: <span class="hljs-string">&quot;Math&quot;</span>
 }, {
- <span class="hljs-attr">name</span>   : <span class="hljs-string">"Hatter"</span>,
+ <span class="hljs-attr">name</span>   : <span class="hljs-string">&quot;Hatter&quot;</span>,
  <span class="hljs-attr">score</span>  : <span class="hljs-number">10</span>,
- <span class="hljs-attr">subject</span>: <span class="hljs-string">"Math"</span>
+ <span class="hljs-attr">subject</span>: <span class="hljs-string">&quot;Math&quot;</span>
 }]
 
-hist( <span class="hljs-string">"score"</span> )( scores )
-<span class="hljs-comment">// =&gt; { "1": 1, "10": 2 }</span></pre>
+hist( <span class="hljs-string">&quot;score&quot;</span> )( scores )
+<span class="hljs-comment">// =&gt; { &quot;1&quot;: 1, &quot;10&quot;: 2 }</span></pre>
     
   
 
@@ -5604,7 +5776,7 @@ hist( <span class="hljs-string">"score"</span> )( scores )
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
 	    Source input
 
           </div>
@@ -5630,87 +5802,6 @@ hist( <span class="hljs-string">"score"</span> )( scores )
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
       <code><a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>></code>:
-        
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='renamefile'>
-      renameFile
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Rename a file</p>
-
-    <div class='pre p1 fill-light mt0'>renameFile</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>newName</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    New file name
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>filePath</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    Absolute file path
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
         
 
       
@@ -5810,8 +5901,8 @@ hist( <span class="hljs-string">"score"</span> )( scores )
 <span class="hljs-comment">// =&gt; 11</span>
 
 tryCatch(
-  <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> { <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">"Tryer error"</span>) },
-  (error, source) =&gt; inc(source)
+  <span class="hljs-function">() =&gt;</span> { <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&quot;Tryer error&quot;</span>) },
+  <span class="hljs-function">(<span class="hljs-params">error, source</span>) =&gt;</span> inc(source)
 )(<span class="hljs-number">10</span>)
 <span class="hljs-comment">// =&gt; 11</span></pre>
     
@@ -5894,17 +5985,17 @@ them all as "Object".</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>type({})                <span class="hljs-comment">// "Object"</span>
-type(<span class="hljs-number">1</span>)                 <span class="hljs-comment">// "Number"</span>
-type(<span class="hljs-literal">false</span>)             <span class="hljs-comment">// "Boolean"</span>
-type(<span class="hljs-string">"s"</span>)               <span class="hljs-comment">// "String"</span>
-type(<span class="hljs-literal">null</span>)              <span class="hljs-comment">// "Null"</span>
-type(<span class="hljs-literal">undefined</span>)         <span class="hljs-comment">// "Undefined"</span>
-type([])                <span class="hljs-comment">// "Array"</span>
-type(<span class="hljs-regexp">/[A-z]/</span>)           <span class="hljs-comment">// "RegExp"</span>
-type(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>())        <span class="hljs-comment">// "Date"</span>
-type(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {})          <span class="hljs-comment">// "Function"</span>
-type(<span class="hljs-built_in">Promise</span>.resolve()) <span class="hljs-comment">// "Promise"</span></pre>
+      <pre class='p1 overflow-auto round fill-light'>type({})                <span class="hljs-comment">// &quot;Object&quot;</span>
+type(<span class="hljs-number">1</span>)                 <span class="hljs-comment">// &quot;Number&quot;</span>
+type(<span class="hljs-literal">false</span>)             <span class="hljs-comment">// &quot;Boolean&quot;</span>
+type(<span class="hljs-string">&quot;s&quot;</span>)               <span class="hljs-comment">// &quot;String&quot;</span>
+type(<span class="hljs-literal">null</span>)              <span class="hljs-comment">// &quot;Null&quot;</span>
+type(<span class="hljs-literal">undefined</span>)         <span class="hljs-comment">// &quot;Undefined&quot;</span>
+type([])                <span class="hljs-comment">// &quot;Array&quot;</span>
+type(<span class="hljs-regexp">/[A-z]/</span>)           <span class="hljs-comment">// &quot;RegExp&quot;</span>
+type(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>())        <span class="hljs-comment">// &quot;Date&quot;</span>
+type(<span class="hljs-function">() =&gt;</span> {})          <span class="hljs-comment">// &quot;Function&quot;</span>
+type(<span class="hljs-built_in">Promise</span>.resolve()) <span class="hljs-comment">// &quot;Promise&quot;</span></pre>
     
   
 
@@ -5952,7 +6043,7 @@ type(<span class="hljs-built_in">Promise</span>.resolve()) <span class="hljs-com
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>fn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a>)</code>
+            <span class='code bold'>fn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
 	    Function to be ran
 
           </div>
@@ -6025,14 +6116,13 @@ type(<span class="hljs-built_in">Promise</span>.resolve()) <span class="hljs-com
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>:
         Either return 
 <code>fn</code>
- if you've passed the
-
+ if you've passed the 
 <code>timeWindow</code>
- or return a timer that will
-run the 
+ or
+return a timer that will run the 
 <code>fn</code>
  in 
 <code>timeWindow</code>
@@ -6073,7 +6163,7 @@ run the
   </div>
   
 
-  <p>Call function after <code>wait</code> milliseconds have elapsed</p>
+  <p>Run function after <code>wait</code> milliseconds have elapsed since last call</p>
 
     <div class='pre p1 fill-light mt0'>debounce</div>
   
@@ -6101,7 +6191,7 @@ run the
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>props</span> <code class='quiet'>(<a href="#object">Object</a>?)</code>
+            <span class='code bold'>props</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?)</code>
 	    Properties
 
           </div>
@@ -6124,15 +6214,14 @@ run the
   
     (default <code>50</code>)
   </td>
-  <td class='break-word'><span>Time in milliseconds to wait without
-calling until invoke
+  <td class='break-word'><span>Time in milliseconds to wait without calling until invoke
 </span></td>
 </tr>
 
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>props.bind</span> <code class='quiet'><a href="#object">Object</a></code>
+  <td class='break-word'><span class='code bold'>props.bind</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>
   
     (default <code>null</code>)
   </td>
@@ -6162,8 +6251,7 @@ calling until invoke
 <code>fn</code>
  after 
 <code>wait</code>
-
-passed without calling
+ passed without calling
 
       
     
@@ -6177,14 +6265,13 @@ passed without calling
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// constructor</span>
-<span class="hljs-keyword">this</span>.debouncedAutocomplete = debounce(autocompleteFromAPI, {
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> debouncedAutocomplete = debounce(autocompleteFromAPI, {
   <span class="hljs-attr">wait</span>: <span class="hljs-number">100</span>,
-  <span class="hljs-attr">bind</span>: <span class="hljs-keyword">this</span>
+  <span class="hljs-attr">bind</span>: <span class="hljs-built_in">this</span>
 })
 
 <span class="hljs-comment">// render</span>
-&lt;input onChange={<span class="hljs-keyword">this</span>.debouncedAutocomplete} ... /&gt;</pre>
+&lt;input onChange={debouncedAutocomplete} ... /&gt;</pre>
     
   
 
@@ -6445,8 +6532,17 @@ close(x) === x
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</code>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
 	    Number of times
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
+	    Function params
 
           </div>
           
@@ -6621,7 +6717,7 @@ curry(sum)(<span class="hljs-number">1</span>)(<span class="hljs-number">2</span
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>conditions</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;[ifFn, thenFn]>)</code>
+            <span class='code bold'>conditions</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>>)</code>
 	    List of 2-tuples of functions (if, then)
 
           </div>
@@ -6630,9 +6726,9 @@ curry(sum)(<span class="hljs-number">1</span>)(<span class="hljs-number">2</span
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>otherwise</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
-	    Function to call if no condition matches
-Defaults to identity.
+            <span class='code bold'>otherwise</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
+            = <code>i</code>)</code>
+	    Function to call if no condition matches, Defaults to identity.
 
           </div>
           
@@ -6680,10 +6776,485 @@ otherwise function on the input.
     
       
       <pre class='p1 overflow-auto round fill-light'>cases([
- [x === <span class="hljs-number">0</span>, x =&gt; x * <span class="hljs-number">2</span>],
- [x === <span class="hljs-number">1</span>, x =&gt; x],
-], x =&gt; x + <span class="hljs-number">1</span>)(<span class="hljs-number">2</span>)
+ [x === <span class="hljs-number">0</span>, <span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x * <span class="hljs-number">2</span>],
+ [x === <span class="hljs-number">1</span>, <span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x],
+], <span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x + <span class="hljs-number">1</span>)(<span class="hljs-number">2</span>)
 <span class="hljs-comment">// =&gt; 3</span></pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='_pick'>
+      _pick
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>_pick</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    Field name to extract values from
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>)</code>
+	    Array of objects
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#array">Array</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='_pluckone'>
+      _pluckOne
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>_pluckOne</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>keys</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>)</code>
+	    The properties to be filtered out
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    The source object
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='_pluck'>
+      _pluck
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>_pluck</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>keys</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>source</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>))</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>)</code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='_renameone'>
+      _renameOne
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>_renameOne</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>mappings</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='_renamemany'>
+      _renameMany
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>_renameMany</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>mappings</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>source</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>))</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>)</code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='renamekeys'>
+      renameKeys
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Rename keys inside an object</p>
+
+    <div class='pre p1 fill-light mt0'>renameKeys</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>)</code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>rename({ <span class="hljs-attr">old</span>: <span class="hljs-string">&quot;new&quot;</span> }, { <span class="hljs-attr">old</span>: <span class="hljs-number">42</span> })
+<span class="hljs-comment">// =&gt; { new: 42 }</span>
+
+rename({ <span class="hljs-attr">old</span>: <span class="hljs-string">&quot;new&quot;</span> }, [{ <span class="hljs-attr">old</span>: <span class="hljs-number">42</span> }, { <span class="hljs-attr">old</span>: <span class="hljs-number">41</span> }])
+<span class="hljs-comment">// =&gt; [{ new: 42 }, { new: 41 }]</span></pre>
     
   
 
@@ -6876,8 +7447,9 @@ otherwise function on the input.
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>elements</span> <code class='quiet'>(...any)</code>
-	    
+            <span class='code bold'>elements</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
+	    Function parameters
+
           </div>
           
         </div>
@@ -6945,159 +7517,6 @@ push(<span class="hljs-number">2</span>, <span class="hljs-number">4</span>)([<s
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='maxbyvalue'>
-      maxByValue
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Find max value using language operator</p>
-
-    <div class='pre p1 fill-light mt0'>maxByValue</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
-	    Source input
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>mixed</code>:
-        
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='maxbyfunction'>
-      maxByFunction
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Find max value using function to transform element into numeric</p>
-
-    <div class='pre p1 fill-light mt0'>maxByFunction</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>fn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
-	    Transform function
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
-	    Source input
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>mixed</code>:
-        
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
     <h3 class='fl m0' id='max'>
       max
     </h3>
@@ -7122,15 +7541,6 @@ push(<span class="hljs-number">2</span>, <span class="hljs-number">4</span>)([<s
   
     <div class='py1 quiet mt1 prose-big'>Parameters</div>
     <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>arg1</span> <code class='quiet'>((<a href="#array">Array</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>))</code>
-	    Custom transform function or source array
-
-          </div>
-          
-        </div>
       
         <div class='space-bottom0'>
           <div>
@@ -7164,171 +7574,18 @@ push(<span class="hljs-number">2</span>, <span class="hljs-number">4</span>)([<s
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>max([<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">3</span>])
+      <pre class='p1 overflow-auto round fill-light'>max([-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">3</span>])
 <span class="hljs-comment">// =&gt; 10</span>
 
-<span class="hljs-keyword">const</span> fn = <span class="hljs-function"><span class="hljs-params">element</span> =&gt;</span> ( <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>( element.time ) )
+<span class="hljs-keyword">const</span> fn = <span class="hljs-function"><span class="hljs-params">element</span> =&gt;</span> (<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(element.time))
 <span class="hljs-keyword">const</span> source = [
-  { <span class="hljs-attr">time</span>: <span class="hljs-string">"2018-05-15T11:20:07.754110Z"</span> },
-  { <span class="hljs-attr">time</span>: <span class="hljs-string">"2018-06-11T09:01:54.337344Z"</span> },
-  { <span class="hljs-attr">time</span>: <span class="hljs-string">"2018-06-08T08:26:12.711071Z"</span> },
+  { <span class="hljs-attr">time</span>: <span class="hljs-string">&quot;2018-05-15T11:20:07.754110Z&quot;</span> },
+  { <span class="hljs-attr">time</span>: <span class="hljs-string">&quot;2018-06-11T09:01:54.337344Z&quot;</span> },
+  { <span class="hljs-attr">time</span>: <span class="hljs-string">&quot;2018-06-08T08:26:12.711071Z&quot;</span> },
 ]
-max(fn)(source)
-<span class="hljs-comment">// =&gt; {time: "2018-06-11T09:01:54.337344Z"}</span></pre>
+max(fn, source)
+<span class="hljs-comment">// =&gt; {time: &quot;2018-06-11T09:01:54.337344Z&quot;}</span></pre>
     
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='minbyvalue'>
-      minByValue
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Find min value using language operator</p>
-
-    <div class='pre p1 fill-light mt0'>minByValue</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
-	    Source input
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>mixed</code>:
-        
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='minbyfunction'>
-      minByFunction
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Find min value using function to transform element into numeric</p>
-
-    <div class='pre p1 fill-light mt0'>minByFunction</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>fn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
-	    Transform function
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
-	    Source input
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>mixed</code>:
-        
-
-      
-    
-  
-
-  
-
-  
-
   
 
   
@@ -7375,15 +7632,6 @@ max(fn)(source)
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>arg1</span> <code class='quiet'>((<a href="#array">Array</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>))</code>
-	    Custom transform function or source array
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
             <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>)</code>
 	    Array of numbers
 
@@ -7414,17 +7662,17 @@ max(fn)(source)
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>min([<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">3</span>])
+      <pre class='p1 overflow-auto round fill-light'>min([-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">3</span>])
 <span class="hljs-comment">// =&gt; -1</span>
 
 <span class="hljs-keyword">const</span> fn = <span class="hljs-function"><span class="hljs-params">element</span> =&gt;</span> ( <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>( element.time ) )
 <span class="hljs-keyword">const</span> source = [
-  { <span class="hljs-attr">time</span>: <span class="hljs-string">"2018-05-15T11:20:07.754110Z"</span> },
-  { <span class="hljs-attr">time</span>: <span class="hljs-string">"2018-06-11T09:01:54.337344Z"</span> },
-  { <span class="hljs-attr">time</span>: <span class="hljs-string">"2018-06-08T08:26:12.711071Z"</span> },
+  { <span class="hljs-attr">time</span>: <span class="hljs-string">&quot;2018-05-15T11:20:07.754110Z&quot;</span> },
+  { <span class="hljs-attr">time</span>: <span class="hljs-string">&quot;2018-06-11T09:01:54.337344Z&quot;</span> },
+  { <span class="hljs-attr">time</span>: <span class="hljs-string">&quot;2018-06-08T08:26:12.711071Z&quot;</span> },
 ]
 min(fn)(source)
-<span class="hljs-comment">// =&gt; {time: "2018-05-15T11:20:07.754110Z"}</span></pre>
+<span class="hljs-comment">// =&gt; {time: &quot;2018-05-15T11:20:07.754110Z&quot;}</span></pre>
     
   
 
@@ -7445,17 +7693,16 @@ min(fn)(source)
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='drop'>
-      drop
+    <h3 class='fl m0' id='_move'>
+      _move
     </h3>
     
     
   </div>
   
 
-  <p>{ lambda_description }</p>
-
-    <div class='pre p1 fill-light mt0'>drop</div>
+  
+    <div class='pre p1 fill-light mt0'>_move</div>
   
   
 
@@ -7472,9 +7719,24 @@ min(fn)(source)
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>count</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
-	    The count
-
+            <span class='code bold'>from</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>to</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
+	    
           </div>
           
         </div>
@@ -7488,7 +7750,7 @@ min(fn)(source)
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
       <code><a href="#array">Array</a></code>:
-        { description_of_the_return_value }
+        
 
       
     
@@ -7498,6 +7760,84 @@ min(fn)(source)
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='move'>
+      move
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Move element from one position to another</p>
+
+    <div class='pre p1 fill-light mt0'>move</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#array">Array</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>move(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])
+<span class="hljs-comment">// =&gt; [2, 1]</span></pre>
+    
   
 
   
@@ -7544,8 +7884,8 @@ min(fn)(source)
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>count</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="#array">Array</a>))</code>
-	    Number of element to remove
+            <span class='code bold'>count</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    Number of element to remove (default 1)
 
           </div>
           
@@ -7598,17 +7938,17 @@ min(fn)(source)
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='concat'>
-      concat
+    <h3 class='fl m0' id='append'>
+      append
     </h3>
     
     
   </div>
   
 
-  <p>Merge two or more arrays into one</p>
+  <p>Add array or element at the end of array</p>
 
-    <div class='pre p1 fill-light mt0'>concat</div>
+    <div class='pre p1 fill-light mt0'>append</div>
   
   
 
@@ -7625,8 +7965,8 @@ min(fn)(source)
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source1</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
-	    First array
+            <span class='code bold'>subset</span> <code class='quiet'>((mixed | <a href="#array">Array</a>))</code>
+	    Content to add
 
           </div>
           
@@ -7634,8 +7974,104 @@ min(fn)(source)
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source2</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
-	    Second array
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
+	    Source array to append to
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#array">Array</a></code>:
+        
+
+      
+    
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Related</div>
+    
+      
+        <a href="#prepend">prepend</a>
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>append([<span class="hljs-number">1</span>])([<span class="hljs-number">4</span>, <span class="hljs-number">5</span>])
+<span class="hljs-comment">// =&gt; [1, 4, 5]</span></pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='prepend'>
+      prepend
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Add array or element at begining of array</p>
+
+    <div class='pre p1 fill-light mt0'>prepend</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>subset</span> <code class='quiet'>((mixed | <a href="#array">Array</a>))</code>
+	    Content to add
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
+	    Source array to prepend to
 
           </div>
           
@@ -7664,7 +8100,7 @@ min(fn)(source)
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>concat([<span class="hljs-number">1</span>])([<span class="hljs-number">4</span>, <span class="hljs-number">5</span>])
+      <pre class='p1 overflow-auto round fill-light'>prepend([<span class="hljs-number">1</span>])([<span class="hljs-number">4</span>, <span class="hljs-number">5</span>])
 <span class="hljs-comment">// =&gt; [1, 4, 5]</span></pre>
     
   
@@ -8048,7 +8484,7 @@ source is Array</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>filter</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
+            <span class='code bold'>filter</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
 	    Filter object to match against each element
 
           </div>
@@ -8057,7 +8493,7 @@ source is Array</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>newValue</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
+            <span class='code bold'>newValue</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
 	    Object to replace matching elements
 
           </div>
@@ -8066,7 +8502,7 @@ source is Array</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="#object">Object</a>>)</code>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>)</code>
 	    Source array
 
           </div>
@@ -8098,26 +8534,26 @@ source is Array</p>
       
       <pre class='p1 overflow-auto round fill-light'>replaceWith(
  {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>},
- {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">title</span>: <span class="hljs-string">"boss"</span>, <span class="hljs-attr">isBoss</span>: <span class="hljs-literal">true</span>}
+ {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;boss&quot;</span>, <span class="hljs-attr">isBoss</span>: <span class="hljs-literal">true</span>}
  )([
-   {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">title</span>:<span class="hljs-string">"minion"</span>}
-   {<span class="hljs-attr">id</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">title</span>:<span class="hljs-string">"minion"</span>}
+   {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">title</span>:<span class="hljs-string">&quot;minion&quot;</span>}
+   {<span class="hljs-attr">id</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">title</span>:<span class="hljs-string">&quot;minion&quot;</span>}
  ])
 <span class="hljs-comment">// =&gt; [</span>
-<span class="hljs-comment">//   {id: 2, title:"boss", isBoss: true},</span>
-<span class="hljs-comment">//   {id: 3, title:"minion"}</span>
+<span class="hljs-comment">//   {id: 2, title:&quot;boss&quot;, isBoss: true},</span>
+<span class="hljs-comment">//   {id: 3, title:&quot;minion&quot;}</span>
 <span class="hljs-comment">// ]</span>
 
-replaceWith({ <span class="hljs-attr">id</span>: <span class="hljs-number">2</span> }, item =&gt; ({
+replaceWith({ <span class="hljs-attr">id</span>: <span class="hljs-number">2</span> }, <span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> ({
   ...item,
-  <span class="hljs-attr">content</span>: [<span class="hljs-string">"new"</span>, <span class="hljs-string">"updated"</span>, <span class="hljs-string">"field"</span>],
+  <span class="hljs-attr">content</span>: [<span class="hljs-string">&quot;new&quot;</span>, <span class="hljs-string">&quot;updated&quot;</span>, <span class="hljs-string">&quot;field&quot;</span>],
 }))([
-  { <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">"foo"</span>, <span class="hljs-attr">content</span>: [] },
-  { <span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">"bar"</span>, <span class="hljs-attr">content</span>: [] },
+  { <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;foo&quot;</span>, <span class="hljs-attr">content</span>: [] },
+  { <span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;bar&quot;</span>, <span class="hljs-attr">content</span>: [] },
 ])
 <span class="hljs-comment">// [</span>
-<span class="hljs-comment">//   { id: 1, name: "foo", content: [] },</span>
-<span class="hljs-comment">//   { id: 2, name: "bar", content: ["new", "updated", "field"] },</span>
+<span class="hljs-comment">//   { id: 1, name: &quot;foo&quot;, content: [] },</span>
+<span class="hljs-comment">//   { id: 2, name: &quot;bar&quot;, content: [&quot;new&quot;, &quot;updated&quot;, &quot;field&quot;] },</span>
 <span class="hljs-comment">// ],</span></pre>
     
   
@@ -8303,7 +8739,7 @@ replaceWith({ <span class="hljs-attr">id</span>: <span class="hljs-number">2</sp
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>sortWith( <span class="hljs-string">"position"</span> )( [
+      <pre class='p1 overflow-auto round fill-light'>sortWith( <span class="hljs-string">&quot;position&quot;</span> )( [
   { <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">position</span>: <span class="hljs-number">3</span> },
   { <span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">position</span>: <span class="hljs-number">2</span> },
   { <span class="hljs-attr">id</span>: <span class="hljs-number">3</span> },
@@ -8373,7 +8809,7 @@ replaceWith({ <span class="hljs-attr">id</span>: <span class="hljs-number">2</sp
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="#object">Object</a>>)</code>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>)</code>
 	    Source array to iterate over
 
           </div>
@@ -8388,7 +8824,7 @@ replaceWith({ <span class="hljs-attr">id</span>: <span class="hljs-number">2</sp
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
         Position of found element or -1 if not found
 
       
@@ -8403,13 +8839,13 @@ replaceWith({ <span class="hljs-attr">id</span>: <span class="hljs-number">2</sp
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> comments = [{<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">body</span>: <span class="hljs-string">""</span>}, {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">body</span>: <span class="hljs-string">"dolor"</span>}]
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> comments = [{<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">body</span>: <span class="hljs-string">&quot;&quot;</span>}, {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">body</span>: <span class="hljs-string">&quot;dolor&quot;</span>}]
 
-findIndex(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> item.body === <span class="hljs-string">"lorem"</span>)(comments)
+findIndex(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> item.body === <span class="hljs-string">&quot;lorem&quot;</span>)(comments)
 <span class="hljs-comment">// =&gt; -1</span>
 
-findIndex([<span class="hljs-keyword">get</span>("body"), equals("dolor")], null, comments)
-// =&gt; 1</pre>
+findIndex([get(<span class="hljs-string">&quot;body&quot;</span>), equals(<span class="hljs-string">&quot;dolor&quot;</span>)], <span class="hljs-literal">null</span>, comments)
+<span class="hljs-comment">// =&gt; 1</span></pre>
     
   
 
@@ -8597,8 +9033,6 @@ findIndex([<span class="hljs-keyword">get</span>("body"), equals("dolor")], null
   
 
   <p>Grater compare.</p>
-<p>Since this will mostly be used in pipe, the first param in the curry chain
-is the second operand.</p>
 
     <div class='pre p1 fill-light mt0'>gt</div>
   
@@ -8617,8 +9051,8 @@ is the second operand.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>second</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
-	    Second number
+            <span class='code bold'>a</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    First number
 
           </div>
           
@@ -8626,8 +9060,8 @@ is the second operand.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>first</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
-	    First number
+            <span class='code bold'>b</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    Second number
 
           </div>
           
@@ -8658,7 +9092,8 @@ is the second operand.</p>
       
       <pre class='p1 overflow-auto round fill-light'>gt(<span class="hljs-number">10</span>)(<span class="hljs-number">4</span>)
 <span class="hljs-comment">// =&gt; false</span>
-gt(<span class="hljs-number">10</span>)(<span class="hljs-number">14</span>)
+
+gt(<span class="hljs-number">10</span>, <span class="hljs-number">14</span>)
 <span class="hljs-comment">// =&gt; true</span></pre>
     
   
@@ -8799,7 +9234,7 @@ lt(<span class="hljs-number">10</span>)(<span class="hljs-number">14</span>)
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>min</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>
+            <span class='code bold'>min</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>
             = <code>0</code>)</code>
 	    Minimum value
 
@@ -8809,7 +9244,7 @@ lt(<span class="hljs-number">10</span>)(<span class="hljs-number">14</span>)
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>max</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>
+            <span class='code bold'>max</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>
             = <code>1</code>)</code>
 	    Maximum value
 
@@ -8884,19 +9319,43 @@ make each split.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>separator</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a>))</code>
-	    Points where each split should occur
-
+            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
+	    
           </div>
           
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    Source string
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>params.separator</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a>)</code>
+  </td>
+  <td class='break-word'><span>Points where each split should occur
+</span></td>
+</tr>
 
-          </div>
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>params.source</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
+  </td>
+  <td class='break-word'><span>Source string
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
           
         </div>
       
@@ -8923,8 +9382,118 @@ make each split.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>split( <span class="hljs-string">","</span> )( <span class="hljs-string">"lorem,ipsum"</span> )
-<span class="hljs-comment">// [ "lorem", "ipsum" ]</span></pre>
+      <pre class='p1 overflow-auto round fill-light'>split(<span class="hljs-string">&quot;,&quot;</span>, <span class="hljs-string">&quot;lorem,ipsum&quot;</span>)
+<span class="hljs-comment">// [&quot;lorem&quot;, &quot;ipsum&quot;]</span></pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='splitingroupsof'>
+      splitInGroupsOf
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Split an array into multiple arrays of set size</p>
+
+    <div class='pre p1 fill-light mt0'>splitInGroupsOf</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
+	    
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>params.size</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
+  </td>
+  <td class='break-word'><span></span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>params.source</span> <code class='quiet'><a href="#array">Array</a></code>
+  </td>
+  <td class='break-word'><span></span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#array">Array</a>&#x3C;<a href="#array">Array</a>></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>split(<span class="hljs-number">2</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>])
+<span class="hljs-comment">// [[1, 2], [3, 4]]</span></pre>
     
   
 
@@ -8972,7 +9541,7 @@ make each split.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>search</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+            <span class='code bold'>search</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
 	    Search string
 
           </div>
@@ -8981,8 +9550,17 @@ make each split.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
 	    Source string
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
+	    Function params
 
           </div>
           
@@ -8996,7 +9574,7 @@ make each split.</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="#boolean">Boolean</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
         
 
       
@@ -9011,10 +9589,10 @@ make each split.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>startsWith(<span class="hljs-string">"lorem"</span>, <span class="hljs-string">"lorem ipsum"</span>)
+      <pre class='p1 overflow-auto round fill-light'>startsWith(<span class="hljs-string">&quot;lorem&quot;</span>, <span class="hljs-string">&quot;lorem ipsum&quot;</span>)
 <span class="hljs-comment">// =&gt; true</span>
 
-startsWith(<span class="hljs-string">"dolor"</span>)(<span class="hljs-string">"lorem ipsum"</span>)
+startsWith(<span class="hljs-string">&quot;dolor&quot;</span>)(<span class="hljs-string">&quot;lorem ipsum&quot;</span>)
 <span class="hljs-comment">// false</span></pre>
     
   
@@ -9102,7 +9680,7 @@ startsWith(<span class="hljs-string">"dolor"</span>)(<span class="hljs-string">"
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>endWith(<span class="hljs-string">"ipsum"</span>)(<span class="hljs-string">"lorem ipsum"</span>)
+      <pre class='p1 overflow-auto round fill-light'>endWith(<span class="hljs-string">&quot;ipsum&quot;</span>)(<span class="hljs-string">&quot;lorem ipsum&quot;</span>)
 <span class="hljs-comment">// =&gt; true</span></pre>
     
   
@@ -9181,8 +9759,87 @@ startsWith(<span class="hljs-string">"dolor"</span>)(<span class="hljs-string">"
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>toLower(<span class="hljs-string">"Lorem Ipsum"</span>)
-<span class="hljs-comment">// "lorem ipsum"</span></pre>
+      <pre class='p1 overflow-auto round fill-light'>toLower(<span class="hljs-string">&quot;Lorem Ipsum&quot;</span>)
+<span class="hljs-comment">// &quot;lorem ipsum&quot;</span></pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='toupper'>
+      toUpper
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Convert string to upper case</p>
+
+    <div class='pre p1 fill-light mt0'>toUpper</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    Source string
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>toUpper(<span class="hljs-string">&quot;Lorem Ipsum&quot;</span>)
+<span class="hljs-comment">// &quot;LOREM IPSUM&quot;</span></pre>
     
   
 
@@ -9230,8 +9887,16 @@ startsWith(<span class="hljs-string">"dolor"</span>)(<span class="hljs-string">"
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>char</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-            = <code>&quot; &quot;</code>)</code>
+            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
+	    Function params
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>char</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
 	    Character to be removed
 
           </div>
@@ -9270,10 +9935,11 @@ startsWith(<span class="hljs-string">"dolor"</span>)(<span class="hljs-string">"
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>trim()(<span class="hljs-string">" lorem  "</span>)
-<span class="hljs-comment">// =&gt; "lorem"</span>
-trim(<span class="hljs-string">"-"</span>)(<span class="hljs-string">"-- lorem  --"</span>)
-<span class="hljs-comment">// =&gt; " lorem  "</span></pre>
+      <pre class='p1 overflow-auto round fill-light'>trim()(<span class="hljs-string">&quot; lorem  &quot;</span>)
+<span class="hljs-comment">// =&gt; &quot;lorem&quot;</span>
+
+trim(<span class="hljs-string">&quot;-&quot;</span>, <span class="hljs-string">&quot;-- lorem  -&quot;</span>)
+<span class="hljs-comment">// =&gt; &quot; lorem  &quot;</span></pre>
     
   
 
@@ -9360,7 +10026,7 @@ trim(<span class="hljs-string">"-"</span>)(<span class="hljs-string">"-- lorem  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>contains(<span class="hljs-string">"ipsum"</span>)(<span class="hljs-string">"lorem ipsum"</span>)
+      <pre class='p1 overflow-auto round fill-light'>contains(<span class="hljs-string">&quot;ipsum&quot;</span>)(<span class="hljs-string">&quot;lorem ipsum&quot;</span>)
 <span class="hljs-comment">// =&gt; true</span></pre>
     
   
@@ -9409,17 +10075,9 @@ trim(<span class="hljs-string">"-"</span>)(<span class="hljs-string">"-- lorem  
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>separator</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+            <span class='code bold'>separator</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
 	    Separator between each adjacent elements
 
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>rest</span> <code class='quiet'>(...any)</code>
-	    
           </div>
           
         </div>
@@ -9441,7 +10099,7 @@ trim(<span class="hljs-string">"-"</span>)(<span class="hljs-string">"-- lorem  
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
         
 
       
@@ -9456,8 +10114,8 @@ trim(<span class="hljs-string">"-"</span>)(<span class="hljs-string">"-- lorem  
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>join(<span class="hljs-string">","</span>)([<span class="hljs-string">"lorem"</span>, <span class="hljs-string">"ipsum"</span>])
-<span class="hljs-comment">// =&gt; "lorem,ipsum"</span></pre>
+      <pre class='p1 overflow-auto round fill-light'>join(<span class="hljs-string">&quot;,&quot;</span>)([<span class="hljs-string">&quot;lorem&quot;</span>, <span class="hljs-string">&quot;ipsum&quot;</span>])
+<span class="hljs-comment">// =&gt; &quot;lorem,ipsum&quot;</span></pre>
     
   
 
@@ -9537,8 +10195,8 @@ trim(<span class="hljs-string">"-"</span>)(<span class="hljs-string">"-- lorem  
       
       <pre class='p1 overflow-auto round fill-light'>{ example }
 
-escapeRegExp( <span class="hljs-string">"lorem. ipsum [dolor]"</span> )
-<span class="hljs-comment">// =&gt; "lorem \\. ipsum \\[dolor\\]"</span></pre>
+escapeRegExp( <span class="hljs-string">&quot;lorem. ipsum [dolor]&quot;</span> )
+<span class="hljs-comment">// =&gt; &quot;lorem \\. ipsum \\[dolor\\]&quot;</span></pre>
     
   
 
