@@ -34,9 +34,9 @@ const _readMany = (path, defaultValue, source) =>
  * Get value from obj property
  *
  * @param {string  |            string[]} path         Property name or dot path of props
- * @param {Any}    defaultValue Value to return if not found
- * @param {object} source       Source object
- * @param {...any} params       Function params
+ * @param {Any}                           defaultValue Value to return if not found
+ * @param {object}                        source       Source object
+ * @param {...any}                        params       Function params
  *
  * @returns {Any}
  *
