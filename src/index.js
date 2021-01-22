@@ -10,6 +10,7 @@ export { raise } from "./raise/raise"
 export { type } from "./type/type"
 export { throttle } from "./throttle/throttle"
 export { debounce } from "./debounce/debounce"
+export { isURI } from "./is-uri/is-uri"
 
 // Core
 export { map } from "./map/map"
