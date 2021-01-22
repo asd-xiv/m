@@ -4,6 +4,27 @@ import { isURI } from "./is-uri"
 
 describe("isURI", async assert => {
   assert({
+    given: "a number as source",
+    should: "return false",
+    actual: isURI(2),
+    expected: false,
+  })
+
+  assert({
+    given: "null as source",
+    should: "return false",
+    actual: isURI(null),
+    expected: false,
+  })
+
+  assert({
+    given: "undefined as source",
+    should: "return false",
+    actual: isURI(),
+    expected: false,
+  })
+
+  assert({
     given: "random word",
     should: "return false",
     actual: isURI("lorem"),
