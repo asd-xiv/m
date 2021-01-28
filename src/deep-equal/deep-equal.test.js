@@ -5,6 +5,16 @@ import { isDeepEqual } from "./deep-equal"
 const fn = () => {}
 
 test("isDeepEqual", t => {
+  t.equal(isDeepEqual(null, null), true, "Primitives: 1 === 1")
+
+  t.equal(isDeepEqual(undefined, undefined), true, "Primitives: 1 === 1")
+
+  t.equal(isDeepEqual(undefined, null), false, "Primitives: 1 === 1")
+
+  t.equal(isDeepEqual([undefined], []), false, "Primitives: 1 === 1")
+
+  t.equal(isDeepEqual([null], [null]), true, "Primitives: 1 === 1")
+
   t.equal(isDeepEqual(1, 1), true, "Primitives: 1 === 1")
 
   t.equal(isDeepEqual(1, "3"), false, 'Primitives: 1 !== "3"')
@@ -72,7 +82,7 @@ test("isDeepEqual", t => {
         "lvl1-1": { a: [1, 2], b: 3 },
       },
       {
-        "lvl1-1": { a: [1, 2], b: {} },
+        "lvl1-1": { a: [2, 1], b: 3 },
         lvl1: [1, 2, 3],
       }
     ),
