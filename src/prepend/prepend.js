@@ -2,9 +2,7 @@ import { curry } from "../curry/curry"
 
 const _prepend = (subset, source) => {
   if (Array.isArray(source)) {
-    return Array.isArray(subset)
-      ? subset.concat(source)
-      : [subset].concat(source)
+    return Array.isArray(subset) ? [...subset, ...source] : [subset, ...source]
   }
 
   return subset + source

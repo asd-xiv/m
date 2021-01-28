@@ -5,7 +5,7 @@ import { escape } from "../escape/escape"
  *
  * @param {string} source Source string
  *
- * @returns  {string}
+ * @returns {string}
  *
  * @tag String
  * @signature ( source: string ): string

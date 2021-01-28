@@ -25,7 +25,7 @@ const flattenObject = (source, prefix = null) =>
  *
  * @param {Array | object} source Array or Object to flatten
  *
- * @returns {Array}  1 level deep array
+ * @returns {Array} 1 level deep array
  *
  * @example
  * flatten([1, [2], [3, [4]]])

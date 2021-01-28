@@ -10,7 +10,7 @@ const _intersect = (predicateFn, unionFn, aList, bList) => {
     return aList
   }
 
-  const result = [].concat(aList)
+  const result = [...aList]
 
   for (let index = 0; index < bList.length; ++index) {
     const b = bList[index]

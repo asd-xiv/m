@@ -24,7 +24,7 @@ const _countBy = (_fn, _source) => {
  * @param {Function|Function[]}            fn     Match function
  * @param {Array                |  object} source Source array, if object passed, Object.entries will be iterated over
  *
- * @returns  {number}
+ * @returns {number}
  *
  * @name count
  * @tag Array

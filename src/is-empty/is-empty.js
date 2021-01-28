@@ -5,7 +5,7 @@ import { type } from "../type/type"
  *
  * @param {Any} source Source input
  *
- * @returns  {boolean}  True if empty, False otherwise
+ * @returns {boolean} True if empty, False otherwise
  *
  * @tag Core
  * @signature (source: any): boolean

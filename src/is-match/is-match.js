@@ -33,7 +33,7 @@ const _isMatch = (subset, source) =>
  * @param {object} subset Set of properties that should match
  * @param {object} source Object matching against
  *
- * @returns {boolean}  True if all "subset" properties are of equal (shallow
+ * @returns {boolean} True if all "subset" properties are of equal (shallow
  * compare) value to properties in "source" object, otherwise false
  *
  * @example

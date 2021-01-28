@@ -31,7 +31,7 @@
     "test:ci": "tape dist/*.test.js dist/**/*.test.js | tap-nirvana",
     "test-ui": "tape-ui -r @babel/register 'src/**/*.test.js' 'src/**/*.test.jsx'",
     "lint": "npm run lint:js && npm run lint:md",
-    "lint:js": "eslint src",
+    "lint:js": "eslint --quiet src",
     "lint:md": "markdownlint *.md",
     "coverage:report": "nyc npm test && nyc report --reporter=html",
     "coverage:ci": "nyc npm run test && nyc report --reporter=text-lcov | coveralls"

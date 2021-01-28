@@ -6,7 +6,7 @@
  *
  * @param {Array | object} source Array or Object to extract keys from
  *
- * @returns  {string[]} List of property names
+ * @returns {string[]} List of property names
  *
  * @example
  * keys(["lorem", "ipsum"])

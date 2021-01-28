@@ -15,7 +15,7 @@ import { reduce } from "../reduce/reduce"
  * @param {Function[]} rest   Remaining bottom functions
  * @param {Array}      source First function arguments
  *
- * @returns  {Promise<any>}
+ * @returns {Promise<any>}
  *
  * @example
  * const inc = input => input + 1

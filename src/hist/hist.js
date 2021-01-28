@@ -54,7 +54,7 @@ const byType = {
  * @param {string}   field  Field name to count
  * @param {object[]} source Array of objects
  *
- * @returns  {object}
+ * @returns {object}
  *
  * @example
  *
