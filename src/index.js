@@ -11,6 +11,7 @@ export { type } from "./type/type"
 export { throttle } from "./throttle/throttle"
 export { debounce } from "./debounce/debounce"
 export { isURI } from "./is-uri/is-uri"
+export { spy } from "./spy/spy"
 
 // Core
 export { map } from "./map/map"
