@@ -3,7 +3,7 @@
  *
  * @param {number}  left        Left limit
  * @param {number}  right       Right limit
- * @param {object}  arg3        Props
+ * @param {Object}  arg3        Props
  * @param {boolean} arg3.closed If intervals is closed or not
  *
  * @returns {boolean}

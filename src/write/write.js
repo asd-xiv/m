@@ -4,9 +4,9 @@
  *
  * @param {string} key    Property name
  * @param {mixed}  value  Property value
- * @param {object} source Source object
+ * @param {Object} source Source object
  *
- * @returns {object}
+ * @returns {Object}
  *
  * @name write
  * @tag Object

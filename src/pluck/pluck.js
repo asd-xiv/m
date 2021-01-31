@@ -2,9 +2,9 @@ import { map } from "../map/map"
 
 /**
  * @param {string[]} keys   The properties to be filtered out
- * @param {object}   source The source object
+ * @param {Object}   source The source object
  *
- * @returns {object}
+ * @returns {Object}
  */
 const _pluckOne = (keys, source) => {
   const result = {}
@@ -22,10 +22,10 @@ const _pluckOne = (keys, source) => {
 }
 
 /**
- * @param {string[]}        keys
- * @param {object|object[]} source
+ * @param {string[]}          keys
+ * @param {Object | Object[]} source
  *
- * @returns {object|object[]}
+ * @returns {Object | Object[]}
  */
 const _pluck = (keys, source) =>
   Array.isArray(source)
@@ -38,7 +38,7 @@ const _pluck = (keys, source) =>
  *
  * @param {...any} params
  *
- * @returns {object|object[]}
+ * @returns {Object | Object[]}
  *
  * @tag Object
  * @signature (keys: string[]) => (source: Object): Object

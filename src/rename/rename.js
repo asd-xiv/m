@@ -1,10 +1,10 @@
 import { map } from "../map/map"
 
 /**
- * @param {object} mappings
- * @param {object} source
+ * @param {Object} mappings
+ * @param {Object} source
  *
- * @returns {object}
+ * @returns {Object}
  */
 const _renameOne = (mappings, source) => {
   const entries = Object.entries(mappings)
@@ -23,10 +23,10 @@ const _renameOne = (mappings, source) => {
 }
 
 /**
- * @param {object}          mappings
- * @param {object|object[]} source
+ * @param {Object}            mappings
+ * @param {Object | Object[]} source
  *
- * @returns {object|object[]}
+ * @returns {Object | Object[]}
  */
 const _renameMany = (mappings, source) =>
   map(item => _renameOne(mappings, item), source)
@@ -36,7 +36,7 @@ const _renameMany = (mappings, source) =>
  *
  * @param {...any} params
  *
- * @returns {object|object[]}
+ * @returns {Object | Object[]}
  *
  * @name renameKeys
  * @tag Object

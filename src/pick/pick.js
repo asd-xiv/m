@@ -1,6 +1,6 @@
 /**
  * @param {string}   key    Field name to extract values from
- * @param {object[]} source Array of objects
+ * @param {Object[]} source Array of objects
  *
  * @returns {Array}
  */

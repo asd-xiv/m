@@ -65,9 +65,9 @@ const replace = (oldElm, newElm) => source => {
  * @tag Array
  * @signature (filter: Obj, replace: Obj|Function) => (source: Obj[]): Obj[]
  *
- * @param {object}   filter   Filter object to match against each element
- * @param {object}   newValue Object to replace matching elements
- * @param {object[]} source   Source array
+ * @param {Object}   filter   Filter object to match against each element
+ * @param {Object}   newValue Object to replace matching elements
+ * @param {Object[]} source   Source array
  *
  * @returns {Array}
  *

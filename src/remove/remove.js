@@ -51,7 +51,7 @@ export const remove = (...params) => {
  * Remove element(s) by matching object
  *
  * @param {...any} params
- * @param {object} params.subset Match object
+ * @param {Object} params.subset Match object
  * @param {Array}  params.source Source array
  *
  * @returns {Array}

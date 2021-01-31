@@ -6,7 +6,7 @@ import { is } from "../is/is"
  *
  * @param {Array} source Source input
  *
- * @returns {object}
+ * @returns {Object}
  */
 const byArray = source => {
   const result = {}
@@ -23,7 +23,7 @@ const byArray = source => {
  *
  * @param {string} field The field
  *
- * @returns {object}
+ * @returns {Object}
  */
 const byKey = field => source => {
   const result = {}
@@ -52,9 +52,9 @@ const byType = {
  * @signature (field: string)(source: Object[]): Object
  *
  * @param {string}   field  Field name to count
- * @param {object[]} source Array of objects
+ * @param {Object[]} source Array of objects
  *
- * @returns {object}
+ * @returns {Object}
  *
  * @example
  *

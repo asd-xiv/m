@@ -55,7 +55,7 @@ export const find = (...params) => {
 /**
  * Find the first element that matches an object
  *
- * @param {object} subset          Match object
+ * @param {Object} subset          Match object
  * @param {Any}    notFoundDefault Return if no item found
  * @param {Array}  source          Source array to iterate over
  * @param {...any} params          Function params

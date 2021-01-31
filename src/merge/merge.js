@@ -31,10 +31,10 @@ const _merge = (fn, source) => {
  *
  * @tag Object
  * @signature ( ...source: Object[] ): Object
- * @param {object[]} source Array of objects
+ * @param {Object[]} source Array of objects
  * @param {...any}   params Function params
  *
- * @returns {object}
+ * @returns {Object}
  *
  * @example
  *

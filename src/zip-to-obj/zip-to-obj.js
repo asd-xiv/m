@@ -5,7 +5,7 @@
  * @param {Array} keys   Array with keys
  * @param {Array} values Array with values
  *
- * @returns {object}
+ * @returns {Object}
  *
  * @tag Array
  * @signature ( keys: Array ) => ( values: Array ): Object

@@ -10,7 +10,7 @@ import { is, isNothing, isTrue, not, isFalse, isObject } from "./is"
  *
  * @param {any} source Source variable
  *
- * @return {boolean}
+ * @returns {boolean}
  *
  * @example
  *

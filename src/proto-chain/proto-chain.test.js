@@ -10,9 +10,6 @@ test("protoChain", t => {
     "Proto chain of object without Object proto"
   )
 
-  /**
-   * Prototypal enharitance
-   */
   const MetaObject = function MetaObject() {
     // super constructor
     Object.call(this)
