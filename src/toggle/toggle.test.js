@@ -1,9 +1,9 @@
 import test from "tape"
-import { toggle } from ".."
+import { toggle } from "./toggle"
 
 test("toggle", t => {
   t.deepEqual(
-    toggle(2)([1, 2, 3]),
+    toggle(2, [1, 2, 3]),
     [1, 3],
     "Toggle/remove existing element in array"
   )
