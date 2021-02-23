@@ -1,7 +1,9 @@
 import test from "tape"
+
 import { pipeP } from "./pipe-p"
 
-const inc = input => input + 1
+const inc = source => source + 1
+
 const sum = (a = 0, b = 0) =>
   new Promise(resolve => {
     setTimeout(() => {

@@ -2,25 +2,27 @@
  * Performs left-to-right function composition. The leftmost function may have
  * any arity, the remaining functions must be unary.
  *
- * @param {Function}   first  First function in transform chain
- * @param {Function[]} rest   Remaining functions
+ * @param {Function}   firstFn  First function in transform chain
+ * @param {Function[]} restFn   Remaining functions
  * @param {Array}      source First function arguments
  *
  * @returns {Any}
  *
  * @name pipe
  * @tag Core
- * @signature (...fn: Fn[]) => (...source: Array): Any
+ * @signature (...fn: Function[]) => (...source: Array): Any
+ *
+ * @see {@link pipeP}
  *
  * @example
  * pipe(inc, inc)(2)
  * // => 4
  */
-export const pipe = (first, ...rest) => (...source) => {
-  let acc = first(...source)
+export const pipe = (firstFn, ...restFn) => (...source) => {
+  let acc = firstFn(...source)
 
-  for (let i = 0, length = rest.length; i < length; i++) {
-    acc = rest[i](acc, source[i], i, source)
+  for (let index = 0, length = restFn.length; index < length; index++) {
+    acc = restFn[index](acc)
   }
 
   return acc
