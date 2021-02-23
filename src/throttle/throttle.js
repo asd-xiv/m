@@ -1,39 +1,47 @@
 /**
- * Call a function only if it hasn't been called in the last `timeWindow` ms.
+ * Create a wrapper function that is invoked once every time interval, regardless
+ * of how many times is called.
  *
- * @param {Function} fn         Function to be ran
- * @param {integer}  timeWindow Time between each `fn` call
+ * @param {Function} fn
+ * @param {Object}   [props]
+ * @param {number}   [props.wait=50]           Time in milliseconds between "fn" invokations
+ * @param {boolean}  [props.hasLastCall=false] If should call "fn" after wrapper is no longer called
  *
- * @returns {Function} Either return `fn` if you've passed the `timeWindow` or
- * return a timer that will run the `fn` in `timeWindow` ms
+ * @returns {Function}
+ *
+ * @name throttle
+ * @tag Core
+ * @signature (fn: Function, { wait: number }): Function
+ *
+ * @example
+ * const thottledMouseMove = throttle(mouseMove, { wait: 100 })
+ *
+ * // render
+ * <input onMouseMove={thottledMouseMove} ... />
  */
-const throttle = (
-  fn,
-  { timeWindow = 50, bind = null, hasLastCall = false } = {}
-) => {
-  let lastExecution = new Date(new Date().getTime() - timeWindow)
+const throttle = (fn, { wait = 50, hasLastCall = false } = {}) => {
+  let lastExecution = new Date(Date.now() - wait)
 
   let finalRunTimer
 
-  return (...args) => {
-    const hasTimeWindowPassed =
-      lastExecution.getTime() + timeWindow <= new Date().getTime()
+  return (...params) => {
+    const hasTimeWindowPassed = lastExecution.getTime() + wait <= Date.now()
 
+    // once every
     if (hasTimeWindowPassed) {
       lastExecution = new Date()
 
-      fn.apply(bind, args)
+      fn(...params)
     }
 
     if (hasLastCall) {
-      // reset timer at every function call
       clearTimeout(finalRunTimer)
 
       finalRunTimer = setTimeout(() => {
         lastExecution = new Date()
 
-        fn.apply(bind, args)
-      }, timeWindow)
+        fn(...params)
+      }, wait)
     }
   }
 }

@@ -1,50 +1,45 @@
 import test from "tape"
-import { throttle } from ".."
+import { throttle } from "./throttle"
 
 test("throttle", t => {
-  /**
-   * Throttle with defaults
-   */
-  let defaultCounter = 0
-  const defaultInc = throttle(() => {
-    defaultCounter++
-  })
+  {
+    const callData = []
+    const fn = source => callData.push(source)
+    const throttledFn = throttle(fn)
 
-  for (let i = 0; i < 100; i++) {
-    defaultInc()
+    for (let i = 0; i < 100; i++) {
+      throttledFn(i)
+    }
+
+    setTimeout(() => {
+      t.deepEqual(
+        callData,
+        [0],
+        "Calling throttled function 100 times should run it once - using default throttle props"
+      )
+    }, 100)
   }
 
-  setTimeout(() => {
-    t.equal(
-      defaultCounter,
-      1,
-      "Calling throttled function 100 times should run it once"
-    )
-  }, 100)
+  {
+    const callData = []
+    const fn = source => callData.push(source)
+    const throttledFn = throttle(fn, {
+      timeWindow: 50,
+      hasLastCall: true,
+    })
 
-  /**
-   * Throttle with custom
-   */
+    for (let i = 0; i < 100; i++) {
+      throttledFn(i)
+    }
 
-  let customCounter = 0
-  const customInc = throttle(
-    () => {
-      customCounter++
-    },
-    { timeWindow: 50, bind: null, hasLastCall: true }
-  )
+    setTimeout(() => {
+      t.deepEqual(
+        callData,
+        [0, 99],
+        "Calling throttled function 100 times with lastCall enabled should run it twice - using custom throttle props"
+      )
 
-  for (let i = 0; i < 100; i++) {
-    customInc()
+      t.end()
+    }, 100)
   }
-
-  setTimeout(() => {
-    t.equal(
-      customCounter,
-      2,
-      "Calling throttled function 100 times with lastCall enabled should run it twice"
-    )
-
-    t.end()
-  }, 100)
 })
