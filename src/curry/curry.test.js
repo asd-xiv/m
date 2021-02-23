@@ -1,26 +1,31 @@
-import test from "tape"
+import { describe } from "riteway"
+
 import { curry } from "./curry"
 
 const sum = (a, b) => a + b
 
-// can curry multiple times and pass multiple parameters on each curry
-const sumThree = (a, b, c) => a + b + c
+describe("curry", async assert => {
+  assert({
+    given:
+      "sum function, accepting two parameters, called with numeric values for both",
+    should: "return the sum of passed values",
+    actual: curry(sum)(2, 3),
+    expected: 5,
+  })
 
-test("curry", t => {
-  // does nothing if there are enough parameters
-  t.equal(curry(sum)(2, 3), 5)
+  assert({
+    given:
+      "sum function, accepting two parameters, called with numeric values in curried form",
+    should: "return the sum of passed values",
+    actual: curry(sum)(2)(3),
+    expected: 5,
+  })
 
-  // curries the function if there aren't
-  const addTwo = curry(sum)(2)
-
-  t.equal(addTwo(3), 5)
-
-  const addOne = curry(sumThree)(1)
-  const addFourA = curry(addOne)(3)
-  const addFourB = curry(sumThree)(2, 2)
-
-  t.equal(addFourA(1), 5)
-  t.equal(addFourA(1), addFourB(1))
-
-  t.end()
+  assert({
+    given:
+      "sum function, accepting two parameters, called with no parameters two times in curried form",
+    should: "return NaN",
+    actual: curry(sum)()(),
+    expected: Number.NaN,
+  })
 })
