@@ -1,5 +1,7 @@
+/* eslint-disable unicorn/no-null */
+
 import test from "tape"
-import { sort, sortWith } from ".."
+import { sort, sortWith } from "./sort"
 
 test("sort(With)", t => {
   const source = [

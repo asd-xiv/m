@@ -1,42 +1,44 @@
+import { curry } from "../curry/curry"
 import { is } from "../is/is"
 
 /**
  * Sort array using custom function
  *
  * @param {Function} fn     Sort function
- * @param {Array}    source Array
+ * @param {Array}    source
  *
  * @returns {Array}
  *
+ * @name sort
  * @tag Array
- * @signature ( fn: Function ) => ( source: Array ): Array
+ * @signature (fn: Function) => (source: Array): Array
  *
  * @example
  * sort((a,b) => a.id-b.id)([{id:2}, {id: 1}])
  * // => [{id:1}, {id: 2}]
  */
-const sort = fn => source => [...source].sort(fn)
+const sort = curry((fn, source) => [...source].sort(fn))
 
 /**
  * Sort an array of objects by a custom field
  *
  * @tag Array
- * @signature ( field: string, direction: string ) => ( source: Array ): Array
+ * @signature (field: string, direction: string) => (source: Array): Array
  *
- * @param {string} field     Sort field name
- * @param {string} direction Sort direction
- * @param {Array}  source    Input array
+ * @param {string}       field
+ * @param {"asc"|"desc"} direction
+ * @param {Array}        source
  *
  * @returns {Array}
  *
  * @example
- * sortWith( "position" )( [
+ * sortWith("position")([
  *   { id: 1, position: 3 },
  *   { id: 2, position: 2 },
  *   { id: 3 },
  *   { id: 4, position: 5 },
  *   { id: 5, position: null },
- * ] )
+ * ])
  * // [
  * //  { id: 2, position: 2 },
  * //  { id: 1, position: 3 },
