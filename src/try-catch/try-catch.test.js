@@ -1,7 +1,7 @@
 import test from "tape"
 
 import { inc } from "../inc/inc"
-import { tryCatch } from ".."
+import { tryCatch } from "./try-catch"
 
 test("tryCatch", t => {
   t.equals(

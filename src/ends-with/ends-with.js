@@ -24,9 +24,10 @@ const _endsWith = (search, source) => {
  *
  * @tag String
  * @signature (search: String, source: String): Boolean
+ * @signature (search: String)(source: String): Boolean
  *
  * @example
- * endWith("ipsum")("lorem ipsum")
+ * endWith("ipsum", "lorem ipsum")
  * // => true
  */
 export const endsWith = curry(_endsWith)

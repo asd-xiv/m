@@ -1,5 +1,5 @@
 import test from "tape"
-import { replace, replaceWith } from ".."
+import { replace, replaceWith } from "./replace"
 
 test("replace(With)", t => {
   t.equals(

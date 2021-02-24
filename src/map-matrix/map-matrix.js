@@ -5,11 +5,19 @@ const _mapMatrix = (_fn, source) => {
   const result = []
   const fn = Array.isArray(_fn) ? pipe(..._fn) : _fn
 
-  for (let i = 0, rowCount = source.length; i < rowCount; ++i) {
+  for (
+    let rowIndex = 0, rowCount = source.length;
+    rowIndex < rowCount;
+    ++rowIndex
+  ) {
     const row = []
 
-    for (let j = 0, columnCount = source[i].length; j < columnCount; ++j) {
-      row.push(fn(source[i][j], i, j, source))
+    for (
+      let columnIndex = 0, columnCount = source[rowIndex].length;
+      columnIndex < columnCount;
+      ++columnIndex
+    ) {
+      row.push(fn(source[rowIndex][columnIndex], rowIndex, columnIndex, source))
     }
 
     result.push(row)
@@ -23,10 +31,10 @@ const _mapMatrix = (_fn, source) => {
  * a function on each element, returning a new matrix with the transformed
  * elements.
  *
- * @param {Fn|Fn[]} fn     Transform function called on all elements
- * @param {[][]}    source Two-dimensional array to iterate over
+ * @param {Function|Function[]} fn     Transform function called on all elements
+ * @param {any[][]}             source Two-dimensional array to iterate over
  *
- * @returns {[][]} New array instance
+ * @returns {any[][]} New array instance
  *
  * @name mapMatrix
  * @tag Array

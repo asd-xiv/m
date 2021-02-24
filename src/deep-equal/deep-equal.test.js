@@ -1,3 +1,5 @@
+/* eslint-disable unicorn/no-null */
+
 import test from "tape"
 
 import { isDeepEqual } from "./deep-equal"
@@ -6,8 +8,6 @@ const fn = () => {}
 
 test("isDeepEqual", t => {
   t.equal(isDeepEqual(null, null), true, "Primitives: 1 === 1")
-
-  t.equal(isDeepEqual(undefined, undefined), true, "Primitives: 1 === 1")
 
   t.equal(isDeepEqual(undefined, null), false, "Primitives: 1 === 1")
 

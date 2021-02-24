@@ -1,12 +1,13 @@
 /**
  * Get list with names of all own properties
  *
- * @tag Array,Object
- * @signature (source: Array|Object): string[]
- *
- * @param {Array | Object} source Array or Object to extract keys from
+ * @param {Array|Object} source Array or Object to extract keys from
  *
  * @returns {string[]} List of property names
+ *
+ * @name keys
+ * @tag Array,Object
+ * @signature (source: Array|Object): string[]
  *
  * @example
  * keys(["lorem", "ipsum"])
@@ -31,8 +32,8 @@ export const keys = source => {
       const entries = Object.entries(source)
       const result = []
 
-      for (let i = 0; i < entries.length; ++i) {
-        result.push(entries[i][0])
+      for (const entry of entries) {
+        result.push(entry[0])
       }
 
       return result

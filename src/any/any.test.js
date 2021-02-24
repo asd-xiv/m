@@ -1,3 +1,5 @@
+/* eslint-disable unicorn/no-null */
+
 import test from "tape"
 
 import { any, anyWith } from "./any"
@@ -7,13 +9,13 @@ const isNumber = source => Number.isFinite(source)
 
 test("any", t => {
   t.equal(
-    any(1, [1, "string", NaN]),
+    any(1, [1, "string", Number.NaN]),
     true,
     "Check any element is equal to primitive"
   )
 
   t.equal(
-    any(isNumber, [1, "string", NaN]),
+    any(isNumber, [1, "string", Number.NaN]),
     true,
     "Check any element is number"
   )

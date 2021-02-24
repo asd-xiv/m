@@ -1,3 +1,5 @@
+/* eslint-disable unicorn/no-null */
+
 import test from "tape"
 
 import { isEqual } from "../is-equal/is-equal"

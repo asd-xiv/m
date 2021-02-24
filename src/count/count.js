@@ -10,7 +10,7 @@ const _countBy = (_fn, _source) => {
   let result = 0
 
   for (let i = 0, length = source.length; i < length; i++) {
-    if (fn.call(null, source[i]) === true) {
+    if (fn(source[i]) === true) {
       result = result + 1
     }
   }
@@ -21,8 +21,8 @@ const _countBy = (_fn, _source) => {
 /**
  * Count the number of elements that satisfies a function
  *
- * @param {Function|Function[]}            fn     Match function
- * @param {Array                |  object} source Source array, if object passed, Object.entries will be iterated over
+ * @param {Function|Function[]} fn     Match function
+ * @param {Array|Object}        source If object passed, Object.entries will be iterated over
  *
  * @returns {number}
  *
@@ -56,8 +56,8 @@ export const countBy = curry(_countBy)
 /**
  * Count elements in array or object that match object
  *
- * @param {object}                subset Match object
- * @param {Array   |      object} source Source array, if object passed, Object.entries will be iterated over
+ * @param {Object}       subset Match object
+ * @param {Array|Object} source If object passed, Object.entries will be iterated over
  *
  * @returns {number}
  *

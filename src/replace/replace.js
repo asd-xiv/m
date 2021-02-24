@@ -16,8 +16,8 @@ const replaceString = (oldString, newString) => source =>
 /**
  * Replace element in array (shallow equal)
  *
- * @param {mixed} oldElm The old elm
- * @param {mixed} newElm The new elm
+ * @param {any} oldElm
+ * @param {any} newElm
  *
  * @returns {Array}
  */
@@ -39,14 +39,14 @@ const replaceArray = (oldElm, newElm) => source => {
  * Replace substring if source is string, replace element (shallow equal) if
  * source is Array
  *
- * @param {string|mixed} oldElm To be cloned
- * @param {string|mixed} newElm Copy of this object.
- * @param {string|Array} source Source array
+ * @param {string|any}   oldElm
+ * @param {string|any}   newElm
+ * @param {string|Array} source
  *
  * @returns {string|Array}
  *
  * @tag String,Array
- * @signature (oldElm: string|mixed, newElm: string|mixed) => (source: Array): Array
+ * @signature (oldElm: string|any, newElm: string|any) => (source: Array): Array
  *
  */
 const replace = (oldElm, newElm) => source => {
@@ -67,7 +67,7 @@ const replace = (oldElm, newElm) => source => {
  *
  * @param {Object}   filter   Filter object to match against each element
  * @param {Object}   newValue Object to replace matching elements
- * @param {Object[]} source   Source array
+ * @param {Object[]} source
  *
  * @returns {Array}
  *

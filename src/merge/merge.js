@@ -3,22 +3,8 @@ import { is } from "../is/is"
 const _merge = (fn, source) => {
   let result = {}
 
-  for (let i = 0, length = source.length; i < length; i++) {
-    const sourceEntries = Object.entries(source[i])
-
-    if (is(fn)) {
-      result = fn(result, source[i])
-    } else {
-      for (
-        let j = 0, sourceEntriesLength = sourceEntries.length;
-        j < sourceEntriesLength;
-        j++
-      ) {
-        const [key, value] = sourceEntries[j]
-
-        result[key] = value
-      }
-    }
+  for (const object of source) {
+    result = is(fn) ? fn(result, object) : { ...result, ...object }
   }
 
   return result
@@ -29,12 +15,14 @@ const _merge = (fn, source) => {
  * Properties will be shallow copied. Those with the same name will be
  * overwriten by right most object.
  *
- * @tag Object
- * @signature ( ...source: Object[] ): Object
  * @param {Object[]} source Array of objects
  * @param {...any}   params Function params
  *
  * @returns {Object}
+ *
+ * @name merge
+ * @tag Object
+ * @signature (...source: Object[]): Object
  *
  * @example
  *
@@ -44,11 +32,11 @@ const _merge = (fn, source) => {
 export const merge = (...params) => {
   // @signature (obj1) => (obj2)
   if (params.length <= 1) {
-    return obj2 => _merge(null, [params[0], obj2])
+    return nextObject => _merge(undefined, [params[0], nextObject])
   }
 
   // @signature (obj1, obj2)
-  return _merge(null, params)
+  return _merge(undefined, params)
 }
 
 export const mergeBy = (...params) => {
@@ -61,4 +49,4 @@ export const mergeBy = (...params) => {
   return _merge(...params)
 }
 
-export const mergeAll = source => _merge(null, source)
+export const mergeAll = source => _merge(undefined, source)

@@ -1,3 +1,5 @@
+/* eslint-disable unicorn/no-null */
+
 import { describe } from "riteway"
 
 import { isURI } from "./is-uri"

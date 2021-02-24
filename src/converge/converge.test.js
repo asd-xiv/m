@@ -30,10 +30,9 @@ test("converge", t => {
   )
 
   t.equals(
-    converge(sum, [(param1, param2) => param1 + read([0, "b"])(param2)])(
-      1,
-      source
-    ),
+    converge(sum, [
+      (parameter1, parameter2) => parameter1 + read([0, "b"])(parameter2),
+    ])(1, source),
     3,
     "Any arity on source parameter (curried)"
   )
@@ -41,7 +40,7 @@ test("converge", t => {
   t.equals(
     converge(
       sum,
-      [(param1, param2) => param1 + read([0, "b"])(param2)],
+      [(parameter1, parameter2) => parameter1 + read([0, "b"])(parameter2)],
       1,
       source
     ),

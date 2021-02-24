@@ -1,5 +1,6 @@
 import test from "tape"
-import { write } from ".."
+
+import { write } from "./write"
 
 test("write", t => {
   const source = { lorem: "ipsum" }

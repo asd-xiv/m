@@ -5,8 +5,8 @@ const _isEqual = (a, b) => (Number.isNaN(a) && Number.isNaN(b) ? true : a === b)
 /**
  * Check if a tripple-equals b (accounts for null, undefined and NaN)
  *
- * @param {Mixed} a First value
- * @param {Mixed} b Second value
+ * @param {any} a First value
+ * @param {any} b Second value
  *
  * @returns {boolean}
  *

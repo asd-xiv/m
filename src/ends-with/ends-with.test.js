@@ -2,7 +2,7 @@ import test from "tape"
 
 import { endsWith } from "./ends-with"
 
-test("string::endsWith", t => {
+test("endsWith", t => {
   t.equals(
     endsWith("ipsum")("lorem ipsum"),
     true,

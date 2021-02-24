@@ -8,10 +8,9 @@ import { escape } from "../escape/escape"
  * @returns {string}
  *
  * @tag String
- * @signature ( source: string ): string
+ * @signature (source: string): string
  *
- * @example { example }
- *
+ * @example
  * escapeRegExp( "lorem. ipsum [dolor]" )
  * // => "lorem \\. ipsum \\[dolor\\]"
  */

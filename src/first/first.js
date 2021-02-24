@@ -3,7 +3,7 @@
  *
  * @param {Array} source The source
  *
- * @returns {mixed}
+ * @returns {any}
  *
  * @tag Array
  * @signature (source: Array): mixed

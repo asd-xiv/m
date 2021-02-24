@@ -1,12 +1,15 @@
 /**
  * Convert string to lower case
  *
- * @tag String
- * @signature ( source: string ): string
- *
- * @param {string} source Source string
+ * @param {string} source
  *
  * @returns {string}
+ *
+ * @name toLower
+ * @tag String
+ * @signature (source: string): string
+ *
+ * @see {@link toUpper}
  *
  * @example
  * toLower("Lorem Ipsum")

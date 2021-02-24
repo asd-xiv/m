@@ -1,3 +1,5 @@
+/* eslint-disable jsdoc/check-param-names,jsdoc/require-param */
+
 import { pipe } from "../pipe/pipe"
 import { isMatch } from "../is-match/is-match"
 
@@ -19,12 +21,11 @@ const _find = (_fn, notFoundDefault, _source) => {
 /**
  * Find the first element that matches a predicate
  *
- * @param {Fn|Fn[]} fn              Match function applied to each element
- * @param {Any}     notFoundDefault Return if no item found
- * @param {Array}   source          Source array to iterate over
- * @param {...any}  params          Function params
+ * @param {Function|Function[]} fn  Match function applied to each element
+ * @param {any}                 notFoundDefault Return if no item found
+ * @param {Array}               source          Source array to iterate over
  *
- * @returns {Any} First element found or undefined
+ * @returns {any}
  *
  * @name find
  * @tag Array
@@ -56,11 +57,10 @@ export const find = (...params) => {
  * Find the first element that matches an object
  *
  * @param {Object} subset          Match object
- * @param {Any}    notFoundDefault Return if no item found
+ * @param {any}    notFoundDefault Return if no item found
  * @param {Array}  source          Source array to iterate over
- * @param {...any} params          Function params
  *
- * @returns {Any} First element found or undefined
+ * @returns {any} First element found or undefined
  *
  * @name findWith
  * @tag Array

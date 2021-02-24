@@ -11,8 +11,8 @@ const _prepend = (subset, source) => {
 /**
  * Add array or element at begining of array
  *
- * @param {mixed|Array} subset Content to add
- * @param {Array}       source Source array to prepend to
+ * @param {any|Array} subset Content to add
+ * @param {Array}     source Source array to prepend to
  *
  * @returns {Array}
  *

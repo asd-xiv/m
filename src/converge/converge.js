@@ -20,12 +20,12 @@ const _converge = (_accFn, _extractFn, ...source) => {
  * Apply a list of function (extract functions) on the same input and use
  * the results as parameters for a final accumulator function.
  *
- * @param {Fn|Fn[]} accFn     Accumulator or final aggreate function
- * @param {Fn|Fn[]} extractFn List of functions to be applied on input
- * @param {Any}     ...source Source input
+ * @param {Function|Function[]} accFn     Accumulator or final aggreate function
+ * @param {Function|Function[]} extractFn Functions to be applied on input
+ * @param {any}     ...source Source input
  * @param {...any}  params    Function params
  *
- * @returns {Any}
+ * @returns {any}
  *
  * @name converge
  * @tag Core

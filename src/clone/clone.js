@@ -6,9 +6,9 @@ import { type } from "../type/type"
  * Creates a new instance of the object with same properties than original.
  * Will not inherit prototype, only own enumerable properties.
  *
- * @param {Any} source Source input value
+ * @param {any} source Source input value
  *
- * @returns {Any} New instance of source
+ * @returns {any} New instance of source
  *
  * @name clone
  * @tag Core

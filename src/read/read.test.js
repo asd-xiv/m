@@ -1,3 +1,5 @@
+/* eslint-disable unicorn/no-null */
+
 import { describe } from "riteway"
 
 import { read, readMany } from "./read"
@@ -24,7 +26,7 @@ describe("read", async assert => {
   assert({
     given: "undefined as source, reading property",
     should: "return undefined",
-    actual: read("not-exist")(undefined),
+    actual: read("not-exist")(),
     expected: undefined,
   })
 
@@ -97,8 +99,8 @@ describe("read", async assert => {
     given:
       "object as source, reading property path of key who's value is NaN with default value set",
     should: "return null",
-    actual: read(["foo"], "default value", { foo: NaN }),
-    expected: NaN,
+    actual: read(["foo"], "default value", { foo: Number.NaN }),
+    expected: Number.NaN,
   })
 })
 

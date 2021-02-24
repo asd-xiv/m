@@ -1,14 +1,14 @@
 import { curry } from "../curry/curry"
 
 /**
- * Test if something is not `null` or `undefined`
- *
- * @tag Core
- * @signature is(source): boolean
+ * Test if something is not null, undefined or NaN
  *
  * @param {any} source Source variable
  *
  * @returns {boolean}
+ *
+ * @tag Core
+ * @signature is(source): boolean
  *
  * @example
  *

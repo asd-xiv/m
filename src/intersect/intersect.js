@@ -12,8 +12,7 @@ const _intersect = (predicateFn, unionFn, aList, bList) => {
 
   const result = [...aList]
 
-  for (let index = 0; index < bList.length; ++index) {
-    const b = bList[index]
+  for (const b of bList) {
     const aIndex = findIndex(item => predicateFn(item, b))(result)
 
     if (aIndex === -1) {

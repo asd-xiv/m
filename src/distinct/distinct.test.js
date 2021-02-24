@@ -2,7 +2,7 @@ import test from "tape"
 
 import { distinct } from "./distinct"
 
-test("array::distinct", t => {
+test("distinct", t => {
   t.deepEqual(
     distinct([1, 1, 3]),
     [1, 3],

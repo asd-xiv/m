@@ -4,7 +4,7 @@ import { pipe } from "../pipe/pipe"
 import { map } from "../map/map"
 
 const _read = (path, defaultValue, source) => {
-  let result = undefined
+  let result
 
   // walk down an object or array
   if (is(source) && typeof source === "object") {
@@ -33,17 +33,17 @@ const _readMany = (path, defaultValue, source) =>
 /**
  * Get value from obj property
  *
- * @param {string  |            string[]} path         Property name or dot path of props
- * @param {Any}                           defaultValue Value to return if not found
- * @param {Object}                        source       Source object
- * @param {...any}                        params       Function params
+ * @param {string|string[]} path         Property name or dot path of props
+ * @param {any}             defaultValue Value to return if not found
+ * @param {Object}          source       Source object
+ * @param {...any}          params       Function params
  *
- * @returns {Any}
+ * @returns {any}
  *
  * @name read
  * @tag Object
- * @signature (path: String|String[], source: Object|Array): mixed
- * @signature (path: String|String[], defaultValue: Any, source: Object|Array): mixed
+ * @signature (path: String|String[], source: Object|Array): any
+ * @signature (path: String|String[], defaultValue: Any, source: Object|Array): any
  *
  * @example
  * read("lorem")({ lorem: "ipsum" })

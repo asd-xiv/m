@@ -46,7 +46,10 @@ export { pluck } from "./pluck/pluck"
 export { merge, mergeAll, mergeBy } from "./merge/merge"
 export { keys } from "./keys/keys"
 export { rename as renameKeys, rename, renameMany } from "./rename/rename"
-export { zipToObj } from "./zip-to-obj/zip-to-obj"
+export {
+  zipToObject as zipToObj,
+  zipToObject,
+} from "./zip-to-object/zip-to-object"
 export { mutate, mutateMany, mutateWith } from "./mutate/mutate"
 export { update, updateMany, updateWith } from "./update/update"
 

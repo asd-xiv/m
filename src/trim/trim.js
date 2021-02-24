@@ -1,3 +1,5 @@
+/* eslint-disable jsdoc/check-param-names,jsdoc/require-param */
+
 import { escapeRegExp } from "../escape-reg-exp/escape-reg-exp"
 
 const _trim = (char = " ", source) => {
@@ -11,13 +13,12 @@ const _trim = (char = " ", source) => {
  *
  * @param {string} char   Character to be removed
  * @param {string} source Source string
- * @param {...any} params Function params
  *
  * @returns {string}
  *
  * @tag String
- * @signature (char: String) => (source: String): String
- * @signature (char: String, source: String): String
+ * @signature (char: string) => (source: string): string
+ * @signature (char: string, source: string): string
  *
  * @example
  * trim()(" lorem  ")

@@ -18,9 +18,9 @@ const _bottom = (limit, source) => {
  *
  * @param {number} limit  How many elements from the bottom
  * @param {Array}  source The source
- * @param {...any} params Function parameters
+ * @param {...any} params
  *
- * @returns {mixed}
+ * @returns {any}
  *
  * @tag Array
  * @signature (limit: integer, source: Array): Array
@@ -47,7 +47,7 @@ export const bottom = (...params) => {
 
   // @signature (source: Array): Array
   if (params.length === 1 && typeof params[0] !== "number") {
-    return _bottom(null, params[0])
+    return _bottom(undefined, params[0])
   }
 
   // @signature (limit: integer, source: Array): Array

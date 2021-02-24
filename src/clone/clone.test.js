@@ -1,3 +1,5 @@
+/* eslint-disable unicorn/no-null */
+
 import test from "tape"
 
 import { clone } from "./clone"
@@ -7,7 +9,7 @@ test("clone", t => {
    * Primitives
    */
   t.equal(clone(null), null, "Clone null")
-  t.equal(clone(undefined), undefined, "Clone undefined")
+  t.equal(clone(), undefined, "Clone undefined")
   t.equal(clone(2), 2, "Clone number")
   t.equal(clone("3"), "3", "Clone number")
   t.equal(clone(true), true, "Clone boolean")

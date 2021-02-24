@@ -1,10 +1,12 @@
+/* eslint-disable unicorn/no-null */
+
 import test from "tape"
-import { type } from ".."
+import { type } from "./type"
 
 test("type", t => {
   t.equal(type(null), "Null", "null should equal Null")
-  t.equal(type(undefined), "Undefined", "undefined should equal Undefined")
-  t.equal(type(NaN), "Number", "NaN should equal Number")
+  t.equal(type(), "Undefined", "undefined should equal Undefined")
+  t.equal(type(Number.NaN), "Number", "NaN should equal Number")
   t.equal(type(false), "Boolean", "false should equal Boolean")
   t.equal(type(2), "Number", "2 should equal Number")
   t.equal(type(""), "String", '"" should equal String')

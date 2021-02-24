@@ -5,7 +5,7 @@
  * Does not attempt to distinguish user Object types any further, reporting
  * them all as "Object".
  *
- * @param {mixed} input Something to check type on
+ * @param {any} source Something to check type on
  *
  * @returns {string}
  *
@@ -22,11 +22,11 @@
  * type(() => {})          // "Function"
  * type(Promise.resolve()) // "Promise"
  */
-const type = input =>
-  input === null
+const type = source =>
+  source === null
     ? "Null"
-    : input === undefined
+    : source === undefined
     ? "Undefined"
-    : Object.prototype.toString.call(input).slice(8, -1)
+    : Object.prototype.toString.call(source).slice(8, -1)
 
 export { type }

@@ -15,15 +15,15 @@ const _repeat = (_fn, count = 0) => {
 /**
  * Return an array of fixed size containing a specified value or function result
  *
- * @param {Function|mixed} fn     Function or value to repeat
- * @param {number}         source Number of times
- * @param {...any}         params Function params
+ * @param {Function|any} fn     Function or value to repeat
+ * @param {number}       source Number of times
+ * @param {...any}       params Function params
  *
  * @returns {Array}
  *
  * @name repeat
  * @tag Array
- * @signature (fn: Function|Mixed) => (count: Number): Array
+ * @signature (fn: Function|any) => (count: Number): Array
  *
  * @example
  * repeat(2)(3)

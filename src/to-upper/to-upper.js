@@ -1,12 +1,15 @@
 /**
  * Convert string to upper case
  *
+ * @param {string} source
+ *
+ * @returns {string}
+ *
+ * @name toUpper
  * @tag String
  * @signature (source: string): string
  *
- * @param {string} source Source string
- *
- * @returns {string}
+ * @see {@link toLower}
  *
  * @example
  * toUpper("Lorem Ipsum")

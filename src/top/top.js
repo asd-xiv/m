@@ -1,20 +1,24 @@
+/* eslint-disable jsdoc/check-param-names,jsdoc/require-param */
+
+import { is } from "../is/is"
+
 const topX = (limit, source) =>
   Array.isArray(source) || typeof source === "string"
-    ? source.slice(0, limit ?? -1)
+    ? source.slice(0, is(limit) ? limit : -1)
     : []
 
 /**
  * Get all but last element from array
  *
- * @param {integer} limit  How many elements from the top
- * @param {Array}   source The source
- * @param {...any}  params Function params
+ * @param {number} [limit=1] Item count
+ * @param {Array}  source
  *
- * @returns {mixed}
+ * @returns {any}
  *
+ * @name top
  * @tag Array
- * @signature (limit: integer, source: Array): Array
- * @signature (limit: integer) => (source: Array): Array
+ * @signature (limit: number, source: Array): Array
+ * @signature (limit: number) => (source: Array): Array
  * @signature (source: Array): Array
  *
  * @example
@@ -32,7 +36,7 @@ const topX = (limit, source) =>
  */
 const top = (...params) => {
   /*
-   * @signature (limit: integer) => (source: Array): Array
+   * @signature (limit: number) => (source: Array): Array
    *
    * top(2)([1, 2, 3, 4]) => [3, 4]
    */
@@ -47,14 +51,14 @@ const top = (...params) => {
    *
    * top([1, 2, 3, 4]) => [2, 3, 4]
    */
-  if (params.length === 1 && typeof params[0] !== "number") {
+  if (params.length === 1) {
     const [source] = params
 
-    return topX(null, source)
+    return topX(undefined, source)
   }
 
   /*
-   * @signature (limit: integer, source: Array): Array
+   * @signature (limit: number, source: Array): Array
    *
    * top(2, [1, 2, 3, 4]) => [3, 4]
    */

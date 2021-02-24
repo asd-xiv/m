@@ -1,14 +1,14 @@
 /**
- * Add element at end of array
+ * Add elements at end of array
  *
- * @param {mixed} elements Element to be added
- * @param {Array} source   Array to add to
+ * @param {any}   elements
+ * @param {Array} source
  *
  * @returns {Array}
  *
  * @name push
  * @tag Array
- * @signature (...elements: mixed) => (source: Array): Array
+ * @signature (...elements: any) => (source: Array): Array
  *
  * @example
  * push(2)([1]) // => [1, 2]

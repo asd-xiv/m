@@ -1,3 +1,5 @@
+/* eslint-disable unicorn/no-null */
+
 import test from "tape"
 
 import { isEmpty, isNotEmpty } from "./is-empty"
@@ -10,9 +12,9 @@ test("isEmpty", t => {
   t.equal(isEmpty(""), true, '"" should equal true')
   t.equal(isEmpty("2"), false, '"2" should equal false')
   t.equal(isEmpty(2), false, "2 should equal false")
-  t.equal(isEmpty(NaN), true, "NaN should equal true")
+  t.equal(isEmpty(Number.NaN), true, "NaN should equal true")
   t.equal(isEmpty(null), true, "null should equal true")
-  t.equal(isEmpty(undefined), true, "undefined should equal true")
+  t.equal(isEmpty(), true, "undefined should equal true")
   t.equal(
     isEmpty(() => {}),
     false,
@@ -23,7 +25,7 @@ test("isEmpty", t => {
   t.end()
 })
 
-test("core::isNotEmpty", t => {
+test("isNotEmpty", t => {
   t.equal(isNotEmpty({ a: 2 }), true, "{a:2} should equal true")
   t.equal(isNotEmpty({}), false, "{} should equal false")
   t.equal(isNotEmpty([2]), true, "[2] should equal true")

@@ -7,7 +7,7 @@ const flattenArray = reduce(
   []
 )
 
-const flattenObject = (source, prefix = null) =>
+const flattenObject = (source, prefix) =>
   reduce((acc, [key, value]) => {
     return isObject(value)
       ? {
@@ -23,7 +23,7 @@ const flattenObject = (source, prefix = null) =>
 /**
  * Recursively concat all arrays intro a single array
  *
- * @param {Array | Object} source Array or Object to flatten
+ * @param {Array|Object} source Array or Object to flatten
  *
  * @returns {Array} 1 level deep array
  *

@@ -5,8 +5,8 @@ const _reduce = (_fn, defaultAcc, _source) => {
   const source = Array.isArray(_source) ? _source : [_source]
   const fn = Array.isArray(_fn) ? pipe(..._fn) : _fn
 
-  for (let i = 0, length = source.length; i < length; i++) {
-    acc = fn(acc, source[i], i, source)
+  for (let index = 0, length = source.length; index < length; index++) {
+    acc = fn(acc, source[index], index, source)
   }
 
   return acc

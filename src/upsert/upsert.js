@@ -8,9 +8,9 @@ const upsertWith = (filter, value) => source => {
   if (index === -1) {
     result.push(update(value, {}))
   } else {
-    const prev = result[index]
+    const previous = result[index]
 
-    result.splice(index, 1, update(value, prev))
+    result.splice(index, 1, update(value, previous))
   }
 
   return result

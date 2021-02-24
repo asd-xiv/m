@@ -5,7 +5,7 @@ const _contains = (search, source) => {
     return false
   }
 
-  return source.indexOf(search) !== -1
+  return source.includes(search)
 }
 
 /**

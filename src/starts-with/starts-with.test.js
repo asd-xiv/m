@@ -33,5 +33,11 @@ test("startsWith", t => {
     "Search string does not exist in source"
   )
 
+  t.equals(
+    startsWith("lorem")(["lorem", "ipsum"]),
+    true,
+    "Search item inside array"
+  )
+
   t.end()
 })

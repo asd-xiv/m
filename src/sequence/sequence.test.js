@@ -3,8 +3,8 @@ import test from "tape"
 import { isTrue } from "../is/is"
 import { sequence, sequenceWhile } from "./sequence"
 
-const delay = (ms, val) =>
-  new Promise(resolve => setTimeout(() => resolve(val), ms))
+const delay = (ms, value) =>
+  new Promise(resolve => setTimeout(() => resolve(value), ms))
 
 test("sequence", t => {
   t.throws(
@@ -27,18 +27,18 @@ test("sequence", t => {
 
       return 1
     },
-    prev => {
-      sum += prev
+    previous => {
+      sum += previous
 
       return delay(10, 2)
     },
-    prev => {
-      sum += prev
+    previous => {
+      sum += previous
 
       return Promise.resolve("abc")
     },
-    prev => {
-      sum += prev
+    previous => {
+      sum += previous
 
       return Promise.all([Promise.resolve(3), Promise.resolve(4)])
     },
@@ -64,7 +64,7 @@ test("sequenceWith", t => {
 
   let sum = 1
 
-  return sequenceWhile(isTrue, [() => true, () => false])
+  return sequenceWhile(isTrue, [() => true, () => false, () => true])
     .then(result => {
       t.deepEqual(
         result,
@@ -92,26 +92,26 @@ test("sequenceWith", t => {
       sequenceWhile(source => source <= 5, [
         () => 1,
 
-        prev => {
-          sum += prev
+        previous => {
+          sum += previous
 
           return delay(10, 2)
         },
 
-        prev => {
-          sum += prev
+        previous => {
+          sum += previous
 
           return delay(10, 100)
         },
 
-        prev => {
-          sum += prev
+        previous => {
+          sum += previous
 
           return delay(10, 2)
         },
 
-        prev => {
-          sum += prev
+        previous => {
+          sum += previous
 
           return delay(10, 5)
         },

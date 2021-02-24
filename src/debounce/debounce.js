@@ -1,20 +1,18 @@
 /**
- * Run function after `wait` milliseconds have elapsed since last call
+ * Create a wrapper functions that is invoked only after some time since the last call.
  *
- * @param {Function} fn              Source function
+ * @param {Function} fn
  * @param {Object}   [props]
- * @param {number}   [props.wait=50] Time in milliseconds to wait without calling until invoke
+ * @param {number}   [props.wait=50] Time in milliseconds to wait until invoke
  *
  * @returns {Function} Wrapper function that calls `fn` after `wait` passed without calling
  *
- * @name       debounce
- * @tag        Core
- * @signature  (fn: Function, { wait: number }): Function
+ * @name debounce
+ * @tag Core
+ * @signature (fn: Function, { wait: number }): Function
  *
  * @example
- * const debouncedAutocomplete = debounce(autocompleteFromAPI, {
- *   wait: 100,
- * })
+ * const debouncedAutocomplete = debounce(autocompleteFromAPI, { wait: 100 })
  *
  * // render
  * <input onChange={debouncedAutocomplete} ... />

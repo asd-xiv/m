@@ -1,4 +1,5 @@
 import { curry } from "../curry/curry"
+
 /**
  * Less compare.
  *
@@ -11,7 +12,8 @@ import { curry } from "../curry/curry"
  * @returns {boolean}
  *
  * @tag Core
- * @signarute (first: number) => (second: number): boolean
+ * @signarure (first: number) => (second: number): boolean
+ * @signarure (first: number, second: number): boolean
  *
  * @example
  * lt(10)(4)

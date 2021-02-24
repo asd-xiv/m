@@ -1,4 +1,5 @@
 import test from "tape"
+
 import { upsertWith } from "./upsert"
 
 test("upsertWith", t => {

@@ -1,3 +1,5 @@
 import { curry } from "../curry/curry"
 
-export const escape = curry((match, source) => source.replace(match, "\\$&"))
+const _escape = (match, source) => source.replace(match, "\\$&")
+
+export const escape = curry(_escape)

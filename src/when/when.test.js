@@ -1,5 +1,8 @@
 import test from "tape"
-import { inc, dec, when } from ".."
+
+import { inc } from "../inc/inc"
+import { dec } from "../dec/dec"
+import { when } from "./when"
 
 const isEven = source => source % 2 !== 0
 

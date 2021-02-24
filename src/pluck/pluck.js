@@ -40,6 +40,7 @@ const _pluck = (keys, source) =>
  *
  * @returns {Object | Object[]}
  *
+ * @name pluck
  * @tag Object
  * @signature (keys: string[]) => (source: Object): Object
  *

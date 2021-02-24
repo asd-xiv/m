@@ -1,3 +1,5 @@
+/* eslint-disable jsdoc/check-param-names,jsdoc/require-param */
+
 import { pipe } from "../pipe/pipe"
 import { i } from "../i/i"
 
@@ -12,16 +14,16 @@ const _when = (_ifFn, _thenFn, _elseFn = i, source) => {
 /**
  * Functional if-then-else
  *
- * @param {Function} ifFn   Condition
- * @param {Function} thenFn Then function
- * @param {Function} elseFn Else function, if not specified will return source
- * @param {...any}   params Function params
+ * @param {Function} ifFn
+ * @param {Function} thenFn
+ * @param {Function} [elseFn=i]
+ * @param {any}      source
  *
- * @returns {mixed}
+ * @returns {any}
  *
  * @tag Core
- * @signature (ifFn: Function, thenFn: Function, elseFn: Function, source: mixed): mixed
- * @signature (ifFn: Function, thenFn: Function, source: mixed): mixed
+ * @signature (ifFn: Function, thenFn: Function, elseFn: Function, source: any): any
+ * @signature (ifFn: Function, thenFn: Function, source: any): any
  *
  * @example
  * when(isEven, increment, decrement)(5)

@@ -2,15 +2,15 @@
  * Shallow clone of an object, setting or overriding a property with the given
  * value
  *
- * @param {string} key    Property name
- * @param {mixed}  value  Property value
- * @param {Object} source Source object
+ * @param {string} key
+ * @param {any}    value
+ * @param {Object} source
  *
  * @returns {Object}
  *
  * @name write
  * @tag Object
- * @signature ( key: string, value: mixed ) => ( source: Object ): Object
+ * @signature (key: string, value: any) => (source: Object): Object
  *
  * @example
  * write( "a", "lorem" )( { b: "ipsum" } )

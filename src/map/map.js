@@ -17,8 +17,8 @@ const _map = (_fn, _source) => {
  * Iterates over an array and applies a function on each element, returning a
  * new array with the transformed elements.
  *
- * @param {Fn|Fn[]} fn     Transform function called on each element
- * @param {Array}   source Source array to iterate over
+ * @param {Function|Function[]} fn     Transform function called on each element
+ * @param {Array}               source Source array to iterate over
  *
  * @returns {Array} Returns new instance
  *

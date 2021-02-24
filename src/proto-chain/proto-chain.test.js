@@ -1,5 +1,5 @@
 import test from "tape"
-import { protoChain } from ".."
+import { protoChain } from "./proto-chain"
 
 test("protoChain", t => {
   t.deepEqual(protoChain({}), ["Object"], "Proto chain of object")

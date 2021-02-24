@@ -3,11 +3,11 @@ import test from "tape"
 import { same } from "./same"
 
 test("same", t => {
-  const obj = {}
+  const object = {}
 
   t.equals(
-    same(obj)(),
-    obj,
+    same(object)(),
+    object,
     "Give value as input, get the same value in return"
   )
 

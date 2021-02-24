@@ -73,9 +73,9 @@ const _isDeepEqual = (a, b) => {
 /**
  * Determine if two variables are structurally equal
  *
- * @param {Any}    a      Source input
- * @param {Any}    b      Other source input
- * @param {...any} params Function params
+ * @param {any}    a      Source input
+ * @param {any}    b      Other source input
+ * @param {...any} params
  *
  * @returns {boolean} True if inputs are structurally equal, false otherwise
  *

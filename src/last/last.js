@@ -3,8 +3,9 @@
  *
  * @param {Array} source The source
  *
- * @returns {mixed}
+ * @returns {any}
  *
+ * @name last
  * @tag Array
  * @signature (source: Array): mixed
  *

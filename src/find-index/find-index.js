@@ -20,8 +20,8 @@ const _findIndex = (_fn, _source) => {
 /**
  * Find the position the first element that satisfies a predicate function
  *
- * @param {Fn|Fn[]}  fn     Predicate applied to each element
- * @param {object[]} source Source array to iterate over
+ * @param {Function|Function[]} fn     Predicate applied to each element
+ * @param {Object[]}            source Source array to iterate over
  *
  * @returns {number} Position of found element or -1 if not found
  *

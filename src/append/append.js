@@ -11,8 +11,8 @@ const _append = (subset, source) => {
 /**
  * Add array or element at the end of array
  *
- * @param {mixed|Array} subset Content to add
- * @param {Array}       source Source array to append to
+ * @param {any|Array} subset Content to add
+ * @param {Array}     source Source array to append to
  *
  * @returns {Array}
  *

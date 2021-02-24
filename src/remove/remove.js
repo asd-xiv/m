@@ -20,9 +20,9 @@ const _remove = (_fn, source) => {
 /**
  * Remove element(s) from array by value or by predicate
  *
- * @param {...any}         params
- * @param {Function|mixed} params.fn     Value to remove or predicate to match
- * @param {Array}          params.source Source array
+ * @param {...any}       params
+ * @param {Function|any} params.fn     Value to remove or predicate to match
+ * @param {Array}        params.source
  *
  * @returns {Array}
  *
