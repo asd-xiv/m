@@ -469,16 +469,6 @@
               
                 
                 <li><a
-                  href='#ziptoobj'
-                  class="">
-                  zipToObj
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
                   href='#isdeepequal'
                   class="">
                   isDeepEqual
@@ -609,6 +599,16 @@
               
                 
                 <li><a
+                  href='#spy'
+                  class="">
+                  spy
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#pipep'
                   class="">
                   pipeP
@@ -712,6 +712,16 @@
                   href='#renamekeys'
                   class="">
                   renameKeys
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#ziptoobject'
+                  class="">
+                  zipToObject
                   
                 </a>
                 
@@ -1094,7 +1104,7 @@ the results as parameters for a final accumulator function.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>accFn</span> <code class='quiet'>((Fn | <a href="#array">Array</a>&#x3C;Fn>))</code>
+            <span class='code bold'>accFn</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a> | <a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>>))</code>
 	    Accumulator or final aggreate function
 
           </div>
@@ -1103,8 +1113,8 @@ the results as parameters for a final accumulator function.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>extractFn</span> <code class='quiet'>((Fn | <a href="#array">Array</a>&#x3C;Fn>))</code>
-	    List of functions to be applied on input
+            <span class='code bold'>extractFn</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a> | <a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>>))</code>
+	    Functions to be applied on input
 
           </div>
           
@@ -1127,7 +1137,7 @@ the results as parameters for a final accumulator function.</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>Any</code>:
+      <code><a href="#any">any</a></code>:
         
 
       
@@ -1276,7 +1286,7 @@ converge(divide, [sum, count], [<span class="hljs-number">1</span>, <span class=
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(mixed)</code>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#any">any</a>)</code>
 	    Source input
 
           </div>
@@ -1291,7 +1301,7 @@ converge(divide, [sum, count], [<span class="hljs-number">1</span>, <span class=
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>mixed</code>:
+      <code><a href="#any">any</a></code>:
         
 
       
@@ -1349,7 +1359,7 @@ new array with the transformed elements.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>fn</span> <code class='quiet'>((Fn | <a href="#array">Array</a>&#x3C;Fn>))</code>
+            <span class='code bold'>fn</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a> | <a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>>))</code>
 	    Transform function called on each element
 
           </div>
@@ -1452,17 +1462,8 @@ elements.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>fn</span> <code class='quiet'>((Fn | <a href="#array">Array</a>&#x3C;Fn>))</code>
+            <span class='code bold'>fn</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a> | <a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>>))</code>
 	    Transform function called on all elements
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;[]>)</code>
-	    Two-dimensional array to iterate over
 
           </div>
           
@@ -1473,14 +1474,6 @@ elements.</p>
 
   
 
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="#array">Array</a>&#x3C;[]></code>:
-        New array instance
-
-      
-    
   
 
   
@@ -1554,7 +1547,7 @@ any arity, the remaining functions must be unary.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>first</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
+            <span class='code bold'>firstFn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
 	    First function in transform chain
 
           </div>
@@ -1563,7 +1556,7 @@ any arity, the remaining functions must be unary.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>rest</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>>)</code>
+            <span class='code bold'>restFn</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>>)</code>
 	    Remaining functions
 
           </div>
@@ -1594,6 +1587,14 @@ any arity, the remaining functions must be unary.</p>
     
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Related</div>
+    
+      
+        <a href="#pipep">pipeP</a>
+
+      
+    
   
 
   
@@ -1660,7 +1661,7 @@ any arity, the remaining functions must be unary.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>defaultValue</span> <code class='quiet'>(Any)</code>
+            <span class='code bold'>defaultValue</span> <code class='quiet'>(<a href="#any">any</a>)</code>
 	    Value to return if not found
 
           </div>
@@ -1669,7 +1670,7 @@ any arity, the remaining functions must be unary.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
 	    Source object
 
           </div>
@@ -1693,7 +1694,7 @@ any arity, the remaining functions must be unary.</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>Any</code>:
+      <code><a href="#any">any</a></code>:
         
 
       
@@ -1779,7 +1780,7 @@ left to right) to reduce it to a single value.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>defaultAcc</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+            <span class='code bold'>defaultAcc</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
 	    Default accumulator value
 
           </div>
@@ -1952,26 +1953,23 @@ value</p>
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    Property name
-
+	    
           </div>
           
         </div>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>value</span> <code class='quiet'>(mixed)</code>
-	    Property value
-
+            <span class='code bold'>value</span> <code class='quiet'>(<a href="#any">any</a>)</code>
+	    
           </div>
           
         </div>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
-	    Source object
-
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
+	    
           </div>
           
         </div>
@@ -1984,7 +1982,7 @@ value</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
+      <code><a href="#object">Object</a></code>:
         
 
       
@@ -2063,8 +2061,7 @@ value</p>
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
-	    Function parameters
-
+	    
           </div>
           
         </div>
@@ -2095,7 +2092,7 @@ value</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>mixed</code>:
+      <code><a href="#any">any</a></code>:
         
 
       
@@ -2177,8 +2174,8 @@ bottom(<span class="hljs-number">2</span>)([<span class="hljs-number">1</span>, 
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>((<a href="#array">Array</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>))</code>
-	    Source array, if object passed, Object.entries will be iterated over
+            <span class='code bold'>source</span> <code class='quiet'>((<a href="#array">Array</a> | <a href="#object">Object</a>))</code>
+	    If object passed, Object.entries will be iterated over
 
           </div>
           
@@ -2278,7 +2275,7 @@ count(<span class="hljs-function"><span class="hljs-params">element</span> =&gt;
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>subset</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+            <span class='code bold'>subset</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
 	    Match object
 
           </div>
@@ -2287,8 +2284,8 @@ count(<span class="hljs-function"><span class="hljs-params">element</span> =&gt;
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>((<a href="#array">Array</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>))</code>
-	    Source array, if object passed, Object.entries will be iterated over
+            <span class='code bold'>source</span> <code class='quiet'>((<a href="#array">Array</a> | <a href="#object">Object</a>))</code>
+	    If object passed, Object.entries will be iterated over
 
           </div>
           
@@ -2542,7 +2539,7 @@ countWith(
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>subset</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+            <span class='code bold'>subset</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
 	    The function
 
           </div>
@@ -2614,7 +2611,7 @@ countWith(
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>fn</span> <code class='quiet'>((Fn | <a href="#array">Array</a>&#x3C;Fn>))</code>
+            <span class='code bold'>fn</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a> | <a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>>))</code>
 	    Match function applied to each element
 
           </div>
@@ -2623,7 +2620,7 @@ countWith(
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>notFoundDefault</span> <code class='quiet'>(Any)</code>
+            <span class='code bold'>notFoundDefault</span> <code class='quiet'>(<a href="#any">any</a>)</code>
 	    Return if no item found
 
           </div>
@@ -2639,15 +2636,6 @@ countWith(
           
         </div>
       
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
-	    Function params
-
-          </div>
-          
-        </div>
-      
     </div>
   
 
@@ -2656,8 +2644,8 @@ countWith(
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>Any</code>:
-        First element found or undefined
+      <code><a href="#any">any</a></code>:
+        
 
       
     
@@ -2733,7 +2721,7 @@ find([get(<span class="hljs-string">&quot;body&quot;</span>), equals(<span class
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>subset</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+            <span class='code bold'>subset</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
 	    Match object
 
           </div>
@@ -2742,7 +2730,7 @@ find([get(<span class="hljs-string">&quot;body&quot;</span>), equals(<span class
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>notFoundDefault</span> <code class='quiet'>(Any)</code>
+            <span class='code bold'>notFoundDefault</span> <code class='quiet'>(<a href="#any">any</a>)</code>
 	    Return if no item found
 
           </div>
@@ -2758,15 +2746,6 @@ find([get(<span class="hljs-string">&quot;body&quot;</span>), equals(<span class
           
         </div>
       
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
-	    Function params
-
-          </div>
-          
-        </div>
-      
     </div>
   
 
@@ -2775,7 +2754,7 @@ find([get(<span class="hljs-string">&quot;body&quot;</span>), equals(<span class
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>Any</code>:
+      <code><a href="#any">any</a></code>:
         First element found or undefined
 
       
@@ -2872,7 +2851,7 @@ find({<span class="hljs-attr">id</span>: <span class="hljs-string">&quot;404&quo
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>mixed</code>:
+      <code><a href="#any">any</a></code>:
         
 
       
@@ -2939,7 +2918,7 @@ first([])
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>((<a href="#array">Array</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>))</code>
+            <span class='code bold'>source</span> <code class='quiet'>((<a href="#array">Array</a> | <a href="#object">Object</a>))</code>
 	    Array or Object to flatten
 
           </div>
@@ -3039,7 +3018,7 @@ flatten({<span class="hljs-attr">test</span>: {<span class="hljs-attr">a</span>:
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>mixed</code>:
+      <code><a href="#any">any</a></code>:
         
 
       
@@ -3300,7 +3279,7 @@ If the key does not exist, the property is ignored.</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>)</code>:
+      <code>(<a href="#object">Object</a> | <a href="#array">Array</a>&#x3C;<a href="#object">Object</a>>)</code>:
         
 
       
@@ -3389,7 +3368,7 @@ If the key does not exist, the property is ignored.</p>
             <tbody class='mt1'>
               
                 <tr>
-  <td class='break-word'><span class='code bold'>params.fn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a> | mixed)</code>
+  <td class='break-word'><span class='code bold'>params.fn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a> | <a href="#any">any</a>)</code>
   </td>
   <td class='break-word'><span>Value to remove or predicate to match
 </span></td>
@@ -3400,8 +3379,7 @@ If the key does not exist, the property is ignored.</p>
                 <tr>
   <td class='break-word'><span class='code bold'>params.source</span> <code class='quiet'><a href="#array">Array</a></code>
   </td>
-  <td class='break-word'><span>Source array
-</span></td>
+  <td class='break-word'><span></span></td>
 </tr>
 
 
@@ -3504,7 +3482,7 @@ remove(<span class="hljs-function"><span class="hljs-params">_</span> =&gt;</spa
             <tbody class='mt1'>
               
                 <tr>
-  <td class='break-word'><span class='code bold'>params.subset</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>
+  <td class='break-word'><span class='code bold'>params.subset</span> <code class='quiet'><a href="#object">Object</a></code>
   </td>
   <td class='break-word'><span>Match object
 </span></td>
@@ -3606,17 +3584,9 @@ remove(<span class="hljs-function"><span class="hljs-params">_</span> =&gt;</spa
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
-	    Function params
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>limit</span> <code class='quiet'>(integer)</code>
-	    How many elements from the top
+            <span class='code bold'>limit</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>
+            = <code>1</code>)</code>
+	    Item count
 
           </div>
           
@@ -3625,8 +3595,7 @@ remove(<span class="hljs-function"><span class="hljs-params">_</span> =&gt;</spa
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
-	    The source
-
+	    
           </div>
           
         </div>
@@ -3639,7 +3608,7 @@ remove(<span class="hljs-function"><span class="hljs-params">_</span> =&gt;</spa
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>mixed</code>:
+      <code><a href="#any">any</a></code>:
         
 
       
@@ -4153,7 +4122,7 @@ anyWith({ <span class="hljs-attr">tags</span>: is })([{<span class="hljs-attr">i
   </div>
   
 
-  <p>Test if something is not <code>null</code> or <code>undefined</code></p>
+  <p>Test if something is not null, undefined or NaN</p>
 
     <div class='pre p1 fill-light mt0'>is</div>
   
@@ -4273,7 +4242,7 @@ is(<span class="hljs-literal">NaN</span>)       <span class="hljs-comment">// =&
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>arg3</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>
+            <span class='code bold'>arg3</span> <code class='quiet'>(<a href="#object">Object</a>
             = <code>{}</code>)</code>
 	    Props
 
@@ -4383,7 +4352,7 @@ between(<span class="hljs-number">2</span>, <span class="hljs-number">5</span>, 
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(Any)</code>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#any">any</a>)</code>
 	    Source input
 
           </div>
@@ -4413,18 +4382,18 @@ between(<span class="hljs-number">2</span>, <span class="hljs-number">5</span>, 
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>isEmpty({})               <span class="hljs-comment">// true</span>
-isEmpty(<span class="hljs-number">1</span>)                <span class="hljs-comment">// false</span>
-isEmpty(<span class="hljs-literal">false</span>)            <span class="hljs-comment">// false</span>
-isEmpty(<span class="hljs-string">&quot;&quot;</span>)               <span class="hljs-comment">// true</span>
-isEmpty(<span class="hljs-literal">null</span>)             <span class="hljs-comment">// true</span>
-isEmpty(<span class="hljs-literal">undefined</span>)        <span class="hljs-comment">// true</span>
-isEmpty([])               <span class="hljs-comment">// true</span>
-isEmpty(<span class="hljs-literal">NaN</span>)              <span class="hljs-comment">// true</span>
-isEmpty(<span class="hljs-regexp">/[A-z]/</span>)          <span class="hljs-comment">// false</span>
-isEmpty(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>())       <span class="hljs-comment">// false</span>
-isEmpty(<span class="hljs-function">() =&gt;</span> {})         <span class="hljs-comment">// false</span>
-isEmpty(<span class="hljs-built_in">Promise</span>.resolve() <span class="hljs-comment">// false</span></pre>
+      <pre class='p1 overflow-auto round fill-light'>isEmpty({})                <span class="hljs-comment">// true</span>
+isEmpty(<span class="hljs-number">1</span>)                 <span class="hljs-comment">// false</span>
+isEmpty(<span class="hljs-literal">false</span>)             <span class="hljs-comment">// false</span>
+isEmpty(<span class="hljs-string">&quot;&quot;</span>)                <span class="hljs-comment">// true</span>
+isEmpty(<span class="hljs-literal">null</span>)              <span class="hljs-comment">// true</span>
+isEmpty(<span class="hljs-literal">undefined</span>)         <span class="hljs-comment">// true</span>
+isEmpty([])                <span class="hljs-comment">// true</span>
+isEmpty(<span class="hljs-literal">NaN</span>)               <span class="hljs-comment">// true</span>
+isEmpty(<span class="hljs-regexp">/[A-z]/</span>)           <span class="hljs-comment">// false</span>
+isEmpty(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>())        <span class="hljs-comment">// false</span>
+isEmpty(<span class="hljs-function">() =&gt;</span> {})          <span class="hljs-comment">// false</span>
+isEmpty(<span class="hljs-built_in">Promise</span>.resolve()) <span class="hljs-comment">// false</span></pre>
     
   
 
@@ -4472,7 +4441,7 @@ isEmpty(<span class="hljs-built_in">Promise</span>.resolve() <span class="hljs-c
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>a</span> <code class='quiet'>(Mixed)</code>
+            <span class='code bold'>a</span> <code class='quiet'>(<a href="#any">any</a>)</code>
 	    First value
 
           </div>
@@ -4481,7 +4450,7 @@ isEmpty(<span class="hljs-built_in">Promise</span>.resolve() <span class="hljs-c
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>b</span> <code class='quiet'>(Mixed)</code>
+            <span class='code bold'>b</span> <code class='quiet'>(<a href="#any">any</a>)</code>
 	    Second value
 
           </div>
@@ -4675,9 +4644,8 @@ isMatch({
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
-	    Function params
-
+            <span class='code bold'>params</span> <code class='quiet'>(...any)</code>
+	    
           </div>
           
         </div>
@@ -4685,8 +4653,7 @@ isMatch({
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>ifFn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
-	    Condition
-
+	    
           </div>
           
         </div>
@@ -4694,17 +4661,24 @@ isMatch({
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>thenFn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
-	    Then function
-
+	    
           </div>
           
         </div>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>elseFn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
-	    Else function, if not specified will return source
-
+            <span class='code bold'>elseFn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
+            = <code>i</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#any">any</a>)</code>
+	    
           </div>
           
         </div>
@@ -4717,7 +4691,7 @@ isMatch({
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>mixed</code>:
+      <code><a href="#any">any</a></code>:
         
 
       
@@ -4798,7 +4772,7 @@ when(isOdd, increment)(<span class="hljs-number">6</span>)
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>((<a href="#array">Array</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>))</code>
+            <span class='code bold'>source</span> <code class='quiet'>((<a href="#array">Array</a> | <a href="#object">Object</a>))</code>
 	    Array or Object to extract keys from
 
           </div>
@@ -4885,8 +4859,8 @@ overwriten by right most object.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
-	    Function params
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="#object">Object</a>>)</code>
+	    Array of objects
 
           </div>
           
@@ -4894,8 +4868,8 @@ overwriten by right most object.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>)</code>
-	    Array of objects
+            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
+	    Function params
 
           </div>
           
@@ -4909,7 +4883,7 @@ overwriten by right most object.</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
+      <code><a href="#object">Object</a></code>:
         
 
       
@@ -5025,95 +4999,6 @@ the source list</p>
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='ziptoobj'>
-      zipToObj
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Create an object from two arrays, one containing keys, the other values.
-Bost arrays will be trimmed to the smallest length.</p>
-
-    <div class='pre p1 fill-light mt0'>zipToObj</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>keys</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
-	    Array with keys
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>values</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
-	    Array with values
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
-        
-
-      
-    
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'>zipToObj( [ a, b ] )( [ <span class="hljs-number">1</span>, <span class="hljs-number">2</span> ] ) <span class="hljs-comment">// =&gt; { a: 1, b: 2 }</span>
-zipToObj( [ a ] )( [ <span class="hljs-number">1</span>, <span class="hljs-number">2</span> ] ) <span class="hljs-comment">// =&gt; { a: 1 }</span></pre>
-    
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
     <h3 class='fl m0' id='isdeepequal'>
       isDeepEqual
     </h3>
@@ -5141,7 +5026,7 @@ zipToObj( [ a ] )( [ <span class="hljs-number">1</span>, <span class="hljs-numbe
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>a</span> <code class='quiet'>(Any)</code>
+            <span class='code bold'>a</span> <code class='quiet'>(<a href="#any">any</a>)</code>
 	    Source input
 
           </div>
@@ -5150,7 +5035,7 @@ zipToObj( [ a ] )( [ <span class="hljs-number">1</span>, <span class="hljs-numbe
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>b</span> <code class='quiet'>(Any)</code>
+            <span class='code bold'>b</span> <code class='quiet'>(<a href="#any">any</a>)</code>
 	    Other source input
 
           </div>
@@ -5160,8 +5045,7 @@ zipToObj( [ a ] )( [ <span class="hljs-number">1</span>, <span class="hljs-numbe
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
-	    Function params
-
+	    
           </div>
           
         </div>
@@ -5256,7 +5140,7 @@ deepEqual(
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>startDate</span> <code class='quiet'>(Data)</code>
+            <span class='code bold'>startDate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>)</code>
 	    Start date
 
           </div>
@@ -5265,7 +5149,7 @@ deepEqual(
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>endDate</span> <code class='quiet'>(Data)</code>
+            <span class='code bold'>endDate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>)</code>
 	    End date
 
           </div>
@@ -5296,8 +5180,7 @@ deepEqual(
     
       
       <pre class='p1 overflow-auto round fill-light'>elapsedTime(
-  <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">&quot;June 1, 2018 00:00:00&quot;</span>)
-)(
+  <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">&quot;June 1, 2018 00:00:00&quot;</span>),
   <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">&quot;June 1, 2018 03:24:00&quot;</span>)
 )
 <span class="hljs-comment">// =&gt; { days: 0, hours: 3, minutes: 24, seconds: 0 }</span></pre>
@@ -5454,7 +5337,7 @@ deepEqual(
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>array</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
 	    Input
 
           </div>
@@ -5554,7 +5437,7 @@ deepEqual(
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
+      <code><a href="#object">Object</a></code>:
         
 
       
@@ -5626,7 +5509,7 @@ deepEqual(
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
+      <code><a href="#object">Object</a></code>:
         
 
       
@@ -5693,7 +5576,7 @@ deepEqual(
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>)</code>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="#object">Object</a>>)</code>
 	    Array of objects
 
           </div>
@@ -5708,7 +5591,7 @@ deepEqual(
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
+      <code><a href="#object">Object</a></code>:
         
 
       
@@ -5786,7 +5669,7 @@ hist( <span class="hljs-string">&quot;score&quot;</span> )( scores )
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
 	    Source input
 
           </div>
@@ -5965,7 +5848,7 @@ them all as "Object".</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>input</span> <code class='quiet'>(mixed)</code>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#any">any</a>)</code>
 	    Something to check type on
 
           </div>
@@ -6034,7 +5917,8 @@ type(<span class="hljs-built_in">Promise</span>.resolve()) <span class="hljs-com
   </div>
   
 
-  <p>Call a function only if it hasn't been called in the last <code>timeWindow</code> ms.</p>
+  <p>Create a wrapper function that is invoked once every time interval, regardless
+of how many times is called.</p>
 
     <div class='pre p1 fill-light mt0'>throttle</div>
   
@@ -6054,20 +5938,15 @@ type(<span class="hljs-built_in">Promise</span>.resolve()) <span class="hljs-com
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>fn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
-	    Function to be ran
-
+	    
           </div>
           
         </div>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>timeWindow</span> <code class='quiet'>(integer
-            = <code>{}</code>)</code>
-	    Time between each 
-<code>fn</code>
- call
-
+            <span class='code bold'>props</span> <code class='quiet'>(<a href="#object">Object</a>?)</code>
+	    
           </div>
           
           <table class='mt1 mb2 fixed-table h5 col-12'>
@@ -6084,31 +5963,23 @@ type(<span class="hljs-built_in">Promise</span>.resolve()) <span class="hljs-com
             <tbody class='mt1'>
               
                 <tr>
-  <td class='break-word'><span class='code bold'>timeWindow.timeWindow</span> <code class='quiet'>any</code>
+  <td class='break-word'><span class='code bold'>props.wait</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
   
     (default <code>50</code>)
   </td>
-  <td class='break-word'><span></span></td>
+  <td class='break-word'><span>Time in milliseconds between "fn" invokations
+</span></td>
 </tr>
 
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>timeWindow.bind</span> <code class='quiet'>any</code>
-  
-    (default <code>null</code>)
-  </td>
-  <td class='break-word'><span></span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>timeWindow.hasLastCall</span> <code class='quiet'>any</code>
+  <td class='break-word'><span class='code bold'>props.hasLastCall</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
   
     (default <code>false</code>)
   </td>
-  <td class='break-word'><span></span></td>
+  <td class='break-word'><span>If should call "fn" after wrapper is no longer called
+</span></td>
 </tr>
 
 
@@ -6127,16 +5998,7 @@ type(<span class="hljs-built_in">Promise</span>.resolve()) <span class="hljs-com
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>:
-        Either return 
-<code>fn</code>
- if you've passed the 
-<code>timeWindow</code>
- or
-return a timer that will run the 
-<code>fn</code>
- in 
-<code>timeWindow</code>
- ms
+        
 
       
     
@@ -6146,6 +6008,15 @@ return a timer that will run the
 
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> thottledMouseMove = throttle(mouseMove, { <span class="hljs-attr">wait</span>: <span class="hljs-number">100</span> })
+
+<span class="hljs-comment">// render</span>
+&lt;input onMouseMove={thottledMouseMove} ... /&gt;</pre>
+    
   
 
   
@@ -6173,7 +6044,7 @@ return a timer that will run the
   </div>
   
 
-  <p>Run function after <code>wait</code> milliseconds have elapsed since last call</p>
+  <p>Create a wrapper functions that is invoked only after some time since the last call.</p>
 
     <div class='pre p1 fill-light mt0'>debounce</div>
   
@@ -6193,17 +6064,15 @@ return a timer that will run the
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>fn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
-	    Source function
-
+	    
           </div>
           
         </div>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>props</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?)</code>
-	    Properties
-
+            <span class='code bold'>props</span> <code class='quiet'>(<a href="#object">Object</a>?)</code>
+	    
           </div>
           
           <table class='mt1 mb2 fixed-table h5 col-12'>
@@ -6224,20 +6093,7 @@ return a timer that will run the
   
     (default <code>50</code>)
   </td>
-  <td class='break-word'><span>Time in milliseconds to wait without calling until invoke
-</span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>props.bind</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>
-  
-    (default <code>null</code>)
-  </td>
-  <td class='break-word'><span><code>this</code>
- provided for the call to 
-<code>fn</code>
+  <td class='break-word'><span>Time in milliseconds to wait until invoke
 </span></td>
 </tr>
 
@@ -6275,10 +6131,7 @@ return a timer that will run the
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> debouncedAutocomplete = debounce(autocompleteFromAPI, {
-  <span class="hljs-attr">wait</span>: <span class="hljs-number">100</span>,
-  <span class="hljs-attr">bind</span>: <span class="hljs-built_in">this</span>
-})
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> debouncedAutocomplete = debounce(autocompleteFromAPI, { <span class="hljs-attr">wait</span>: <span class="hljs-number">100</span> })
 
 <span class="hljs-comment">// render</span>
 &lt;input onChange={debouncedAutocomplete} ... /&gt;</pre>
@@ -6383,6 +6236,85 @@ isURI(<span class="hljs-string">&quot;http://www.ietf.org/rfc/rfc2396.txt&quot;<
   
   <div class='clearfix'>
     
+    <h3 class='fl m0' id='spy'>
+      spy
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Proxy input and print to console.log. Usefull for debugging pipe chains.</p>
+
+    <div class='pre p1 fill-light mt0'>spy</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>namespace</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#any">any</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#any">any</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='pipep'>
       pipeP
     </h3>
@@ -6412,7 +6344,7 @@ any arity, the remaining functions must be unary.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>first</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
+            <span class='code bold'>firstFn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
 	    First function in chain
 
           </div>
@@ -6421,7 +6353,7 @@ any arity, the remaining functions must be unary.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>rest</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>>)</code>
+            <span class='code bold'>restFn</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>>)</code>
 	    Remaining bottom functions
 
           </div>
@@ -6430,7 +6362,7 @@ any arity, the remaining functions must be unary.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#any">any</a>)</code>
 	    First function arguments
 
           </div>
@@ -6522,7 +6454,7 @@ Will not inherit prototype, only own enumerable properties.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(Any)</code>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#any">any</a>)</code>
 	    Source input value
 
           </div>
@@ -6537,7 +6469,7 @@ Will not inherit prototype, only own enumerable properties.</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>Any</code>:
+      <code><a href="#any">any</a></code>:
         New instance of source
 
       
@@ -6614,7 +6546,7 @@ close(x) === x
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>fn</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a> | mixed))</code>
+            <span class='code bold'>fn</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a> | <a href="#any">any</a>))</code>
 	    Function or value to repeat
 
           </div>
@@ -6723,7 +6655,7 @@ repeat(<span class="hljs-function"><span class="hljs-params">index</span> =&gt;<
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>args</span> <code class='quiet'>(<a href="#any">any</a>)</code>
+            <span class='code bold'>params</span> <code class='quiet'>(<a href="#any">any</a>)</code>
 	    The arguments to apply, in order
 
           </div>
@@ -6738,7 +6670,7 @@ repeat(<span class="hljs-function"><span class="hljs-params">index</span> =&gt;<
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a> | mixed)</code>:
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a> | <a href="#any">any</a>)</code>:
         If the number of arguments provided is sufficient
 to call the function, call the function and return the result. Otherwise,
 return a new function which takes additional parameters, returning the result
@@ -6926,7 +6858,7 @@ otherwise function on the input.
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>)</code>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="#object">Object</a>>)</code>
 	    Array of objects
 
           </div>
@@ -7006,7 +6938,7 @@ otherwise function on the input.
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
 	    The source object
 
           </div>
@@ -7021,7 +6953,7 @@ otherwise function on the input.
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
+      <code><a href="#object">Object</a></code>:
         
 
       
@@ -7085,7 +7017,7 @@ otherwise function on the input.
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>))</code>
+            <span class='code bold'>source</span> <code class='quiet'>((<a href="#object">Object</a> | <a href="#array">Array</a>&#x3C;<a href="#object">Object</a>>))</code>
 	    
           </div>
           
@@ -7099,7 +7031,7 @@ otherwise function on the input.
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>)</code>:
+      <code>(<a href="#object">Object</a> | <a href="#array">Array</a>&#x3C;<a href="#object">Object</a>>)</code>:
         
 
       
@@ -7155,7 +7087,7 @@ otherwise function on the input.
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>mappings</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+            <span class='code bold'>mappings</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
 	    
           </div>
           
@@ -7163,7 +7095,7 @@ otherwise function on the input.
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
 	    
           </div>
           
@@ -7177,7 +7109,7 @@ otherwise function on the input.
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
+      <code><a href="#object">Object</a></code>:
         
 
       
@@ -7233,7 +7165,7 @@ otherwise function on the input.
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>mappings</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+            <span class='code bold'>mappings</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
 	    
           </div>
           
@@ -7241,7 +7173,7 @@ otherwise function on the input.
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>))</code>
+            <span class='code bold'>source</span> <code class='quiet'>((<a href="#object">Object</a> | <a href="#array">Array</a>&#x3C;<a href="#object">Object</a>>))</code>
 	    
           </div>
           
@@ -7255,7 +7187,7 @@ otherwise function on the input.
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>)</code>:
+      <code>(<a href="#object">Object</a> | <a href="#array">Array</a>&#x3C;<a href="#object">Object</a>>)</code>:
         
 
       
@@ -7326,7 +7258,7 @@ otherwise function on the input.
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>)</code>:
+      <code>(<a href="#object">Object</a> | <a href="#array">Array</a>&#x3C;<a href="#object">Object</a>>)</code>:
         
 
       
@@ -7346,6 +7278,93 @@ otherwise function on the input.
 
 rename({ <span class="hljs-attr">old</span>: <span class="hljs-string">&quot;new&quot;</span> }, [{ <span class="hljs-attr">old</span>: <span class="hljs-number">42</span> }, { <span class="hljs-attr">old</span>: <span class="hljs-number">41</span> }])
 <span class="hljs-comment">// =&gt; [{ new: 42 }, { new: 41 }]</span></pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='ziptoobject'>
+      zipToObject
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Create an object from two arrays, one containing keys, the other values.
+Both arrays will be trimmed to the smallest length.</p>
+
+    <div class='pre p1 fill-light mt0'>zipToObject</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>keys</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>values</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#object">Object</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>zipToObject([a, b])([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]) <span class="hljs-comment">// =&gt; { a: 1, b: 2 }</span>
+zipToObject([a], [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]) <span class="hljs-comment">// =&gt; { a: 1 }</span></pre>
     
   
 
@@ -7438,27 +7457,48 @@ rename({ <span class="hljs-attr">old</span>: <span class="hljs-string">&quot;new
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>offset</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
-	    Start position
-
+            <span class='code bold'>props</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
+	    
           </div>
           
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>limit</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
-	    How many items
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>props.offset</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
+  </td>
+  <td class='break-word'><span></span></td>
+</tr>
 
-          </div>
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>props.limit</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
+  </td>
+  <td class='break-word'><span></span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
           
         </div>
       
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
-	    Input array
-
+	    
           </div>
           
         </div>
@@ -7519,7 +7559,7 @@ rename({ <span class="hljs-attr">old</span>: <span class="hljs-string">&quot;new
   </div>
   
 
-  <p>Add element at end of array</p>
+  <p>Add elements at end of array</p>
 
     <div class='pre p1 fill-light mt0'>push</div>
   
@@ -7538,27 +7578,16 @@ rename({ <span class="hljs-attr">old</span>: <span class="hljs-string">&quot;new
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>elements</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
-	    Function parameters
-
+            <span class='code bold'>elements</span> <code class='quiet'>(<a href="#any">any</a>)</code>
+	    
           </div>
           
         </div>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>element</span> <code class='quiet'>(mixed)</code>
-	    Element to be added
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>input</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
-	    Array to add to
-
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
+	    
           </div>
           
         </div>
@@ -8056,7 +8085,7 @@ min(fn)(source)
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>subset</span> <code class='quiet'>((mixed | <a href="#array">Array</a>))</code>
+            <span class='code bold'>subset</span> <code class='quiet'>((<a href="#any">any</a> | <a href="#array">Array</a>))</code>
 	    Content to add
 
           </div>
@@ -8152,7 +8181,7 @@ min(fn)(source)
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>subset</span> <code class='quiet'>((mixed | <a href="#array">Array</a>))</code>
+            <span class='code bold'>subset</span> <code class='quiet'>((<a href="#any">any</a> | <a href="#array">Array</a>))</code>
 	    Content to add
 
           </div>
@@ -8240,9 +8269,16 @@ min(fn)(source)
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>element</span> <code class='quiet'>(mixed)</code>
-	    Toggable value
-
+            <span class='code bold'>element</span> <code class='quiet'>(<a href="#any">any</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
+	    
           </div>
           
         </div>
@@ -8273,7 +8309,7 @@ min(fn)(source)
       <pre class='p1 overflow-auto round fill-light'>toggle(<span class="hljs-number">1</span>)([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])
 <span class="hljs-comment">// =&gt; [2]</span>
 
-toggle(<span class="hljs-number">1</span>)([<span class="hljs-number">2</span>])
+toggle(<span class="hljs-number">1</span>, [<span class="hljs-number">2</span>])
 <span class="hljs-comment">// =&gt; [1, 2]</span></pre>
     
   
@@ -8403,18 +8439,16 @@ toggle(<span class="hljs-number">1</span>)([<span class="hljs-number">2</span>])
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>oldElm</span> <code class='quiet'>(mixed)</code>
-	    The old elm
-
+            <span class='code bold'>oldElm</span> <code class='quiet'>(<a href="#any">any</a>)</code>
+	    
           </div>
           
         </div>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>newElm</span> <code class='quiet'>(mixed)</code>
-	    The new elm
-
+            <span class='code bold'>newElm</span> <code class='quiet'>(<a href="#any">any</a>)</code>
+	    
           </div>
           
         </div>
@@ -8485,18 +8519,16 @@ source is Array</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>oldElm</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | mixed))</code>
-	    To be cloned
-
+            <span class='code bold'>oldElm</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="#any">any</a>))</code>
+	    
           </div>
           
         </div>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>newElm</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | mixed))</code>
-	    Copy of this object.
-
+            <span class='code bold'>newElm</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="#any">any</a>))</code>
+	    
           </div>
           
         </div>
@@ -8504,8 +8536,7 @@ source is Array</p>
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>source</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="#array">Array</a>))</code>
-	    Source array
-
+	    
           </div>
           
         </div>
@@ -8575,7 +8606,7 @@ source is Array</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>filter</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+            <span class='code bold'>filter</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
 	    Filter object to match against each element
 
           </div>
@@ -8584,7 +8615,7 @@ source is Array</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>newValue</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+            <span class='code bold'>newValue</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
 	    Object to replace matching elements
 
           </div>
@@ -8593,9 +8624,8 @@ source is Array</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>)</code>
-	    Source array
-
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="#object">Object</a>>)</code>
+	    
           </div>
           
         </div>
@@ -8703,8 +8733,7 @@ replaceWith({ <span class="hljs-attr">id</span>: <span class="hljs-number">2</sp
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
-	    Array
-
+	    
           </div>
           
         </div>
@@ -8782,18 +8811,16 @@ replaceWith({ <span class="hljs-attr">id</span>: <span class="hljs-number">2</sp
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>field</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    Sort field name
-
+	    
           </div>
           
         </div>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>direction</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
+            <span class='code bold'>direction</span> <code class='quiet'>((<code>"asc"</code> | <code>"desc"</code>)
             = <code>&quot;asc&quot;</code>)</code>
-	    Sort direction
-
+	    
           </div>
           
         </div>
@@ -8801,8 +8828,7 @@ replaceWith({ <span class="hljs-attr">id</span>: <span class="hljs-number">2</sp
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
-	    Input array
-
+	    
           </div>
           
         </div>
@@ -8830,13 +8856,13 @@ replaceWith({ <span class="hljs-attr">id</span>: <span class="hljs-number">2</sp
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>sortWith( <span class="hljs-string">&quot;position&quot;</span> )( [
+      <pre class='p1 overflow-auto round fill-light'>sortWith(<span class="hljs-string">&quot;position&quot;</span>)([
   { <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">position</span>: <span class="hljs-number">3</span> },
   { <span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">position</span>: <span class="hljs-number">2</span> },
   { <span class="hljs-attr">id</span>: <span class="hljs-number">3</span> },
   { <span class="hljs-attr">id</span>: <span class="hljs-number">4</span>, <span class="hljs-attr">position</span>: <span class="hljs-number">5</span> },
   { <span class="hljs-attr">id</span>: <span class="hljs-number">5</span>, <span class="hljs-attr">position</span>: <span class="hljs-literal">null</span> },
-] )
+])
 <span class="hljs-comment">// [</span>
 <span class="hljs-comment">//  { id: 2, position: 2 },</span>
 <span class="hljs-comment">//  { id: 1, position: 3 },</span>
@@ -8891,7 +8917,7 @@ replaceWith({ <span class="hljs-attr">id</span>: <span class="hljs-number">2</sp
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>fn</span> <code class='quiet'>((Fn | <a href="#array">Array</a>&#x3C;Fn>))</code>
+            <span class='code bold'>fn</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a> | <a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>>))</code>
 	    Predicate applied to each element
 
           </div>
@@ -8900,7 +8926,7 @@ replaceWith({ <span class="hljs-attr">id</span>: <span class="hljs-number">2</sp
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>>)</code>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="#object">Object</a>>)</code>
 	    Source array to iterate over
 
           </div>
@@ -9632,27 +9658,16 @@ make each split.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>search</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    Search string
-
+            <span class='code bold'>search</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="#any">any</a>))</code>
+	    
           </div>
           
         </div>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    Source string
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
-	    Function params
-
+            <span class='code bold'>source</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>))</code>
+	    
           </div>
           
         </div>
@@ -9681,6 +9696,9 @@ make each split.</p>
     
       
       <pre class='p1 overflow-auto round fill-light'>startsWith(<span class="hljs-string">&quot;lorem&quot;</span>, <span class="hljs-string">&quot;lorem ipsum&quot;</span>)
+<span class="hljs-comment">// =&gt; true</span>
+
+startsWith(<span class="hljs-string">&quot;lorem&quot;</span>, [<span class="hljs-string">&quot;lorem&quot;</span>, <span class="hljs-string">&quot;ipsum&quot;</span>])
 <span class="hljs-comment">// =&gt; true</span>
 
 startsWith(<span class="hljs-string">&quot;dolor&quot;</span>)(<span class="hljs-string">&quot;lorem ipsum&quot;</span>)
@@ -9771,7 +9789,7 @@ startsWith(<span class="hljs-string">&quot;dolor&quot;</span>)(<span class="hljs
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>endWith(<span class="hljs-string">&quot;ipsum&quot;</span>)(<span class="hljs-string">&quot;lorem ipsum&quot;</span>)
+      <pre class='p1 overflow-auto round fill-light'>endWith(<span class="hljs-string">&quot;ipsum&quot;</span>, <span class="hljs-string">&quot;lorem ipsum&quot;</span>)
 <span class="hljs-comment">// =&gt; true</span></pre>
     
   
@@ -9821,8 +9839,7 @@ startsWith(<span class="hljs-string">&quot;dolor&quot;</span>)(<span class="hljs
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    Source string
-
+	    
           </div>
           
         </div>
@@ -9842,6 +9859,14 @@ startsWith(<span class="hljs-string">&quot;dolor&quot;</span>)(<span class="hljs
     
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Related</div>
+    
+      
+        <a href="#toupper">toUpper</a>
+
+      
+    
   
 
   
@@ -9900,8 +9925,7 @@ startsWith(<span class="hljs-string">&quot;dolor&quot;</span>)(<span class="hljs
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    Source string
-
+	    
           </div>
           
         </div>
@@ -9921,6 +9945,14 @@ startsWith(<span class="hljs-string">&quot;dolor&quot;</span>)(<span class="hljs
     
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Related</div>
+    
+      
+        <a href="#tolower">toLower</a>
+
+      
+    
   
 
   
@@ -9978,9 +10010,8 @@ startsWith(<span class="hljs-string">&quot;dolor&quot;</span>)(<span class="hljs
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
-	    Function params
-
+            <span class='code bold'>params</span> <code class='quiet'>(...any)</code>
+	    
           </div>
           
         </div>
@@ -10284,9 +10315,7 @@ trim(<span class="hljs-string">&quot;-&quot;</span>, <span class="hljs-string">&
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>{ example }
-
-escapeRegExp( <span class="hljs-string">&quot;lorem. ipsum [dolor]&quot;</span> )
+      <pre class='p1 overflow-auto round fill-light'>escapeRegExp( <span class="hljs-string">&quot;lorem. ipsum [dolor]&quot;</span> )
 <span class="hljs-comment">// =&gt; &quot;lorem \\. ipsum \\[dolor\\]&quot;</span></pre>
     
   
