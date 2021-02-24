@@ -1,3 +1,5 @@
+/* eslint-disable unicorn/no-null */
+
 import test from "tape"
 
 import { isEmpty } from "../is-empty/is-empty"

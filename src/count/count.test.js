@@ -1,3 +1,5 @@
+/* eslint-disable unicorn/no-null */
+
 import test from "tape"
 
 import { is } from "../is/is"
@@ -25,7 +27,7 @@ test("count", t => {
 
   t.equal(count(null), 0, "Given number, should return 0")
 
-  t.equal(count(undefined), 0, "Given number, should return 0")
+  t.equal(count(), 0, "Given number, should return 0")
 
   t.end()
 })

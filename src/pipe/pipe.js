@@ -2,15 +2,15 @@
  * Performs left-to-right function composition. The leftmost function may have
  * any arity, the remaining functions must be unary.
  *
- * @param {Function}   firstFn  First function in transform chain
- * @param {Function[]} restFn   Remaining functions
- * @param {Array}      source First function arguments
+ * @param {Function}   firstFn First function in transform chain
+ * @param {Function[]} restFn  Remaining functions
+ * @param {Array}      source  First function arguments
  *
- * @returns {Any}
+ * @returns {any}
  *
  * @name pipe
  * @tag Core
- * @signature (...fn: Function[]) => (...source: Array): Any
+ * @signature (...fn: Function[]) => (...source: Array): any
  *
  * @see {@link pipeP}
  *
