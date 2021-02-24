@@ -8,7 +8,7 @@ const _filter = (_fn, _source) => {
   const result = []
 
   for (let i = 0, length = source.length; i < length; i++) {
-    if (fn.call(null, source[i]) === true) {
+    if (fn(source[i]) === true) {
       result.push(source[i])
     }
   }
@@ -33,7 +33,7 @@ export const filter = curry(_filter)
 /**
  * Filter elements matching an object
  *
- * @param {object} subset The function
+ * @param {Object} subset The function
  *
  * @returns {Array}
  *

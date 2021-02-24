@@ -4,17 +4,25 @@ import { inc } from "../inc/inc"
 import { forEach } from "./for-each"
 
 test("forEach", t => {
-  const tmp = []
+  {
+    const temporary = []
 
-  forEach(item => tmp.push(item))([1, 2, 3])
+    forEach(item => temporary.push(item))([1, 2, 3])
 
-  t.deepEqual(tmp, [1, 2, 3], "Run function over each element of array")
+    t.deepEqual(temporary, [1, 2, 3], "Run function over each element of array")
+  }
 
-  const tmp2 = []
+  {
+    const temporary = []
 
-  forEach([inc, item => tmp2.push(item)], [1, 2, 3])
+    forEach([inc, item => temporary.push(item)], [1, 2, 3])
 
-  t.deepEqual(tmp2, [2, 3, 4], "Run piped functions over each element of array")
+    t.deepEqual(
+      temporary,
+      [2, 3, 4],
+      "Run piped functions over each element of array"
+    )
+  }
 
   t.end()
 })

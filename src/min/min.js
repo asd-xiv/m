@@ -5,18 +5,18 @@ const _minBy = (_fn, source) => {
   const fn = Array.isArray(_fn) ? pipe(..._fn) : _fn
 
   if (source.length === 0) {
-    return undefined
+    return
   }
 
   const result = {
     item: source[0],
-    value: fn.call(null, source[0]),
+    value: fn(source[0]),
   }
 
   for (let i = 1, length = source.length; i < length; i++) {
-    if (result.value > fn.call(null, source[i])) {
+    if (result.value > fn(source[i])) {
       result.item = source[i]
-      result.value = fn.call(null, result.item)
+      result.value = fn(result.item)
     }
   }
 
@@ -50,7 +50,7 @@ const _minBy = (_fn, source) => {
  */
 export const min = source => {
   if (source.length === 0) {
-    return undefined
+    return
   }
 
   let [result] = source

@@ -6,7 +6,7 @@ const _forEach = (_fn, _source) => {
   const source = Array.isArray(_source) ? _source : [_source]
 
   for (let i = 0, length = source.length; i < length; i++) {
-    fn.call(null, source[i], i, source)
+    fn(source[i], i, source)
   }
 }
 
