@@ -1,0 +1,7 @@
+# Browsers that we support
+# Use "npx browserslist" to list exact browsers
+
+> 0.25%
+last 2 versions
+not dead
+node >= 12

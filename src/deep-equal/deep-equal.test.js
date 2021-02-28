@@ -2,7 +2,8 @@
 
 import test from "tape"
 
-import { isDeepEqual } from "./deep-equal"
+// import { isDeepEqual } from "./deep-equal"
+import isDeepEqual from "fast-deep-equal"
 
 const fn = () => {}
 
