@@ -1,6 +1,6 @@
 const fastDeepEqual = require("fast-deep-equal")
-export { fastDeepEqual as isDeepEqual, fastDeepEqual as deepEqual }
 
+export { fastDeepEqual as isDeepEqual, fastDeepEqual as deepEqual }
 export { elapsedTime } from "./elapsed-time/elapsed-time"
 export { groupBy } from "./group-by/group-by"
 export { indexBy } from "./index-by/index-by"
