@@ -52,7 +52,7 @@ jobs:
 
       - run:
           name: "m: Install npm packages"
-          command: "npm run setup:ci"
+          command: "npm run setup"
 
       - run:
           name: "m: Babel compile"
