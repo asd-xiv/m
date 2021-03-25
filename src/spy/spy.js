@@ -1,5 +1,5 @@
 /**
- * Proxy input and print to console.log. Usefull for debugging pipe chains.
+ * Proxy input and print to console.log. Useful for debugging pipe chains.
  *
  * @param {string} namespace
  * @param {any}    source
@@ -19,7 +19,10 @@ export const spy = namespace => (...source) => {
     )
   }
 
-  console.log(`m:spy:${namespace}`, JSON.stringify(source[0]))
+  const payload = source[0]
+  const spied = [Object, Array].includes(payload.constructor) ? payload : JSON.stringify(payload)
 
-  return source[0]
+  console.log(`m:spy:${namespace}`, spied)
+
+  return payload
 }
