@@ -2,7 +2,7 @@ import test from "tape"
 
 import { is } from "../is/is"
 import { read } from "../read/read"
-import { partition, partitionWith } from "./partition"
+import { partition, partitionWith, partitionBy } from "./partition"
 
 const equalsTwo = x => x === 2
 
@@ -47,6 +47,26 @@ test("partitionWith", t => {
     })([{ id: 1 }, { id: 2, parentId: 1 }]),
     [[{ id: 2, parentId: 1 }], [{ id: 1 }]],
     "partitionWith({parentId: is}) // => [[{parentId: 1}], [{id: 1}]]"
+  )
+
+  t.end()
+})
+
+test("partitionBy", t => {
+  t.deepEqual(
+    partitionBy("id")([
+      { id: 1 },
+      { id: 1 },
+      { id: 2, parentId: 1 },
+      { id: 1, parentId: 1 },
+      { parentId: 1 },
+    ]),
+    [
+      [{ id: 1 }, { id: 1 }, { id: 1, parentId: 1 }],
+      [{ id: 2, parentId: 1 }],
+      [{ parentId: 1 }],
+    ],
+    "partitionBy('id')"
   )
 
   t.end()

@@ -4,6 +4,9 @@ import { pipe } from "../pipe/pipe"
 import { reduce } from "../reduce/reduce"
 import { curry } from "../curry/curry"
 import { isMatch } from "../is-match/is-match"
+import { is } from "../is/is"
+import { map } from "../map/map"
+import { distinct } from "../distinct/distinct"
 
 const _partition = (_fn, source) => {
   const fn = Array.isArray(_fn) ? pipe(..._fn) : _fn
@@ -19,6 +22,33 @@ const _partition = (_fn, source) => {
   }
 
   return [pass, fail]
+}
+
+const _partitionBy = (key, source) => {
+  const result = [...source]
+
+  const values = pipe(
+    map(item => item[key]),
+    distinct
+  )(result)
+
+  const partitioner = (acc, item) => {
+    const partIndex = values.indexOf(item[key])
+
+    if (partIndex === -1) {
+      return acc
+    }
+
+    if (is(acc[partIndex])) {
+      acc[partIndex].push(item)
+    } else {
+      acc[partIndex] = [item]
+    }
+
+    return acc
+  }
+
+  return reduce(partitioner, [])(result)
 }
 
 /**
@@ -64,3 +94,5 @@ export const partition = curry(_partition)
 export const partitionWith = curry((subset, source) =>
   _partition(isMatch(subset), source)
 )
+
+export const partitionBy = curry(_partitionBy)
