@@ -37,6 +37,10 @@ test("compact", t => {
 
   t.deepEqual(compact(""), "", "Compacting an empty string does nothing")
 
+  t.deepEqual(compact(null), null, "Compacting null does nothing")
+
+  t.deepEqual(compact(), undefined, "Compacting undefined does nothing")
+
   t.deepEqual(compact(false), false, "Compacting a boolean does nothing")
 
   t.deepEqual(compact(lambda), lambda, "Compacting a function does nothing")
@@ -51,6 +55,8 @@ test("compactMany", t => {
       { a: "Lorem Ipsum", b: null, c: undefined, d: false, f: lambda },
       "Lorem",
       "",
+      null,
+      undefined,
       false,
       lambda,
     ]),
@@ -59,6 +65,8 @@ test("compactMany", t => {
       { a: "Lorem Ipsum", d: false, f: lambda },
       "Lorem",
       "",
+      null,
+      undefined,
       false,
       lambda,
     ],
