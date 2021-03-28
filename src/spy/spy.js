@@ -29,6 +29,7 @@ export const spy = (props = {}) => (...source) => {
   console.log(`// ${description}`)
   console.log()
 
+  /* eslint-disable unicorn/no-null */
   console.log(JSON.stringify(spyValue, null, 2))
 
   // Make sure we're just proxying input
