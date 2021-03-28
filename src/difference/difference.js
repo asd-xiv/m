@@ -12,7 +12,7 @@ const _difference = (aList, bList) => {
   return filter(source => not(any(isDeepEqual(source)), bList), aList)
 }
 
-const _symetricDifference = (aList, bList) => {
+const _symmetricDifference = (aList, bList) => {
   if (aList.length === 0) {
     return bList
   }
@@ -32,4 +32,4 @@ const _symetricDifference = (aList, bList) => {
 
 export const difference = curry(_difference)
 
-export const symetricDifference = curry(_symetricDifference)
+export const symmetricDifference = curry(_symmetricDifference)
