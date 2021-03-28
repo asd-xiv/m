@@ -22,19 +22,18 @@ const _partition = (_fn, source) => {
 }
 
 /**
- * Split a list based on a predicate function
+ * Split an array based on a predicate function.
+ * Take `A[]` and return a two-tuple of `A[]`s. The first element of the tuple
+ * consists of elements for which the predicate returned `true`, the second of
+ * elements for which it returned `false`.
  *
  * @param {Function} fn A predicate function.
  *
- * @returns {[[], []]}
- * A function taking a `A[]` and returning a two-tuple of `A[]`s.
- * The first element of the tuple consists of elements for which
- * the predicate returned `true`, the second of elements for which
- * it returned `false`.
+ * @returns {Array<Array, Array>}
  *
  * @name partition
  * @tag Array
- * @signature (fn: Function|Funciton[], source: Array) => [[], []]
+ * @signature (fn: Function|Function[], source: Array) => Array<Array, Array>
  *
  * @example
  * partition(x => x % 2 === 0)([1, 2, 3, 4, 5])
@@ -43,19 +42,18 @@ const _partition = (_fn, source) => {
 export const partition = curry(_partition)
 
 /**
- * Split a list based on object matching
+ * Split an array based on object matching
+ * Take `A[]` and return a two-tuple of `A[]`s. The first element of the tuple
+ * consists of elements for which the predicate returned `true`, the second of
+ * elements for which it returned `false`.
  *
  * @param {object} subset A predicate function.
  *
- * @returns {[[], []]}
- * A function taking a `A[]` and returning a two-tuple of `A[]`s.
- * The first element of the tuple consists of elements for which
- * the predicate returned `true`, the second of elements for which
- * it returned `false`.
+ * @returns {Array<Array, Array>}
  *
  * @name partitionWith
  * @tag Array
- * @signature (subset: Object, source: Array) => [[], []]
+ * @signature (subset: Object, source: Array) => Array<Array, Array>
  *
  * @example
  * partitionWith({comments: is}, [{id: 1}, {id: 2, comments: []}])
