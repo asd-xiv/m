@@ -68,6 +68,6 @@ const _compactMany = map(_compact)
  * //  f: lambda
  * // }
  */
-export const compact = curry(_compact)
+export const compact = _compact
 
-export const compactMany = curry(_compactMany)
+export const compactMany = _compactMany
