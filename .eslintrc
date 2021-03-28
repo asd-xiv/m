@@ -1,5 +1,5 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "root": true,
   "extends": [ "@asd14/eslint-config/targets/node" ],
 
@@ -13,13 +13,13 @@
 
     "jsdoc/check-tag-names": ["warn", {
       "definedTags": ["tag", "signature"]
-    }],
+    }]
   },
 
   "settings": {
     // Recommended if you use eslint_d
     "import/cache": {
-      "lifetime": 5,
+      "lifetime": 5
     }
   }
 }
