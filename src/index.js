@@ -30,6 +30,7 @@ export { i } from "./i/i"
 export { clone } from "./clone/clone"
 export { repeat } from "./repeat/repeat"
 export { curry } from "./curry/curry"
+export { compact, compactMany } from "./compact/compact"
 
 // Boolean
 export { is, isNothing, not, isTrue, isFalse, isObject } from "./is/is"
