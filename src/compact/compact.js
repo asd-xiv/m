@@ -1,7 +1,6 @@
 import { is } from "../is/is"
 import { map } from "../map/map"
 import { filter } from "../filter/filter"
-import { curry } from "../curry/curry"
 import { type } from "../type/type"
 
 const _compactObject = source => {
@@ -19,26 +18,9 @@ const _compactObject = source => {
 
 const _compactArray = source => filter(is, source)
 
-const _compact = source => {
-  const sourceType = type(source)
-
-  switch (sourceType) {
-    case "Array":
-      return _compactArray(source)
-
-    case "Object":
-      return _compactObject(source)
-
-    default:
-      return source
-  }
-}
-
-const _compactMany = map(_compact)
-
 /**
- * Returns a copy of the object or array
- * with all null or undefined values removed
+ * Returns a copy of the object or array with all null or undefined values
+ * removed.
  *
  * @param {Array|Object} source
  *
@@ -68,6 +50,19 @@ const _compactMany = map(_compact)
  * //  f: lambda
  * // }
  */
-export const compact = _compact
+export const compact = source => {
+  const sourceType = type(source)
 
-export const compactMany = _compactMany
+  switch (sourceType) {
+    case "Array":
+      return _compactArray(source)
+
+    case "Object":
+      return _compactObject(source)
+
+    default:
+      return source
+  }
+}
+
+export const compactMany = map(compact)
