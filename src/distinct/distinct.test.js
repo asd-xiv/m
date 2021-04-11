@@ -1,27 +1,36 @@
-import test from "tape"
+import deepEquals from "fast-deep-equal"
+import { describe } from "riteway"
 
-import { distinct } from "./distinct"
+import { distinct, distinctBy } from "./distinct"
 
-test("distinct", t => {
-  t.deepEqual(
-    distinct([1, 1, 3]),
-    [1, 3],
-    "Primitives: ([1, 1 ,3]) // => [1, 3]"
-  )
+describe("distinct", async assert => {
+  assert({
+    given: "empty array",
+    should: "return empty array",
+    actual: distinct([]),
+    expected: [],
+  })
 
-  t.deepEqual(
-    distinct([1, "1", 3]),
-    [1, "1", 3],
-    'Primitives: ([ 1, "1" ,3 ]) // => [ 1, "1" ,3 ]'
-  )
+  assert({
+    given: "array with duplicate items of same type",
+    should: "return array with unique items",
+    actual: distinct([1, 1, 3]),
+    expected: [1, 3],
+  })
 
-  t.deepEqual(
-    distinct([1, { a: 2 }, { a: 2 }]),
-    [1, { a: 2 }],
-    "Recursive: ([1, {a: 2}, {a: 2}]) // => [1, {a: 2}]"
-  )
+  assert({
+    given: "array with unique items",
+    should: "return array with same items",
+    actual: distinct([1, "1", 3]),
+    expected: [1, "1", 3],
+  })
+})
 
-  t.deepEqual(distinct([]), [], "Empty array should return empty array")
-
-  t.end()
+describe("distinctBy", async assert => {
+  assert({
+    given: "empty array",
+    should: "return empty array",
+    actual: distinctBy(deepEquals, [1, { a: 2 }, { a: 2 }]),
+    expected: [1, { a: 2 }],
+  })
 })
