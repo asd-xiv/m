@@ -1,0 +1,4 @@
+{
+  "*.{js,json}": "npm run lint:js-staged",
+  "*.md": "npm run lint:md-staged"
+}
