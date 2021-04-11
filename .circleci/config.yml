@@ -80,7 +80,7 @@ jobs:
 
       - run:
           name: "m: Run tests"
-          command: "npm run test:ci"
+          command: "npm run test"
 
   coverage:
     <<: *job_defaults
@@ -94,7 +94,7 @@ jobs:
 
       - run:
           name: "m: Publish test coverage to COVERALLS"
-          command: "npm run coverage:ci"
+          command: "npm run coverage"
 
   publish:
     <<: *job_defaults
@@ -108,5 +108,5 @@ jobs:
 
       - run:
           name: "m: Release to npm with semantic-release"
-          command: "npx semantic-release"
+          command: "npm run publish"
 

@@ -41,14 +41,15 @@
     "test": "tape 'dist/*.test.js' 'dist/**/*.test.js' | tap-nirvana",
     "test-ui": "tape-ui 'dist/**/*.test.js' 'dist/**/*.test.jsx'",
     "tdd": "nodemon --watch src --exec 'npm test'",
-    "coverage:report": "nyc npm test && nyc report --reporter=html",
-    "coverage:ci": "nyc npm run test && nyc report --reporter=text-lcov | coveralls",
+    "coverage": "nyc npm run test && nyc report --reporter=text-lcov | coveralls",
     "----LINT": "",
     "lint:js": "eslint --quiet src",
     "lint:js-staged": "eslint --quiet",
     "lint:md": "markdownlint '*.md'",
     "lint:md-staged": "markdownlint",
-    "lint": "npm run lint:js && npm run lint:md"
+    "lint": "npm run lint:js && npm run lint:md",
+    "----PUBLISH": "",
+    "publish": "semantic-release"
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.13.10",
