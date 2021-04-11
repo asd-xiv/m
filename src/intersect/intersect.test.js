@@ -1,62 +1,54 @@
-import test from "tape"
+import { describe } from "riteway"
 
-import { intersect } from "./intersect"
+import { intersect, intersectBy } from "./intersect"
 
-test("intersect", t => {
-  t.deepEqual(
-    intersect(
-      (a, b) => a === b,
-      a => a,
-      [],
-      [1, 2, 3]
-    ),
-    [1, 2, 3],
-    "First array empty"
-  )
+describe("intersect", async assert => {
+  assert({
+    given: "empty first array",
+    should: "return an empty array",
+    actual: intersect([], [1, 2, 3]),
+    expected: [],
+  })
 
-  t.deepEqual(
-    intersect(
-      (a, b) => a === b,
-      a => a,
-      [1, 2, 3],
-      []
-    ),
-    [1, 2, 3],
-    "Second array empty"
-  )
+  assert({
+    given: "empty second array",
+    should: "return an empty array",
+    actual: intersect([1, 2, 3], []),
+    expected: [],
+  })
 
-  t.deepEqual(
-    intersect(
-      (a, b) => a === b,
-      a => a,
-      [1, 2, 3],
-      [3, 4, 5]
-    ),
-    [1, 2, 3, 4, 5],
-    "Join with common"
-  )
+  assert({
+    given: "two arrays with common items",
+    should: "return an array containing those items",
+    actual: intersect([1, 2, 3, 3, 4], [3, 3, 4, 5]),
+    expected: [3, 4],
+  })
 
-  t.deepEqual(
-    intersect(
-      (a, b) => a === b,
-      a => a,
-      [1, 2],
-      [3, 4, 5]
-    ),
-    [1, 2, 3, 4, 5],
-    "Join without common"
-  )
+  assert({
+    given: "two non empty arrays without common items",
+    should: "return an empty array",
+    actual: intersect([1, 2, 2], [3, 3, 4, 5]),
+    expected: [],
+  })
+})
 
-  t.deepEqual(
-    intersect(
+describe("intersectBy", async assert => {
+  assert({
+    given: "two non empty arrays common object items",
+    should: "return an array containing those objects",
+    actual: intersectBy(
       (a, b) => a.id === b.id,
       (a, b) => ({ ...a, ...b }),
-      [{ id: 1, overwrite: 1 }, { id: 2 }],
-      [{ id: 1, overwrite: 2 }, { id: 3 }]
+      [
+        { id: 1, lorem: "ipsum" },
+        { id: 2, foo: "bar1" },
+        { id: 2, foo: "bar2" },
+      ],
+      [
+        { id: 2, comments: [] },
+        { id: 3, comments: [] },
+      ]
     ),
-    [{ id: 1, overwrite: 2 }, { id: 2 }, { id: 3 }],
-    "Join objects - same order as input arrays"
-  )
-
-  t.end()
+    expected: [{ id: 2, foo: "bar1", comments: [] }],
+  })
 })
