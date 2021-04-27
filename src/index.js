@@ -1,4 +1,4 @@
-const fastDeepEqual = require("fast-deep-equal")
+import fastDeepEqual from "fast-deep-equal"
 
 export { fastDeepEqual as isDeepEqual, fastDeepEqual as deepEqual }
 export { elapsedTime } from "./elapsed-time/elapsed-time"
@@ -67,7 +67,7 @@ export { max, maxBy } from "./max/max"
 export { min, minBy } from "./min/min"
 export { move } from "./move/move"
 export { flatten } from "./flatten/flatten"
-export { distinct } from "./distinct/distinct"
+export { distinct, distinctBy } from "./distinct/distinct"
 export { dropLast } from "./drop-last/drop-last"
 export { upsertWith as upsert, upsertWith } from "./upsert/upsert"
 export { append, append as concat } from "./append/append"
@@ -88,7 +88,8 @@ export { hasKey } from "./has-key/has-key"
 export { filter, filterWith } from "./filter/filter"
 export { find, findWith } from "./find/find"
 export { findIndex, findIndexWith } from "./find-index/find-index"
-export { intersect } from "./intersect/intersect"
+export { join, joinBy } from "./join/join"
+export { intersect, intersectBy } from "./intersect/intersect"
 
 // Number
 export { dec } from "./dec/dec"
@@ -106,6 +107,6 @@ export { toLower } from "./to-lower/to-lower"
 export { toUpper } from "./to-upper/to-upper"
 export { trim } from "./trim/trim"
 export { contains } from "./contains/contains"
-export { join } from "./join/join"
+export { unite } from "./unite/unite"
 export { escapeHTML } from "./escape-html/escape-html"
 export { escapeRegExp } from "./escape-reg-exp/escape-reg-exp"

@@ -1,5 +1,20 @@
 import { any } from "../any/any"
-import { isDeepEqual } from "../deep-equal/deep-equal"
+import { curry } from "../curry/curry"
+import { isEqual } from "../is-equal/is-equal"
+
+const _distinctBy = (predicateFn, source) => {
+  const result = []
+
+  for (let i = 0, length = source.length; i < length; i++) {
+    const newElement = source[i]
+
+    if (any(item => predicateFn(newElement, item), result) === false) {
+      result.push(newElement)
+    }
+  }
+
+  return result
+}
 
 /**
  * Remove repeating values
@@ -16,16 +31,6 @@ import { isDeepEqual } from "../deep-equal/deep-equal"
  * distinct([1, 1, 2])
  * // => [1, 2]
  */
-export const distinct = source => {
-  const result = []
+export const distinct = source => _distinctBy(isEqual, source)
 
-  for (let i = 0, length = source.length; i < length; i++) {
-    const newElement = source[i]
-
-    if (any(isDeepEqual(newElement), result) === false) {
-      result.push(newElement)
-    }
-  }
-
-  return result
-}
+export const distinctBy = curry(_distinctBy)

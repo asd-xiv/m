@@ -1,10 +1,12 @@
+/* eslint-disable unicorn/prefer-node-protocol */
+
 import path from "path"
 
 import { pipe } from "../pipe/pipe"
 import { trim } from "../trim/trim"
 import { split } from "../split/split"
 import { push } from "../push/push"
-import { join } from "../join/join"
+import { unite } from "../unite/unite"
 import { dropLast } from "../drop-last/drop-last"
 
 const removeTrailingSlash = source =>
@@ -24,7 +26,7 @@ const renameFile = newName =>
     split(path.sep),
     dropLast,
     push(trim(path.sep)(newName)),
-    join(path.sep)
+    unite(path.sep)
   )
 
 export { renameFile }
