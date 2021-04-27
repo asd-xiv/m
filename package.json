@@ -38,7 +38,7 @@
     "build:docs": "documentation build src/index.js --project-name m -f html -o docs -c documentation.yml",
     "----TEST": "",
     "pretest": "npm run build",
-    "test": "tape 'dist/*.test.js' 'dist/**/*.test.js' | tap-nirvana",
+    "test": "tape -r @babel/register 'src/*.test.js' 'src/**/*.test.js' | tap-nirvana",
     "test-ui": "tape-ui 'dist/**/*.test.js' 'dist/**/*.test.jsx'",
     "tdd": "nodemon --watch src --exec 'npm test'",
     "coverage": "nyc npm run test && nyc report --reporter=text-lcov | coveralls",
