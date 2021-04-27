@@ -1,5 +1,41 @@
 # A log of changes
 
+# [6.0.0](https://github.com/asd-xiv/m/compare/v5.4.0...v6.0.0) (2021-04-27)
+
+
+### Features
+
+* Rework `intersect`, add `overlap` ([#8](https://github.com/asd-xiv/m/issues/8)) ([f80680b](https://github.com/asd-xiv/m/commit/f80680b4610ac58d5bc0b45ac205ec2d7e4fee08))
+
+
+### BREAKING CHANGES
+
+* `distinct` no longer uses deep equal compare. Use `distinctBy` with custom
+compare function to parse object arrays.
+
+```js
+// old
+distinct([1, {a: 2}, {a: 2}])
+// => [1, {a: 2}]
+
+// new
+import deepEquals from "fast-deep-equal"
+
+distinctBy(deepEquals, [1, { a: 2 }, { a: 2 }])
+// => [1, {a: 2}]
+```
+
+* feat: Add `overlap` and `overlapBy` functions to combine 2 arrays into a set (array of unique items)
+
+* feat: Add `intersect` and `intersectBy` functions to obtain common items in 2 arrays
+
+* feat: rename "join" -> "unit", "overlap" -> "join"
+* Functions renamed:
+- "join" -> "unit"
+- "overlap" -> "join"
+
+* chore: fix linting errors
+
 <!-- markdownlint-disable line-length -->
 
 ## [5.4.0](https://github.com/asd-xiv/m/compare/v5.3.0...v5.4.0) (2021-04-11)
