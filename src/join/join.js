@@ -1,22 +1,58 @@
+import { findIndex } from "../find-index/find-index"
 import { curry } from "../curry/curry"
+import { distinctBy } from "../distinct/distinct"
+import { isEqual } from "../is-equal/is-equal"
 
-const _join = (separator, source) => [].join.call(source, separator)
+const _joinBy = (predicateFn, mergeFn, aList, bList) => {
+  if (aList.length === 0) {
+    return bList
+  }
+
+  if (bList.length === 0) {
+    return aList
+  }
+
+  const result = distinctBy(predicateFn, aList)
+
+  for (const b of bList) {
+    const aIndex = findIndex(item => predicateFn(item, b), result)
+
+    if (aIndex === -1) {
+      result.push(b)
+    } else {
+      result[aIndex] = mergeFn(result[aIndex], b)
+    }
+  }
+
+  return result
+}
+
+const _join = (aList, bList) => _joinBy(isEqual, a => a, aList, bList)
 
 /**
- * Join all elements of an array into a string
+ * Combine two arrays into one a set (array of unique items), composed of items
+ * from both arrays.
  *
- * @param {string} separator Separator between each adjacent elements
- * @param {[]}     source    Source array
+ * The function starts with the distinct items from aList and each item of bList
+ * will be searched using a shallow equal. If found, it will be discarded.
  *
- * @returns {string}
+ * @param {any[]} aList
+ * @param {any[]} bList
+ *
+ * @returns {any[]}
  *
  * @name join
  * @tag Array
- * @signature (separator: String)(source: Array): String
- * @signature (separator: String, source: Array): String
+ * @signature (aList: any[], bList: any[]): any[]
+ *
+ * @see {@link overlapBy}
+ * @see {@link intersect}
+ * @see {@link intersectBy}
  *
  * @example
- * join(",")(["lorem", "ipsum"])
- * // => "lorem,ipsum"
+ * join([1, 1, 2, 3, 3], [3, 3, 4, 4, 5])
+ * // => [1, 2, 3, 4, 5]
  */
 export const join = curry(_join)
+
+export const joinBy = curry(_joinBy)
