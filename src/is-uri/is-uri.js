@@ -1,4 +1,4 @@
-const RFC3986 = require("rfc-3986")
+import RFC3986 from "rfc-3986"
 
 const URIRegExp = new RegExp(RFC3986.uri)
 

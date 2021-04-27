@@ -1,4 +1,4 @@
-const fastDeepEqual = require("fast-deep-equal")
+import fastDeepEqual from "fast-deep-equal"
 
 export { fastDeepEqual as isDeepEqual, fastDeepEqual as deepEqual }
 export { elapsedTime } from "./elapsed-time/elapsed-time"
@@ -88,7 +88,7 @@ export { hasKey } from "./has-key/has-key"
 export { filter, filterWith } from "./filter/filter"
 export { find, findWith } from "./find/find"
 export { findIndex, findIndexWith } from "./find-index/find-index"
-export { overlap, overlapBy } from "./overlap/overlap"
+export { join, joinBy } from "./join/join"
 export { intersect, intersectBy } from "./intersect/intersect"
 
 // Number
@@ -107,6 +107,6 @@ export { toLower } from "./to-lower/to-lower"
 export { toUpper } from "./to-upper/to-upper"
 export { trim } from "./trim/trim"
 export { contains } from "./contains/contains"
-export { join } from "./join/join"
+export { unite } from "./unite/unite"
 export { escapeHTML } from "./escape-html/escape-html"
 export { escapeRegExp } from "./escape-reg-exp/escape-reg-exp"

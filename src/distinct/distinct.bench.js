@@ -1,9 +1,9 @@
 /* eslint-disable no-sync, no-console */
 
-const Benchmark = require("benchmark")
+import Benchmark from "benchmark"
 
-const distinct = require("./distinct")
-const { uniq: distinctR } = require("ramda")
+import { distinct } from "./distinct"
+import { uniq as distinctR } from "ramda"
 
 const sourceA = [1, 2, 3, 3, 4]
 const sourceB = [1, 2, [{ a: 2 }], [{ a: 2 }]]

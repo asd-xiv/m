@@ -1,4 +1,6 @@
-const test = require("tape")
+/* eslint-disable unicorn/prefer-module */
+
+import test from "tape"
 
 test("index", t => {
   t.doesNotThrow(() => {
