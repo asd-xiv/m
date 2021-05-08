@@ -48,6 +48,7 @@ export { pick } from "./pick/pick"
 export { pluck } from "./pluck/pluck"
 export { merge, mergeAll, mergeBy } from "./merge/merge"
 export { keys } from "./keys/keys"
+export { values } from "./values/values"
 export { rename as renameKeys, rename, renameMany } from "./rename/rename"
 export {
   zipToObject as zipToObj,

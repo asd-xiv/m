@@ -11,7 +11,7 @@
  *
  * @example
  * values(["lorem", "ipsum"])
- * // => ["0", "1"]
+ * // => ["lorem", "ipsum"]
  *
  * values({ foo: "bar", lorem: "ipsum"})
  * // => ["bar", "ipsum"]
