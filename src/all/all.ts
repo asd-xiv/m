@@ -2,7 +2,9 @@ import { pipe } from "../pipe/pipe"
 import { curry } from "../curry/curry"
 import { isMatch } from "../is-match/is-match"
 
-const _all = (_fn, _source) => {
+type _AllType = <T>(_fn: Predicate<T>, _source: T[]) => boolean
+
+const _all: _AllType = (_fn, _source) => {
   const source = Array.isArray(_source) ? _source : [_source]
   const fn = Array.isArray(_fn) ? pipe(..._fn) : _fn
 
@@ -15,7 +17,12 @@ const _all = (_fn, _source) => {
   return true
 }
 
-const _allWith = (subset, source) => _all(isMatch(subset), source)
+type _AllWithType = (
+  subset: Record<string, unknown>,
+  source: Record<string, unknown>[]
+) => boolean
+
+const _allWith: _AllWithType = (subset, source) => _all(isMatch(subset), source)
 
 /**
  * Test if all elements of array satisfy a function
@@ -40,7 +47,10 @@ const _allWith = (subset, source) => _all(isMatch(subset), source)
  * all(is, [1, "asd", null])
  * // => false
  */
-export const all = curry(_all)
+
+type AllType = <T>(fn: Predicate<T>, source: T[]) => boolean
+
+export const all: AllType = curry(_all)
 
 /**
  * Test if all elements in array match object

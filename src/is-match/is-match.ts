@@ -2,16 +2,26 @@ import { pipe } from "../pipe/pipe"
 import { curry } from "../curry/curry"
 import { all } from "../all/all"
 
-const byValue = (shouldBe, value, not) =>
+type ByValueType = (shouldBe: any, value: any, not: boolean) => boolean
+
+const byValue: ByValueType = (shouldBe, value, not) =>
   not ? shouldBe !== value : shouldBe === value
 
-const byFn = (shouldBe, value, not) => {
+type ByFnType = (
+  shouldBe: (value: any) => boolean,
+  value: any,
+  not: boolean
+) => boolean
+
+const byFn: ByValueType = (shouldBe, value, not) => {
   const result = shouldBe(value) === true
 
   return not ? !result : result
 }
 
-const _isMatch = (subset, source) =>
+type IsMatchType = <T>(subset: Record<string, unknown>, source: T) => boolean
+
+const _isMatch: IsMatchType = (subset, source) =>
   all(([key, _shouldBe]) => {
     const shouldBe = Array.isArray(_shouldBe) ? pipe(..._shouldBe) : _shouldBe
     const shouldTestNegation = key[0] === "!"
