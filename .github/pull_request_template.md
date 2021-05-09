@@ -17,6 +17,6 @@ Before submitting your PR:
 
 ## Checklist
 
-- [ ] Tests
+- [ ] Tests - use [Riteway](https://github.com/ericelliott/riteway), see [distinct.test.js](https://github.com/asd-xiv/m/blob/master/src/distinct/distinct.test.js)
 - [ ] JSDocs
 - [ ] Export in `src/index.js`
