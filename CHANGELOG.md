@@ -1,5 +1,12 @@
 # A log of changes
 
+# [6.2.0](https://github.com/asd-xiv/m/compare/v6.1.0...v6.2.0) (2021-05-09)
+
+
+### Features
+
+* add `values` function ([#9](https://github.com/asd-xiv/m/issues/9)) ([0879591](https://github.com/asd-xiv/m/commit/0879591da97348e37f62972d42eff3fa04f1686a))
+
 ## [6.1.0](https://github.com/asd-xiv/m/compare/v6.0.0...v6.1.0) (2021-05-08)
 
 ### Features
