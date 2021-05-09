@@ -28,7 +28,7 @@ export const values = source => {
 
   switch (type) {
     case "array": {
-      return source
+      return [...source]
     }
     case "object": {
       const entries = Object.entries(source)
