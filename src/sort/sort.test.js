@@ -1,6 +1,6 @@
-/* eslint-disable unicorn/no-null */
+/* eslint-disable unicorn/no-null,new-cap */
 
-import { describe } from "riteway"
+import { describe, Try } from "riteway"
 import { sort, sortBy } from "./sort"
 import { sortWith } from "./sort-with"
 
@@ -22,8 +22,8 @@ describe("sort", async assert => {
   assert({
     given: "an array with unsorted strings",
     should: "return an desc sorted array (curried)",
-    actual: sort("asc")(["a", "c", "b"]),
-    expected: ["a", "b", "c"],
+    actual: sort("desc")(["a", "c", "b"]),
+    expected: ["c", "b", "a"],
   })
 })
 
@@ -166,5 +166,35 @@ describe("sortWith", async assert => {
       { id: 11, createdAt: "12-02-2003" },
       { id: 3, createdAt: "12-02-2001", isActive: false },
     ],
+  })
+
+  assert({
+    given: "invalid sort direction",
+    should: "throw",
+    actual: Try(() => {
+      sortWith(
+        {
+          createdAt: [source => new Date(source).getTime(), "doesc"],
+        },
+        []
+      )
+    }).toString(),
+    expected:
+      'Error: @asd14/m/sortWith: Unsuported sort direction for key "createdAt". Accepting "asc" or "desc", received "doesc".',
+  })
+
+  assert({
+    given: "invalid sort direction",
+    should: "throw",
+    actual: Try(() => {
+      sortWith(
+        {
+          createdAt: () => 2,
+        },
+        []
+      )
+    }).toString(),
+    expected:
+      'Error: @asd14/m/sortWith: Unsuported sort function signature for key "createdAt". Accepting function with one or two parameters, received 0.',
   })
 })
