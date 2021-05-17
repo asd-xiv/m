@@ -83,7 +83,8 @@ export {
   countWith,
 } from "./count/count"
 export { replace, replaceWith } from "./replace/replace"
-export { sort, sortWith } from "./sort/sort"
+export { sort, sortBy } from "./sort/sort"
+export { sortWith } from "./sort/sort-with"
 export { remove, removeWith } from "./remove/remove"
 export { hasKey } from "./has-key/has-key"
 export { filter, filterWith } from "./filter/filter"
