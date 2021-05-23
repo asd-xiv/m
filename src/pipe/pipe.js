@@ -18,12 +18,14 @@
  * pipe(inc, inc)(2)
  * // => 4
  */
-export const pipe = (firstFn, ...restFn) => (...source) => {
-  let acc = firstFn(...source)
+export const pipe =
+  (firstFn, ...restFn) =>
+  (...source) => {
+    let acc = firstFn(...source)
 
-  for (let index = 0, length = restFn.length; index < length; index++) {
-    acc = restFn[index](acc)
+    for (let index = 0, length = restFn.length; index < length; index++) {
+      acc = restFn[index](acc)
+    }
+
+    return acc
   }
-
-  return acc
-}

@@ -89,33 +89,36 @@ test("sequenceWith", t => {
       )
     })
     .then(() =>
-      sequenceWhile(source => source <= 5, [
-        () => 1,
+      sequenceWhile(
+        source => source <= 5,
+        [
+          () => 1,
 
-        previous => {
-          sum += previous
+          previous => {
+            sum += previous
 
-          return delay(10, 2)
-        },
+            return delay(10, 2)
+          },
 
-        previous => {
-          sum += previous
+          previous => {
+            sum += previous
 
-          return delay(10, 100)
-        },
+            return delay(10, 100)
+          },
 
-        previous => {
-          sum += previous
+          previous => {
+            sum += previous
 
-          return delay(10, 2)
-        },
+            return delay(10, 2)
+          },
 
-        previous => {
-          sum += previous
+          previous => {
+            sum += previous
 
-          return delay(10, 5)
-        },
-      ])
+            return delay(10, 5)
+          },
+        ]
+      )
     )
     .then(result => {
       t.deepEqual(

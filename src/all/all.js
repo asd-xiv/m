@@ -48,7 +48,7 @@ export const all = curry(_all)
  * @param {object} subset Match object
  * @param {Array}  source Source array to iterate over
  *
- * @returns {boolean} True if all elements match, otherwise false
+ * @returns {boolean}        True if all elements match, otherwise false
  *
  * @name allWith
  * @tag Array

@@ -24,14 +24,16 @@
  *   // => result = 4
  * })
  */
-const pipeP = (firstFn, ...restFn) => (...source) => {
-  let acc = Promise.resolve(firstFn(...source))
+const pipeP =
+  (firstFn, ...restFn) =>
+  (...source) => {
+    let acc = Promise.resolve(firstFn(...source))
 
-  for (let index = 0, length = restFn.length; index < length; index++) {
-    acc = acc.then(result => restFn[index](result))
+    for (let index = 0, length = restFn.length; index < length; index++) {
+      acc = acc.then(result => restFn[index](result))
+    }
+
+    return acc
   }
-
-  return acc
-}
 
 export { pipeP }

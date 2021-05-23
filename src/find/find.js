@@ -21,7 +21,7 @@ const _find = (_fn, notFoundDefault, _source) => {
 /**
  * Find the first element that matches a predicate
  *
- * @param {Function|Function[]} fn  Match function applied to each element
+ * @param {Function|Function[]} fn              Match function applied to each element
  * @param {any}                 notFoundDefault Return if no item found
  * @param {Array}               source          Source array to iterate over
  *

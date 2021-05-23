@@ -16,11 +16,13 @@
  *
  * curry(sum)(1)(2) = 3
  */
-export const curry = fn => (...params) => {
-  const _params = params.length === 0 ? [undefined] : params
+export const curry =
+  fn =>
+  (...params) => {
+    const _params = params.length === 0 ? [undefined] : params
 
-  return _params.length >= fn.length
-    ? fn(..._params)
-    : (...rest) =>
-        curry(fn)(..._params, ...(rest.length === 0 ? [undefined] : rest))
-}
+    return _params.length >= fn.length
+      ? fn(..._params)
+      : (...rest) =>
+          curry(fn)(..._params, ...(rest.length === 0 ? [undefined] : rest))
+  }

@@ -14,6 +14,9 @@
  * push(2)([1]) // => [1, 2]
  * push(2, 4)([1]) // => [1, 2, 4]
  */
-const push = (...elements) => source => [...source, ...elements]
+const push =
+  (...elements) =>
+  source =>
+    [...source, ...elements]
 
 export { push }

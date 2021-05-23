@@ -24,7 +24,6 @@ const _map = (_fn, _source) => {
  *
  * @name map
  * @tag Array
- * @signature (fn: Fn|Fn[]) => (source: Array) => Array
  * @signature (fn: Fn|Fn[], source: Array) => Array
  *
  * @see {@link mapMatrix}

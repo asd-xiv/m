@@ -22,8 +22,8 @@ const _converge = (_accFn, _extractFn, ...source) => {
  *
  * @param {Function|Function[]} accFn     Accumulator or final aggreate function
  * @param {Function|Function[]} extractFn Functions to be applied on input
- * @param {any}     ...source Source input
- * @param {...any}  params    Function params
+ * @param {any}                 ...source Source input
+ * @param {...any}              params    Function params
  *
  * @returns {any}
  *
