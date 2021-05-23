@@ -1,5 +1,13 @@
 # A log of changes
 
+# [6.3.0](https://github.com/asd-xiv/m/compare/v6.2.0...v6.3.0) (2021-05-23)
+
+
+### Features
+
+* add `sortBy`, rework `sort` and `sortWith` ([#11](https://github.com/asd-xiv/m/issues/11)) ([2f39124](https://github.com/asd-xiv/m/commit/2f391242516027a8d8c9639666ea83f148004728))
+* update packages ([5a6c802](https://github.com/asd-xiv/m/commit/5a6c802c6a3f0e21f711355b359772b9d4652d1a))
+
 ## [6.2.0](https://github.com/asd-xiv/m/compare/v6.1.0...v6.2.0) (2021-05-09)
 
 ### Features
