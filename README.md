@@ -7,7 +7,7 @@
 
 # m
 
-> [Point free](https://en.wikipedia.org/wiki/Tacit_programming) style, functional library for Javascript with focus on object array manipulation.
+> [Point free](https://en.wikipedia.org/wiki/Tacit_programming) style, functional library for Javascript with focus on object arrays.
 
 ---
 
