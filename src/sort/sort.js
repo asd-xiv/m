@@ -8,9 +8,9 @@ const _sort = (direction, source) =>
 /**
  * Sort primitive array
  *
- * @param   {...any} params
- * @param   {string} [params.direction="asc"]
- * @param   {Array}  params.source
+ * @param {...any} params
+ * @param {string} [params.direction="asc"]
+ * @param {Array}  params.source
  *
  * @returns {Array}
  *
@@ -47,8 +47,8 @@ export const sort = (...params) => {
 /**
  * Sort array using custom function
  *
- * @param   {Function} fn     Sort function
- * @param   {Array}    source
+ * @param {Function} fn     Sort function
+ * @param {Array}    source
  *
  * @returns {Array}
  *

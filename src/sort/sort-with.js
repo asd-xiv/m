@@ -56,8 +56,8 @@ const _validateProps = subset => {
 /**
  * Sort an array of objects by multiple fields
  *
- * @param   {Object} subset
- * @param   {Array}  source
+ * @param {Object} subset
+ * @param {Array}  source
  *
  * @returns {Array}
  *
