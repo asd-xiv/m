@@ -53,38 +53,7 @@ const _validateProps = subset => {
   }
 }
 
-/**
- * Sort an array of objects by multiple fields
- *
- * @param {Object} subset
- * @param {Array}  source
- *
- * @returns {Array}
- *
- * @name sortWith
- * @tag Array
- * @signature (subset: Object, source: Array): Array
- *
- * @see {@link sort}
- * @see {@link sortBy}
- *
- * @example
- * sortWith({position: "asc"},
- *   { id: 1, position: 3 },
- *   { id: 2, position: 2 },
- *   { id: 3 },
- *   { id: 4, position: 5 },
- *   { id: 5, position: null },
- * ])
- * // [
- * //  { id: 2, position: 2 },
- * //  { id: 1, position: 3 },
- * //  { id: 4, position: 5 },
- * //  { id: 5, position: null },
- * //  { id: 3 },
- * //]
- */
-export const sortWith = (subset, source) => {
+const _sortWith = (subset, source) => {
   _validateProps(subset)
 
   const sorters = Object.entries(subset)
@@ -119,4 +88,46 @@ export const sortWith = (subset, source) => {
       }
     }
   })
+}
+
+/**
+ * Sort an array of objects by multiple fields
+ *
+ * @param {Object} subset
+ * @param {Array}  source
+ *
+ * @param {...any} params
+ * @returns {Array}
+ *
+ * @name sortWith
+ * @tag Array
+ * @signature (subset: Object, source: Array): Array
+ *
+ * @see {@link sort}
+ * @see {@link sortBy}
+ *
+ * @example
+ * sortWith({position: "asc"},
+ *   { id: 1, position: 3 },
+ *   { id: 2, position: 2 },
+ *   { id: 3 },
+ *   { id: 4, position: 5 },
+ *   { id: 5, position: null },
+ * ])
+ * // [
+ * //  { id: 2, position: 2 },
+ * //  { id: 1, position: 3 },
+ * //  { id: 4, position: 5 },
+ * //  { id: 5, position: null },
+ * //  { id: 3 },
+ * //]
+ */
+export const sortWith = (...params) => {
+  // @signature (subset) => (source)
+  if (params.length <= 1) {
+    return source => _sortWith(params[0], source)
+  }
+
+  // @signature (subset, source)
+  return _sortWith(...params)
 }

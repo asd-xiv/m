@@ -122,18 +122,15 @@ describe("sortWith", async assert => {
   assert({
     given: "an array of objects and a subset with a field transformer function",
     should: "return a sorted array",
-    actual: sortWith(
-      {
-        createdAt: source => new Date(source).getTime(),
-      },
-      [
-        { id: 5, createdAt: "12-02-2010", isActive: false },
-        { id: 4, createdAt: "12-02-2011", isActive: true },
-        { id: 3, createdAt: "12-02-2001", isActive: false },
-        { id: 6, createdAt: "12-02-2005", isActive: false },
-        { id: 11, createdAt: "12-02-2003" },
-      ]
-    ),
+    actual: sortWith({
+      createdAt: source => new Date(source).getTime(),
+    })([
+      { id: 5, createdAt: "12-02-2010", isActive: false },
+      { id: 4, createdAt: "12-02-2011", isActive: true },
+      { id: 3, createdAt: "12-02-2001", isActive: false },
+      { id: 6, createdAt: "12-02-2005", isActive: false },
+      { id: 11, createdAt: "12-02-2003" },
+    ]),
     expected: [
       { id: 3, createdAt: "12-02-2001", isActive: false },
       { id: 11, createdAt: "12-02-2003" },
