@@ -1,5 +1,12 @@
 # A log of changes
 
+## [6.3.1](https://github.com/asd-xiv/m/compare/v6.3.0...v6.3.1) (2021-05-28)
+
+
+### Bug Fixes
+
+* **sortWith:** add curried version ([20ebc60](https://github.com/asd-xiv/m/commit/20ebc60ea0a7152fdfe79e609543af87bcb144c5))
+
 ## [6.3.0](https://github.com/asd-xiv/m/compare/v6.2.0...v6.3.0) (2021-05-23)
 
 ### Features
