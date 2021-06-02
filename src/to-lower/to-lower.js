@@ -15,4 +15,4 @@
  * toLower("Lorem Ipsum")
  * // "lorem ipsum"
  */
-export const toLower = source => "".toLowerCase.call(source)
+export const toLower = source => String.prototype.toLowerCase.call(source)

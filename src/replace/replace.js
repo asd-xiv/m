@@ -11,7 +11,7 @@ import { type } from "../type/type"
  * @returns {string}
  */
 const replaceString = (oldString, newString) => source =>
-  "".replace.call(source, oldString, newString)
+  String.prototype.replace.call(source, oldString, newString)
 
 /**
  * Replace element in array (shallow equal)

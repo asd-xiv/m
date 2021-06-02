@@ -15,4 +15,4 @@
  * toUpper("Lorem Ipsum")
  * // "LOREM IPSUM"
  */
-export const toUpper = source => "".toUpperCase.call(source)
+export const toUpper = source => String.prototype.toUpperCase.call(source)
