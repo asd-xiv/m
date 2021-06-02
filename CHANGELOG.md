@@ -1,7 +1,6 @@
 # A log of changes
 
-# [6.4.0](https://github.com/asd-xiv/m/compare/v6.3.1...v6.4.0) (2021-06-02)
-
+## [6.4.0](https://github.com/asd-xiv/m/compare/v6.3.1...v6.4.0) (2021-06-02)
 
 ### Features
 
