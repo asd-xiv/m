@@ -1,5 +1,12 @@
 # A log of changes
 
+# [6.5.0](https://github.com/asd-xiv/m/compare/v6.4.0...v6.5.0) (2021-06-02)
+
+
+### Features
+
+* update packages ([0578d49](https://github.com/asd-xiv/m/commit/0578d497e7eeb8efc0834acfa0a3387cc4a586e8))
+
 ## [6.4.0](https://github.com/asd-xiv/m/compare/v6.3.1...v6.4.0) (2021-06-02)
 
 ### Features
