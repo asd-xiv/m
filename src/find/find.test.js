@@ -2,7 +2,7 @@
 
 import test from "tape"
 
-import { find, findWith } from "./find"
+import { find, findWith } from "./find.js"
 
 test("find", t => {
   const comments = [

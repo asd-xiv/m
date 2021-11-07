@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { zipToObject } from "./zip-to-object"
+import { zipToObject } from "./zip-to-object.js"
 
 test("zipToObject", t => {
   t.deepEquals(

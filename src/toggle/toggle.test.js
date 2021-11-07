@@ -1,5 +1,6 @@
 import test from "tape"
-import { toggle } from "./toggle"
+
+import { toggle } from "./toggle.js"
 
 test("toggle", t => {
   t.deepEqual(

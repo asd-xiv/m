@@ -1,11 +1,11 @@
-const type = source =>
-  Array.isArray(source)
+const type = input =>
+  Array.isArray(input)
     ? "Array"
-    : source instanceof Date
+    : input instanceof Date
     ? "Date"
-    : source instanceof RegExp
+    : input instanceof RegExp
     ? "RegExp"
-    : source instanceof Object
+    : input instanceof Object
     ? "Object"
     : "other"
 

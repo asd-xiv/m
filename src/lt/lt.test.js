@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { lt } from "./lt"
+import { lt } from "./lt.js"
 
 test("lt", t => {
   t.equals(lt(10)(14), false, "14 is not less than 10")

@@ -1,7 +1,7 @@
 import test from "tape"
 
-import { i } from "../i/i"
-import { max, maxBy } from "./max"
+import { i } from "../i/i.js"
+import { max, maxBy } from "./max.js"
 
 test("max", t => {
   t.equals(max([-1, 1, 10, 3]), 10, "Find max in numeric array")

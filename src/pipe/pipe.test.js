@@ -1,8 +1,8 @@
 import test from "tape"
 
-import { pipe } from "./pipe"
+import { pipe } from "./pipe.js"
 
-const inc = source => source + 1
+const inc = input => input + 1
 const sum = (a, b) => a + b
 
 test("pipe", t => {

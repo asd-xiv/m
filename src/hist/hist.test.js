@@ -1,5 +1,6 @@
 import test from "tape"
-import { hist } from ".."
+
+import { hist } from "./hist.js"
 
 test("hist", t => {
   const scores = [

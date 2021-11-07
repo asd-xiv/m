@@ -2,7 +2,7 @@
 
 import test from "tape"
 
-import { clone } from "./clone"
+import { clone } from "./clone.js"
 
 test("clone", t => {
   /*

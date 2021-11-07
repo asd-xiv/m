@@ -2,11 +2,11 @@
 
 import test from "tape"
 
-import { is } from "../is/is"
-import { read } from "../read/read"
-import { gt } from "../gt/gt"
+import { is } from "../is/is.js"
+import { read } from "../read/read.js"
+import { gt } from "../gt/gt.js"
 
-import { count, countBy, countWith } from "./count"
+import { count, countBy, countWith } from "./count.js"
 
 test("count", t => {
   t.equal(count([1, 2, 3, null]), 4, "Given array, should return length")

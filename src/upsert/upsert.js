@@ -1,9 +1,9 @@
-import { findIndexWith } from "../find-index/find-index"
-import { update } from "../update/update"
+import { findIndexWith } from "../find-index/find-index.js"
+import { update } from "../update/update.js"
 
-const upsertWith = (filter, value) => source => {
-  const result = [...source]
-  const index = findIndexWith(filter, source)
+const upsertWith = (filter, value) => input => {
+  const result = [...input]
+  const index = findIndexWith(filter, input)
 
   if (index === -1) {
     result.push(update(value, {}))

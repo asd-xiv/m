@@ -1,6 +1,6 @@
-import { map } from "../map/map"
-import { isMatch } from "../is-match/is-match"
-import { type } from "../type/type"
+import { map } from "../map/map.js"
+import { isMatch } from "../is-match/is-match.js"
+import { type } from "../type/type.js"
 
 /**
  * Replace substring in string
@@ -10,8 +10,8 @@ import { type } from "../type/type"
  *
  * @returns {string}
  */
-const replaceString = (oldString, newString) => source =>
-  String.prototype.replace.call(source, oldString, newString)
+const replaceString = (oldString, newString) => input =>
+  String.prototype.replace.call(input, oldString, newString)
 
 /**
  * Replace element in array (shallow equal)
@@ -21,14 +21,14 @@ const replaceString = (oldString, newString) => source =>
  *
  * @returns {Array}
  */
-const replaceArray = (oldElm, newElm) => source => {
+const replaceArray = (oldElm, newElm) => input => {
   const result = []
 
-  for (let i = 0, length = source.length - 1; i <= length; i++) {
-    if (oldElm === source[i]) {
+  for (let i = 0, length = input.length - 1; i <= length; i++) {
+    if (oldElm === input[i]) {
       result.push(newElm)
     } else {
-      result.push(source[i])
+      result.push(input[i])
     }
   }
 
@@ -49,14 +49,14 @@ const replaceArray = (oldElm, newElm) => source => {
  * @signature (oldElm: string|any, newElm: string|any) => (source: Array): Array
  *
  */
-const replace = (oldElm, newElm) => source => {
-  const sourceType = type(source)
+const replace = (oldElm, newElm) => input => {
+  const inputType = type(input)
   const byType = {
     String: replaceString,
     Array: replaceArray,
   }
 
-  return byType[sourceType](oldElm, newElm)(source)
+  return byType[inputType](oldElm, newElm)(input)
 }
 
 /**

@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { upsertWith } from "./upsert"
+import { upsertWith } from "./upsert.js"
 
 test("upsertWith", t => {
   t.deepEquals(
@@ -12,7 +12,7 @@ test("upsertWith", t => {
   t.deepEquals(
     upsertWith(
       { id: 2 },
-      { id: 2, title: source => `${source} ipsum`, foo: "bar" }
+      { id: 2, title: input => `${input} ipsum`, foo: "bar" }
     )([{ id: 2, title: "lorem" }]),
     [{ id: 2, title: "lorem ipsum", foo: "bar" }],
     "Update value if exists"
@@ -21,7 +21,7 @@ test("upsertWith", t => {
   t.deepEquals(
     upsertWith(
       { id: 1 },
-      { id: 1, title: source => `${source} ipsum` }
+      { id: 1, title: input => `${input} ipsum` }
     )([{ id: 2 }]),
     [{ id: 2 }, { id: 1, title: "undefined ipsum" }],
     "Update value if exists"

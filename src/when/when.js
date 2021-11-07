@@ -1,14 +1,14 @@
 /* eslint-disable jsdoc/check-param-names,jsdoc/require-param */
 
-import { pipe } from "../pipe/pipe"
-import { i } from "../i/i"
+import { pipe } from "../pipe/pipe.js"
+import { i } from "../i/i.js"
 
-const _when = (_ifFn, _thenFn, _elseFn = i, source) => {
+const _when = (_ifFn, _thenFn, _elseFn = i, input) => {
   const ifFn = Array.isArray(_ifFn) ? pipe(..._ifFn) : _ifFn
   const thenFn = Array.isArray(_thenFn) ? pipe(..._thenFn) : _thenFn
   const elseFn = Array.isArray(_elseFn) ? pipe(..._elseFn) : _elseFn
 
-  return ifFn(source) ? thenFn(source) : elseFn(source)
+  return ifFn(input) ? thenFn(input) : elseFn(input)
 }
 
 /**
@@ -35,12 +35,12 @@ const _when = (_ifFn, _thenFn, _elseFn = i, source) => {
 export const when = (...params) => {
   // @signature (ifFn, thenFn) => (source)
   if (params.length <= 2) {
-    return source => _when(params[0], params[1], undefined, source)
+    return input => _when(params[0], params[1], undefined, input)
   }
 
   // @signature (ifFn, thenFn, elseFn) => (source)
   if (params.length <= 3) {
-    return source => _when(params[0], params[1], params[2], source)
+    return input => _when(params[0], params[1], params[2], input)
   }
 
   // @signature (ifFn, thenFn, elseFn, source)

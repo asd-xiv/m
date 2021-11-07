@@ -1,40 +1,33 @@
 /* eslint-disable new-cap */
 
-import { describe, Try } from "riteway"
-import { split } from "./split"
+import test from "tape"
 
-describe("split", async assert => {
-  assert({
-    given: "string that contains one ',', splitting by it",
-    should: "return array with 2 strings",
-    actual: split(",")("lorem,ipsum"),
-    expected: ["lorem", "ipsum"],
-  })
+import { split } from "./split.js"
 
-  assert({
-    given:
-      "string that contains one ',' and one '-', splitting by a RegExp matching both",
-    should: "return array with 3 strings",
-    actual: split(/[,-]/, "foo,bar-lorem"),
-    expected: ["foo", "bar", "lorem"],
-  })
+test("split", t => {
+  t.deepEqual(
+    split(",")("lorem,ipsum"),
+    ["lorem", "ipsum"],
+    "given [string that contains one ',', splitting by it] should [return array with 2 strings]"
+  )
 
-  assert({
-    given: "non-string source",
-    should: "throw",
-    actual: Try(() => {
-      split(",", [1, 2, 3, 4])
-    }).toString(),
-    expected:
-      "TypeError: split - invalid 'source' parameter type 'object'. 'source' type should be String.",
-  })
+  t.deepEqual(
+    split(/[,-]/, "foo,bar-lorem"),
+    ["foo", "bar", "lorem"],
+    "given [string that contains one ',' and one '-', splitting by a RegExp matching both] should [return array with 3 strings]"
+  )
 
-  assert({
-    given: "non-string, non-regexp separator",
-    should: "throw",
-    actual: Try(() => {
-      split(2, [1, 2, 3, 4])
-    }).toString(),
-    expected: `TypeError: split - invalid 'separator' parameter type 'number'. 'separator' type should be a String or RegExp.`,
-  })
+  t.throws(
+    () => split(",", [1, 2, 3, 4]),
+    "TypeError: split - invalid 'source' parameter type 'object'. 'source' type should be String.",
+    "given [non-string source] shold [throw]"
+  )
+
+  t.throws(
+    () => split(2, [1, 2, 3, 4]),
+    "TypeError: split - invalid 'separator' parameter type 'number'. 'separator' type should be a String or RegExp.",
+    "given [non-string, non-regexp separator] shold [throw]"
+  )
+
+  t.end()
 })

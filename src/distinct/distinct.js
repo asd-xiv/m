@@ -1,12 +1,12 @@
-import { any } from "../any/any"
-import { curry } from "../curry/curry"
-import { isEqual } from "../is-equal/is-equal"
+import { any } from "../any/any.js"
+import { curry } from "../curry/curry.js"
+import { isEqual } from "../is-equal/is-equal.js"
 
-const _distinctBy = (predicateFn, source) => {
+const _distinctBy = (predicateFn, input) => {
   const result = []
 
-  for (let i = 0, length = source.length; i < length; i++) {
-    const newElement = source[i]
+  for (let i = 0, length = input.length; i < length; i++) {
+    const newElement = input[i]
 
     if (any(item => predicateFn(newElement, item), result) === false) {
       result.push(newElement)
@@ -19,18 +19,18 @@ const _distinctBy = (predicateFn, source) => {
 /**
  * Remove repeating values
  *
- * @param {Array} source Source input array
+ * @param {Array} input Source input array
  *
  * @returns {Array}
  *
  * @name distinct
  * @tag Array
- * @signature (source: Array): Array
+ * @signature (input: Array): Array
  *
  * @example
  * distinct([1, 1, 2])
  * // => [1, 2]
  */
-export const distinct = source => _distinctBy(isEqual, source)
+export const distinct = input => _distinctBy(isEqual, input)
 
 export const distinctBy = curry(_distinctBy)

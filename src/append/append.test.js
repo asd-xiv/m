@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { append } from "./append"
+import { append } from "./append.js"
 
 test("append", t => {
   t.deepEquals(

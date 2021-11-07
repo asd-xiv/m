@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { last } from "./last"
+import { last } from "./last.js"
 
 test("last", t => {
   t.equals(last([1, 2, 3]), 3, "Get last element from n array")

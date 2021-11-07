@@ -1,7 +1,7 @@
-import { findIndex } from "../find-index/find-index"
-import { curry } from "../curry/curry"
-import { distinctBy } from "../distinct/distinct"
-import { isEqual } from "../is-equal/is-equal"
+import { findIndex } from "../find-index/find-index.js"
+import { curry } from "../curry/curry.js"
+import { distinctBy } from "../distinct/distinct.js"
+import { isEqual } from "../is-equal/is-equal.js"
 
 const _joinBy = (predicateFn, mergeFn, aList, bList) => {
   if (aList.length === 0) {

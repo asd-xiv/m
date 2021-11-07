@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { update, updateMany, updateWith } from "./update"
+import { update, updateMany, updateWith } from "./update.js"
 
 const inc = x => x + 1
 
@@ -26,7 +26,7 @@ test("update", t => {
   t.deepEqual(
     update(
       {
-        test: (source, item) => `${source} ${item.foo}`,
+        test: (input, item) => `${input} ${item.foo}`,
       },
       {
         foo: "bar",
@@ -47,7 +47,7 @@ test("updateMany", t => {
   t.deepEqual(
     updateMany(
       {
-        id: (source = 0) => source + 1,
+        id: (input = 0) => input + 1,
       },
       [{ id: 1 }, { id: 2 }, { test: "dolor" }]
     ),

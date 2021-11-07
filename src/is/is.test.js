@@ -2,7 +2,7 @@
 
 import test from "tape"
 
-import { is, isNothing, isTrue, not, isFalse, isObject } from "./is"
+import { is, isNothing, isTrue, not, isFalse, isObject } from "./is.js"
 
 test("is", t => {
   t.equal(is(false), true, 'Is "false" something')

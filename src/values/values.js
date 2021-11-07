@@ -1,7 +1,7 @@
 /**
  * Get list with names of all own properties
  *
- * @param {Array|Object} source Array or Object to extract values from
+ * @param {Array|Object} input Array or Object to extract values from
  *
  * @returns {string[]} List of property names
  *
@@ -19,19 +19,19 @@
  * values("foo"), values(12), values(null), etc
  * // => []
  */
-export const values = source => {
-  const type = Array.isArray(source)
+export const values = input => {
+  const type = Array.isArray(input)
     ? "array"
-    : source !== null && typeof source === "object"
+    : input !== null && typeof input === "object"
     ? "object"
     : "other"
 
   switch (type) {
     case "array": {
-      return [...source]
+      return [...input]
     }
     case "object": {
-      const entries = Object.entries(source)
+      const entries = Object.entries(input)
       const result = []
 
       for (const entry of entries) {

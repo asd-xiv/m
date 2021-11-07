@@ -1,17 +1,17 @@
-const _split = (separator, source) => {
+const _split = (separator, input) => {
   if (!(separator instanceof RegExp) && typeof separator !== "string") {
     throw new TypeError(
       `split - invalid 'separator' parameter type '${typeof separator}'. 'separator' type should be a String or RegExp.`
     )
   }
 
-  if (typeof source !== "string") {
+  if (typeof input !== "string") {
     throw new TypeError(
-      `split - invalid 'source' parameter type '${typeof source}'. 'source' type should be String.`
+      `split - invalid 'source' parameter type '${typeof input}'. 'source' type should be String.`
     )
   }
 
-  return source.split(separator)
+  return input.split(separator)
 }
 
 /**
@@ -20,12 +20,12 @@ const _split = (separator, source) => {
  * make each split.
  *
  * @tag String
- * @signature (separator: string|RegExp, source:string): Array
- * @signature (separator: string|RegExp) => (source:string): Array
+ * @signature (separator: string|RegExp, input:string): Array
+ * @signature (separator: string|RegExp) => (input:string): Array
  *
  * @param {...any}        params
  * @param {string|RegExp} params.separator Points where each split should occur
- * @param {string}        params.source    Source string
+ * @param {string}        params.input     Input string
  *
  * @returns {Array}
  *
@@ -34,11 +34,11 @@ const _split = (separator, source) => {
  * // ["lorem", "ipsum"]
  */
 export const split = (...params) => {
-  // @signature (separator) => (source)
+  // @signature (separator) => (input)
   if (params.length <= 1) {
-    return source => _split(params[0], source)
+    return input => _split(params[0], input)
   }
 
-  // @signature (separator, source)
+  // @signature (separator, input)
   return _split(...params)
 }

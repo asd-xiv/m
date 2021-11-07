@@ -1,127 +1,108 @@
 /* eslint-disable unicorn/no-null */
 
-import { describe } from "riteway"
+import test from "tape"
 
-import { read, readMany } from "./read"
+import { read, readMany } from "./read.js"
 
-describe("read", async assert => {
-  assert({
-    given: "object as source, reading property",
-    should: "return value of property",
-    actual: read("lorem")({
-      lorem: "ipsum",
-    }),
-    expected: "ipsum",
-  })
+test("read", t => {
+  t.deepEqual(
+    read("lorem")({ lorem: "ipsum" }),
+    "ipsum",
+    "given [object], reading property should [return value of property]"
+  )
 
-  assert({
-    given: "object as source, reading non-existing property",
-    should: "return undefined",
-    actual: read("not-exist")({
-      lorem: "ipsum",
-    }),
-    expected: undefined,
-  })
+  t.deepEqual(
+    read("not-exist")({ lorem: "ipsum" }),
+    undefined,
+    "given [object], reading non-existing property should [return undefined]"
+  )
 
-  assert({
-    given: "undefined as source, reading property",
-    should: "return undefined",
-    actual: read("not-exist")(),
-    expected: undefined,
-  })
+  t.deepEqual(
+    read("not-exist")(),
+    undefined,
+    "given [undefined], reading property should [return undefined]"
+  )
 
-  assert({
-    given: "null as source, reading property",
-    should: "return undefined",
-    actual: read("not-exist")(null),
-    expected: undefined,
-  })
+  t.deepEqual(
+    read("not-exist")(null),
+    undefined,
+    "given [null], reading property should [return undefined]"
+  )
 
-  assert({
-    given: "number as source, reading property",
-    should: "return undefined",
-    actual: read("not-exist")(2),
-    expected: undefined,
-  })
+  t.deepEqual(
+    read("not-exist")(2),
+    undefined,
+    "given [number], reading property should [return undefined]"
+  )
 
-  assert({
-    given: "object as source, reading property path",
-    should: "return value of property",
-    actual: read(["a", "b"])({ a: { b: "lorem" } }),
-    expected: "lorem",
-  })
+  t.deepEqual(
+    read(["a", "b"])({ a: { b: "lorem" } }),
+    "lorem",
+    "given [object], reading property should [return value of property]"
+  )
 
-  assert({
-    given: "object as source, reading non-existing property path",
-    should: "return undefined",
-    actual: read(["x", "y"])({ a: { b: "lorem" } }),
-    expected: undefined,
-  })
+  t.deepEqual(
+    read(["x", "y"])({ a: { b: "lorem" } }),
+    undefined,
+    "given [object], reading non-existing property path should [return undefined]"
+  )
 
-  assert({
-    given:
-      "object as source, reading non-existing property path with default value set",
-    should: "return default value",
-    actual: read(["a", "c"], "dolor", {}),
-    expected: "dolor",
-  })
+  t.deepEqual(
+    read(["a", "c"], "dolor", {}),
+    "dolor",
+    "given [object], reading non-existing property path with default value set should [return default value]"
+  )
 
-  assert({
-    given: "array of objects as source, reading property path",
-    should: "return value of property",
-    actual: read([0, "foo"])([{ foo: "bar" }]),
-    expected: "bar",
-  })
+  t.deepEqual(
+    read([0, "foo"])([{ foo: "bar" }]),
+    "bar",
+    "given [array of objects], reading property path should [return value of property]"
+  )
 
-  assert({
-    given: "object with array values as source, reading property path",
-    should: "return value of property",
-    actual: read(["foo", "0", "lorem"])({ foo: [{ lorem: "ipsum" }] }),
-    expected: "ipsum",
-  })
+  t.deepEqual(
+    read(["foo", "0", "lorem"])({ foo: [{ lorem: "ipsum" }] }),
+    "ipsum",
+    "given [object with array values], reading property path should [return value of property]"
+  )
 
-  assert({
-    given: "object as source, reading property path of key who's value is null",
-    should: "return null",
-    actual: read(["foo"])({ foo: null }),
-    expected: null,
-  })
+  t.deepEqual(
+    read(["foo"])({ foo: null }),
+    null,
+    "given [objects], reading property path of key who's value is null should [return null]"
+  )
 
-  assert({
-    given:
-      "object as source, reading property path of key who's value is null with default value set",
-    should: "return null",
-    actual: read(["foo"], "default value", { foo: null }),
-    expected: null,
-  })
+  t.deepEqual(
+    read(["foo"], "default value", { foo: null }),
+    null,
+    "given [objects], reading property path of key who's value is null with default value set should [return null]"
+  )
 
-  assert({
-    given:
-      "object as source, reading property path of key who's value is NaN with default value set",
-    should: "return null",
-    actual: read(["foo"], "default value", { foo: Number.NaN }),
-    expected: Number.NaN,
-  })
+  t.deepEqual(
+    read(["foo"], "default value", { foo: Number.NaN }),
+    Number.NaN,
+    "given [objects], reading property path of key who's value is NaN with default value set should [return null]"
+  )
+
+  t.end()
 })
 
-describe("readMany", async assert => {
-  assert({
-    given: "array of objects as source, reading sometime existing property",
-    should: "return array with property value of each object",
-    actual: readMany("id")([{ id: "1" }, { id: "2" }, { foo: "bar" }]),
-    expected: ["1", "2", undefined],
-  })
+test("readMany", t => {
+  t.deepEqual(
+    readMany("id")([{ id: "1" }, { id: "2" }, { foo: "bar" }]),
+    ["1", "2", undefined],
+    "given [array of objects] reading sometime existing property should [return array with property value of each object]"
+  )
 
-  assert({
-    given:
-      "array of objects as source, reading sometime existing property path",
-    should: "return array with property value of each object",
-    actual: readMany(["id"], "default-id", [
+  t.deepEqual(
+    readMany(["id"], "default-id", [
       { id: "1" },
       { id: "2" },
       { id: null, foo: "bar" },
       { foo: "bar" },
     ]),
-    expected: ["1", "2", null, "default-id"],
-  })
+    ["1", "2", null, "default-id"],
+    "given [array of objects] reading sometime existing property path should [return array with property value of each object]"
+  )
+
+  t.end()
 })

@@ -1,11 +1,11 @@
-import { curry } from "../curry/curry"
+import { curry } from "../curry/curry.js"
 
-const _append = (subset, source) => {
-  if (Array.isArray(source)) {
-    return [...source, ...(Array.isArray(subset) ? subset : [subset])]
+const _append = (subset, input) => {
+  if (Array.isArray(input)) {
+    return [...input, ...(Array.isArray(subset) ? subset : [subset])]
   }
 
-  return source + subset
+  return input + subset
 }
 
 /**

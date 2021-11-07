@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { hasKey } from "./has-key"
+import { hasKey } from "./has-key.js"
 
 test("hasKey", t => {
   t.equals(hasKey("test")({}), false, "Key does not exist")

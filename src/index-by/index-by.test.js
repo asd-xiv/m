@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { indexBy } from "./index-by"
+import { indexBy } from "./index-by.js"
 
 test("indexBy", t => {
   t.deepEqual(

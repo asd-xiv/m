@@ -1,10 +1,10 @@
 import test from "tape"
-import { all, allWith } from "./all"
+import { all, allWith } from "./all.js"
 
-import { is } from "../is/is"
-import { read } from "../read/read"
+import { is } from "../is/is.js"
+import { read } from "../read/read.js"
 
-const isEven = source => source % 2 === 0
+const isEven = input => input % 2 === 0
 
 test("all(With)", t => {
   t.equal(all(isEven, [2, 6, 4]), true, "Check all number are even")

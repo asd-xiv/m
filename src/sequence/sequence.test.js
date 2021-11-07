@@ -1,7 +1,7 @@
 import test from "tape"
 
-import { isTrue } from "../is/is"
-import { sequence, sequenceWhile } from "./sequence"
+import { isTrue } from "../is/is.js"
+import { sequence, sequenceWhile } from "./sequence.js"
 
 const delay = (ms, value) =>
   new Promise(resolve => setTimeout(() => resolve(value), ms))
@@ -21,7 +21,7 @@ test("sequence", t => {
 
   let sum = 0
 
-  const source = [
+  const input = [
     () => {
       sum++
 
@@ -44,7 +44,7 @@ test("sequence", t => {
     },
   ]
 
-  return sequence(source).then(result => {
+  return sequence(input).then(result => {
     t.deepEqual(
       [sum, result],
       [`${1 + 1 + 2}abc`, [1, 2, "abc", [3, 4]]],
@@ -90,7 +90,7 @@ test("sequenceWith", t => {
     })
     .then(() =>
       sequenceWhile(
-        source => source <= 5,
+        input => input <= 5,
         [
           () => 1,
 

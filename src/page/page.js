@@ -4,7 +4,7 @@
  * @param {Object} props
  * @param {number} props.offset
  * @param {number} props.limit
- * @param {Array}  source
+ * @param {Array}  input
  *
  * @returns {Array}
  *
@@ -17,7 +17,7 @@
  */
 const page =
   ({ offset = 0, limit = 10 } = {}) =>
-  source =>
-    [...source.splice(offset, limit)]
+  input =>
+    [...input.splice(offset, limit)]
 
 export { page }

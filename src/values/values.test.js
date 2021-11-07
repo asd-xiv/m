@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { values } from "./values"
+import { values } from "./values.js"
 
 test("values", t => {
   t.deepEquals(

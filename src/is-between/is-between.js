@@ -20,12 +20,12 @@
  */
 export const isBetween =
   (left, right, { closed = false } = {}) =>
-  source => {
+  input => {
     if (left > right) {
       throw new Error("Left interval limit must be less than right limit")
     }
 
     return closed === false
-      ? source > left && source < right
-      : source >= left && source <= right
+      ? input > left && input < right
+      : input >= left && input <= right
   }

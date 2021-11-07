@@ -1,5 +1,6 @@
 import test from "tape"
-import { page } from ".."
+
+import { page } from "./page.js"
 
 test("page", t => {
   t.deepEqual(

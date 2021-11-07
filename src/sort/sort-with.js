@@ -1,4 +1,4 @@
-import { is } from "../is/is"
+import { is } from "../is/is.js"
 
 const _compareTwoValues = (direction, a, b) => {
   const valueIfFieldMissing =
@@ -53,12 +53,12 @@ const _validateProps = subset => {
   }
 }
 
-const _sortWith = (subset, source) => {
+const _sortWith = (subset, input) => {
   _validateProps(subset)
 
   const sorters = Object.entries(subset)
 
-  return [...source].sort((a, b) => {
+  return [...input].sort((a, b) => {
     for (let i = 0; i < sorters.length; ++i) {
       const [key, sorter] = sorters[i]
       const [sortFn, direction = "asc"] = Array.isArray(sorter)
@@ -125,7 +125,7 @@ const _sortWith = (subset, source) => {
 export const sortWith = (...params) => {
   // @signature (subset) => (source)
   if (params.length <= 1) {
-    return source => _sortWith(params[0], source)
+    return input => _sortWith(params[0], input)
   }
 
   // @signature (subset, source)

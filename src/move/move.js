@@ -1,12 +1,12 @@
 /**
  * @param {number} from
  * @param {number} to
- * @param {Array}  source
+ * @param {Array}  input
  *
  * @returns {Array}
  */
-const _move = (from, to, source) => {
-  const result = [...source]
+const _move = (from, to, input) => {
+  const result = [...input]
 
   const fromIndex = from < 0 ? result.length + from : from
 
@@ -30,19 +30,19 @@ const _move = (from, to, source) => {
  *
  * @name move
  * @tag Array
- * @signature (from: number, to: number) => (source: Array) => Array
- * @signature (from: number, to: number, source: Array) => Array
+ * @signature (from: number, to: number) => (input: Array) => Array
+ * @signature (from: number, to: number, input: Array) => Array
  *
  * @example
  * move(0, 1, [1, 2])
  * // => [2, 1]
  */
 export const move = (...params) => {
-  // @signature (from, to) => (source)
+  // @signature (from, to) => (input)
   if (params.length <= 2) {
-    return source => _move(params[0], params[1], source)
+    return input => _move(params[0], params[1], input)
   }
 
-  // @signature (from, to, source)
+  // @signature (from, to, input)
   return _move(...params)
 }

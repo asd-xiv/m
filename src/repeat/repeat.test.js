@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { repeat } from "./repeat"
+import { repeat } from "./repeat.js"
 
 const inc = x => x + 1
 

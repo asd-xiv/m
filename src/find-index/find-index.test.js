@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { findIndex, findIndexWith } from "./find-index"
+import { findIndex, findIndexWith } from "./find-index.js"
 
 test("findIndex", t => {
   const comments = [

@@ -1,4 +1,4 @@
-import { pipe } from "../pipe/pipe"
+import { pipe } from "../pipe/pipe.js"
 
 const _repeat = (_fn, count = 0) => {
   const result = []
@@ -16,7 +16,7 @@ const _repeat = (_fn, count = 0) => {
  * Return an array of fixed size containing a specified value or function result
  *
  * @param {Function|any} fn     Function or value to repeat
- * @param {number}       source Number of times
+ * @param {number}       input  Number of times
  * @param {...any}       params Function params
  *
  * @returns {Array}
@@ -33,11 +33,11 @@ const _repeat = (_fn, count = 0) => {
  * // => [1, 2, 3]
  */
 export const repeat = (...params) => {
-  // @signature (fn) => (source)
+  // @signature (fn) => (input)
   if (params.length <= 1) {
-    return source => _repeat(params[0], source)
+    return input => _repeat(params[0], input)
   }
 
-  // @signature (fn, source)
+  // @signature (fn, input)
   return _repeat(...params)
 }

@@ -2,21 +2,21 @@
 
 import path from "path"
 
-import { pipe } from "../pipe/pipe"
-import { trim } from "../trim/trim"
-import { split } from "../split/split"
-import { push } from "../push/push"
-import { unite } from "../unite/unite"
-import { dropLast } from "../drop-last/drop-last"
+import { pipe } from "../pipe/pipe.js"
+import { trim } from "../trim/trim.js"
+import { split } from "../split/split.js"
+import { push } from "../push/push.js"
+import { unite } from "../unite/unite.js"
+import { dropLast } from "../drop-last/drop-last.js"
 
-const removeTrailingSlash = source =>
-  source[source.length - 1] === path.sep ? source.slice(0, -1) : source
+const removeTrailingSlash = input =>
+  input[input.length - 1] === path.sep ? input.slice(0, -1) : input
 
 /**
  * Rename a file
  *
  * @param {string} newName New file name
- * @param {string} source  Absolute file path
+ * @param {string} input   Absolute file path
  *
  * @returns {string}
  */

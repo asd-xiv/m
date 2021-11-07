@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { mutate, mutateMany, mutateWith } from "./mutate"
+import { mutate, mutateMany, mutateWith } from "./mutate.js"
 
 const inc = x => x + 1
 
@@ -38,7 +38,7 @@ test("mutate", t => {
   t.deepEqual(
     mutate(
       {
-        test: (source, item) => `${source} ${item.foo}`,
+        test: (input, item) => `${input} ${item.foo}`,
       },
       {
         foo: "bar",
@@ -57,7 +57,7 @@ test("mutate", t => {
 
 test("mutateMany", t => {
   t.deepEqual(
-    mutateMany({ id: source => source + 1 }, [
+    mutateMany({ id: input => input + 1 }, [
       { id: 1 },
       { id: 2 },
       { test: "dolor" },

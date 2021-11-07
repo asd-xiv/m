@@ -1,4 +1,4 @@
-import { curry } from "../curry/curry"
+import { curry } from "../curry/curry.js"
 
 const _gt = (a, b) => a < b
 

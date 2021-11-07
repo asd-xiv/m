@@ -4,13 +4,13 @@
  *
  * @param {Function}   firstFn First function in transform chain
  * @param {Function[]} restFn  Remaining functions
- * @param {Array}      source  First function arguments
+ * @param {Array}      input   First function arguments
  *
  * @returns {any}
  *
  * @name pipe
  * @tag Core
- * @signature (...fn: Function[]) => (...source: Array): any
+ * @signature (...fn: Function[]) => (...input: Array): any
  *
  * @see {@link pipeP}
  *
@@ -20,8 +20,8 @@
  */
 export const pipe =
   (firstFn, ...restFn) =>
-  (...source) => {
-    let acc = firstFn(...source)
+  (...input) => {
+    let acc = firstFn(...input)
 
     for (let index = 0, length = restFn.length; index < length; index++) {
       acc = restFn[index](acc)

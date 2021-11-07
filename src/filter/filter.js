@@ -1,15 +1,15 @@
-import { pipe } from "../pipe/pipe"
-import { curry } from "../curry/curry"
-import { isMatch } from "../is-match/is-match"
+import { pipe } from "../pipe/pipe.js"
+import { curry } from "../curry/curry.js"
+import { isMatch } from "../is-match/is-match.js"
 
-const _filter = (_fn, _source) => {
+const _filter = (_fn, _input) => {
   const fn = Array.isArray(_fn) ? pipe(..._fn) : _fn
-  const source = Array.isArray(_source) ? _source : [_source]
+  const input = Array.isArray(_input) ? _input : [_input]
   const result = []
 
-  for (let i = 0, length = source.length; i < length; i++) {
-    if (fn(source[i]) === true) {
-      result.push(source[i])
+  for (let i = 0, length = input.length; i < length; i++) {
+    if (fn(input[i]) === true) {
+      result.push(input[i])
     }
   }
 
@@ -42,6 +42,6 @@ export const filter = curry(_filter)
  * @signature (subset: Object) => (source: Array): Array
  * @signature (subset: Object, source: Array): Array
  */
-export const filterWith = curry((subset, source) =>
-  _filter(isMatch(subset), source)
+export const filterWith = curry((subset, input) =>
+  _filter(isMatch(subset), input)
 )

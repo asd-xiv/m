@@ -1,15 +1,15 @@
-import { curry } from "../curry/curry"
-import { when } from "../when/when"
-import { any } from "../any/any"
-import { remove } from "../remove/remove"
-import { push } from "../push/push"
+import { curry } from "../curry/curry.js"
+import { when } from "../when/when.js"
+import { any } from "../any/any.js"
+import { remove } from "../remove/remove.js"
+import { push } from "../push/push.js"
 
-const _toggle = (element, source) => {
-  if (source.length === 0) {
+const _toggle = (element, input) => {
+  if (input.length === 0) {
     return [element]
   }
 
-  return when(any(element), remove(element), push(element), source)
+  return when(any(element), remove(element), push(element), input)
 }
 
 /**

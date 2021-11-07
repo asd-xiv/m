@@ -1,10 +1,10 @@
-import { is } from "../is/is"
-import { map } from "../map/map"
-import { filter } from "../filter/filter"
-import { type } from "../type/type"
+import { is } from "../is/is.js"
+import { map } from "../map/map.js"
+import { filter } from "../filter/filter.js"
+import { type } from "../type/type.js"
 
-const _compactObject = source => {
-  const result = { ...source }
+const _compactObject = input => {
+  const result = { ...input }
   const keys = Object.keys(result)
 
   for (const key of keys) {
@@ -16,13 +16,13 @@ const _compactObject = source => {
   return result
 }
 
-const _compactArray = source => filter(is, source)
+const _compactArray = input => filter(is, input)
 
 /**
  * Returns a copy of the object or array with all null or undefined values
  * removed.
  *
- * @param {Array|Object} source
+ * @param {Array|Object} input
  *
  * @returns {Array|Object}
  *
@@ -50,18 +50,18 @@ const _compactArray = source => filter(is, source)
  * //  f: lambda
  * // }
  */
-export const compact = source => {
-  const sourceType = type(source)
+export const compact = input => {
+  const inputType = type(input)
 
-  switch (sourceType) {
+  switch (inputType) {
     case "Array":
-      return _compactArray(source)
+      return _compactArray(input)
 
     case "Object":
-      return _compactObject(source)
+      return _compactObject(input)
 
     default:
-      return source
+      return input
   }
 }
 

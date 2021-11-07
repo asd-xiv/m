@@ -1,7 +1,7 @@
 /**
  * Convert string to upper case
  *
- * @param {string} source
+ * @param {string} input
  *
  * @returns {string}
  *
@@ -15,4 +15,4 @@
  * toUpper("Lorem Ipsum")
  * // "LOREM IPSUM"
  */
-export const toUpper = source => String.prototype.toUpperCase.call(source)
+export const toUpper = input => String.prototype.toUpperCase.call(input)

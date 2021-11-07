@@ -3,4 +3,5 @@
 # Exit script if any statement returns a non-true return value
 set -e
 
-npx --no-install lint-staged
+npm run lint
+npm run test

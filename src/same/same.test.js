@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { same } from "./same"
+import { same } from "./same.js"
 
 test("same", t => {
   const object = {}

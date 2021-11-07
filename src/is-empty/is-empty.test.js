@@ -2,7 +2,7 @@
 
 import test from "tape"
 
-import { isEmpty, isNotEmpty } from "./is-empty"
+import { isEmpty, isNotEmpty } from "./is-empty.js"
 
 test("isEmpty", t => {
   t.equal(isEmpty({}), true, "{} should equal true")

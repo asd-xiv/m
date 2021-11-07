@@ -1,7 +1,6 @@
-import { curry } from "../curry/curry"
+import { curry } from "../curry/curry.js"
 
-const _unite = (separator, source) =>
-  Array.prototype.join.call(source, separator)
+const _unite = (separator, input) => Array.prototype.join.call(input, separator)
 
 /**
  * Unite all elements of an array into a string

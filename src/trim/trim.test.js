@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { trim } from "./trim"
+import { trim } from "./trim.js"
 
 test("trim", t => {
   t.equals(trim()(" lorem  "), "lorem", "Remove white space - curried")

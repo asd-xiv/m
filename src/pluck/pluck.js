@@ -1,19 +1,19 @@
-import { map } from "../map/map"
+import { map } from "../map/map.js"
 
 /**
- * @param {string[]} keys   The properties to be filtered out
- * @param {Object}   source The source object
+ * @param {string[]} keys  The properties to be filtered out
+ * @param {Object}   input The source object
  *
  * @returns {Object}
  */
-const _pluckOne = (keys, source) => {
+const _pluckOne = (keys, input) => {
   const result = {}
 
   for (let i = 0, length = keys.length; i < length; i++) {
     const key = keys[i]
-    const value = source[key]
+    const value = input[key]
 
-    if (Object.hasOwnProperty.call(source, key)) {
+    if (Object.hasOwnProperty.call(input, key)) {
       result[key] = value
     }
   }
@@ -23,14 +23,14 @@ const _pluckOne = (keys, source) => {
 
 /**
  * @param {string[]}          keys
- * @param {Object | Object[]} source
+ * @param {Object | Object[]} input
  *
  * @returns {Object | Object[]}
  */
-const _pluck = (keys, source) =>
-  Array.isArray(source)
-    ? map(item => _pluckOne(keys, item), source)
-    : _pluckOne(keys, source)
+const _pluck = (keys, input) =>
+  Array.isArray(input)
+    ? map(item => _pluckOne(keys, item), input)
+    : _pluckOne(keys, input)
 
 /**
  * Returns a partial copy of an object containing only the keys specified.
@@ -42,7 +42,7 @@ const _pluck = (keys, source) =>
  *
  * @name pluck
  * @tag Object
- * @signature (keys: string[]) => (source: Object): Object
+ * @signature (keys: string[]) => (input: Object): Object
  *
  * @example
  * pluck(
@@ -56,11 +56,11 @@ const _pluck = (keys, source) =>
  * // => {id: 2, name: lorem}
  */
 export const pluck = (...params) => {
-  // @signature (keys) => (source)
+  // @signature (keys) => (input)
   if (params.length <= 1) {
-    return source => _pluck(params[0], source)
+    return input => _pluck(params[0], input)
   }
 
-  // @signature (keys, source)
+  // @signature (keys, input)
   return _pluck(...params)
 }

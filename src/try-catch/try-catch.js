@@ -20,11 +20,11 @@
  */
 const tryCatch =
   (tryer, catcher) =>
-  (...source) => {
+  (...input) => {
     try {
-      return tryer(...source)
+      return tryer(...input)
     } catch (error) {
-      return catcher(error, ...source)
+      return catcher(error, ...input)
     }
   }
 

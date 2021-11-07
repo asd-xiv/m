@@ -1,5 +1,5 @@
-export const escapeHTML = source =>
-  source.replace(
+export const escapeHTML = input =>
+  input.replace(
     /["&'/<>]/g,
     char =>
       ({

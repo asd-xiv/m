@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { prepend } from "./prepend"
+import { prepend } from "./prepend.js"
 
 test("prepend", t => {
   t.deepEquals(

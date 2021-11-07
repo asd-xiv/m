@@ -1,42 +1,38 @@
-import { describe } from "riteway"
+import test from "tape"
 
-import { intersect, intersectBy } from "./intersect"
+import { intersect, intersectBy } from "./intersect.js"
 
-describe("intersect", async assert => {
-  assert({
-    given: "empty first array",
-    should: "return an empty array",
-    actual: intersect([], [1, 2, 3]),
-    expected: [],
-  })
+test("intersect", t => {
+  t.deepEqual(
+    intersect([], [1, 2, 3]),
+    [],
+    "given [empty first array] should [return an empty array]"
+  )
 
-  assert({
-    given: "empty second array",
-    should: "return an empty array",
-    actual: intersect([1, 2, 3], []),
-    expected: [],
-  })
+  t.deepEqual(
+    intersect([1, 2, 3], []),
+    [],
+    "given [empty second array] should [return an empty array]"
+  )
 
-  assert({
-    given: "two arrays with common items",
-    should: "return an array containing those items",
-    actual: intersect([1, 2, 3, 3, 4], [3, 3, 4, 5]),
-    expected: [3, 4],
-  })
+  t.deepEqual(
+    intersect([1, 2, 3, 3, 4], [3, 3, 4, 5]),
+    [3, 4],
+    "given [two arrays with common items] should [return an array containing those items]"
+  )
 
-  assert({
-    given: "two non empty arrays without common items",
-    should: "return an empty array",
-    actual: intersect([1, 2, 2], [3, 3, 4, 5]),
-    expected: [],
-  })
+  t.deepEqual(
+    intersect([1, 2, 2], [3, 3, 4, 5]),
+    [],
+    "given [two non empty arrays without common items] should [return an empty array]"
+  )
+
+  t.end()
 })
 
-describe("intersectBy", async assert => {
-  assert({
-    given: "two non empty arrays common object items",
-    should: "return an array containing those objects",
-    actual: intersectBy(
+test("intersectBy", t => {
+  t.deepEqual(
+    intersectBy(
       (a, b) => a.id === b.id,
       (a, b) => ({ ...a, ...b }),
       [
@@ -49,6 +45,9 @@ describe("intersectBy", async assert => {
         { id: 3, comments: [] },
       ]
     ),
-    expected: [{ id: 2, foo: "bar1", comments: [] }],
-  })
+    [{ id: 2, foo: "bar1", comments: [] }],
+    "given [two non empty arrays common object items] should [return an array containing those objects]"
+  )
+
+  t.end()
 })

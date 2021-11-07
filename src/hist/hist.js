@@ -1,18 +1,18 @@
-import { type } from "../type/type"
-import { is } from "../is/is"
+import { type } from "../type/type.js"
+import { is } from "../is/is.js"
 
 /**
  * Count the number of occurances of each element
  *
- * @param {Array} source Source input
+ * @param {Array} input Source input
  *
  * @returns {Object}
  */
-const byArray = source => {
+const byArray = input => {
   const result = {}
 
-  for (let i = 0, length = source.length - 1; i <= length; i++) {
-    result[source[i]] = is(result[source[i]]) ? result[source[i]] + 1 : 1
+  for (let i = 0, length = input.length - 1; i <= length; i++) {
+    result[input[i]] = is(result[input[i]]) ? result[input[i]] + 1 : 1
   }
 
   return result
@@ -25,12 +25,12 @@ const byArray = source => {
  *
  * @returns {Object}
  */
-const byKey = field => source => {
+const byKey = field => input => {
   const result = {}
 
-  for (let i = 0, length = source.length; i < length; i++) {
-    if (!!source[i][field]) {
-      const groupKey = String(source[i][field])
+  for (let i = 0, length = input.length; i < length; i++) {
+    if (!!input[i][field]) {
+      const groupKey = String(input[i][field])
 
       result[groupKey] = result[groupKey] ? result[groupKey] + 1 : 1
     }

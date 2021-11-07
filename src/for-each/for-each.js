@@ -1,12 +1,12 @@
-import { curry } from "../curry/curry"
-import { pipe } from "../pipe/pipe"
+import { curry } from "../curry/curry.js"
+import { pipe } from "../pipe/pipe.js"
 
-const _forEach = (_fn, _source) => {
+const _forEach = (_fn, _input) => {
   const fn = Array.isArray(_fn) ? pipe(..._fn) : _fn
-  const source = Array.isArray(_source) ? _source : [_source]
+  const input = Array.isArray(_input) ? _input : [_input]
 
-  for (let i = 0, length = source.length; i < length; i++) {
-    fn(source[i], i, source)
+  for (let i = 0, length = input.length; i < length; i++) {
+    fn(input[i], i, input)
   }
 }
 

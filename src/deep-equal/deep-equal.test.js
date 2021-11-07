@@ -79,12 +79,12 @@ test("isDeepEqual", t => {
   t.equal(
     isDeepEqual(
       {
-        lvl1: [1, 2, 3],
+        "lvl1": [1, 2, 3],
         "lvl1-1": { a: [1, 2], b: 3 },
       },
       {
         "lvl1-1": { a: [2, 1], b: 3 },
-        lvl1: [1, 2, 3],
+        "lvl1": [1, 2, 3],
       }
     ),
     false,

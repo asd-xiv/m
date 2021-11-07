@@ -1,10 +1,11 @@
 import test from "tape"
-import { throttle } from "./throttle"
+
+import { throttle } from "./throttle.js"
 
 test("throttle", t => {
   {
     const callData = []
-    const fn = source => callData.push(source)
+    const fn = input => callData.push(input)
     const throttledFn = throttle(fn)
 
     for (let i = 0; i < 100; i++) {
@@ -22,7 +23,7 @@ test("throttle", t => {
 
   {
     const callData = []
-    const fn = source => callData.push(source)
+    const fn = input => callData.push(input)
     const throttledFn = throttle(fn, {
       timeWindow: 50,
       hasLastCall: true,

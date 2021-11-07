@@ -1,8 +1,8 @@
 /**
  * Curried funtion that always returns the input given
  *
- * @param {any} source Something, anything
+ * @param {any} input Something, anything
  *
  * @returns {any}
  */
-export const same = source => () => source
+export const same = input => () => input

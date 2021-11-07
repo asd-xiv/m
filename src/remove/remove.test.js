@@ -2,9 +2,9 @@
 
 import test from "tape"
 
-import { isEmpty } from "../is-empty/is-empty"
-import { read } from "../read/read"
-import { remove, removeWith } from "./remove"
+import { isEmpty } from "../is-empty/is-empty.js"
+import { read } from "../read/read.js"
+import { remove, removeWith } from "./remove.js"
 
 test("remove", t => {
   t.deepEqual(

@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Exit script if any statement returns a non-true return value
+set -e
+
+filesChanged=$(git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD \
+  | grep -c "package-lock.json" \
+)
+
+[ "$filesChanged" != "0" ] && npm install

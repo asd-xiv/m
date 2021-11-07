@@ -1,13 +1,13 @@
-import { curry } from "../curry/curry"
+import { curry } from "../curry/curry.js"
 
-const _indexBy = field => source => {
+const _indexBy = field => input => {
   const result = {}
 
-  for (let i = 0, length = source.length; i < length; i++) {
-    if (source[i][field]) {
-      const indexKey = String(source[i][field])
+  for (let i = 0, length = input.length; i < length; i++) {
+    if (input[i][field]) {
+      const indexKey = String(input[i][field])
 
-      result[indexKey] = source[i]
+      result[indexKey] = input[i]
     }
   }
 
