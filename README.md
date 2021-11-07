@@ -2,7 +2,6 @@
 
 [![CircleCI](https://circleci.com/gh/asd-xiv/m.svg?style=svg)](https://circleci.com/gh/asd-xiv/m)
 [![npm version](https://badge.fury.io/js/%40asd14%2Fm.svg)](https://badge.fury.io/js/%40asd14%2Fm)
-[![dev-badge](https://david-dm.org/asd14-xyz/m.svg)](https://david-dm.org/asd14-xyz/m)
 [![Coverage Status](https://coveralls.io/repos/github/asd-xiv/m/badge.svg)](https://coveralls.io/github/asd-xiv/m)
 
 # m
@@ -13,12 +12,12 @@
 
 <!-- vim-markdown-toc GFM -->
 
-* [Install](#install)
-* [Use](#use)
-* ["With" pattern](#with-pattern)
-* [|> pipe](#-pipe)
-* [Develop](#develop)
-* [Changelog](#changelog)
+- [Install](#install)
+- [Use](#use)
+- ["With" pattern](#with-pattern)
+- [|> pipe](#-pipe)
+- [Develop](#develop)
+- [Changelog](#changelog)
 
 <!-- vim-markdown-toc -->
 
@@ -106,9 +105,9 @@ A series of transformations over an initial input can be written as `x -> f -> g
 
 Given that:
 
-* we read from left to right
-* [left/back is in the past, right/front is the future](https://medium.com/@cwodtke/the-intuitive-and-the-unlearnable-cccffd9a762)
-* a lot of piping going on in your terminal
+- we read from left to right
+- [left/back is in the past, right/front is the future](https://medium.com/@cwodtke/the-intuitive-and-the-unlearnable-cccffd9a762)
+- a lot of piping going on in your terminal
 
 it makes sense to choose the _syntax_ more aligned with our intuition and context. The transformations are applied in a certain order with time as a medium - `input -> t0 -> t1 -> tn -> output`.
 
