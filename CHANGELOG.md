@@ -1,19 +1,15 @@
 # Changelog
 
-# [7.0.0](https://github.com/asd-xiv/m/compare/v6.6.0...v7.0.0) (2021-11-07)
-
+## [7.0.0](https://github.com/asd-xiv/m/compare/v6.6.0...v7.0.0) (2021-11-07)
 
 ### Features
 
 * transform to ESM, update dependencies ([3041410](https://github.com/asd-xiv/m/commit/304141016fbbcab789f06335361450700b6d6261))
 * update dependencies ([408b8b7](https://github.com/asd-xiv/m/commit/408b8b77a7c6ce38264dd74490639b8efc71612d))
 
-
 ### BREAKING CHANGES
 
 * ESM
-
-# A log of changes
 
 ## [6.6.0](https://github.com/asd-xiv/m/compare/v6.5.0...v6.6.0) (2021-07-02)
 
