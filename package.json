@@ -59,7 +59,7 @@
     "rfc-3986": "^1.0.1"
   },
   "devDependencies": {
-    "@asd14/eslint-config": "^6.4.1",
+    "@asd14/eslint-config": "^6.5.0",
     "@babel/cli": "^7.14.5",
     "@babel/core": "^7.14.6",
     "@babel/plugin-transform-runtime": "^7.14.5",
@@ -82,7 +82,7 @@
     "eslint-plugin-no-inferred-method-name": "^2.0.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^5.1.1",
-    "eslint-plugin-unicorn": "^38.0.0",
+    "eslint-plugin-unicorn": "^38.0.1",
     "lint-staged": "^11.2.6",
     "lodash": "^4.17.21",
     "markdownlint-cli": "^0.29.0",
