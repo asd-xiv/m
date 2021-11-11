@@ -1,12 +1,10 @@
 # Changelog
 
-# [7.1.0](https://github.com/asd-xiv/m/compare/v7.0.0...v7.1.0) (2021-11-09)
-
+## [7.1.0](https://github.com/asd-xiv/m/compare/v7.0.0...v7.1.0) (2021-11-09)
 
 ### Bug Fixes
 
 * issue with "deepEqual" not correctly exported from 3rd party lib ([1beaa86](https://github.com/asd-xiv/m/commit/1beaa869dfb414b625597bfca932d14f99b72907))
-
 
 ### Features
 
