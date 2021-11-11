@@ -1,12 +1,12 @@
 /* eslint-disable no-sync, no-console */
 
 import Benchmark from "benchmark"
-import { isEqual as deepEqualL } from "lodash"
+import lodash from "lodash"
+import deepEqualF from "fast-deep-equal"
 import { equals as deepEqualR } from "ramda"
 import { isEqual as deepEqualU } from "underscore"
-import deepEqualF from "fast-deep-equal"
 
-import { isDeepEqual } from "./deep-equal.js"
+import { isDeepEqual } from "./deep-equal.own.js"
 
 const inputA1 = {
   "lvl1": [1, 2, 3],
@@ -63,7 +63,7 @@ const suite1 = new Benchmark.Suite({
     isDeepEqual(inputA1, inputA2)
   })
   .add("- lodash#isEqual", () => {
-    deepEqualL(inputA1, inputA2)
+    lodash.isEqual(inputA1, inputA2)
   })
   .add("- ramda#equals", () => {
     deepEqualR(inputA1)(inputA2)
@@ -88,7 +88,7 @@ const suite2 = new Benchmark.Suite({
     isDeepEqual(inputB1, inputB2)
   })
   .add("- lodash#isEqual", () => {
-    deepEqualL(inputB1, inputB2)
+    lodash.isEqual(inputB1, inputB2)
   })
   .add("- ramda#equals", () => {
     deepEqualR(inputB1, inputB2)

@@ -1,4 +1,7 @@
-export { default as isDeepEqual, default as deepEqual } from "fast-deep-equal"
+export {
+  isDeepEqual,
+  isDeepEqual as deepEqual,
+} from "./deep-equal/deep-equal.js"
 export { elapsedTime } from "./elapsed-time/elapsed-time.js"
 export { groupBy } from "./group-by/group-by.js"
 export { indexBy } from "./index-by/index-by.js"

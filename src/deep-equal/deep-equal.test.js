@@ -2,8 +2,7 @@
 
 import test from "tape"
 
-// import { isDeepEqual } from "./deep-equal"
-import isDeepEqual from "fast-deep-equal"
+import { isDeepEqual } from "./deep-equal.js"
 
 const fn = () => {}
 
@@ -47,6 +46,12 @@ test("isDeepEqual", t => {
     isDeepEqual({ a: 2, b: 3 }, { b: 3, a: 2 }),
     true,
     "Compare equal objects with keys arranged differently"
+  )
+
+  t.equal(
+    isDeepEqual({ a: 2, b: 3 })({ b: 3, a: 2 }),
+    true,
+    "Compare equal objects with keys arranged differently (curry)"
   )
 
   t.equal(
