@@ -44,6 +44,15 @@ test("findWith", t => {
   ]
 
   t.deepEqual(
+    findWith({
+      id: 2,
+      body: input => input === "dolor",
+    })(comments),
+    { id: 2, body: "dolor" },
+    "given [matching object with value and predicate fields] should [return existing item]"
+  )
+
+  t.deepEqual(
     findWith({ id: 2 })([]),
     undefined,
     "find with id:2 in empty array should return undefined"

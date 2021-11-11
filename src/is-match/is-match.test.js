@@ -84,5 +84,17 @@ test("isMatch", t => {
     "Matching with predicate functions"
   )
 
+  t.deepEqual(
+    isMatch({
+      id: 2,
+      name: item => item !== "John",
+    })({
+      id: 2,
+      name: "JohnX",
+    }),
+    true,
+    "Matching with predicate function and value"
+  )
+
   t.end()
 })
