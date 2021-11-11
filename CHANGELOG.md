@@ -1,5 +1,12 @@
 # Changelog
 
+# [7.2.0](https://github.com/asd-xiv/m/compare/v7.1.0...v7.2.0) (2021-11-11)
+
+
+### Features
+
+* **deep-equal:** add curried version ([39092b4](https://github.com/asd-xiv/m/commit/39092b480bea270e5d9de6e2f3de34014c77bb8e))
+
 ## [7.1.0](https://github.com/asd-xiv/m/compare/v7.0.0...v7.1.0) (2021-11-09)
 
 ### Bug Fixes
