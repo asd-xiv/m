@@ -1,7 +1,6 @@
 # Changelog
 
-# [7.3.0](https://github.com/asd-xiv/m/compare/v7.2.0...v7.3.0) (2021-11-14)
-
+## [7.3.0](https://github.com/asd-xiv/m/compare/v7.2.0...v7.3.0) (2021-11-14)
 
 ### Features
 
