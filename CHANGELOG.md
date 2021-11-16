@@ -1,5 +1,17 @@
 # Changelog
 
+# [7.5.0](https://github.com/asd-xiv/m/compare/v7.4.0...v7.5.0) (2021-11-16)
+
+
+### Bug Fixes
+
+* linting errors ([b867d93](https://github.com/asd-xiv/m/commit/b867d93f16a4d5cbd503edfc284c7b4556fe8356))
+
+
+### Features
+
+* update dependencies ([2ef5d96](https://github.com/asd-xiv/m/commit/2ef5d963c6d3c41f7e398e85e6b8d1b17557bbfd))
+
 ## [7.4.0](https://github.com/asd-xiv/m/compare/v7.3.0...v7.4.0) (2021-11-16)
 
 ### Features

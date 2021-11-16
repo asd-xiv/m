@@ -1,6 +1,6 @@
 {
   "name": "@asd14/m",
-  "version": "7.4.0",
+  "version": "7.5.0",
   "description": "Point free style, functional Javascript library with focus on object arrays",
   "license": "MIT",
   "homepage": "https://github.com/asd-xiv/m",
