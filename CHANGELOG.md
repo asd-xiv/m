@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.5.1](https://github.com/asd-xiv/m/compare/v7.5.0...v7.5.1) (2021-11-18)
+
+
+### Bug Fixes
+
+* **bottom:** issue returning an empty array when source size is exactly 1 and limit is grater ([#13](https://github.com/asd-xiv/m/issues/13)) ([466cae6](https://github.com/asd-xiv/m/commit/466cae6071cd11998aafc80f98608cdb4dc6dcf4))
+
 ## [7.5.0](https://github.com/asd-xiv/m/compare/v7.4.0...v7.5.0) (2021-11-16)
 
 ### Bug Fixes
