@@ -3,7 +3,7 @@ import { is } from "../is/is"
 const _bottom = (limit, source) => {
   if (
     (!Array.isArray(source) && typeof source !== "string") ||
-    source.length <= 1
+    source.length === 0
   ) {
     return []
   }
