@@ -25,6 +25,11 @@ test("bottom", t => {
     [1, 2],
     "Limit grater than max elements should return all elements"
   )
+  t.deepEquals(
+    bottom(3, [1]),
+    [1],
+    "Limit grater than max elements should return all elements"
+  )
 
   t.end()
 })

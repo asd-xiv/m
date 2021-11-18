@@ -3,7 +3,7 @@ import { is } from "../is/is.js"
 const _bottom = (limit, input) => {
   if (
     (!Array.isArray(input) && typeof input !== "string") ||
-    input.length <= 1
+    input.length === 0
   ) {
     return []
   }
