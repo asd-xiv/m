@@ -1,10 +1,10 @@
 import test from "tape"
 
-import { inc } from "../inc/inc"
-import { dec } from "../dec/dec"
-import { when } from "./when"
+import { inc } from "../inc/inc.js"
+import { dec } from "../dec/dec.js"
+import { when } from "./when.js"
 
-const isEven = source => source % 2 !== 0
+const isEven = input => input % 2 !== 0
 
 test("when", t => {
   t.equals(

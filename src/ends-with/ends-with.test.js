@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { endsWith } from "./ends-with"
+import { endsWith } from "./ends-with.js"
 
 test("endsWith", t => {
   t.equals(

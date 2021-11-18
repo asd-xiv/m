@@ -1,7 +1,7 @@
 /* eslint-disable unicorn/no-null */
 import test from "tape"
 
-import { compact, compactMany } from "./compact"
+import { compact, compactMany } from "./compact.js"
 
 const lambda = () => null
 

@@ -1,6 +1,6 @@
-import { pipe } from "../pipe/pipe"
+import { pipe } from "../pipe/pipe.js"
 
-const _converge = (_accFn, _extractFn, ...source) => {
+const _converge = (_accFn, _extractFn, ...input) => {
   const accFn = Array.isArray(_accFn) ? pipe(..._accFn) : _accFn
   const extractFn = Array.isArray(_extractFn) ? _extractFn : [_extractFn]
   const extractValues = []
@@ -10,7 +10,7 @@ const _converge = (_accFn, _extractFn, ...source) => {
     i < extractFnLength;
     ++i
   ) {
-    extractValues.push(extractFn[i](...source))
+    extractValues.push(extractFn[i](...input))
   }
 
   return accFn(...extractValues)
@@ -22,8 +22,8 @@ const _converge = (_accFn, _extractFn, ...source) => {
  *
  * @param {Function|Function[]} accFn     Accumulator or final aggreate function
  * @param {Function|Function[]} extractFn Functions to be applied on input
- * @param {any}     ...source Source input
- * @param {...any}  params    Function params
+ * @param {any}                 ...source Source input
+ * @param {...any}              params    Function params
  *
  * @returns {any}
  *
@@ -44,7 +44,7 @@ const _converge = (_accFn, _extractFn, ...source) => {
 export const converge = (...params) => {
   // @signature (accFn, extractFn) => (source)
   if (params.length <= 2) {
-    return (...source) => _converge(params[0], params[1], ...source)
+    return (...input) => _converge(params[0], params[1], ...input)
   }
 
   // @signature (accFn, extractFn, source)

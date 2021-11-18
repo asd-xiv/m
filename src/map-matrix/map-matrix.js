@@ -1,23 +1,23 @@
-import { curry } from "../curry/curry"
-import { pipe } from "../pipe/pipe"
+import { curry } from "../curry/curry.js"
+import { pipe } from "../pipe/pipe.js"
 
-const _mapMatrix = (_fn, source) => {
+const _mapMatrix = (_fn, input) => {
   const result = []
   const fn = Array.isArray(_fn) ? pipe(..._fn) : _fn
 
   for (
-    let rowIndex = 0, rowCount = source.length;
+    let rowIndex = 0, rowCount = input.length;
     rowIndex < rowCount;
     ++rowIndex
   ) {
     const row = []
 
     for (
-      let columnIndex = 0, columnCount = source[rowIndex].length;
+      let columnIndex = 0, columnCount = input[rowIndex].length;
       columnIndex < columnCount;
       ++columnIndex
     ) {
-      row.push(fn(source[rowIndex][columnIndex], rowIndex, columnIndex, source))
+      row.push(fn(input[rowIndex][columnIndex], rowIndex, columnIndex, input))
     }
 
     result.push(row)
@@ -31,15 +31,15 @@ const _mapMatrix = (_fn, source) => {
  * a function on each element, returning a new matrix with the transformed
  * elements.
  *
- * @param {Function|Function[]} fn     Transform function called on all elements
- * @param {any[][]}             source Two-dimensional array to iterate over
+ * @param {Function|Function[]} fn    Transform function called on all elements
+ * @param {any[][]}             input Two-dimensional array to iterate over
  *
  * @returns {any[][]} New array instance
  *
  * @name mapMatrix
  * @tag Array
- * @signature (fn: Fn|Fn[]) => (source: [][]) => [][]
- * @signature (fn: Fn|Fn[], source: [][]) => [][]
+ * @signature (fn: Fn|Fn[]) => (input: [][]) => [][]
+ * @signature (fn: Fn|Fn[], input: [][]) => [][]
  *
  * @see {@link map}
  *

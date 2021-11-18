@@ -1,17 +1,17 @@
 /* eslint-disable jsdoc/check-param-names,jsdoc/require-param */
 
-import { pipe } from "../pipe/pipe"
-import { isMatch } from "../is-match/is-match"
+import { pipe } from "../pipe/pipe.js"
+import { isMatch } from "../is-match/is-match.js"
 
-const _find = (_fn, notFoundDefault, _source) => {
+const _find = (_fn, notFoundDefault, _input) => {
   const fn = Array.isArray(_fn) ? pipe(..._fn) : _fn
-  const source = Array.isArray(_source) ? _source : [_source]
+  const input = Array.isArray(_input) ? _input : [_input]
 
-  for (let i = 0, length = source.length; i < length; i++) {
-    const isFound = fn(source[i], i, source)
+  for (let i = 0, length = input.length; i < length; i++) {
+    const isFound = fn(input[i], i, input)
 
     if (isFound === true) {
-      return source[i]
+      return input[i]
     }
   }
 
@@ -21,7 +21,7 @@ const _find = (_fn, notFoundDefault, _source) => {
 /**
  * Find the first element that matches a predicate
  *
- * @param {Function|Function[]} fn  Match function applied to each element
+ * @param {Function|Function[]} fn              Match function applied to each element
  * @param {any}                 notFoundDefault Return if no item found
  * @param {Array}               source          Source array to iterate over
  *
@@ -46,7 +46,7 @@ const _find = (_fn, notFoundDefault, _source) => {
 export const find = (...params) => {
   // @signature (fn, notFoundDefault) => (source)
   if (params.length <= 2) {
-    return source => _find(params[0], params[1], source)
+    return input => _find(params[0], params[1], input)
   }
 
   // @signature (fn, notFoundDefault, source)
@@ -82,7 +82,7 @@ export const find = (...params) => {
 export const findWith = (...params) => {
   // @signature (subset, notFoundDefault) => (source)
   if (params.length <= 2) {
-    return source => _find(isMatch(params[0]), params[1], source)
+    return input => _find(isMatch(params[0]), params[1], input)
   }
 
   // @signature (subset, notFoundDefault, source)

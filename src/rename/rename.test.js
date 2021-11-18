@@ -1,39 +1,40 @@
 /* eslint-disable new-cap */
 
-import { describe } from "riteway"
-import { rename, renameMany } from "./rename"
+import test from "tape"
 
-describe("rename", async assert => {
-  assert({
-    given: "object, renaming an existing property",
-    should: "return new object with renamed property",
-    actual: rename({ test: "changed" }, { test: "Lorem Ipsum" }),
-    expected: { changed: "Lorem Ipsum" },
-  })
+import { rename, renameMany } from "./rename.js"
 
-  assert({
-    given: "object, renaming an non-existing property",
-    should: "return new object with same properties",
-    actual: rename({ notExist: "test" })({ test: "Lorem Ipsum" }),
-    expected: { test: "Lorem Ipsum" },
-  })
+test("rename", t => {
+  t.deepEqual(
+    rename({ test: "changed" }, { test: "Lorem Ipsum" }),
+    { changed: "Lorem Ipsum" },
+    "given [object] renaming an existing property should [return new object with renamed property]"
+  )
 
-  assert({
-    given: "object, renaming an existing property to another existing property",
-    should: "return new object with renamed property",
-    actual: rename({ foo: "lorem" }, { foo: "bar", lorem: "ipsum" }),
-    expected: { lorem: "bar" },
-  })
+  t.deepEqual(
+    rename({ notExist: "test" })({ test: "Lorem Ipsum" }),
+    { test: "Lorem Ipsum" },
+    "given [object] renaming an non-existing property should [return new object with same properties]"
+  )
+
+  t.deepEqual(
+    rename({ foo: "lorem" }, { foo: "bar", lorem: "ipsum" }),
+    { lorem: "bar" },
+    "given [object] renaming an existing property to another existing property should [return new object with renamed property]"
+  )
+
+  t.end()
 })
 
-describe("renameMany", async assert => {
-  assert({
-    given: "array of objects, renaming an existing property",
-    should: "return new array of objects with renamed properties",
-    actual: renameMany({ test: "changed" }, [
+test("renameMany", t => {
+  t.deepEqual(
+    renameMany({ test: "changed" }, [
       { test: "Lorem Ipsum" },
       { cant: "touch this" },
     ]),
-    expected: [{ changed: "Lorem Ipsum" }, { cant: "touch this" }],
-  })
+    [{ changed: "Lorem Ipsum" }, { cant: "touch this" }],
+    "given [array of objects] renaming an existing property should [return new array of objects with renamed properties]"
+  )
+
+  t.end()
 })

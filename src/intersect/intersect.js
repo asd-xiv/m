@@ -1,7 +1,7 @@
-import { find } from "../find/find"
-import { curry } from "../curry/curry"
-import { any } from "../any/any"
-import { isEqual } from "../is-equal/is-equal"
+import { find } from "../find/find.js"
+import { curry } from "../curry/curry.js"
+import { any } from "../any/any.js"
+import { isEqual } from "../is-equal/is-equal.js"
 
 const _intersectBy = (predicateFn, mergeFn, aList, bList) => {
   if (aList.length === 0 || bList.length === 0) {

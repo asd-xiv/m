@@ -1,7 +1,7 @@
-import { curry } from "../curry/curry"
+import { curry } from "../curry/curry.js"
 
-const _startsWith = (search, source) => {
-  const searchPosition = source.indexOf(search)
+const _startsWith = (search, input) => {
+  const searchPosition = input.indexOf(search)
 
   if (searchPosition === -1) {
     return false

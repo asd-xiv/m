@@ -1,18 +1,18 @@
-import { type } from "../type/type"
+import { type } from "../type/type.js"
 
 const byType = {
   Null: () => true,
   Undefined: () => true,
-  Number: source => Number.isNaN(source),
-  String: source => source === "",
-  Array: source => source.length === 0,
-  Object: source => Object.keys(source).length === 0,
+  Number: input => Number.isNaN(input),
+  String: input => input === "",
+  Array: input => input.length === 0,
+  Object: input => Object.keys(input).length === 0,
 }
 
 /**
  * Check if variable is considered empty
  *
- * @param {any} source Source input
+ * @param {any} input Source input
  *
  * @returns {boolean} True if empty, False otherwise
  *
@@ -33,10 +33,10 @@ const byType = {
  * isEmpty(() => {})          // false
  * isEmpty(Promise.resolve()) // false
  */
-export const isEmpty = source => {
-  const sourceType = type(source)
+export const isEmpty = input => {
+  const inputType = type(input)
 
-  return byType[sourceType] ? byType[sourceType](source) : false
+  return byType[inputType] ? byType[inputType](input) : false
 }
 
-export const isNotEmpty = source => !isEmpty(source)
+export const isNotEmpty = input => !isEmpty(input)

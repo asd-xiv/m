@@ -1,5 +1,6 @@
 import test from "tape"
-import { raise } from ".."
+
+import { raise } from "./raise.js"
 
 test("raise", t => {
   t.throws(

@@ -1,4 +1,4 @@
-import { curry } from "../curry/curry"
+import { curry } from "../curry/curry.js"
 
 /**
  * Create an object from two arrays, one containing keys, the other values.
@@ -11,7 +11,6 @@ import { curry } from "../curry/curry"
  *
  * @name zipToObject
  * @tag Array
- * @signature (keys: Array) => (values: Array): Object
  * @signature (keys: Array, values: Array): Object
  *
  * @example

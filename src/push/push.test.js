@@ -1,7 +1,7 @@
 /* eslint-disable unicorn/no-null */
 
 import test from "tape"
-import { push } from ".."
+import { push } from "./push.js"
 
 test("push", t => {
   t.deepEqual(push(null)([1]), [1, null], "(null)([]) should equal [null]")

@@ -1,9 +1,9 @@
-import { curry } from "../curry/curry"
+import { curry } from "../curry/curry.js"
 
 /**
  * Test if something is not null, undefined or NaN
  *
- * @param {any} source Source variable
+ * @param {any} input Source variable
  *
  * @returns {boolean}
  *
@@ -19,19 +19,19 @@ import { curry } from "../curry/curry"
  * is(false)     // => true
  * is(NaN)       // => false
  */
-const is = source =>
-  source !== null && source !== undefined && !Number.isNaN(source)
+const is = input =>
+  input !== null && input !== undefined && !Number.isNaN(input)
 
-const isNothing = source =>
-  source === null || source === undefined || Number.isNaN(source)
+const isNothing = input =>
+  input === null || input === undefined || Number.isNaN(input)
 
-const isObject = source =>
-  source !== null && typeof source === "object" && !Array.isArray(source)
+const isObject = input =>
+  input !== null && typeof input === "object" && !Array.isArray(input)
 
-const isTrue = source => source === true
+const isTrue = input => input === true
 
-const isFalse = source => source === false
+const isFalse = input => input === false
 
-const not = curry((fn, source) => !fn(source))
+const not = curry((fn, input) => !fn(input))
 
 export { is, not, isNothing, isTrue, isFalse, isObject }

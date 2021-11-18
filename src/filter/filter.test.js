@@ -1,8 +1,8 @@
 import test from "tape"
 
-import { isEqual } from "../is-equal/is-equal"
-import { read } from "../read/read"
-import { filter, filterWith } from "./filter"
+import { isEqual } from "../is-equal/is-equal.js"
+import { read } from "../read/read.js"
+import { filter, filterWith } from "./filter.js"
 
 test("filter", t => {
   t.deepEqual(

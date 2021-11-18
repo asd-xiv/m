@@ -1,15 +1,15 @@
-import { curry } from "../curry/curry"
+import { curry } from "../curry/curry.js"
 
-const _groupBy = (field, source) => {
+const _groupBy = (field, input) => {
   const result = {}
 
-  for (let i = 0, length = source.length; i < length; i++) {
-    const groupKey = String(source[i][field])
+  for (let i = 0, length = input.length; i < length; i++) {
+    const groupKey = String(input[i][field])
 
     if (result[groupKey]) {
-      result[groupKey].push(source[i])
+      result[groupKey].push(input[i])
     } else {
-      result[groupKey] = [source[i]]
+      result[groupKey] = [input[i]]
     }
   }
 

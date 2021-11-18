@@ -1,13 +1,13 @@
-import { pipe } from "../pipe/pipe"
-import { curry } from "../curry/curry"
-import { isMatch } from "../is-match/is-match"
+import { pipe } from "../pipe/pipe.js"
+import { curry } from "../curry/curry.js"
+import { isMatch } from "../is-match/is-match.js"
 
-const _all = (_fn, _source) => {
-  const source = Array.isArray(_source) ? _source : [_source]
+const _all = (_fn, _input) => {
+  const input = Array.isArray(_input) ? _input : [_input]
   const fn = Array.isArray(_fn) ? pipe(..._fn) : _fn
 
-  for (let i = 0, length = source.length; i < length; i++) {
-    if (fn(source[i]) !== true) {
+  for (let i = 0, length = input.length; i < length; i++) {
+    if (fn(input[i]) !== true) {
       return false
     }
   }
@@ -15,7 +15,7 @@ const _all = (_fn, _source) => {
   return true
 }
 
-const _allWith = (subset, source) => _all(isMatch(subset), source)
+const _allWith = (subset, input) => _all(isMatch(subset), input)
 
 /**
  * Test if all elements of array satisfy a function
@@ -48,7 +48,7 @@ export const all = curry(_all)
  * @param {object} subset Match object
  * @param {Array}  source Source array to iterate over
  *
- * @returns {boolean} True if all elements match, otherwise false
+ * @returns {boolean}        True if all elements match, otherwise false
  *
  * @name allWith
  * @tag Array

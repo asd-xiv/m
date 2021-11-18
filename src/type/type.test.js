@@ -1,7 +1,8 @@
 /* eslint-disable unicorn/no-null */
 
 import test from "tape"
-import { type } from "./type"
+
+import { type } from "./type.js"
 
 test("type", t => {
   t.equal(type(null), "Null", "null should equal Null")

@@ -1,15 +1,15 @@
-import { is } from "../is/is"
+import { is } from "../is/is.js"
 
-const _bottom = (limit, source) => {
+const _bottom = (limit, input) => {
   if (
-    (!Array.isArray(source) && typeof source !== "string") ||
-    source.length === 0
+    (!Array.isArray(input) && typeof input !== "string") ||
+    input.length === 0
   ) {
     return []
   }
 
-  return source.slice(
-    is(limit) ? (limit >= source.length ? 0 : source.length - limit) : 1
+  return input.slice(
+    is(limit) ? (limit >= input.length ? 0 : input.length - limit) : 1
   )
 }
 
@@ -42,7 +42,7 @@ const _bottom = (limit, source) => {
 export const bottom = (...params) => {
   // @signature (limit: Integer) => (source: Array): Array
   if (params.length === 1 && typeof params[0] === "number") {
-    return source => _bottom(params[0], source)
+    return input => _bottom(params[0], input)
   }
 
   // @signature (source: Array): Array

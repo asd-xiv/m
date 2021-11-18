@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { bottom } from "./bottom"
+import { bottom } from "./bottom.js"
 
 test("bottom", t => {
   t.deepEquals(

@@ -1,5 +1,5 @@
-import { reduce } from "../reduce/reduce"
-import { is, isObject } from "../is/is"
+import { reduce } from "../reduce/reduce.js"
+import { is, isObject } from "../is/is.js"
 
 const flattenArray = reduce(
   (acc, item) =>
@@ -7,7 +7,7 @@ const flattenArray = reduce(
   []
 )
 
-const flattenObject = (source, prefix) =>
+const flattenObject = (input, prefix) =>
   reduce((acc, [key, value]) => {
     return isObject(value)
       ? {
@@ -18,12 +18,12 @@ const flattenObject = (source, prefix) =>
           ...acc,
           [is(prefix) ? `${prefix}__${key}` : key]: value,
         }
-  }, {})(Object.entries(source))
+  }, {})(Object.entries(input))
 
 /**
  * Recursively concat all arrays intro a single array
  *
- * @param {Array|Object} source Array or Object to flatten
+ * @param {Array|Object} input Array or Object to flatten
  *
  * @returns {Array} 1 level deep array
  *
@@ -37,16 +37,16 @@ const flattenObject = (source, prefix) =>
  *  test__b__c: 2
  * }
  */
-const flatten = source => {
-  if (Array.isArray(source)) {
-    return flattenArray(source)
+const flatten = input => {
+  if (Array.isArray(input)) {
+    return flattenArray(input)
   }
 
-  if (typeof source === "object") {
-    return flattenObject(source)
+  if (typeof input === "object") {
+    return flattenObject(input)
   }
 
-  return source
+  return input
 }
 
 export { flatten }

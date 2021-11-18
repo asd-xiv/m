@@ -1,11 +1,11 @@
-import { curry } from "../curry/curry"
+import { curry } from "../curry/curry.js"
 
-const _contains = (search, source) => {
-  if (search.length > source.length) {
+const _contains = (search, input) => {
+  if (search.length > input.length) {
     return false
   }
 
-  return source.includes(search)
+  return input.includes(search)
 }
 
 /**

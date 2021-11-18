@@ -1,7 +1,7 @@
 import test from "tape"
 
-import { inc } from "../inc/inc"
-import { forEach } from "./for-each"
+import { inc } from "../inc/inc.js"
+import { forEach } from "./for-each.js"
 
 test("forEach", t => {
   {

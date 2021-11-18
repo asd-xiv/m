@@ -1,7 +1,7 @@
 import test from "tape"
 
-import { i } from "../i/i"
-import { min, minBy } from "./min"
+import { i } from "../i/i.js"
+import { min, minBy } from "./min.js"
 
 test("min", t => {
   t.equals(min([-1, 1, 10, 3]), -1, "Find min in numeric array")

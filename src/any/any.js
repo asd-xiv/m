@@ -1,14 +1,14 @@
-import { pipe } from "../pipe/pipe"
-import { curry } from "../curry/curry"
-import { isMatch } from "../is-match/is-match"
+import { pipe } from "../pipe/pipe.js"
+import { curry } from "../curry/curry.js"
+import { isMatch } from "../is-match/is-match.js"
 
-const _any = (_fn, _source) => {
-  const source = Array.isArray(_source) ? _source : [_source]
+const _any = (_fn, _input) => {
+  const input = Array.isArray(_input) ? _input : [_input]
   const fn = Array.isArray(_fn) ? pipe(..._fn) : _fn
   const shouldCompare = typeof fn !== "function"
 
-  for (let i = 0, length = source.length; i < length; i++) {
-    if (shouldCompare ? fn === source[i] : fn(source[i]) === true) {
+  for (let i = 0, length = input.length; i < length; i++) {
+    if (shouldCompare ? fn === input[i] : fn(input[i]) === true) {
       return true
     }
   }
@@ -16,13 +16,13 @@ const _any = (_fn, _source) => {
   return false
 }
 
-const _anyWith = (subset, source) => _any(isMatch(subset), source)
+const _anyWith = (subset, input) => _any(isMatch(subset), input)
 
 /**
  * Test if at least one element in array matches predicate
  *
- * @param {Fn|Fn[]} fn     Predicate function
- * @param {Array}   source Source array to iterate over
+ * @param {Function|Function[]} fn     Predicate function
+ * @param {Array}               source Source array to iterate over
  *
  * @returns {boolean} True if at least one element passes, otherwise false
  *

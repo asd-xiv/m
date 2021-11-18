@@ -2,7 +2,7 @@
 
 import test from "tape"
 
-import { clone } from "./clone"
+import { clone } from "./clone.js"
 
 test("clone", t => {
   /*
@@ -17,10 +17,10 @@ test("clone", t => {
   /*
    * Date
    */
-  const date = new Date(86400000)
+  const date = new Date(86_400_000)
 
   t.notEqual(clone(date), date, "Imutable date")
-  t.equal(clone(date).getTime(), 86400000, "Clone date")
+  t.equal(clone(date).getTime(), 86_400_000, "Clone date")
 
   /*
    * Array

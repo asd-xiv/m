@@ -1,6 +1,6 @@
-import { pipe } from "../pipe/pipe"
-import { curry } from "../curry/curry"
-import { all } from "../all/all"
+import { pipe } from "../pipe/pipe.js"
+import { curry } from "../curry/curry.js"
+import { all } from "../all/all.js"
 
 const byValue = (shouldBe, value, not) =>
   not ? shouldBe !== value : shouldBe === value
@@ -11,12 +11,12 @@ const byFn = (shouldBe, value, not) => {
   return not ? !result : result
 }
 
-const _isMatch = (subset, source) =>
+const _isMatch = (subset, input) =>
   all(([key, _shouldBe]) => {
     const shouldBe = Array.isArray(_shouldBe) ? pipe(..._shouldBe) : _shouldBe
     const shouldTestNegation = key[0] === "!"
-    const sourceKey = key.replace("!", "")
-    const value = source[sourceKey]
+    const inputKey = key.replace("!", "")
+    const value = input[inputKey]
 
     return typeof shouldBe === "function"
       ? byFn(shouldBe, value, shouldTestNegation)

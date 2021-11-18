@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Exit script if any statement returns a non-true return value
+set -e
+
+npm run lint
+npm run test

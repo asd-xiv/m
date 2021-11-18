@@ -1,17 +1,17 @@
-import { curry } from "../curry/curry"
+import { curry } from "../curry/curry.js"
 
-const _endsWith = (search, source) => {
-  if (search.length > source.length) {
+const _endsWith = (search, input) => {
+  if (search.length > input.length) {
     return false
   }
 
-  const searchPosition = source.indexOf(search)
+  const searchPosition = input.indexOf(search)
 
   if (searchPosition === -1) {
     return false
   }
 
-  return searchPosition === source.length - search.length
+  return searchPosition === input.length - search.length
 }
 
 /**

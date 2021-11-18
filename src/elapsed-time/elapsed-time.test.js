@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { elapsedTime } from "./elapsed-time"
+import { elapsedTime } from "./elapsed-time.js"
 
 test("elapsedTime", t => {
   t.deepEqual(

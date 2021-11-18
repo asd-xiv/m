@@ -2,7 +2,7 @@
 
 import test from "tape"
 
-import { groupBy } from "./group-by"
+import { groupBy } from "./group-by.js"
 
 test("groupBy", t => {
   const comments = [

@@ -1,8 +1,8 @@
-import { is } from "../is/is"
+import { is } from "../is/is.js"
 
 const alwaysTrue = () => true
 
-export const sequenceWhile = (predicateFn, source) => {
+export const sequenceWhile = (predicateFn, input) => {
   if (typeof predicateFn !== "function") {
     throw new TypeError(
       `Invalid predicate control function. Expected function but got "${JSON.stringify(
@@ -11,13 +11,10 @@ export const sequenceWhile = (predicateFn, source) => {
     )
   }
 
-  if (
-    !Array.isArray(source) ||
-    (Array.isArray(source) && source.length === 0)
-  ) {
+  if (!Array.isArray(input) || (Array.isArray(input) && input.length === 0)) {
     throw new TypeError(
       `Invalid source array. Expected array of functions but got "${JSON.stringify(
-        source
+        input
       )}"`
     )
   }
@@ -30,7 +27,7 @@ export const sequenceWhile = (predicateFn, source) => {
       resolved.push(result)
 
       if (predicateFn(result) === true) {
-        const nextPromiseFn = source[++index]
+        const nextPromiseFn = input[++index]
 
         if (is(nextPromiseFn)) {
           return queueNext(Promise.resolve(nextPromiseFn(result)))
@@ -45,7 +42,7 @@ export const sequenceWhile = (predicateFn, source) => {
       return resolved
     })
 
-  return queueNext(Promise.resolve(source[0]()))
+  return queueNext(Promise.resolve(input[0]()))
 }
 
-export const sequence = source => sequenceWhile(alwaysTrue, source)
+export const sequence = input => sequenceWhile(alwaysTrue, input)

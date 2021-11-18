@@ -1,8 +1,8 @@
 import test from "tape"
 
-import { is } from "../is/is"
-import { read } from "../read/read"
-import { partition, partitionWith } from "./partition"
+import { is } from "../is/is.js"
+import { read } from "../read/read.js"
+import { partition, partitionWith } from "./partition.js"
 
 const equalsTwo = x => x === 2
 

@@ -1,13 +1,13 @@
 /**
  * Get right most element of array
  *
- * @param {Array} source The source
+ * @param {Array} input The source
  *
  * @returns {any}
  *
  * @name last
  * @tag Array
- * @signature (source: Array): mixed
+ * @signature (input: Array): mixed
  *
  * @example
  * last([1, 2, 3])
@@ -15,9 +15,9 @@
  * last([])
  * // => undefined
  */
-const last = source =>
-  (Array.isArray(source) || typeof source === "string") && source.length !== 0
-    ? source[source.length - 1]
+const last = input =>
+  (Array.isArray(input) || typeof input === "string") && input.length !== 0
+    ? input[input.length - 1]
     : undefined
 
 export { last }

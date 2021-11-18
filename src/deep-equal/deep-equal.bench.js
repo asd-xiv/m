@@ -1,31 +1,31 @@
 /* eslint-disable no-sync, no-console */
 
 import Benchmark from "benchmark"
-
-import { isDeepEqual } from "./deep-equal"
-import { isEqual as deepEqualL } from "lodash"
+import lodash from "lodash"
+import deepEqualF from "fast-deep-equal"
 import { equals as deepEqualR } from "ramda"
 import { isEqual as deepEqualU } from "underscore"
-import deepEqualF from "fast-deep-equal"
 
-const sourceA1 = {
-  lvl1: [1, 2, 3],
+import { isDeepEqual } from "./deep-equal.own.js"
+
+const inputA1 = {
+  "lvl1": [1, 2, 3],
   "lvl1-1": {
     a: [1, 2],
     b: 3,
   },
 }
 
-const sourceA2 = {
+const inputA2 = {
   "lvl1-1": {
     b: 3,
     a: [1, 2],
   },
-  lvl1: [1, 2, 3],
+  "lvl1": [1, 2, 3],
 }
 
-const sourceB1 = {
-  lvl1: [1, 2, 3],
+const inputB1 = {
+  "lvl1": [1, 2, 3],
   "lvl1-1": {
     a: [1, 2],
     b: {
@@ -37,8 +37,8 @@ const sourceB1 = {
   },
 }
 
-const sourceB2 = {
-  lvl1: [1, 2, 3],
+const inputB2 = {
+  "lvl1": [1, 2, 3],
   "lvl1-1": {
     a: [1, 2],
     b: {
@@ -60,19 +60,19 @@ const suite1 = new Benchmark.Suite({
     console.log(String(event.target))
   })
   .add("- functies#deepEqual", () => {
-    isDeepEqual(sourceA1, sourceA2)
+    isDeepEqual(inputA1, inputA2)
   })
   .add("- lodash#isEqual", () => {
-    deepEqualL(sourceA1, sourceA2)
+    lodash.isEqual(inputA1, inputA2)
   })
   .add("- ramda#equals", () => {
-    deepEqualR(sourceA1)(sourceA2)
+    deepEqualR(inputA1)(inputA2)
   })
   .add("- underscore#isEqual", () => {
-    deepEqualU(sourceA1, sourceA2)
+    deepEqualU(inputA1, inputA2)
   })
   .add("- fast-deep-equal#isEqual", () => {
-    deepEqualF(sourceA1, sourceA2)
+    deepEqualF(inputA1, inputA2)
   })
 
 const suite2 = new Benchmark.Suite({
@@ -85,19 +85,19 @@ const suite2 = new Benchmark.Suite({
     console.log(String(event.target))
   })
   .add("- functies#deepEqual", () => {
-    isDeepEqual(sourceB1, sourceB2)
+    isDeepEqual(inputB1, inputB2)
   })
   .add("- lodash#isEqual", () => {
-    deepEqualL(sourceB1, sourceB2)
+    lodash.isEqual(inputB1, inputB2)
   })
   .add("- ramda#equals", () => {
-    deepEqualR(sourceB1, sourceB2)
+    deepEqualR(inputB1, inputB2)
   })
   .add("- underscore#isEqual", () => {
-    deepEqualU(sourceB1, sourceB2)
+    deepEqualU(inputB1, inputB2)
   })
   .add("- fast-deep-equal#isEqual", () => {
-    deepEqualF(sourceB1, sourceB2)
+    deepEqualF(inputB1, inputB2)
   })
 
 suite1

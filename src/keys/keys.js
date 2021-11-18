@@ -1,13 +1,13 @@
 /**
  * Get list with names of all own properties
  *
- * @param {Array|Object} source Array or Object to extract keys from
+ * @param {Array|Object} input Array or Object to extract keys from
  *
  * @returns {string[]} List of property names
  *
  * @name keys
  * @tag Array,Object
- * @signature (source: Array|Object): string[]
+ * @signature (input: Array|Object): string[]
  *
  * @example
  * keys(["lorem", "ipsum"])
@@ -19,17 +19,17 @@
  * keys("foo"), keys(12), keys(null), etc
  * // => []
  */
-export const keys = source => {
-  const type = Array.isArray(source)
+export const keys = input => {
+  const type = Array.isArray(input)
     ? "array"
-    : source !== null && typeof source === "object"
+    : input !== null && typeof input === "object"
     ? "object"
     : "other"
 
   switch (type) {
     case "object":
     case "array": {
-      const entries = Object.entries(source)
+      const entries = Object.entries(input)
       const result = []
 
       for (const entry of entries) {

@@ -1,12 +1,12 @@
-import { pipe } from "../pipe/pipe"
+import { pipe } from "../pipe/pipe.js"
 
-const _reduce = (_fn, defaultAcc, _source) => {
+const _reduce = (_fn, defaultAcc, _input) => {
   let acc = defaultAcc
-  const source = Array.isArray(_source) ? _source : [_source]
+  const input = Array.isArray(_input) ? _input : [_input]
   const fn = Array.isArray(_fn) ? pipe(..._fn) : _fn
 
-  for (let index = 0, length = source.length; index < length; index++) {
-    acc = fn(acc, source[index], index, source)
+  for (let index = 0, length = input.length; index < length; index++) {
+    acc = fn(acc, input[index], index, input)
   }
 
   return acc
@@ -18,15 +18,15 @@ const _reduce = (_fn, defaultAcc, _source) => {
  *
  * @param {Function} fn         Reduce function
  * @param {Object}   defaultAcc Default accumulator value
- * @param {Array}    source     Source input
+ * @param {Array}    input      Source input
  * @param {...any}   params     Function params
  *
- * @returns {mixed}
+ * @returns {any}
  *
  * @name reduce
  * @tag Array
- * @signature (fn: Function, defaultAcc: mixed) => (source: Array): mixed
- * @signature (fn: Function, defaultAcc: mixed, source: Array): mixed
+ * @signature (fn: Function, defaultAcc: mixed) => (input: Array): mixed
+ * @signature (fn: Function, defaultAcc: mixed, input: Array): mixed
  *
  * @example
  * const sum = (acc, item) => acc + item
@@ -35,11 +35,11 @@ const _reduce = (_fn, defaultAcc, _source) => {
  * // => 3
  */
 export const reduce = (...params) => {
-  // @signature (fn, defaultAcc) => (source)
+  // @signature (fn, defaultAcc) => (input)
   if (params.length <= 2) {
-    return source => _reduce(params[0], params[1], source)
+    return input => _reduce(params[0], params[1], input)
   }
 
-  // @signature (fn, defaultAcc, source)
+  // @signature (fn, defaultAcc, input)
   return _reduce(...params)
 }

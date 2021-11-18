@@ -1,4 +1,4 @@
-import { curry } from "../curry/curry"
+import { curry } from "../curry/curry.js"
 
 const oneDay = 60 * 60 * 24
 const oneHour = 60 * 60

@@ -1,5 +1,6 @@
 import test from "tape"
-import { renameFile } from "./rename-file"
+
+import { renameFile } from "./rename-file.js"
 
 test("renameFile", t => {
   t.equals(

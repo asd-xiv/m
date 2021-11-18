@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { pluck } from "./pluck"
+import { pluck } from "./pluck.js"
 
 test("pluck", t => {
   t.deepEqual(

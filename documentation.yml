@@ -29,6 +29,9 @@ toc:
   - pluck
   - remove
   - removeWith
+  - sort
+  - sortBy
+  - sortWith
   - top
   - name: "Boolean"
   - all
@@ -45,4 +48,4 @@ toc:
   - keys
   - merge
   - pick
-  - zipToObj
+  - zipToObject

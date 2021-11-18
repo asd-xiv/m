@@ -1,7 +1,7 @@
 /**
  * Convert string to lower case
  *
- * @param {string} source
+ * @param {string} input
  *
  * @returns {string}
  *
@@ -15,4 +15,4 @@
  * toLower("Lorem Ipsum")
  * // "lorem ipsum"
  */
-export const toLower = source => "".toLowerCase.call(source)
+export const toLower = input => String.prototype.toLowerCase.call(input)

@@ -4,20 +4,20 @@
  *
  * @param {string} key
  * @param {any}    value
- * @param {Object} source
+ * @param {Object} input
  *
  * @returns {Object}
  *
  * @name write
  * @tag Object
- * @signature (key: string, value: any) => (source: Object): Object
+ * @signature (key: string, value: any) => (input: Object): Object
  *
  * @example
  * write( "a", "lorem" )( { b: "ipsum" } )
  * // => { a: "lorem", b: "ipsum" }
  */
-const write = (key, value) => source => ({
-  ...source,
+const write = (key, value) => input => ({
+  ...input,
   [key]: value,
 })
 

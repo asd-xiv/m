@@ -1,70 +1,47 @@
 /* eslint-disable unicorn/no-null */
 
-import { describe } from "riteway"
+import test from "tape"
 
-import { isURI } from "./is-uri"
+import { isURI } from "./is-uri.js"
 
-describe("isURI", async assert => {
-  assert({
-    given: "a number as source",
-    should: "return false",
-    actual: isURI(2),
-    expected: false,
-  })
+test("isURI", t => {
+  t.equal(isURI(2), false, "given [a number] should [return false]")
 
-  assert({
-    given: "null as source",
-    should: "return false",
-    actual: isURI(null),
-    expected: false,
-  })
+  t.equal(isURI(null), false, "given [null] should [return false]")
 
-  assert({
-    given: "undefined as source",
-    should: "return false",
-    actual: isURI(),
-    expected: false,
-  })
+  t.equal(isURI(), false, "given [undefined] should [return false]")
 
-  assert({
-    given: "random word",
-    should: "return false",
-    actual: isURI("lorem"),
-    expected: false,
-  })
+  t.equal(isURI("lorem"), false, "given [random word] should [return false]")
 
-  assert({
-    given: "FTP file address with protocol",
-    should: "return true",
-    actual: isURI("ftp://ftp.is.co.za/rfc/rfc1808.txt"),
-    expected: true,
-  })
+  t.equal(
+    isURI("ftp://ftp.is.co.za/rfc/rfc1808.txt"),
+    true,
+    "given [FTP file address with protocol] should [return true]"
+  )
 
-  assert({
-    given: "HTTP file address with protocol",
-    should: "return true",
-    actual: isURI("http://www.ietf.org/rfc/rfc2396.txt"),
-    expected: true,
-  })
+  t.equal(
+    isURI("http://www.ietf.org/rfc/rfc2396.txt"),
+    true,
+    "given [HTTP file address with protocol] should [return true]"
+  )
 
-  assert({
-    given: "HTTP file address without protocol",
-    should: "return false",
-    actual: isURI("www.ietf.org/rfc/rfc2396.txt"),
-    expected: false,
-  })
+  t.equal(
+    isURI("www.ietf.org/rfc/rfc2396.txt"),
+    false,
+    "given [HTTP file address without protocol] should [return false]"
+  )
 
-  assert({
-    given: "Email address with protocol",
-    should: "return true",
-    actual: isURI("mailto:John.Doe@example.com"),
-    expected: true,
-  })
+  t.equal(
+    isURI("mailto:John.Doe@example.com"),
+    true,
+    "given [Email address with protocol] should [return true]"
+  )
 
-  assert({
-    given: "Email address without protocol",
-    should: "return false",
-    actual: isURI("John.Doe@example.com"),
-    expected: false,
-  })
+  t.equal(
+    isURI("John.Doe@example.com"),
+    false,
+    "given [Email address without protocol] should [return false]"
+  )
+
+  t.end()
 })

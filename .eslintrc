@@ -1,19 +1,8 @@
 {
-  "parser": "@babel/eslint-parser",
   "root": true,
-  "extends": [ "@asd14/eslint-config/targets/node" ],
+  "extends": ["@asd14/eslint-config/targets/node"],
 
   "rules": {
-    // disable until upstream issues fixed
-    "jsdoc/check-line-alignment": "off",
-
-    // "jsdoc/check-line-alignment": ["error", "always", {
-    //   "tags": ["tags"]
-    // }],
-
-    "jsdoc/check-tag-names": ["warn", {
-      "definedTags": ["tag", "signature"]
-    }]
   },
 
   "settings": {

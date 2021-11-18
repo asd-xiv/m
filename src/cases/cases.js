@@ -1,5 +1,5 @@
-import { when } from "../when/when"
-import { i } from "../i/i"
+import { when } from "../when/when.js"
+import { i } from "../i/i.js"
 
 /**
  * Functional case statement.

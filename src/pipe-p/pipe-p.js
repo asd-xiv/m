@@ -6,13 +6,13 @@
  *
  * @param {Function}   firstFn First function in chain
  * @param {Function[]} restFn  Remaining bottom functions
- * @param {any}        source  First function arguments
+ * @param {any}        input   First function arguments
  *
  * @returns {Promise<any>}
  *
  * @name pipeP
  * @tag Promise
- * @signature (...fn: Function[]) => (...source): Promise<any>
+ * @signature (...fn: Function[]) => (...input): Promise<any>
  *
  * @see {@link pipe}
  *
@@ -24,14 +24,16 @@
  *   // => result = 4
  * })
  */
-const pipeP = (firstFn, ...restFn) => (...source) => {
-  let acc = Promise.resolve(firstFn(...source))
+const pipeP =
+  (firstFn, ...restFn) =>
+  (...input) => {
+    let acc = Promise.resolve(firstFn(...input))
 
-  for (let index = 0, length = restFn.length; index < length; index++) {
-    acc = acc.then(result => restFn[index](result))
+    for (let index = 0, length = restFn.length; index < length; index++) {
+      acc = acc.then(result => restFn[index](result))
+    }
+
+    return acc
   }
-
-  return acc
-}
 
 export { pipeP }

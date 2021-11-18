@@ -1,7 +1,7 @@
 import test from "tape"
 
-import { inc } from "../inc/inc"
-import { tryCatch } from "./try-catch"
+import { inc } from "../inc/inc.js"
+import { tryCatch } from "./try-catch.js"
 
 test("tryCatch", t => {
   t.equals(
@@ -15,7 +15,7 @@ test("tryCatch", t => {
       () => {
         throw new Error("Tryer error")
       },
-      (error, source) => inc(source)
+      (error, input) => inc(input)
     )(10),
     11,
     "Given tryer function throwing, apply catcher function on input"

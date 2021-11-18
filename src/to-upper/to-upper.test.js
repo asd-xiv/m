@@ -1,10 +1,11 @@
 import test from "tape"
-import { toUpper } from "./to-upper"
+
+import { toUpper } from "./to-upper.js"
 
 test("toUpper", t => {
-  const source = "Lorem Opsum"
+  const input = "Lorem Opsum"
 
-  t.equals(toUpper(source), "LOREM OPSUM", "Convert chars into uppercase")
+  t.equals(toUpper(input), "LOREM OPSUM", "Convert chars into uppercase")
 
   t.end()
 })

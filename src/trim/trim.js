@@ -1,11 +1,11 @@
 /* eslint-disable jsdoc/check-param-names,jsdoc/require-param */
 
-import { escapeRegExp } from "../escape-reg-exp/escape-reg-exp"
+import { escapeRegExp } from "../escape-reg-exp/escape-reg-exp.js"
 
-const _trim = (char = " ", source) => {
+const _trim = (char = " ", input) => {
   const safeChar = escapeRegExp(char)
 
-  return source.replace(new RegExp(`^[${safeChar}]+|[${safeChar}]+$`, "g"), "")
+  return input.replace(new RegExp(`^[${safeChar}]+|[${safeChar}]+$`, "g"), "")
 }
 
 /**
@@ -30,7 +30,7 @@ const _trim = (char = " ", source) => {
 const trim = (...params) => {
   // @signature (char) => (source)
   if (params.length <= 1) {
-    return source => _trim(params[0], source)
+    return input => _trim(params[0], input)
   }
 
   // @signature (char, source)

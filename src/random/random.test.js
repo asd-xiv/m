@@ -1,7 +1,12 @@
 import test from "tape"
 import chiSquaredTest from "chi-squared-test"
 
-import { random, repeat, get, lt, hist, pipe } from ".."
+import { random } from "./random.js"
+import { repeat } from "../repeat/repeat.js"
+import { read as get } from "../read/read.js"
+import { lt } from "../lt/lt.js"
+import { hist } from "../hist/hist.js"
+import { pipe } from "../pipe/pipe.js"
 
 test("random", t => {
   const [min, max, observationCount] = [5, 10, 600]
