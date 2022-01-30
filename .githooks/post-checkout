@@ -7,4 +7,6 @@ filesChanged=$(git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD \
   | grep -c "package-lock.json" \
 )
 
-[ "$filesChanged" != "0" ] && npm install
+if [ "$filesChanged" != "0" ]; then
+  npm install --no-audit --progress=false
+fi
