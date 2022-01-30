@@ -5,7 +5,7 @@ import { createRequire } from "module"
 
 test("index", t => {
   t.doesNotThrow(() => {
-    createRequire(new URL("./index.js", import.meta.url))
+    createRequire(new URL("index.js", import.meta.url))
   }, "Main file loads without errors")
 
   t.end()

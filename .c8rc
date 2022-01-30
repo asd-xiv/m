@@ -10,9 +10,6 @@
     "src/**/*.test.js",
     "src/**/*.bench.js"
   ],
-  "require": [
-    "@babel/register"
-  ],
   "reporter": [],
   "cache": true,
   "all": true,

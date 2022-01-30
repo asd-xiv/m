@@ -1,29 +1,38 @@
 {
   "branches": [
     {
-      "name": "master"
+      "name": "master",
+      "tag": "latest"
+    },
+    {
+      "name": "beta",
+      "prerelease": true
     }
   ],
   "plugins": [
     "@semantic-release/commit-analyzer",
-    "@semantic-release/release-notes-generator",
-    "@semantic-release/npm",
     [
-      "@semantic-release/changelog",
+      "@semantic-release/release-notes-generator",
       {
-        "changelogTitle": "# Changelog",
-        "changelogFile": "CHANGELOG.md"
+        "preset": "conventionalcommits"
       }
     ],
+    "@semantic-release/npm",
     [
       "@semantic-release/git",
       {
         "assets": [
-          "CHANGELOG.md",
           "package.json"
-        ]
+        ],
+        "message": "chore(release): set `package.json` to ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
     ],
-    "@semantic-release/github"
+    [
+      "@semantic-release/github",
+      {
+        "successComment": false,
+        "failComment": false
+      }
+    ]
   ]
 }

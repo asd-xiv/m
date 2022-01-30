@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset='utf-8'>
-  <title>m 6.2.0 | Documentation</title>
+  <title>m 7.5.1 | Documentation</title>
   <meta name='description' content='Point free style, functional Javascript library with focus on object arrays'>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' rel='stylesheet'>
@@ -15,7 +15,7 @@
       <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>m</h3>
-          <div class='mb1'><code>6.2.0</code></div>
+          <div class='mb1'><code>7.5.1</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -502,6 +502,16 @@
                   href='#ziptoobject'
                   class="">
                   zipToObject
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#isdeepequal'
+                  class="">
+                  isDeepEqual
                   
                 </a>
                 
@@ -1333,7 +1343,7 @@ converge(divide, [sum, count], [<span class="hljs-number">1</span>, <span class=
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#any">any</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#any">any</a>)</code>
 	    Source input
 
           </div>
@@ -1414,7 +1424,7 @@ new array with the transformed elements.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
 	    Source array to iterate over
 
           </div>
@@ -1611,7 +1621,7 @@ any arity, the remaining functions must be unary.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
 	    First function arguments
 
           </div>
@@ -1715,7 +1725,7 @@ any arity, the remaining functions must be unary.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
 	    Source object
 
           </div>
@@ -1833,7 +1843,7 @@ left to right) to reduce it to a single value.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
 	    Source input
 
           </div>
@@ -1857,7 +1867,7 @@ left to right) to reduce it to a single value.</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>mixed</code>:
+      <code><a href="#any">any</a></code>:
         
       
     
@@ -1922,7 +1932,7 @@ reduce(sum, <span class="hljs-number">0</span>, [<span class="hljs-number">1</sp
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#any">any</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#any">any</a>)</code>
 	    Something, anything
 
           </div>
@@ -2010,7 +2020,7 @@ value</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
 	    
           </div>
           
@@ -2425,7 +2435,7 @@ countWith(
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
 	    Source input array
 
           </div>
@@ -2869,7 +2879,7 @@ find({<span class="hljs-attr">id</span>: <span class="hljs-string">&quot;404&quo
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
 	    The source
 
           </div>
@@ -2950,7 +2960,7 @@ first([])
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>((<a href="#array">Array</a> | <a href="#object">Object</a>))</code>
+            <span class='code bold'>input</span> <code class='quiet'>((<a href="#array">Array</a> | <a href="#object">Object</a>))</code>
 	    Array or Object to flatten
 
           </div>
@@ -3035,7 +3045,7 @@ flatten({<span class="hljs-attr">test</span>: {<span class="hljs-attr">a</span>:
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
 	    The source
 
           </div>
@@ -3389,7 +3399,7 @@ If the key does not exist, the property is ignored.</p>
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>params.source</span> <code class='quiet'><a href="#array">Array</a></code>
+  <td class='break-word'><span class='code bold'>params.input</span> <code class='quiet'><a href="#array">Array</a></code>
   </td>
   <td class='break-word'><span></span></td>
 </tr>
@@ -3502,7 +3512,7 @@ remove(<span class="hljs-function"><span class="hljs-params">_</span> =&gt;</spa
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>params.source</span> <code class='quiet'><a href="#array">Array</a></code>
+  <td class='break-word'><span class='code bold'>params.input</span> <code class='quiet'><a href="#array">Array</a></code>
   </td>
   <td class='break-word'><span>Source array
 </span></td>
@@ -3622,7 +3632,7 @@ remove(<span class="hljs-function"><span class="hljs-params">_</span> =&gt;</spa
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>params.source</span> <code class='quiet'><a href="#array">Array</a></code>
+  <td class='break-word'><span class='code bold'>params.input</span> <code class='quiet'><a href="#array">Array</a></code>
   </td>
   <td class='break-word'><span></span></td>
 </tr>
@@ -3730,7 +3740,7 @@ sort(<span class="hljs-string">&quot;desc&quot;</span>, [<span class="hljs-numbe
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
 	    
           </div>
           
@@ -3829,6 +3839,14 @@ sort(<span class="hljs-string">&quot;desc&quot;</span>, [<span class="hljs-numbe
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
 	    
           </div>
           
@@ -4262,7 +4280,7 @@ allWith(is, [<span class="hljs-number">1</span>, <span class="hljs-string">&quot
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>fn</span> <code class='quiet'>((Fn | <a href="#array">Array</a>&#x3C;Fn>))</code>
+            <span class='code bold'>fn</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a> | <a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>>))</code>
 	    Predicate function
 
           </div>
@@ -4485,7 +4503,7 @@ anyWith({ <span class="hljs-attr">tags</span>: is })([{<span class="hljs-attr">i
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#any">any</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#any">any</a>)</code>
 	    Source variable
 
           </div>
@@ -4694,7 +4712,7 @@ between(<span class="hljs-number">2</span>, <span class="hljs-number">5</span>, 
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#any">any</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#any">any</a>)</code>
 	    Source input
 
           </div>
@@ -5111,7 +5129,7 @@ when(isOdd, increment)(<span class="hljs-number">6</span>)
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>((<a href="#array">Array</a> | <a href="#object">Object</a>))</code>
+            <span class='code bold'>input</span> <code class='quiet'>((<a href="#array">Array</a> | <a href="#object">Object</a>))</code>
 	    Array or Object to extract keys from
 
           </div>
@@ -5198,7 +5216,7 @@ overwriten by right most object.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="#object">Object</a>>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="#object">Object</a>>)</code>
 	    Array of objects
 
           </div>
@@ -5402,6 +5420,120 @@ Both arrays will be trimmed to the smallest length.</p>
       
       <pre class='p1 overflow-auto round fill-light'>zipToObject([a, b])([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]) <span class="hljs-comment">// =&gt; { a: 1, b: 2 }</span>
 zipToObject([a], [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]) <span class="hljs-comment">// =&gt; { a: 1 }</span></pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='isdeepequal'>
+      isDeepEqual
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Determine if two variables are structurally equal</p>
+
+    <div class='pre p1 fill-light mt0'>isDeepEqual</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>a</span> <code class='quiet'>(<a href="#any">any</a>)</code>
+	    Source input
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>b</span> <code class='quiet'>(<a href="#any">any</a>)</code>
+	    Other source input
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>params</span> <code class='quiet'>(...<a href="#any">any</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        True if inputs are structurally equal, false otherwise
+
+      
+    
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Related</div>
+    
+      
+        <a href="#clone">clone</a>
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>deepEqual(
+{<span class="hljs-attr">b</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">a</span>: <span class="hljs-number">2</span>},
+{<span class="hljs-attr">a</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">b</span>: <span class="hljs-number">3</span>}
+)
+<span class="hljs-comment">// =&gt; true</span>
+
+deepEqual(
+{<span class="hljs-attr">a</span> :[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]}
+)(
+{<span class="hljs-attr">a</span>: [<span class="hljs-number">2</span>, <span class="hljs-number">1</span>]}
+)
+<span class="hljs-comment">// =&gt; false</span></pre>
     
   
 
@@ -5728,7 +5860,7 @@ zipToObject([a], [<span class="hljs-number">1</span>, <span class="hljs-number">
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
 	    Source input
 
           </div>
@@ -5972,7 +6104,7 @@ hist( <span class="hljs-string">&quot;score&quot;</span> )( scores )
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
 	    Source input
 
           </div>
@@ -6149,7 +6281,7 @@ them all as "Object".</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#any">any</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#any">any</a>)</code>
 	    Something to check type on
 
           </div>
@@ -6481,7 +6613,7 @@ of how many times is called.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
 	    
           </div>
           
@@ -6659,7 +6791,7 @@ any arity, the remaining functions must be unary.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#any">any</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#any">any</a>)</code>
 	    First function arguments
 
           </div>
@@ -6750,7 +6882,7 @@ Will not inherit prototype, only own enumerable properties.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#any">any</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#any">any</a>)</code>
 	    Source input value
 
           </div>
@@ -6851,7 +6983,7 @@ close(x) === x
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
 	    Number of times
 
           </div>
@@ -7036,7 +7168,7 @@ removed.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>((<a href="#array">Array</a> | <a href="#object">Object</a>))</code>
+            <span class='code bold'>input</span> <code class='quiet'>((<a href="#array">Array</a> | <a href="#object">Object</a>))</code>
 	    
           </div>
           
@@ -7257,7 +7389,7 @@ otherwise function on the input.
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="#object">Object</a>>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="#object">Object</a>>)</code>
 	    Array of objects
 
           </div>
@@ -7336,7 +7468,7 @@ otherwise function on the input.
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
 	    The source object
 
           </div>
@@ -7414,7 +7546,7 @@ otherwise function on the input.
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>((<a href="#object">Object</a> | <a href="#array">Array</a>&#x3C;<a href="#object">Object</a>>))</code>
+            <span class='code bold'>input</span> <code class='quiet'>((<a href="#object">Object</a> | <a href="#array">Array</a>&#x3C;<a href="#object">Object</a>>))</code>
 	    
           </div>
           
@@ -7484,7 +7616,7 @@ otherwise function on the input.
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>((<a href="#array">Array</a> | <a href="#object">Object</a>))</code>
+            <span class='code bold'>input</span> <code class='quiet'>((<a href="#array">Array</a> | <a href="#object">Object</a>))</code>
 	    Array or Object to extract values from
 
           </div>
@@ -7576,7 +7708,7 @@ values(<span class="hljs-string">&quot;foo&quot;</span>), values(<span class="hl
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#object">Object</a>)</code>
 	    
           </div>
           
@@ -7653,7 +7785,7 @@ values(<span class="hljs-string">&quot;foo&quot;</span>), values(<span class="hl
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>((<a href="#object">Object</a> | <a href="#array">Array</a>&#x3C;<a href="#object">Object</a>>))</code>
+            <span class='code bold'>input</span> <code class='quiet'>((<a href="#object">Object</a> | <a href="#array">Array</a>&#x3C;<a href="#object">Object</a>>))</code>
 	    
           </div>
           
@@ -7888,7 +8020,7 @@ rename({ <span class="hljs-attr">old</span>: <span class="hljs-string">&quot;new
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
 	    
           </div>
           
@@ -7976,7 +8108,7 @@ rename({ <span class="hljs-attr">old</span>: <span class="hljs-string">&quot;new
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
 	    
           </div>
           
@@ -8053,7 +8185,7 @@ push(<span class="hljs-number">2</span>, <span class="hljs-number">4</span>)([<s
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>)</code>
 	    Array of numbers
 
           </div>
@@ -8086,12 +8218,12 @@ push(<span class="hljs-number">2</span>, <span class="hljs-number">4</span>)([<s
 <span class="hljs-comment">// =&gt; 10</span>
 
 <span class="hljs-keyword">const</span> fn = <span class="hljs-function"><span class="hljs-params">element</span> =&gt;</span> (<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(element.time))
-<span class="hljs-keyword">const</span> source = [
+<span class="hljs-keyword">const</span> input = [
   { <span class="hljs-attr">time</span>: <span class="hljs-string">&quot;2018-05-15T11:20:07.754110Z&quot;</span> },
   { <span class="hljs-attr">time</span>: <span class="hljs-string">&quot;2018-06-11T09:01:54.337344Z&quot;</span> },
   { <span class="hljs-attr">time</span>: <span class="hljs-string">&quot;2018-06-08T08:26:12.711071Z&quot;</span> },
 ]
-max(fn, source)
+max(fn, input)
 <span class="hljs-comment">// =&gt; {time: &quot;2018-06-11T09:01:54.337344Z&quot;}</span></pre>
     
   
@@ -8140,7 +8272,7 @@ max(fn, source)
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>>)</code>
 	    Array of numbers
 
           </div>
@@ -8173,12 +8305,12 @@ max(fn, source)
 <span class="hljs-comment">// =&gt; -1</span>
 
 <span class="hljs-keyword">const</span> fn = <span class="hljs-function"><span class="hljs-params">element</span> =&gt;</span> ( <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>( element.time ) )
-<span class="hljs-keyword">const</span> source = [
+<span class="hljs-keyword">const</span> input = [
   { <span class="hljs-attr">time</span>: <span class="hljs-string">&quot;2018-05-15T11:20:07.754110Z&quot;</span> },
   { <span class="hljs-attr">time</span>: <span class="hljs-string">&quot;2018-06-11T09:01:54.337344Z&quot;</span> },
   { <span class="hljs-attr">time</span>: <span class="hljs-string">&quot;2018-06-08T08:26:12.711071Z&quot;</span> },
 ]
-min(fn)(source)
+min(fn)(input)
 <span class="hljs-comment">// =&gt; {time: &quot;2018-05-15T11:20:07.754110Z&quot;}</span></pre>
     
   
@@ -8242,7 +8374,7 @@ min(fn)(source)
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
 	    
           </div>
           
@@ -8398,7 +8530,7 @@ min(fn)(source)
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
 	    Source array
 
           </div>
@@ -8573,7 +8705,7 @@ min(fn)(source)
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
 	    Source array to prepend to
 
           </div>
@@ -9541,8 +9673,8 @@ if it has not been already added.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
-	    Source input
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    Input number
 
           </div>
           
@@ -9619,7 +9751,7 @@ if it has not been already added.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
 	    Source input
 
           </div>
@@ -9829,6 +9961,7 @@ is the second operand.</p>
       
       <pre class='p1 overflow-auto round fill-light'>lt(<span class="hljs-number">10</span>)(<span class="hljs-number">4</span>)
 <span class="hljs-comment">// =&gt; true</span>
+
 lt(<span class="hljs-number">10</span>)(<span class="hljs-number">14</span>)
 <span class="hljs-comment">// =&gt; false</span></pre>
     
@@ -9904,7 +10037,7 @@ lt(<span class="hljs-number">10</span>)(<span class="hljs-number">14</span>)
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>Integer</code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
         
       
     
@@ -9989,9 +10122,9 @@ make each split.</p>
 
               
                 <tr>
-  <td class='break-word'><span class='code bold'>params.source</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
+  <td class='break-word'><span class='code bold'>params.input</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
   </td>
-  <td class='break-word'><span>Source string
+  <td class='break-word'><span>Input string
 </span></td>
 </tr>
 
@@ -10360,7 +10493,7 @@ startsWith(<span class="hljs-string">&quot;dolor&quot;</span>)(<span class="hljs
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
 	    
           </div>
           
@@ -10445,7 +10578,7 @@ startsWith(<span class="hljs-string">&quot;dolor&quot;</span>)(<span class="hljs
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
 	    
           </div>
           
@@ -10724,7 +10857,7 @@ trim(<span class="hljs-string">&quot;-&quot;</span>, <span class="hljs-string">&
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>([])</code>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
 	    Source array
 
           </div>
