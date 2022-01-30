@@ -5,7 +5,7 @@
       "tag": "latest"
     },
     {
-      "name": "beta",
+      "name": "next",
       "prerelease": true
     }
   ],
