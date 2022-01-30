@@ -15,6 +15,12 @@
     "name": "Andrei Dumitrescu",
     "url": "https://github.com/andreidmt"
   },
+  "contributors": [
+    {
+      "name": "David Gil",
+      "url": "https://github.com/dgilperez"
+    }
+  ],
   "keywords": [
     "point-free",
     "functional",

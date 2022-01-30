@@ -18,6 +18,7 @@
 - ["With" pattern](#with-pattern)
 - [|> pipe](#-pipe)
 - [Develop](#develop)
+- [Contributors](#contributors)
 - [Changelog](#changelog)
 
 <!-- vim-markdown-toc -->
@@ -148,6 +149,12 @@ npm test
 # watch `src` folder for changes and run test automatically
 npm run tdd
 ```
+
+## Contributors
+
+Thank you for contributing your time and knowledge:
+
+- [David Gil](https://github.com/dgilperez)
 
 ## Changelog
 
