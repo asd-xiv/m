@@ -28,7 +28,7 @@
     "library"
   ],
   "type": "module",
-  "exports": "dist/index.js",
+  "exports": "./dist/index.js",
   "sideEffects": false,
   "files": [
     "/dist"
