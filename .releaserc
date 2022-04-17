@@ -11,27 +11,12 @@
   ],
   "plugins": [
     "@semantic-release/commit-analyzer",
-    [
-      "@semantic-release/release-notes-generator",
-      {
-        "preset": "conventionalcommits"
-      }
-    ],
+    "@semantic-release/release-notes-generator",
     "@semantic-release/npm",
     [
       "@semantic-release/git",
       {
-        "assets": [
-          "package.json"
-        ],
-        "message": "chore(release): set `package.json` to ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
-      }
-    ],
-    [
-      "@semantic-release/github",
-      {
-        "successComment": false,
-        "failComment": false
+        "assets": [ "package.json", "package-lock.json" ]
       }
     ]
   ]
