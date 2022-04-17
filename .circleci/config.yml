@@ -7,33 +7,18 @@
 version: 2.1
 
 #
-# Orbs - https://circleci.com/docs/2.0/orb-concepts/#quick-start
-#
-# Shareable packages of configuration elements, including jobs commands,
-# and executors
-#
-
-orbs:
-  slack: circleci/slack@4.6.0
-
-#
 # Executors - https://circleci.com/docs/2.0/executor-intro/
 #
 # The underlying technology or environment in which to run a job
 #
 
 executors:
-  node-lts:
+  gitleaks:
+    docker:
+      - image: zricethezav/gitleaks:latest
+  node:
     docker:
       - image: cimg/node:lts
-
-#
-# YAML variable templates
-#
-
-JOB_DEFAULTS: &JOB_DEFAULTS
-  executor: node-lts
-  working_directory: ~/m
 
 #
 # Jobs - https://circleci.com/docs/2.0/configuration-reference/#jobs
@@ -43,55 +28,72 @@ JOB_DEFAULTS: &JOB_DEFAULTS
 #
 
 jobs:
-  setup:
-    <<: *JOB_DEFAULTS
+  detect-secrets:
+    executor: gitleaks
+    working_directory: &JOB_WORKING_DIR "~/m"
     steps:
       - checkout
+      - run:
+          name: "[gitleaks] Detect secrets in repository history"
+          command: |
+            gitleaks detect --redact --verbose
+      - persist_to_workspace:
+          root: &WORKSPACE_ROOT "~/"
+          paths:
+            - m
+
+  setup:
+    executor: node
+    working_directory: *JOB_WORKING_DIR
+    steps:
+      - attach_workspace:
+          at: *WORKSPACE_ROOT
       - restore_cache:
           name: '[circleci] Restore cached "node_modules" folder'
-          keys:
-            - &CACHE_KEY_NODE_MODULES 'm-{{ arch }}-{{ checksum
-              "package-lock.json" }}'
-            - &CACHE_KEY_FALLBACK "m-"
+          key:
+            &CACHE_KEY_NODE_MODULES 'm-v1-{{ arch }}-{{ checksum
+            "package-lock.json" }}'
       - run:
           name: "[npm]: Install packages"
           command: |
-            npm install --no-audit
+            node -v && npm -v
+            npm run setup
       - save_cache:
           paths:
             - node_modules
           key: *CACHE_KEY_NODE_MODULES
       - persist_to_workspace:
-          root: &WORKSPACE_ROOT "~/"
+          root: *WORKSPACE_ROOT
           paths:
-            - "m"
+            - m
 
   test:
-    <<: *JOB_DEFAULTS
+    executor: node
+    working_directory: *JOB_WORKING_DIR
     steps:
       - attach_workspace:
           at: *WORKSPACE_ROOT
       - run:
-          name: "[eslint]: Lint"
+          name: "[eslint, markdownlint]: Lint"
           command: |
             npm run lint
       - run:
-          name: "[tape]: Unit Test"
-          command: |
-            npm run test
+          name: "[tape]: Unit tests"
+          command: "npm test"
 
-  coverage:
-    <<: *JOB_DEFAULTS
+  submit-coverage:
+    executor: node
+    working_directory: *JOB_WORKING_DIR
     steps:
       - attach_workspace:
           at: *WORKSPACE_ROOT
       - run:
           name: "[c8,coveralls]: Publish test coverage to Coveralls"
-          command: |
-            npm run coverage
+          command: "npm run coverage"
 
-  publish:
-    <<: *JOB_DEFAULTS
+  release-npm:
+    executor: node
+    working_directory: *JOB_WORKING_DIR
     steps:
       - attach_workspace:
           at: *WORKSPACE_ROOT
@@ -103,8 +105,7 @@ jobs:
           name:
             "[semantic-release]: Update version, generate release, publish npm
             package"
-          command: |
-            npm run publish
+          command: "npm run release"
 
 #
 # Workflows - https://circleci.com/docs/2.0/workflows/
@@ -112,50 +113,44 @@ jobs:
 # Treat workflows as a jobs/commands pipe:
 # cmd1 -p1 lorem | cmd2 -foo bar | ... | cmdN)
 #
-
 workflows:
-  publish_@latest:
+  release_latest:
     jobs:
-      - setup:
+      - detect-secrets:
           filters:
             branches:
-              only:
-                - master
+              only: [master]
+      - setup:
+          requires: [detect-secrets]
       - test:
-          requires:
-            - setup
-      - coverage:
-          requires:
-            - test
-      - publish:
-          requires:
-            - coverage
+          requires: [setup]
+      - submit-coverage:
+          requires: [test]
+      - release-npm:
+          requires: [test]
 
-  publish_@next:
+  release_next:
     jobs:
-      - setup:
+      - detect-secrets:
           filters:
             branches:
-              only:
-                - next
+              only: [next]
+      - setup:
+          requires: [detect-secrets]
       - test:
-          requires:
-            - setup
-      - coverage:
-          requires:
-            - test
-      - publish:
-          requires:
-            - coverage
+          requires: [setup]
+      - submit-coverage:
+          requires: [test]
+      - release-npm:
+          requires: [test]
 
-  test_feature_branches:
+  test_pr-branches:
     jobs:
-      - setup:
+      - detect-secrets:
           filters:
             branches:
-              ignore:
-                - master
-                - next
+              ignore: [master, next]
+      - setup:
+          requires: [detect-secrets]
       - test:
-          requires:
-            - setup
+          requires: [setup]
