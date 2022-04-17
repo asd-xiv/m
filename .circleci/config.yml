@@ -16,9 +16,15 @@ executors:
   gitleaks:
     docker:
       - image: zricethezav/gitleaks:latest
-  node:
+  node-12:
     docker:
-      - image: cimg/node:lts
+      - image: cimg/node:12.20.0
+  node-14:
+    docker:
+      - image: cimg/node:14.13.1
+  node-16:
+    docker:
+      - image: cimg/node:16.14.2
 
 #
 # Jobs - https://circleci.com/docs/2.0/configuration-reference/#jobs
@@ -43,7 +49,7 @@ jobs:
             - m
 
   setup:
-    executor: node
+    executor: node-16
     working_directory: *JOB_WORKING_DIR
     steps:
       - attach_workspace:
@@ -68,7 +74,11 @@ jobs:
             - m
 
   test:
-    executor: node
+    parameters:
+      node-version:
+        type: string
+        default: "16"
+    executor: node-<< parameters.node-version >>
     working_directory: *JOB_WORKING_DIR
     steps:
       - attach_workspace:
@@ -82,7 +92,7 @@ jobs:
           command: "npm test"
 
   submit-coverage:
-    executor: node
+    executor: node-16
     working_directory: *JOB_WORKING_DIR
     steps:
       - attach_workspace:
@@ -92,7 +102,7 @@ jobs:
           command: "npm run coverage"
 
   release-npm:
-    executor: node
+    executor: node-16
     working_directory: *JOB_WORKING_DIR
     steps:
       - attach_workspace:
@@ -123,11 +133,21 @@ workflows:
       - setup:
           requires: [detect-secrets]
       - test:
+          name: "test_node12"
           requires: [setup]
+          node-version: "12"
+      - test:
+          name: "test_node14"
+          requires: [setup]
+          node-version: "14"
+      - test:
+          name: "test_node16"
+          requires: [setup]
+          node-version: "16"
       - submit-coverage:
-          requires: [test]
+          requires: [test_node12, test_node14, test_node16]
       - release-npm:
-          requires: [test]
+          requires: [test_node12, test_node14, test_node16]
 
   release_next:
     jobs:
