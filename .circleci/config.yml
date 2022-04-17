@@ -1,16 +1,12 @@
-#
 # CircleCI 2.0 configuration file
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
-#
 
 version: 2.1
 
-#
 # Executors - https://circleci.com/docs/2.0/executor-intro/
 #
 # The underlying technology or environment in which to run a job
-#
 
 executors:
   gitleaks:
@@ -23,12 +19,10 @@ executors:
     docker:
       - image: cimg/node:16.14.2
 
-#
 # Jobs - https://circleci.com/docs/2.0/configuration-reference/#jobs
 #
 # Atomic parts of the pipeline that will be composed and configured in one or
 # more Workflows
-#
 
 jobs:
   detect-secrets:
@@ -113,12 +107,11 @@ jobs:
             package"
           command: "npm run release"
 
-#
 # Workflows - https://circleci.com/docs/2.0/workflows/
 #
 # Treat workflows as a jobs/commands pipe:
 # cmd1 -p1 lorem | cmd2 -foo bar | ... | cmdN)
-#
+
 workflows:
   release_latest:
     jobs:
