@@ -23,6 +23,22 @@ const _sliceKeys = (keysToSlice, input) => {
   return result
 }
 
+/**
+ * Filter an object by its keys
+ *
+ * @param {Array}  Array  of keys to filter the object with
+ * @param {Object} source Source object to filter
+ *
+ * @returns {Object}
+ *
+ * @name sliceKeys
+ * @tag Object
+ * @signature (subset: Array, source: Object) => Object
+ *
+ * @example
+ * sliceKeys(['foo', 'bar'])({foo: 1, bar: 2, baz: 3})
+ * // => {foo: 1, bar: 2}
+ */
 const sliceKeys = curry(_sliceKeys)
 
 export { sliceKeys }

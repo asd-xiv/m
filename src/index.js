@@ -61,6 +61,7 @@ export {
 } from "./zip-to-object/zip-to-object.js"
 export { mutate, mutateMany, mutateWith } from "./mutate/mutate.js"
 export { update, updateMany, updateWith } from "./update/update.js"
+export { sliceKeys } from "./slice-keys/slice-keys.js"
 
 // Array
 export { top } from "./top/top.js"
