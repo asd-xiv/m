@@ -1,6 +1,11 @@
 import { curry } from "../curry/curry.js"
+import { is } from "../is/is.js"
 
 const _endsWith = (search, input) => {
+  if (!is(input)) {
+    return false
+  }
+
   if (search.length > input.length) {
     return false
   }

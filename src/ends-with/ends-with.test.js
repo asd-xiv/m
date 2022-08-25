@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/no-null */
 import test from "tape"
 
 import { endsWith } from "./ends-with.js"
@@ -32,6 +33,10 @@ test("endsWith", t => {
     false,
     "Search string does not exist in source"
   )
+
+  t.equals(endsWith("lorem")(null), false, "Search null returns false")
+
+  t.equals(endsWith("lorem")(), false, "Search undefined returns false")
 
   t.end()
 })
