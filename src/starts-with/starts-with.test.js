@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/no-null */
 import test from "tape"
 
 import { startsWith } from "./starts-with.js"
@@ -38,6 +39,10 @@ test("startsWith", t => {
     true,
     "Search item inside array"
   )
+
+  t.equals(startsWith("lorem")(null), false, "Search null returns false")
+
+  t.equals(startsWith("lorem")(), false, "Search undefined returns false")
 
   t.end()
 })
