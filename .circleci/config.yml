@@ -14,10 +14,10 @@ executors:
       - image: zricethezav/gitleaks:latest
   node-lts:
     docker:
-      - image: cimg/node:16.x
+      - image: cimg/node:16.17
   node-18:
     docker:
-      - image: cimg/node:18.x
+      - image: cimg/node:18.8
 
 # Jobs - https://circleci.com/docs/2.0/configuration-reference/#jobs
 #
