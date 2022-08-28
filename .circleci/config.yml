@@ -12,12 +12,12 @@ executors:
   gitleaks:
     docker:
       - image: zricethezav/gitleaks:latest
-  node-14:
+  node-lts:
     docker:
-      - image: cimg/node:14.13.1
-  node-16:
+      - image: cimg/node:16
+  node-18:
     docker:
-      - image: cimg/node:16.14.2
+      - image: cimg/node:18
 
 # Jobs - https://circleci.com/docs/2.0/configuration-reference/#jobs
 #
@@ -40,7 +40,7 @@ jobs:
             - m
 
   setup:
-    executor: node-16
+    executor: node-lts
     working_directory: *JOB_WORKING_DIR
     steps:
       - attach_workspace:
@@ -82,7 +82,7 @@ jobs:
           command: "npm test"
 
   submit-coverage:
-    executor: node-16
+    executor: node-lts
     working_directory: *JOB_WORKING_DIR
     steps:
       - attach_workspace:
@@ -92,7 +92,7 @@ jobs:
           command: "npm run coverage"
 
   release-npm:
-    executor: node-16
+    executor: node-lts
     working_directory: *JOB_WORKING_DIR
     steps:
       - attach_workspace:
@@ -122,17 +122,17 @@ workflows:
       - setup:
           requires: [detect-secrets]
       - test:
-          name: "test_node14"
+          name: "test_node-lts"
           requires: [setup]
-          node-version: "14"
+          node-version: "lts"
       - test:
-          name: "test_node16"
+          name: "test_node-18"
           requires: [setup]
-          node-version: "16"
+          node-version: "18"
       - submit-coverage:
-          requires: [test_node14, test_node16]
+          requires: [test_node-lts, test_node-18]
       - release-npm:
-          requires: [test_node14, test_node16]
+          requires: [test_node-lts, test_node-18]
 
   release_next:
     jobs:
@@ -143,17 +143,17 @@ workflows:
       - setup:
           requires: [detect-secrets]
       - test:
-          name: "test_node14"
+          name: "test_node-lts"
           requires: [setup]
-          node-version: "14"
+          node-version: "lts"
       - test:
-          name: "test_node16"
+          name: "test_node-18"
           requires: [setup]
-          node-version: "16"
+          node-version: "18"
       - submit-coverage:
-          requires: [test_node14, test_node16]
+          requires: [test_node-lts, test_node-18]
       - release-npm:
-          requires: [test_node14, test_node16]
+          requires: [test_node-lts, test_node-18]
 
   test_pr-branches:
     jobs:
@@ -164,10 +164,10 @@ workflows:
       - setup:
           requires: [detect-secrets]
       - test:
-          name: "test_node14"
+          name: "test_node-lts"
           requires: [setup]
-          node-version: "14"
+          node-version: "lts"
       - test:
-          name: "test_node16"
+          name: "test_node-18"
           requires: [setup]
-          node-version: "16"
+          node-version: "18"
