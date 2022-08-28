@@ -14,10 +14,10 @@ executors:
       - image: zricethezav/gitleaks:latest
   node-lts:
     docker:
-      - image: cimg/node:16
+      - image: cimg/node:16.x
   node-18:
     docker:
-      - image: cimg/node:18
+      - image: cimg/node:18.x
 
 # Jobs - https://circleci.com/docs/2.0/configuration-reference/#jobs
 #
@@ -48,7 +48,7 @@ jobs:
       - restore_cache:
           name: '[circleci] Restore cached "node_modules" folder'
           key:
-            &CACHE_KEY_NODE_MODULES 'm-v1-{{ arch }}-{{ checksum
+            &CACHE_KEY_NODE_MODULES 'm-v2-{{ arch }}-{{ checksum
             "package-lock.json" }}'
       - run:
           name: "[npm]: Install packages"
