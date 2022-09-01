@@ -2,11 +2,14 @@ import { curry } from "../curry/curry.js"
 import { is } from "../is/is.js"
 
 const _endsWith = (search, input) => {
-  if (!is(input)) {
+  const inputIsString = typeof input === "string"
+  const inputIsArray = Array.isArray(input)
+
+  if (!(inputIsString || inputIsArray)) {
     return false
   }
 
-  if (search.length > input.length) {
+  if (!is(search)) {
     return false
   }
 
@@ -16,7 +19,11 @@ const _endsWith = (search, input) => {
     return false
   }
 
-  return searchPosition === input.length - search.length
+  const targetPosition = inputIsString
+    ? input.length - search.length
+    : input.length - 1
+
+  return searchPosition === targetPosition
 }
 
 /**
