@@ -1,15 +1,15 @@
-import { pipe } from "../pipe/pipe"
 import { curry } from "../curry/curry"
 import { isMatch } from "../is-match/is-match"
+import { pipe } from "../pipe/pipe"
 
-type _AllType = <T>(_fn: Predicate<T>, _source: T[]) => boolean
+type All = <T>(fn: (item: T) => boolean, input: T[]) => boolean
 
-const _all: _AllType = (_fn, _source) => {
-  const source = Array.isArray(_source) ? _source : [_source]
+const _all: All = (_fn, _input) => {
+  const input = Array.isArray(_input) ? _input : [_input]
   const fn = Array.isArray(_fn) ? pipe(..._fn) : _fn
 
-  for (let i = 0, length = source.length; i < length; i++) {
-    if (fn(source[i]) !== true) {
+  for (let i = 0, length = input.length; i < length; i++) {
+    if (fn(input[i]) !== true) {
       return false
     }
   }
@@ -17,12 +17,9 @@ const _all: _AllType = (_fn, _source) => {
   return true
 }
 
-type _AllWithType = (
-  subset: Record<string, unknown>,
-  source: Record<string, unknown>[]
-) => boolean
+type AllWith = <T>(match: HasAnyKeys<T>, input: T[]) => T
 
-const _allWith: _AllWithType = (subset, source) => _all(isMatch(subset), source)
+const _allWith: AllWith = (subset, input) => _all(isMatch(subset), input)
 
 /**
  * Test if all elements of array satisfy a function
@@ -47,10 +44,7 @@ const _allWith: _AllWithType = (subset, source) => _all(isMatch(subset), source)
  * all(is, [1, "asd", null])
  * // => false
  */
-
-type AllType = <T>(fn: Predicate<T>, source: T[]) => boolean
-
-export const all: AllType = curry(_all)
+export const all = curry(_all)
 
 /**
  * Test if all elements in array match object
@@ -76,4 +70,13 @@ export const all: AllType = curry(_all)
  * allWith(is, [1, "asd", null])
  * // => false
  */
-export const allWith = curry(_allWith)
+
+export const allWith: AllWith = (...params) => {
+  // @signature (fn) => (input)
+  if (params.length <= 1) {
+    return input => _allWith(params[0], input)
+  }
+
+  // @signature (fn, input)
+  return _allWith(...params)
+}

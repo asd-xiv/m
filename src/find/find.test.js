@@ -2,7 +2,7 @@
 
 import test from "tape"
 
-import { find, findWith } from "./find"
+import { find, findWith } from "./find.js"
 
 test("find", t => {
   const comments = [
@@ -42,6 +42,15 @@ test("findWith", t => {
     { id: 1, body: "" },
     { id: 2, body: "dolor" },
   ]
+
+  t.deepEqual(
+    findWith({
+      id: 2,
+      body: input => input === "dolor",
+    })(comments),
+    { id: 2, body: "dolor" },
+    "given [matching object with value and predicate fields] should [return existing item]"
+  )
 
   t.deepEqual(
     findWith({ id: 2 })([]),

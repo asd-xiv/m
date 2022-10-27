@@ -1,7 +1,7 @@
 /**
  * Add one
  *
- * @param {number} source Source input
+ * @param {number} input Source input
  *
  * @returns {number}
  *
@@ -12,4 +12,4 @@
  * inc(2)
  * // => 3
  */
-export const inc = source => source + 1
+export const inc = input => input + 1

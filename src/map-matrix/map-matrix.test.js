@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { mapMatrix } from "./map-matrix"
+import { mapMatrix } from "./map-matrix.js"
 
 const square = x => x * x
 const inc = x => x + 1

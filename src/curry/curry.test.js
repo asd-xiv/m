@@ -1,31 +1,27 @@
-import { describe } from "riteway"
+import test from "tape"
 
-import { curry } from "./curry"
+import { curry } from "./curry.js"
 
 const sum = (a, b) => a + b
 
-describe("curry", async assert => {
-  assert({
-    given:
-      "sum function, accepting two parameters, called with numeric values for both",
-    should: "return the sum of passed values",
-    actual: curry(sum)(2, 3),
-    expected: 5,
-  })
+test("curry", t => {
+  t.equal(
+    curry(sum)(2, 3),
+    5,
+    "given [sum function, accepting two parameters, called with numeric values for both] should [return the sum of passed values]"
+  )
 
-  assert({
-    given:
-      "sum function, accepting two parameters, called with numeric values in curried form",
-    should: "return the sum of passed values",
-    actual: curry(sum)(2)(3),
-    expected: 5,
-  })
+  t.equal(
+    curry(sum)(2)(3),
+    5,
+    "given [sum function, accepting two parameters, called with numeric values in curried form] should [return the sum of passed values]"
+  )
 
-  assert({
-    given:
-      "sum function, accepting two parameters, called with no parameters two times in curried form",
-    should: "return NaN",
-    actual: curry(sum)()(),
-    expected: Number.NaN,
-  })
+  t.equal(
+    curry(sum)()(),
+    Number.NaN,
+    "given [sum function, accepting two parameters, called with no parameters two times in curried form] should [return NaN]"
+  )
+
+  t.end()
 })

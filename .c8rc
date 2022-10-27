@@ -3,16 +3,8 @@
   "statements": 100,
   "functions": 100,
   "branches": 100,
-  "include": [
-    "src/**/*.js"
-  ],
-  "exclude": [
-    "src/**/*.test.js",
-    "src/**/*.bench.js"
-  ],
-  "require": [
-    "@babel/register"
-  ],
+  "include": ["src/**/*.js"],
+  "exclude": ["src/**/*.test.js", "src/**/*.bench.js"],
   "reporter": [],
   "cache": true,
   "all": true,

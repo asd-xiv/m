@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { first } from "./first"
+import { first } from "./first.js"
 
 test("first", t => {
   t.equal(first("xyz"), "x", "From string should return first char")

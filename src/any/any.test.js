@@ -2,10 +2,10 @@
 
 import test from "tape"
 
-import { any, anyWith } from "./any"
-import { read } from "../read/read"
+import { any, anyWith } from "./any.js"
+import { read } from "../read/read.js"
 
-const isNumber = source => Number.isFinite(source)
+const isNumber = input => Number.isFinite(input)
 
 test("any", t => {
   t.equal(

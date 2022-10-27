@@ -1,4 +1,4 @@
-import { curry } from "../curry/curry"
+import { curry } from "../curry/curry.js"
 
 const _isEqual = (a, b) => (Number.isNaN(a) && Number.isNaN(b) ? true : a === b)
 

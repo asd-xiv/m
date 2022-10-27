@@ -1,7 +1,8 @@
 /* eslint-disable unicorn/no-null */
 
 import test from "tape"
-import { protoChain } from "./proto-chain"
+
+import { protoChain } from "./proto-chain.js"
 
 test("protoChain", t => {
   t.deepEqual(protoChain({}), ["Object"], "Proto chain of object")

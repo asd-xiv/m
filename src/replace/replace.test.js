@@ -1,5 +1,5 @@
 import test from "tape"
-import { replace, replaceWith } from "./replace"
+import { replace, replaceWith } from "./replace.js"
 
 test("replace(With)", t => {
   t.equals(
@@ -26,9 +26,9 @@ test("replace(With)", t => {
     "Replacement string does not exist in array source"
   )
 
-  const source = ["lorem", "test"]
+  const input = ["lorem", "test"]
 
-  t.notEquals(replace("test", "ipsum")(source), source, "Imutable")
+  t.notEquals(replace("test", "ipsum")(input), input, "Imutable")
 
   t.deepEquals(
     replace("test", "ipsum")(replace("test", "ipsum")(["lorem", "test"])),

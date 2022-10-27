@@ -1,18 +1,18 @@
-import { reduce } from "../reduce/reduce"
-import { is } from "../is/is"
-import { pipe } from "../pipe/pipe"
-import { map } from "../map/map"
+import { reduce } from "../reduce/reduce.js"
+import { is } from "../is/is.js"
+import { pipe } from "../pipe/pipe.js"
+import { map } from "../map/map.js"
 
-const _read = (path, defaultValue, source) => {
+const _read = (path, defaultValue, input) => {
   let result
 
   // walk down an object or array
-  if (is(source) && typeof source === "object") {
+  if (is(input) && typeof input === "object") {
     result = pipe(
       reduce(
         (acc, item) =>
           is(acc) && typeof acc === "object" ? acc[item] : undefined,
-        source
+        input
       ),
 
       // only return default value if it's explicitly set.
@@ -27,23 +27,23 @@ const _read = (path, defaultValue, source) => {
     : result
 }
 
-const _readMany = (path, defaultValue, source) =>
-  map(item => _read(path, defaultValue, item), source)
+const _readMany = (path, defaultValue, input) =>
+  map(item => _read(path, defaultValue, item), input)
 
 /**
  * Get value from obj property
  *
  * @param {string|string[]} path         Property name or dot path of props
  * @param {any}             defaultValue Value to return if not found
- * @param {Object}          source       Source object
+ * @param {Object}          input        Source object
  * @param {...any}          params       Function params
  *
  * @returns {any}
  *
  * @name read
  * @tag Object
- * @signature (path: String|String[], source: Object|Array): any
- * @signature (path: String|String[], defaultValue: Any, source: Object|Array): any
+ * @signature (path: String|String[], input: Object|Array): any
+ * @signature (path: String|String[], defaultValue: Any, input: Object|Array): any
  *
  * @example
  * read("lorem")({ lorem: "ipsum" })
@@ -63,7 +63,7 @@ const _readMany = (path, defaultValue, source) =>
  */
 export const read = (...params) => {
   if (params.length <= 2) {
-    return source => _read(params[0], params[1], source)
+    return input => _read(params[0], params[1], input)
   }
 
   return _read(...params)
@@ -71,7 +71,7 @@ export const read = (...params) => {
 
 export const readMany = (...params) => {
   if (params.length <= 2) {
-    return source => _readMany(params[0], params[1], source)
+    return input => _readMany(params[0], params[1], input)
   }
 
   return _readMany(...params)

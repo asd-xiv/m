@@ -1,10 +1,11 @@
 import test from "tape"
-import { toLower } from "./to-lower"
+
+import { toLower } from "./to-lower.js"
 
 test("toLower", t => {
-  const source = "Lorem Opsum"
+  const input = "Lorem Opsum"
 
-  t.equals(toLower(source), "lorem opsum", "Convert chars into lowercase")
+  t.equals(toLower(input), "lorem opsum", "Convert chars into lowercase")
 
   t.end()
 })

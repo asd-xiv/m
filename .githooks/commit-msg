@@ -1,0 +1,19 @@
+#!/bin/sh -e
+
+# Dont run when in CI environment.
+# For ex. when pushing changelogs via "semantic-release".
+if [ -n "$CI" ]; then
+  exit 0
+fi
+
+# Remove comments from commit message to not trigger [body-max-line-length]
+message=$(sed '/^#/d' < "$1")
+
+if [ -z "$message" ]; then
+  echo "Aborting commitlint validation due to empty commit message."
+
+  # Exit without error code to allow git to decide what to do
+  exit 0
+fi
+
+echo "$message" | npx --no-install commitlint

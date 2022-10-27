@@ -1,8 +1,8 @@
 /**
  * Identity function
  *
- * @param {any} source Source input
+ * @param {any} input Source input
  *
  * @returns {any}
  */
-export const i = source => source
+export const i = input => input

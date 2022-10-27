@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { move } from "./move"
+import { move } from "./move.js"
 
 test("move", t => {
   t.deepEqual(

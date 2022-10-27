@@ -1,13 +1,16 @@
-import { curry } from "../curry/curry"
+import { is } from "../is/is.js"
+import { curry } from "../curry/curry.js"
 
-const _startsWith = (search, source) => {
-  const searchPosition = source.indexOf(search)
-
-  if (searchPosition === -1) {
+const _startsWith = (search, input) => {
+  if (!(typeof input === "string" || Array.isArray(input))) {
     return false
   }
 
-  return searchPosition === 0
+  if (!is(search)) {
+    return false
+  }
+
+  return input.indexOf(search) === 0
 }
 
 /**

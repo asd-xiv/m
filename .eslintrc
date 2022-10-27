@@ -1,7 +1,6 @@
 {
   "root": true,
   "extends": [ "@asd14/eslint-config/targets/node-ts" ],
-
   "rules": {
     // disable until upstream issues fixed
     "jsdoc/check-line-alignment": "off",
@@ -13,9 +12,7 @@
       "definedTags": ["tag", "signature"]
     }]
   },
-
   "settings": {
-    // Recommended if you use eslint_d
     "import/cache": {
       "lifetime": 5
     }

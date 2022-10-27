@@ -1,0 +1,17 @@
+{
+  "minify": false,
+  "sourceMaps": true,
+  "env": {
+    "mode": "entry",
+    "coreJs": 3
+  },
+  "jsc": {
+    "parser": {
+      "syntax": "ecmascript"
+    },
+    "externalHelpers": true
+  },
+  "module": {
+    "type": "es6"
+  }
+}

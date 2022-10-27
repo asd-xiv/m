@@ -1,10 +1,10 @@
 /* eslint-disable jsdoc/check-param-names,jsdoc/require-param */
 
-import { is } from "../is/is"
+import { is } from "../is/is.js"
 
-const topX = (limit, source) =>
-  Array.isArray(source) || typeof source === "string"
-    ? source.slice(0, is(limit) ? limit : -1)
+const topX = (limit, input) =>
+  Array.isArray(input) || typeof input === "string"
+    ? input.slice(0, is(limit) ? limit : -1)
     : []
 
 /**
@@ -43,7 +43,7 @@ const top = (...params) => {
   if (params.length === 1 && typeof params[0] === "number") {
     const [limit] = params
 
-    return source => topX(limit, source)
+    return input => topX(limit, input)
   }
 
   /*
@@ -52,9 +52,9 @@ const top = (...params) => {
    * top([1, 2, 3, 4]) => [2, 3, 4]
    */
   if (params.length === 1) {
-    const [source] = params
+    const [input] = params
 
-    return topX(undefined, source)
+    return topX(undefined, input)
   }
 
   /*

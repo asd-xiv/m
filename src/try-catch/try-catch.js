@@ -18,12 +18,14 @@
  * )(10)
  * // => 11
  */
-const tryCatch = (tryer, catcher) => (...source) => {
-  try {
-    return tryer(...source)
-  } catch (error) {
-    return catcher(error, ...source)
+const tryCatch =
+  (tryer, catcher) =>
+  (...input) => {
+    try {
+      return tryer(...input)
+    } catch (error) {
+      return catcher(error, ...input)
+    }
   }
-}
 
 export { tryCatch }

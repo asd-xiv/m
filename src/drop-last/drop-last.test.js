@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { dropLast } from "./drop-last"
+import { dropLast } from "./drop-last.js"
 
 test("dropLast", t => {
   t.deepEqual(
@@ -19,9 +19,9 @@ test("dropLast", t => {
 
   t.deepEqual(dropLast(5)([1, 1, 3]), [], "Drop more than available elements")
 
-  const source = [1, 1, 3]
+  const input = [1, 1, 3]
 
-  t.notEqual(dropLast(1)(source), source, "Imutable")
+  t.notEqual(dropLast(1)(input), input, "Imutable")
 
   t.end()
 })

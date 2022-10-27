@@ -1,6 +1,6 @@
-import { pipe } from "../pipe/pipe"
-import { curry } from "../curry/curry"
-import { all } from "../all/all"
+import { pipe } from "../pipe/pipe.js"
+import { curry } from "../curry/curry.js"
+import { all } from "../all/all.js"
 
 type ByValueType = (shouldBe: any, value: any, not: boolean) => boolean
 
@@ -21,12 +21,12 @@ const byFn: ByValueType = (shouldBe, value, not) => {
 
 type IsMatchType = <T>(subset: Record<string, unknown>, source: T) => boolean
 
-const _isMatch: IsMatchType = (subset, source) =>
+const _isMatch: IsMatchType = (subset, input) =>
   all(([key, _shouldBe]) => {
     const shouldBe = Array.isArray(_shouldBe) ? pipe(..._shouldBe) : _shouldBe
     const shouldTestNegation = key[0] === "!"
-    const sourceKey = key.replace("!", "")
-    const value = source[sourceKey]
+    const inputKey = key.replace("!", "")
+    const value = input[inputKey]
 
     return typeof shouldBe === "function"
       ? byFn(shouldBe, value, shouldTestNegation)

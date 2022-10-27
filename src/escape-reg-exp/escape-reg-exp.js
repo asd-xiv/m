@@ -1,4 +1,4 @@
-import { escape } from "../escape/escape"
+import { escape } from "../escape/escape.js"
 
 /**
  * Make safe for RegExp'ing

@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { contains } from "./contains"
+import { contains } from "./contains.js"
 
 test("contains", t => {
   t.equals(

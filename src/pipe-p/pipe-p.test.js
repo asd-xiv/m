@@ -1,8 +1,8 @@
 import test from "tape"
 
-import { pipeP } from "./pipe-p"
+import { pipeP } from "./pipe-p.js"
 
-const inc = source => source + 1
+const inc = input => input + 1
 
 const sum = (a = 0, b = 0) =>
   new Promise(resolve => {

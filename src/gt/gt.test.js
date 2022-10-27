@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { gt } from "./gt"
+import { gt } from "./gt.js"
 
 test("gt", t => {
   t.equals(gt(10)(4), false, "4 is not grater than 10")

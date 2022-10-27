@@ -2,9 +2,9 @@
 
 import test from "tape"
 
-import { isEqual } from "../is-equal/is-equal"
-import { read } from "../read/read"
-import { isMatch } from "./is-match"
+import { isEqual } from "../is-equal/is-equal.js"
+import { read } from "../read/read.js"
+import { isMatch } from "./is-match.js"
 
 test("isMatch", t => {
   t.deepEqual(
@@ -49,7 +49,7 @@ test("isMatch", t => {
 
   t.deepEqual(
     isMatch({
-      name: "John",
+      "name": "John",
       "!parentId": null,
     })({
       id: 2,
@@ -62,7 +62,7 @@ test("isMatch", t => {
 
   t.deepEqual(
     isMatch({
-      name: "John",
+      "name": "John",
       "!parentId": null,
     })({
       id: 2,
@@ -75,13 +75,25 @@ test("isMatch", t => {
   t.deepEqual(
     isMatch({
       "!id": item => item === 3,
-      name: item => item !== "John",
+      "name": item => item !== "John",
     })({
       id: 2,
       name: "JohnX",
     }),
     true,
     "Matching with predicate functions"
+  )
+
+  t.deepEqual(
+    isMatch({
+      id: 2,
+      name: item => item !== "John",
+    })({
+      id: 2,
+      name: "JohnX",
+    }),
+    true,
+    "Matching with predicate function and value"
   )
 
   t.end()

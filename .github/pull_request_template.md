@@ -1,7 +1,13 @@
+<!-- markdownlint-disable first-line-h1 -->
+
 Before submitting your PR:
 
+- Name the PR using the same
+  [message conventions](https://www.conventionalcommits.org) enforced on the
+  commits
 - Check for existing functions that might do similar things
-- Consult [`ramda`](https://ramdajs.com/) or [`haskell`](https://hoogle.haskell.org/) for inspiration
+- Consult [`ramda`](https://ramdajs.com/) or
+  [`haskell`](https://hoogle.haskell.org/) for inspiration
 - Describe context and reasons of PR
 
 ---

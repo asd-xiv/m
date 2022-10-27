@@ -1,17 +1,29 @@
-import { curry } from "../curry/curry"
+import { curry } from "../curry/curry.js"
+import { is } from "../is/is.js"
 
-const _endsWith = (search, source) => {
-  if (search.length > source.length) {
+const _endsWith = (search, input) => {
+  const inputIsString = typeof input === "string"
+  const inputIsArray = Array.isArray(input)
+
+  if (!(inputIsString || inputIsArray)) {
     return false
   }
 
-  const searchPosition = source.indexOf(search)
+  if (!is(search)) {
+    return false
+  }
+
+  const searchPosition = input.indexOf(search)
 
   if (searchPosition === -1) {
     return false
   }
 
-  return searchPosition === source.length - search.length
+  const targetPosition = inputIsString
+    ? input.length - search.length
+    : input.length - 1
+
+  return searchPosition === targetPosition
 }
 
 /**

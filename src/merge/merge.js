@@ -1,9 +1,9 @@
-import { is } from "../is/is"
+import { is } from "../is/is.js"
 
-const _merge = (fn, source) => {
+const _merge = (fn, input) => {
   let result = {}
 
-  for (const object of source) {
+  for (const object of input) {
     result = is(fn) ? fn(result, object) : { ...result, ...object }
   }
 
@@ -15,14 +15,14 @@ const _merge = (fn, source) => {
  * Properties will be shallow copied. Those with the same name will be
  * overwriten by right most object.
  *
- * @param {Object[]} source Array of objects
+ * @param {Object[]} input  Array of objects
  * @param {...any}   params Function params
  *
  * @returns {Object}
  *
  * @name merge
  * @tag Object
- * @signature (...source: Object[]): Object
+ * @signature (...input: Object[]): Object
  *
  * @example
  *
@@ -40,13 +40,13 @@ export const merge = (...params) => {
 }
 
 export const mergeBy = (...params) => {
-  // @signature (fn) => (source)
+  // @signature (fn) => (input)
   if (params.length <= 1) {
-    return source => _merge(params[0], source)
+    return input => _merge(params[0], input)
   }
 
-  // @signature (fn, source)
+  // @signature (fn, input)
   return _merge(...params)
 }
 
-export const mergeAll = source => _merge(undefined, source)
+export const mergeAll = input => _merge(undefined, input)

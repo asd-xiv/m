@@ -1,16 +1,16 @@
-import { pipe } from "../pipe/pipe"
-import { curry } from "../curry/curry"
-import { isMatch } from "../is-match/is-match"
-import { isObject } from "../is/is"
+import { pipe } from "../pipe/pipe.js"
+import { curry } from "../curry/curry.js"
+import { isMatch } from "../is-match/is-match.js"
+import { isObject } from "../is/is.js"
 
-const _countBy = (_fn, _source) => {
-  const source = isObject(_source) ? Object.entries(_source) : _source
+const _countBy = (_fn, _input) => {
+  const input = isObject(_input) ? Object.entries(_input) : _input
   const fn = Array.isArray(_fn) ? pipe(..._fn) : _fn
 
   let result = 0
 
-  for (let i = 0, length = source.length; i < length; i++) {
-    if (fn(source[i]) === true) {
+  for (let i = 0, length = input.length; i < length; i++) {
+    if (fn(input[i]) === true) {
       result = result + 1
     }
   }
@@ -89,28 +89,28 @@ export const countBy = curry(_countBy)
  * )
  * // => 2
  */
-export const countWith = curry((subset, source) =>
-  _countBy(isMatch(subset), source)
+export const countWith = curry((subset, input) =>
+  _countBy(isMatch(subset), input)
 )
 
-export const count = source => {
-  const type = Array.isArray(source) ? "array" : typeof source
+export const count = input => {
+  const type = Array.isArray(input) ? "array" : typeof input
 
   switch (type) {
     case "array":
     case "string":
-      return source.length
+      return input.length
 
     case "object": {
-      if (source === null) {
+      if (input === null) {
         return 0
       }
 
       let result = 0,
         key
 
-      for (key in source) {
-        if (source.hasOwnProperty(key)) {
+      for (key in input) {
+        if (input.hasOwnProperty(key)) {
           result = result + 1
         }
       }

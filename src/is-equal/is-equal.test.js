@@ -2,7 +2,7 @@
 
 import test from "tape"
 
-import { isEqual } from "./is-equal"
+import { isEqual } from "./is-equal.js"
 
 test("isEqual", t => {
   t.equals(isEqual(2)(2), true, "Compare two equal primitives")

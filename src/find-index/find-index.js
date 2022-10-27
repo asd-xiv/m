@@ -1,13 +1,13 @@
-import { pipe } from "../pipe/pipe"
-import { curry } from "../curry/curry"
-import { isMatch } from "../is-match/is-match"
+import { pipe } from "../pipe/pipe.js"
+import { curry } from "../curry/curry.js"
+import { isMatch } from "../is-match/is-match.js"
 
-const _findIndex = (_fn, _source) => {
+const _findIndex = (_fn, _input) => {
   const fn = Array.isArray(_fn) ? pipe(..._fn) : _fn
-  const source = Array.isArray(_source) ? _source : [_source]
+  const input = Array.isArray(_input) ? _input : [_input]
 
-  for (let i = 0, length = source.length; i < length; i++) {
-    const found = fn(source[i], i, source)
+  for (let i = 0, length = input.length; i < length; i++) {
+    const found = fn(input[i], i, input)
 
     if (found === true) {
       return i
@@ -40,6 +40,6 @@ const _findIndex = (_fn, _source) => {
  */
 export const findIndex = curry(_findIndex)
 
-export const findIndexWith = curry((subset, source) =>
-  _findIndex(isMatch(subset), source)
+export const findIndexWith = curry((subset, input) =>
+  _findIndex(isMatch(subset), input)
 )

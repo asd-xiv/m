@@ -1,7 +1,7 @@
 /**
  * Get left most element of array
  *
- * @param {Array} source The source
+ * @param {Array} input The source
  *
  * @returns {any}
  *
@@ -15,7 +15,7 @@
  * first([])
  * // => undefined
  */
-export const first = source =>
-  (Array.isArray(source) || typeof source === "string") && source.length !== 0
-    ? source[0]
+export const first = input =>
+  (Array.isArray(input) || typeof input === "string") && input.length !== 0
+    ? input[0]
     : undefined

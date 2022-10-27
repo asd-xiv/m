@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { debounce } from "./debounce"
+import { debounce } from "./debounce.js"
 
 test("debounce", t => {
   {
@@ -8,9 +8,9 @@ test("debounce", t => {
 
     let iteration = 0
 
-    const defaultSet = debounce(source => {
+    const defaultSet = debounce(input => {
       callCount = callCount + 1
-      iteration = source
+      iteration = input
     })
 
     for (let i = 0; i < 100; i++) {
@@ -38,9 +38,9 @@ test("debounce", t => {
     let iteration = 0
 
     const customSet = debounce(
-      source => {
+      input => {
         callCount = callCount + 1
-        iteration = source
+        iteration = input
       },
       { wait: 100 }
     )

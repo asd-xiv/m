@@ -1,12 +1,12 @@
 /* eslint-disable no-sync, no-console */
 
 import Benchmark from "benchmark"
-
-import { distinct } from "./distinct"
 import { uniq as distinctR } from "ramda"
 
-const sourceA = [1, 2, 3, 3, 4]
-const sourceB = [1, 2, [{ a: 2 }], [{ a: 2 }]]
+import { distinct } from "./distinct.js"
+
+const inputA = [1, 2, 3, 3, 4]
+const inputB = [1, 2, [{ a: 2 }], [{ a: 2 }]]
 
 // lodash & underscore's uniq functions dont do deepEqual, only shallow
 
@@ -20,10 +20,10 @@ const suite1 = new Benchmark.Suite({
     console.log(String(event.target))
   })
   .add("- functies#distinct", () => {
-    distinct(sourceA)
+    distinct(inputA)
   })
   .add("- ramda#uniq", () => {
-    distinctR(sourceA)
+    distinctR(inputA)
   })
 
 const suite2 = new Benchmark.Suite({
@@ -36,10 +36,10 @@ const suite2 = new Benchmark.Suite({
     console.log(String(event.target))
   })
   .add("- functies#distinct", () => {
-    distinct(sourceB)
+    distinct(inputB)
   })
   .add("- ramda#uniq", () => {
-    distinctR(sourceB)
+    distinctR(inputB)
   })
 
 suite1

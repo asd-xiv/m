@@ -1,36 +1,36 @@
 import deepEquals from "fast-deep-equal"
-import { describe } from "riteway"
+import test from "tape"
 
-import { distinct, distinctBy } from "./distinct"
+import { distinct, distinctBy } from "./distinct.js"
 
-describe("distinct", async assert => {
-  assert({
-    given: "empty array",
-    should: "return empty array",
-    actual: distinct([]),
-    expected: [],
-  })
+test("distinct", t => {
+  t.deepEqual(
+    distinct([]),
+    [],
+    "given [empty array] should [return empty array]"
+  )
 
-  assert({
-    given: "array with duplicate items of same type",
-    should: "return array with unique items",
-    actual: distinct([1, 1, 3]),
-    expected: [1, 3],
-  })
+  t.deepEqual(
+    distinct([1, 1, 3]),
+    [1, 3],
+    "given [array with duplicate items of same type] should [return array with unique items]"
+  )
 
-  assert({
-    given: "array with unique items",
-    should: "return array with same items",
-    actual: distinct([1, "1", 3]),
-    expected: [1, "1", 3],
-  })
+  t.deepEqual(
+    distinct([1, "1", 3]),
+    [1, "1", 3],
+    "given [array with unique items] should [return array with same items]"
+  )
+
+  t.end()
 })
 
-describe("distinctBy", async assert => {
-  assert({
-    given: "empty array",
-    should: "return empty array",
-    actual: distinctBy(deepEquals, [1, { a: 2 }, { a: 2 }]),
-    expected: [1, { a: 2 }],
-  })
+test("distinctBy", t => {
+  t.deepEqual(
+    distinctBy(deepEquals, [1, { a: 2 }, { a: 2 }]),
+    [1, { a: 2 }],
+    "given [empty array] should [return empty array]"
+  )
+
+  t.end()
 })

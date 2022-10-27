@@ -1,50 +1,43 @@
 /* eslint-disable  new-cap */
 
-import { describe, Try } from "riteway"
+import test from "tape"
 
-import { pipe } from "../pipe/pipe"
-import { top } from "../top/top"
-import { spy } from "./spy"
+import { pipe } from "../pipe/pipe.js"
+import { top } from "../top/top.js"
+import { spy } from "./spy.js"
 
 const example = [{ id: 1 }, { id: 2 }, { id: "uuid" }]
 
-describe("spy", async assert => {
-  assert({
-    given: "no arguments pipe",
-    should: "return initial source value",
-    actual: pipe(spy(), source => source)(2),
-    expected: 2,
-  })
+test("spy", t => {
+  t.deepEqual(
+    pipe(spy(), input => input)(2),
+    2,
+    "given [no arguments pipe] should [return initial source value]"
+  )
 
-  assert({
-    given: "unary pipe",
-    should: "return initial source value",
-    actual: pipe(spy("test"), source => source)(2),
-    expected: 2,
-  })
+  t.deepEqual(
+    pipe(spy("test"), input => input)(2),
+    2,
+    "given [unary pipe] should [return initial source value]"
+  )
 
-  assert({
-    given: "slicing and transformations",
-    should: "return initial source value",
-    actual: pipe(
+  t.deepEqual(
+    pipe(
       spy({
         description: "First 2 items",
         transform: top(2),
       }),
-      source => source
+      input => input
     )(example),
-    expected: example,
-  })
+    example,
+    "given [slicing and transformations] should [return initial source value]"
+  )
 
-  assert({
-    given: "multiple parameters when calling pipe",
-    should: "throw since we cant proxy multiple values",
-    actual: Try(
-      pipe(spy("test"), source => source),
-      2,
-      3
-    ).toString(),
-    expected:
-      "Error: @asd14/m/spy - Can only be called with 1 parameter, received 2",
-  })
+  t.throws(
+    () => pipe(spy("test"), input => input)(2, 3),
+    "Error: @asd14/m/spy - Can only be called with 1 parameter, received 2",
+    "given [multiple parameters when calling pipe] shold [throw since we cant proxy multiple values]"
+  )
+
+  t.end()
 })

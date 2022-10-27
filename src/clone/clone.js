@@ -1,12 +1,12 @@
-import { map } from "../map/map"
-import { reduce } from "../reduce/reduce"
-import { type } from "../type/type"
+import { map } from "../map/map.js"
+import { reduce } from "../reduce/reduce.js"
+import { type } from "../type/type.js"
 
 /**
  * Creates a new instance of the object with same properties than original.
  * Will not inherit prototype, only own enumerable properties.
  *
- * @param {any} source Source input value
+ * @param {any} input Source input value
  *
  * @returns {any} New instance of source
  *
@@ -25,14 +25,14 @@ import { type } from "../type/type"
  * close(x) === x
  * // => false
  */
-export const clone = source => {
-  const sourceType = type(source)
+export const clone = input => {
+  const inputType = type(input)
 
-  if (sourceType === "Array") {
-    return map(clone, source)
+  if (inputType === "Array") {
+    return map(clone, input)
   }
 
-  if (sourceType === "Object") {
+  if (inputType === "Object") {
     return reduce(
       (acc, [key, elm]) => {
         acc[key] = clone(elm)
@@ -40,17 +40,17 @@ export const clone = source => {
         return acc
       },
       {},
-      Object.entries(source)
+      Object.entries(input)
     )
   }
 
-  if (sourceType === "Date") {
-    return new Date(source.getTime())
+  if (inputType === "Date") {
+    return new Date(input.getTime())
   }
 
-  if (sourceType === "RegExp") {
-    return new RegExp(sourceType.toString())
+  if (inputType === "RegExp") {
+    return new RegExp(inputType.toString())
   }
 
-  return source
+  return input
 }

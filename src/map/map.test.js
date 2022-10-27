@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { map } from "./map"
+import { map } from "./map.js"
 
 const square = value => value * value
 

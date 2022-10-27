@@ -1,18 +1,18 @@
-import { map } from "../map/map"
-import { pipe } from "../pipe/pipe"
-import { isMatch } from "../is-match/is-match"
+import { map } from "../map/map.js"
+import { pipe } from "../pipe/pipe.js"
+import { isMatch } from "../is-match/is-match.js"
 
-const _mutate = (transformations, source) => {
+const _mutate = (transformations, input) => {
   const entries = Object.entries(transformations)
-  const result = { ...source }
+  const result = { ...input }
 
   for (const [key, value] of entries) {
-    if (source.hasOwnProperty(key)) {
+    if (input.hasOwnProperty(key)) {
       const transform = Array.isArray(value) ? pipe(...value) : value
 
       result[key] =
         typeof transform === "function"
-          ? transform(source[key], source)
+          ? transform(input[key], input)
           : transform
     }
   }
@@ -20,11 +20,11 @@ const _mutate = (transformations, source) => {
   return result
 }
 
-const _mutateWith = (filter, transformations, source) => {
+const _mutateWith = (filter, transformations, input) => {
   const result = []
 
-  for (let i = 0, length = source.length; i < length; ++i) {
-    const item = source[i]
+  for (let i = 0, length = input.length; i < length; ++i) {
+    const item = input[i]
     const shouldMutate = isMatch(filter, item)
 
     result.push(shouldMutate ? _mutate(transformations, item) : item)
@@ -33,13 +33,13 @@ const _mutateWith = (filter, transformations, source) => {
   return result
 }
 
-const _mutateMany = (transformations, source) =>
-  map(item => _mutate(transformations, item), source)
+const _mutateMany = (transformations, input) =>
+  map(item => _mutate(transformations, item), input)
 
 export const mutate = (...params) => {
   // @signature (transformations) => (source)
   if (params.length <= 1) {
-    return source => _mutate(params[0], source)
+    return input => _mutate(params[0], input)
   }
 
   // @signature (transformations, source)
@@ -49,7 +49,7 @@ export const mutate = (...params) => {
 export const mutateMany = (...params) => {
   // @signature (transformations) => (source)
   if (params.length <= 1) {
-    return source => _mutateMany(params[0], source)
+    return input => _mutateMany(params[0], input)
   }
 
   // @signature (transformations, source)
@@ -59,7 +59,7 @@ export const mutateMany = (...params) => {
 export const mutateWith = (...params) => {
   // @signature (filter, transformations) => (source)
   if (params.length <= 2) {
-    return source => _mutateWith(params[0], params[1], source)
+    return input => _mutateWith(params[0], params[1], input)
   }
 
   // @signature (filter, transformations, source)

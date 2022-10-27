@@ -1,72 +1,66 @@
-import { curry } from "../curry/curry"
-import { is } from "../is/is"
+import { curry } from "../curry/curry.js"
+
+const _sort = (direction, input) =>
+  [...input].sort((a, b) =>
+    a === b ? 0 : direction === "asc" ? (a < b ? -1 : 1) : a < b ? 1 : -1
+  )
 
 /**
- * Sort array using custom function
+ * Sort primitive array
  *
- * @param {Function} fn     Sort function
- * @param {Array}    source
+ * @param {...any} params
+ * @param {string} [params.direction="asc"]
+ * @param {Array}  params.input
  *
  * @returns {Array}
  *
  * @name sort
  * @tag Array
- * @signature (fn: Function) => (source: Array): Array
+ * @signature (direction: string, input: Array) => Array
+ * @signature (input: Array) => Array
+ *
+ * @see {@link sortBy}
+ * @see {@link sortWith}
  *
  * @example
- * sort((a,b) => a.id-b.id)([{id:2}, {id: 1}])
- * // => [{id:1}, {id: 2}]
+ * sort([3, 2, 1])
+ * // => [1, 2, 3]
+ *
+ * sort("desc", [1, 2, 3])
+ * // => [3, 2, 1]
  */
-const sort = curry((fn, source) => [...source].sort(fn))
+export const sort = (...params) => {
+  // @signature (input)
+  if (Array.isArray(params[0])) {
+    return _sort("asc", params[0])
+  }
+
+  // @signature (direction) => (input)
+  if (params.length <= 1) {
+    return input => _sort(params[0], input)
+  }
+
+  // @signature (direction, input)
+  return _sort(...params)
+}
 
 /**
- * Sort an array of objects by a custom field
+ * Sort array using custom function
  *
- * @tag Array
- * @signature (field: string, direction: string) => (source: Array): Array
- *
- * @param {string}       field
- * @param {"asc"|"desc"} direction
- * @param {Array}        source
+ * @param {Function} fn    Sort function
+ * @param {Array}    input
  *
  * @returns {Array}
  *
+ * @name sortBy
+ * @tag Array
+ * @signature (fn: Function, input: Array) => Array
+ *
+ * @see {@link sort}
+ * @see {@link sortWith}
+ *
  * @example
- * sortWith("position")([
- *   { id: 1, position: 3 },
- *   { id: 2, position: 2 },
- *   { id: 3 },
- *   { id: 4, position: 5 },
- *   { id: 5, position: null },
- * ])
- * // [
- * //  { id: 2, position: 2 },
- * //  { id: 1, position: 3 },
- * //  { id: 4, position: 5 },
- * //  { id: 5, position: null },
- * //  { id: 3 },
- * //]
+ * sortBy((a, b) => a.id - b.id, [{id: 2}, {id: 1}])
+ * // => [{id: 1}, {id: 2}]
  */
-const sortWith = (field, direction = "asc") => {
-  const valueIfFieldMissing =
-    direction === "asc" ? Number.POSITIVE_INFINITY : Number.NEGATIVE_INFINITY
-
-  return sort((a, b) => {
-    const aValue = is(a[field]) ? a[field] : valueIfFieldMissing
-    const bValue = is(b[field]) ? b[field] : valueIfFieldMissing
-
-    return a[field] === null && b[field] === undefined
-      ? -1
-      : b[field] === null && a[field] === undefined
-      ? 1
-      : aValue < bValue
-      ? direction === "asc"
-        ? -1
-        : 1
-      : direction === "asc"
-      ? 1
-      : -1
-  })
-}
-
-export { sort, sortWith }
+export const sortBy = curry((fn, input) => [...input].sort(fn))

@@ -1,112 +1,173 @@
-# Javascript Node CircleCI 2.0 configuration file
+# CircleCI 2.0 configuration file
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
-#
-version: 2
 
-#
-# YAML variable templates
-#
-job_defaults: &job_defaults
-  working_directory: ~/m-repo
-  docker:
-    - image: circleci/node:lts
+version: 2.1
 
-job_filter: &job_filter
-  filters:
-    branches:
-      only:
-        - master
+# Executors - https://circleci.com/docs/2.0/executor-intro/
+#
+# The underlying technology or environment in which to run a job
 
-#
-# Run all jobs in sequence
-#
-workflows:
-  version: 2
-  npm_publish:
-    jobs:
-      - setup:
-          <<: *job_filter
-      - test:
-          <<: *job_filter
-          requires:
-            - setup
-      - coverage:
-          <<: *job_filter
-          requires:
-            - test
-      - publish:
-          <<: *job_filter
-          requires:
-            - coverage
+executors:
+  gitleaks:
+    docker:
+      - image: zricethezav/gitleaks:latest
+  node-lts:
+    docker:
+      - image: cimg/node:16.17
+  node-18:
+    docker:
+      - image: cimg/node:18.8
 
+# Jobs - https://circleci.com/docs/2.0/configuration-reference/#jobs
 #
-# Define atomic jobs
-#
+# Atomic parts of the pipeline that will be composed and configured in one or
+# more Workflows
+
 jobs:
-  setup:
-    <<: *job_defaults
-
+  detect-secrets:
+    executor: gitleaks
+    working_directory: &JOB_WORKING_DIR "~/m"
     steps:
       - checkout
-
       - run:
-          name: "m: Install npm packages"
-          command: "npm run setup"
+          name: "[gitleaks] Detect secrets in repository history"
+          command: |
+            gitleaks detect --redact --verbose
+      - persist_to_workspace:
+          root: &WORKSPACE_ROOT "~/"
+          paths:
+            - m
 
+  setup:
+    executor: node-lts
+    working_directory: *JOB_WORKING_DIR
+    steps:
+      - attach_workspace:
+          at: *WORKSPACE_ROOT
+      - restore_cache:
+          name: '[circleci] Restore cached "node_modules" folder'
+          key:
+            &CACHE_KEY_NODE_MODULES 'm-v2-{{ arch }}-{{ checksum
+            "package-lock.json" }}'
       - run:
-          name: "m: Babel compile"
-          command: "npm run build"
-
+          name: "[npm]: Install packages"
+          command: |
+            node -v && npm -v
+            npm run setup
       - save_cache:
           paths:
             - node_modules
-            - dist
-          key: m-{{ .Branch }}-{{ .Revision }}
+          key: *CACHE_KEY_NODE_MODULES
+      - persist_to_workspace:
+          root: *WORKSPACE_ROOT
+          paths:
+            - m
 
   test:
-    <<: *job_defaults
-
+    parameters:
+      node-version:
+        type: string
+    executor: node-<< parameters.node-version >>
+    working_directory: *JOB_WORKING_DIR
     steps:
-      - checkout
-
-      - restore_cache:
-          keys:
-            - m-{{ .Branch }}-{{ .Revision }}
-
+      - attach_workspace:
+          at: *WORKSPACE_ROOT
       - run:
-          name: "m: Run linter"
-          command: "npm run lint"
-
+          name: "[eslint, markdownlint]: Lint"
+          command: |
+            npm run lint
       - run:
-          name: "m: Run tests"
-          command: "npm run test"
+          name: "[tape]: Unit tests"
+          command: "npm test"
 
-  coverage:
-    <<: *job_defaults
-
+  submit-coverage:
+    executor: node-lts
+    working_directory: *JOB_WORKING_DIR
     steps:
-      - checkout
-
-      - restore_cache:
-          keys:
-            - m-{{ .Branch }}-{{ .Revision }}
-
+      - attach_workspace:
+          at: *WORKSPACE_ROOT
       - run:
-          name: "m: Publish test coverage to COVERALLS"
+          name: "[c8, coveralls]: Publish test coverage to Coveralls"
           command: "npm run coverage"
 
-  publish:
-    <<: *job_defaults
-
+  release-npm:
+    executor: node-lts
+    working_directory: *JOB_WORKING_DIR
     steps:
-      - checkout
-
-      - restore_cache:
-          keys:
-            - m-{{ .Branch }}-{{ .Revision }}
-
+      - attach_workspace:
+          at: *WORKSPACE_ROOT
       - run:
-          name: "m: Release to npm with semantic-release"
-          command: "npm run publish"
+          name: "[swc]: Compile application"
+          command: |
+            npm run build
+      - run:
+          name:
+            "[semantic-release]: Update version, generate release, publish npm
+            package"
+          command: "npm run release"
 
+# Workflows - https://circleci.com/docs/2.0/workflows/
+#
+# Treat workflows as a jobs/commands pipe:
+# cmd1 -p1 lorem | cmd2 -foo bar | ... | cmdN)
+
+workflows:
+  release_latest:
+    jobs:
+      - detect-secrets:
+          filters:
+            branches:
+              only: [master]
+      - setup:
+          requires: [detect-secrets]
+      - test:
+          name: "test_node-lts"
+          requires: [setup]
+          node-version: "lts"
+      - test:
+          name: "test_node-18"
+          requires: [setup]
+          node-version: "18"
+      - submit-coverage:
+          requires: [test_node-lts, test_node-18]
+      - release-npm:
+          requires: [test_node-lts, test_node-18]
+
+  release_next:
+    jobs:
+      - detect-secrets:
+          filters:
+            branches:
+              only: [next]
+      - setup:
+          requires: [detect-secrets]
+      - test:
+          name: "test_node-lts"
+          requires: [setup]
+          node-version: "lts"
+      - test:
+          name: "test_node-18"
+          requires: [setup]
+          node-version: "18"
+      - submit-coverage:
+          requires: [test_node-lts, test_node-18]
+      - release-npm:
+          requires: [test_node-lts, test_node-18]
+
+  test_pr-branches:
+    jobs:
+      - detect-secrets:
+          filters:
+            branches:
+              ignore: [master, next]
+      - setup:
+          requires: [detect-secrets]
+      - test:
+          name: "test_node-lts"
+          requires: [setup]
+          node-version: "lts"
+      - test:
+          name: "test_node-18"
+          requires: [setup]
+          node-version: "18"

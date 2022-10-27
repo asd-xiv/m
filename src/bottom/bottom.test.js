@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { bottom } from "./bottom"
+import { bottom } from "./bottom.js"
 
 test("bottom", t => {
   t.deepEquals(
@@ -23,6 +23,11 @@ test("bottom", t => {
   t.deepEquals(
     bottom(3, [1, 2]),
     [1, 2],
+    "Limit grater than max elements should return all elements"
+  )
+  t.deepEquals(
+    bottom(3, [1]),
+    [1],
     "Limit grater than max elements should return all elements"
   )
 

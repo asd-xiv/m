@@ -1,24 +1,24 @@
-const _splitInGroupsOf = (size, source) => {
+const _splitInGroupsOf = (size, input) => {
   if (size <= 0) {
     throw new Error(
       `splitInGroupsOf - invalid 'size' parameter value '${size}'. 'size' value should be a positive, non-zero, integer.`
     )
   }
 
-  if (!Array.isArray(source)) {
+  if (!Array.isArray(input)) {
     throw new TypeError(
-      `splitInGroupsOf - invalid 'source' parameter type '${typeof source}'. 'source' type should be Array.`
+      `splitInGroupsOf - invalid 'source' parameter type '${typeof input}'. 'source' type should be Array.`
     )
   }
 
   const result = []
-  const groupCount = Math.ceil(source.length / size)
+  const groupCount = Math.ceil(input.length / size)
 
   for (let i = 0; i < groupCount; ++i) {
     const startIndex = i * size
     const endIndex = (i + 1) * size
 
-    result.push(source.slice(startIndex, endIndex))
+    result.push(input.slice(startIndex, endIndex))
   }
 
   return result
@@ -44,7 +44,7 @@ const _splitInGroupsOf = (size, source) => {
 export const splitInGroupsOf = (...params) => {
   // @signature (size) => (source)
   if (params.length <= 1) {
-    return source => _splitInGroupsOf(params[0], source)
+    return input => _splitInGroupsOf(params[0], input)
   }
 
   // @signature (size, source)

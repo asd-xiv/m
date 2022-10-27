@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { i } from "./i"
+import { i } from "./i.js"
 
 test("i", t => {
   t.equals(i(true), true, "Identity boolean")

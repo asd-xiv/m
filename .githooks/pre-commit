@@ -1,0 +1,15 @@
+#!/bin/bash -e
+
+# Guard for branch name naming convention
+
+branchName=$(git rev-parse --abbrev-ref HEAD)
+branchNameRegExp="^((master|next)|(feat|fix|docs|refactor|test)\/[a-z0-9-]+)$"
+
+if [[ ! $branchName =~ $branchNameRegExp ]]; then
+  printf "There is something wrong with your branch name \e[31m\"%s\"\e[0m.\nBranch names in this project must adhere to this contract:\n\e[32m%s\e[0m\n\nYour commit will be rejected. You should rename your branch to a valid name and try again.\n" "$branchName" "$branchNameRegExp"
+  exit 1
+fi
+
+# Guard for staged files linting (see "lint-staged" key in package.json)
+
+npx --no-install lint-staged

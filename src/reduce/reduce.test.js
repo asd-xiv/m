@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { reduce } from "./reduce"
+import { reduce } from "./reduce.js"
 
 test("reduce", t => {
   t.equals(
