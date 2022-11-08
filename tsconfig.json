@@ -1,0 +1,33 @@
+{
+  "include": ["src", "types"],
+  "exclude": ["**/node_modules", "src/**/*.test-d.ts"],
+  "compilerOptions": {
+    "module": "node16",
+    "moduleResolution": "node16",
+    "sourceMap": true,
+    "declaration": false,
+    "allowJs": true,
+    "checkJs": false,
+
+    "strict": true,
+		"noImplicitReturns": true,
+		"noImplicitOverride": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUncheckedIndexedAccess": true,
+		"noPropertyAccessFromIndexSignature": true,
+		"useDefineForClassFields": true,
+		"forceConsistentCasingInFileNames": true,
+		"skipLibCheck": true,
+
+    // ESM doesn't yet support JSON modules
+    "resolveJsonModule": false,
+
+    // To provide backwards compatibility, Node.js allows you to import
+    // most CommonJS packages with a default import. This flag tells TypeScript
+    // that it's okay to use import on CommonJS modules.
+		"allowSyntheticDefaultImports": true,
+    "incremental": true
+  }
+}

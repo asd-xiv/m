@@ -1,6 +1,7 @@
 {
   "minify": false,
   "sourceMaps": true,
+  "exclude": [".test.js", ".test-d.ts", ".d.ts"],
   "env": {
     "mode": "entry",
     "coreJs": 3

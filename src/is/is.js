@@ -1,3 +1,5 @@
+/* eslint-disable jsdoc/require-example */
+
 import { curry } from "../curry/curry.js"
 
 /**
@@ -22,16 +24,36 @@ import { curry } from "../curry/curry.js"
 const is = input =>
   input !== null && input !== undefined && !Number.isNaN(input)
 
+/**
+ * @param {any} input
+ * @returns {boolean}
+ */
 const isNothing = input =>
   input === null || input === undefined || Number.isNaN(input)
 
+/**
+ * @param {any} input
+ * @returns {boolean}
+ */
 const isObject = input =>
   input !== null && typeof input === "object" && !Array.isArray(input)
 
+/**
+ * @param {any} input
+ * @returns {boolean}
+ */
 const isTrue = input => input === true
 
+/**
+ * @param {any} input
+ * @returns {boolean}
+ */
 const isFalse = input => input === false
 
+/**
+ * @param {any} input
+ * @returns {boolean}
+ */
 const not = curry((fn, input) => !fn(input))
 
-export { is, not, isNothing, isTrue, isFalse, isObject }
+export { is, not, isNothing as isNil, isNothing, isTrue, isFalse, isObject }

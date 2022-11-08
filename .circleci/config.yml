@@ -88,7 +88,7 @@ jobs:
       - attach_workspace:
           at: *WORKSPACE_ROOT
       - run:
-          name: "[c8,coveralls]: Publish test coverage to Coveralls"
+          name: "[c8, coveralls]: Publish test coverage to Coveralls"
           command: "npm run coverage"
 
   release-npm:
