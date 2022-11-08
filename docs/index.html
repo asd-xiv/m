@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset='utf-8'>
-  <title>m 7.8.1 | Documentation</title>
+  <title>@asd14/m 8.1.0 | Documentation</title>
   <meta name='description' content='Point free style, functional Javascript library with focus on object arrays'>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' rel='stylesheet'>
@@ -14,8 +14,8 @@
     <div class='flex'>
       <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
         <div class='py1 px2'>
-          <h3 class='mb0 no-anchor'>m</h3>
-          <div class='mb1'><code>7.8.1</code></div>
+          <h3 class='mb0 no-anchor'>@asd14/m</h3>
+          <div class='mb1'><code>8.1.0</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -699,6 +699,56 @@
               
                 
                 <li><a
+                  href='#isnothing'
+                  class="">
+                  isNothing
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#isobject'
+                  class="">
+                  isObject
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#istrue'
+                  class="">
+                  isTrue
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#isfalse'
+                  class="">
+                  isFalse
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#not'
+                  class="">
+                  not
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#cases'
                   class="">
                   cases
@@ -1210,11 +1260,11 @@ the results as parameters for a final accumulator function.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> divide = <span class="hljs-function">() =&gt;</span> {}
-<span class="hljs-keyword">const</span> sum = <span class="hljs-function">() =&gt;</span> {}
-<span class="hljs-keyword">const</span> count = <span class="hljs-function">() =&gt;</span> {}
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> <span class="hljs-title function_">divide</span> = (<span class="hljs-params"></span>) =&gt; {}
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">sum</span> = (<span class="hljs-params"></span>) =&gt; {}
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">count</span> = (<span class="hljs-params"></span>) =&gt; {}
 
-converge(divide, [sum, count], [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>])
+<span class="hljs-title function_">converge</span>(divide, [sum, count], [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>])
 <span class="hljs-comment">// =&gt; 4</span></pre>
     
   
@@ -1338,36 +1388,22 @@ converge(divide, [sum, count], [<span class="hljs-number">1</span>, <span class=
   
 
   
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>input</span> <code class='quiet'>(<a href="#any">any</a>)</code>
-	    Source input
 
-          </div>
-          
-        </div>
-      
-    </div>
+  
+
   
 
   
 
   
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
     
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="#any">any</a></code>:
-        
       
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">identity</span>(<span class="hljs-number">1</span>)
+<span class="hljs-comment">// =&gt; 1</span></pre>
     
-  
-
-  
-
-  
-
   
 
   
@@ -1462,12 +1498,12 @@ new array with the transformed elements.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> inc = <span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x + <span class="hljs-number">1</span>
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> <span class="hljs-title function_">inc</span> = x =&gt; x + <span class="hljs-number">1</span>
 
-map(inc, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])
+<span class="hljs-title function_">map</span>(inc, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])
 <span class="hljs-comment">// =&gt; [2, 3]</span>
 
-map([inc, inc], [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])
+<span class="hljs-title function_">map</span>([inc, inc], [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])
 <span class="hljs-comment">// =&gt; [3, 4]</span></pre>
     
   
@@ -1548,12 +1584,12 @@ elements.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> inc = <span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x + <span class="hljs-number">1</span>
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> <span class="hljs-title function_">inc</span> = x =&gt; x + <span class="hljs-number">1</span>
 
-mapMatrix(inc, [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]])
+<span class="hljs-title function_">mapMatrix</span>(inc, [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]])
 <span class="hljs-comment">// =&gt; [[2, 3], [4, 5]]</span>
 
-mapMatrix([inc, inc], [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]])
+<span class="hljs-title function_">mapMatrix</span>([inc, inc], [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]])
 <span class="hljs-comment">// =&gt; [[3, 4], [5, 6]]</span></pre>
     
   
@@ -1598,48 +1634,9 @@ any arity, the remaining functions must be unary.</p>
   
 
   
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>firstFn</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
-	    First function in transform chain
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>restFn</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>>)</code>
-	    Remaining functions
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>input</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
-	    First function arguments
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
 
   
 
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="#any">any</a></code>:
-        
-      
-    
   
 
   
@@ -1658,7 +1655,17 @@ any arity, the remaining functions must be unary.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>pipe(inc, inc)(<span class="hljs-number">2</span>)
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">pipe</span>()(<span class="hljs-number">2</span>)
+<span class="hljs-comment">// =&gt; Error: @asd14/m: pipe requires at least one argument</span>
+
+<span class="hljs-comment">// =&gt; 3</span>
+<span class="hljs-title function_">pipe</span>(inc)(<span class="hljs-number">2</span>)
+<span class="hljs-comment">// =&gt; 3</span>
+
+<span class="hljs-title function_">pipe</span>(inc, inc)(<span class="hljs-number">2</span>)
+<span class="hljs-comment">// =&gt; 4</span>
+
+<span class="hljs-title function_">pipe</span>(sum, inc)(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
 <span class="hljs-comment">// =&gt; 4</span></pre>
     
   
@@ -1763,19 +1770,19 @@ any arity, the remaining functions must be unary.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>read(<span class="hljs-string">&quot;lorem&quot;</span>)({ <span class="hljs-attr">lorem</span>: <span class="hljs-string">&quot;ipsum&quot;</span> })
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">read</span>(<span class="hljs-string">&quot;lorem&quot;</span>)({ <span class="hljs-attr">lorem</span>: <span class="hljs-string">&quot;ipsum&quot;</span> })
 <span class="hljs-comment">// =&gt; &quot;ipsum&quot;</span>
 
-read(<span class="hljs-string">&quot;not-exist&quot;</span>)({ <span class="hljs-attr">lorem</span>: <span class="hljs-string">&quot;ipsum&quot;</span> })
+<span class="hljs-title function_">read</span>(<span class="hljs-string">&quot;not-exist&quot;</span>)({ <span class="hljs-attr">lorem</span>: <span class="hljs-string">&quot;ipsum&quot;</span> })
 <span class="hljs-comment">// =&gt; undefined</span>
 
-read(<span class="hljs-string">&quot;not-exist-with-default&quot;</span>, <span class="hljs-string">&quot;dolor&quot;</span>, { <span class="hljs-attr">lorem</span>: <span class="hljs-string">&quot;ipsum&quot;</span> })
+<span class="hljs-title function_">read</span>(<span class="hljs-string">&quot;not-exist-with-default&quot;</span>, <span class="hljs-string">&quot;dolor&quot;</span>, { <span class="hljs-attr">lorem</span>: <span class="hljs-string">&quot;ipsum&quot;</span> })
 <span class="hljs-comment">// =&gt; &quot;dolor&quot;</span>
 
-read([<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>])({ <span class="hljs-attr">a</span>: { <span class="hljs-attr">b</span>: <span class="hljs-string">&quot;c&quot;</span> } })
+<span class="hljs-title function_">read</span>([<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>])({ <span class="hljs-attr">a</span>: { <span class="hljs-attr">b</span>: <span class="hljs-string">&quot;c&quot;</span> } })
 <span class="hljs-comment">// =&gt; &quot;c&quot;</span>
 
-read([<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;test&quot;</span>])({ <span class="hljs-attr">a</span>: { <span class="hljs-attr">b</span>: <span class="hljs-string">&quot;c&quot;</span> } })
+<span class="hljs-title function_">read</span>([<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;test&quot;</span>])({ <span class="hljs-attr">a</span>: { <span class="hljs-attr">b</span>: <span class="hljs-string">&quot;c&quot;</span> } })
 <span class="hljs-comment">// =&gt; undefined</span></pre>
     
   
@@ -1881,9 +1888,9 @@ left to right) to reduce it to a single value.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> sum = <span class="hljs-function">(<span class="hljs-params">acc, item</span>) =&gt;</span> acc + item
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> <span class="hljs-title function_">sum</span> = (<span class="hljs-params">acc, item</span>) =&gt; acc + item
 
-reduce(sum, <span class="hljs-number">0</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])
+<span class="hljs-title function_">reduce</span>(sum, <span class="hljs-number">0</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])
 <span class="hljs-comment">// =&gt; 3</span></pre>
     
   
@@ -2048,7 +2055,7 @@ value</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>write( <span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;lorem&quot;</span> )( { <span class="hljs-attr">b</span>: <span class="hljs-string">&quot;ipsum&quot;</span> } )
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">write</span>( <span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;lorem&quot;</span> )( { <span class="hljs-attr">b</span>: <span class="hljs-string">&quot;ipsum&quot;</span> } )
 <span class="hljs-comment">// =&gt; { a: &quot;lorem&quot;, b: &quot;ipsum&quot; }</span></pre>
     
   
@@ -2156,16 +2163,16 @@ value</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>bottom([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">bottom</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
 <span class="hljs-comment">// =&gt; [1, 2]</span>
 
-bottom([<span class="hljs-number">1</span>]), bottom([])
+<span class="hljs-title function_">bottom</span>([<span class="hljs-number">1</span>]), <span class="hljs-title function_">bottom</span>([])
 <span class="hljs-comment">// =&gt; []</span>
 
-bottom(<span class="hljs-number">2</span>, [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+<span class="hljs-title function_">bottom</span>(<span class="hljs-number">2</span>, [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
 <span class="hljs-comment">// =&gt; [2, 3]</span>
 
-bottom(<span class="hljs-number">2</span>)([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+<span class="hljs-title function_">bottom</span>(<span class="hljs-number">2</span>)([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
 <span class="hljs-comment">// =&gt; [2, 3]</span></pre>
     
   
@@ -2261,20 +2268,20 @@ bottom(<span class="hljs-number">2</span>)([<span class="hljs-number">1</span>, 
     
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> scores = [{
- <span class="hljs-attr">name</span>   : <span class="hljs-string">&quot;Bob&quot;</span>,
- <span class="hljs-attr">score</span>  : <span class="hljs-number">1</span>,
+ name   : <span class="hljs-string">&quot;Bob&quot;</span>,
+ score  : <span class="hljs-number">1</span>,
  <span class="hljs-attr">subject</span>: <span class="hljs-string">&quot;Math&quot;</span>
 }, {
- <span class="hljs-attr">name</span>   : <span class="hljs-string">&quot;Alice&quot;</span>,
- <span class="hljs-attr">score</span>  : <span class="hljs-number">10</span>,
+ name   : <span class="hljs-string">&quot;Alice&quot;</span>,
+ score  : <span class="hljs-number">10</span>,
  <span class="hljs-attr">subject</span>: <span class="hljs-string">&quot;Math&quot;</span>
 }, {
- <span class="hljs-attr">name</span>   : <span class="hljs-string">&quot;Hatter&quot;</span>,
- <span class="hljs-attr">score</span>  : <span class="hljs-number">10</span>,
+ name   : <span class="hljs-string">&quot;Hatter&quot;</span>,
+ score  : <span class="hljs-number">10</span>,
  <span class="hljs-attr">subject</span>: <span class="hljs-string">&quot;Math&quot;</span>
 }]
 
-count(<span class="hljs-function"><span class="hljs-params">element</span> =&gt;</span> element.score === <span class="hljs-number">10</span>)(scores)
+<span class="hljs-title function_">count</span>(<span class="hljs-function"><span class="hljs-params">element</span> =&gt;</span> element.<span class="hljs-property">score</span> === <span class="hljs-number">10</span>)(scores)
 <span class="hljs-comment">// =&gt; 2</span></pre>
     
   
@@ -2370,21 +2377,21 @@ count(<span class="hljs-function"><span class="hljs-params">element</span> =&gt;
     
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> scores = [{
- <span class="hljs-attr">name</span>   : <span class="hljs-string">&quot;Bob&quot;</span>,
- <span class="hljs-attr">score</span>  : <span class="hljs-number">1</span>,
+ name   : <span class="hljs-string">&quot;Bob&quot;</span>,
+ score  : <span class="hljs-number">1</span>,
  <span class="hljs-attr">subject</span>: <span class="hljs-string">&quot;Math&quot;</span>
 }, {
- <span class="hljs-attr">name</span>   : <span class="hljs-string">&quot;Alice&quot;</span>,
- <span class="hljs-attr">score</span>  : <span class="hljs-number">10</span>,
+ name   : <span class="hljs-string">&quot;Alice&quot;</span>,
+ score  : <span class="hljs-number">10</span>,
  <span class="hljs-attr">subject</span>: <span class="hljs-string">&quot;Math&quot;</span>
 }, {
- <span class="hljs-attr">name</span>   : <span class="hljs-string">&quot;Hatter&quot;</span>,
- <span class="hljs-attr">score</span>  : <span class="hljs-number">10</span>,
+ name   : <span class="hljs-string">&quot;Hatter&quot;</span>,
+ score  : <span class="hljs-number">10</span>,
  <span class="hljs-attr">subject</span>: <span class="hljs-string">&quot;Math&quot;</span>
 }]
 
-countWith(
-  { <span class="hljs-attr">score</span>: gt(<span class="hljs-number">5</span>) },
+<span class="hljs-title function_">countWith</span>(
+  { <span class="hljs-attr">score</span>: <span class="hljs-title function_">gt</span>(<span class="hljs-number">5</span>) },
   scores
 )
 <span class="hljs-comment">// =&gt; 2</span></pre>
@@ -2464,7 +2471,7 @@ countWith(
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>distinct([<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">distinct</span>([<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>])
 <span class="hljs-comment">// =&gt; [1, 2]</span></pre>
     
   
@@ -2712,10 +2719,10 @@ countWith(
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> comments = [{<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">body</span>: <span class="hljs-string">&quot;&quot;</span>}, {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">body</span>: <span class="hljs-string">&quot;dolor&quot;</span>}]
 
-find(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> item.body === <span class="hljs-string">&quot;dolor&quot;</span>)(comments)
+<span class="hljs-title function_">find</span>(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> item.<span class="hljs-property">body</span> === <span class="hljs-string">&quot;dolor&quot;</span>)(comments)
 <span class="hljs-comment">// =&gt; {id: 2, body: &quot;dolor&quot;}</span>
 
-find([get(<span class="hljs-string">&quot;body&quot;</span>), equals(<span class="hljs-string">&quot;dolor&quot;</span>)], <span class="hljs-literal">null</span>, comments)
+<span class="hljs-title function_">find</span>([<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;body&quot;</span>), <span class="hljs-title function_">equals</span>(<span class="hljs-string">&quot;dolor&quot;</span>)], <span class="hljs-literal">null</span>, comments)
 <span class="hljs-comment">// =&gt; {id: 2, boby: &quot;dolor&quot; }</span></pre>
     
   
@@ -2827,10 +2834,10 @@ find([get(<span class="hljs-string">&quot;body&quot;</span>), equals(<span class
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> comments = [{<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">body</span>: <span class="hljs-string">&quot;&quot;</span>}, {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">body</span>: <span class="hljs-string">&quot;dolor&quot;</span>}]
 
-findWith({<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>})(comments)
+<span class="hljs-title function_">findWith</span>({<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>})(comments)
 <span class="hljs-comment">// =&gt; {id: 2, body: &quot;dolor&quot;}</span>
 
-find({<span class="hljs-attr">id</span>: <span class="hljs-string">&quot;404&quot;</span>}, {<span class="hljs-attr">default</span>: <span class="hljs-string">&quot;value&quot;</span>}, comments)
+<span class="hljs-title function_">find</span>({<span class="hljs-attr">id</span>: <span class="hljs-string">&quot;404&quot;</span>}, {<span class="hljs-attr">default</span>: <span class="hljs-string">&quot;value&quot;</span>}, comments)
 <span class="hljs-comment">// =&gt; {default: &quot;value&quot;}</span></pre>
     
   
@@ -2908,10 +2915,10 @@ find({<span class="hljs-attr">id</span>: <span class="hljs-string">&quot;404&quo
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>first([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">first</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
 <span class="hljs-comment">// =&gt; 1</span>
 
-first([])
+<span class="hljs-title function_">first</span>([])
 <span class="hljs-comment">// =&gt; undefined</span></pre>
     
   
@@ -2990,10 +2997,10 @@ first([])
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>flatten([<span class="hljs-number">1</span>, [<span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, [<span class="hljs-number">4</span>]]])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">flatten</span>([<span class="hljs-number">1</span>, [<span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, [<span class="hljs-number">4</span>]]])
 <span class="hljs-comment">// =&gt; [1, 2, 3, 4]</span>
 
-flatten({<span class="hljs-attr">test</span>: {<span class="hljs-attr">a</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">b</span>: {<span class="hljs-attr">c</span>: <span class="hljs-number">2</span>}}})
+<span class="hljs-title function_">flatten</span>({<span class="hljs-attr">test</span>: {<span class="hljs-attr">a</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">b</span>: {<span class="hljs-attr">c</span>: <span class="hljs-number">2</span>}}})
 <span class="hljs-comment">// =&gt; {</span>
  <span class="hljs-attr">test__a</span>: <span class="hljs-number">1</span>,
  <span class="hljs-attr">test__b__c</span>: <span class="hljs-number">2</span>
@@ -3074,9 +3081,9 @@ flatten({<span class="hljs-attr">test</span>: {<span class="hljs-attr">a</span>:
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>last([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">last</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
 <span class="hljs-comment">// =&gt; 3</span>
-last([])
+<span class="hljs-title function_">last</span>([])
 <span class="hljs-comment">// =&gt; undefined</span></pre>
     
   
@@ -3157,7 +3164,7 @@ elements for which it returned <code>false</code>.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>partition(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>)([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">partition</span>(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>)([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>])
 <span class="hljs-comment">// =&gt; [[2, 4], [1, 3, 5]]</span></pre>
     
   
@@ -3238,7 +3245,7 @@ elements for which it returned <code>false</code>.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>partitionWith({<span class="hljs-attr">comments</span>: is}, [{<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>}, {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">comments</span>: []}])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">partitionWith</span>({<span class="hljs-attr">comments</span>: is}, [{<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>}, {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">comments</span>: []}])
 <span class="hljs-comment">// =&gt; [[{id: 1}], [{id: 2, comments: []}]]</span></pre>
     
   
@@ -3316,7 +3323,7 @@ If the key does not exist, the property is ignored.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>pluck(
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">pluck</span>(
  [<span class="hljs-string">&quot;id&quot;</span>, <span class="hljs-string">&quot;name&quot;</span>],
  {
    <span class="hljs-attr">id</span>: <span class="hljs-number">2</span>,
@@ -3433,10 +3440,10 @@ If the key does not exist, the property is ignored.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>remove(<span class="hljs-number">3</span>)([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">remove</span>(<span class="hljs-number">3</span>)([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
 <span class="hljs-comment">// =&gt; [1, 2]</span>
 
-remove(<span class="hljs-function"><span class="hljs-params">_</span> =&gt;</span> _ === <span class="hljs-number">3</span>)([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+<span class="hljs-title function_">remove</span>(<span class="hljs-function"><span class="hljs-params">_</span> =&gt;</span> _ === <span class="hljs-number">3</span>)([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
 <span class="hljs-comment">// =&gt; [1, 2]</span></pre>
     
   
@@ -3547,9 +3554,9 @@ remove(<span class="hljs-function"><span class="hljs-params">_</span> =&gt;</spa
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>removeWith(
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">removeWith</span>(
   {
-    <span class="hljs-attr">tag</span>: not(is)
+    <span class="hljs-attr">tag</span>: <span class="hljs-title function_">not</span>(is)
   },
   [
     {<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">tag</span>: <span class="hljs-number">2</span>},
@@ -3679,10 +3686,10 @@ remove(<span class="hljs-function"><span class="hljs-params">_</span> =&gt;</spa
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>sort([<span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">sort</span>([<span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>])
 <span class="hljs-comment">// =&gt; [1, 2, 3]</span>
 
-sort(<span class="hljs-string">&quot;desc&quot;</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+<span class="hljs-title function_">sort</span>(<span class="hljs-string">&quot;desc&quot;</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
 <span class="hljs-comment">// =&gt; [3, 2, 1]</span></pre>
     
   
@@ -3781,7 +3788,7 @@ sort(<span class="hljs-string">&quot;desc&quot;</span>, [<span class="hljs-numbe
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>sortBy(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.id - b.id, [{<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>}, {<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>}])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">sortBy</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.<span class="hljs-property">id</span> - b.<span class="hljs-property">id</span>, [{<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>}, {<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>}])
 <span class="hljs-comment">// =&gt; [{id: 1}, {id: 2}]</span></pre>
     
   
@@ -3887,7 +3894,7 @@ sort(<span class="hljs-string">&quot;desc&quot;</span>, [<span class="hljs-numbe
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>sortWith({<span class="hljs-attr">position</span>: <span class="hljs-string">&quot;asc&quot;</span>},
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">sortWith</span>({<span class="hljs-attr">position</span>: <span class="hljs-string">&quot;asc&quot;</span>},
   { <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">position</span>: <span class="hljs-number">3</span> },
   { <span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">position</span>: <span class="hljs-number">2</span> },
   { <span class="hljs-attr">id</span>: <span class="hljs-number">3</span> },
@@ -3986,16 +3993,16 @@ sort(<span class="hljs-string">&quot;desc&quot;</span>, [<span class="hljs-numbe
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>top([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">top</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
 <span class="hljs-comment">// =&gt; [1, 2]</span>
 
-top([<span class="hljs-number">1</span>]), top([])
+<span class="hljs-title function_">top</span>([<span class="hljs-number">1</span>]), <span class="hljs-title function_">top</span>([])
 <span class="hljs-comment">// =&gt; []</span>
 
-top(<span class="hljs-number">2</span>, [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+<span class="hljs-title function_">top</span>(<span class="hljs-number">2</span>, [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
 <span class="hljs-comment">// =&gt; [2, 3]</span>
 
-top(<span class="hljs-number">2</span>)([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+<span class="hljs-title function_">top</span>(<span class="hljs-number">2</span>)([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
 <span class="hljs-comment">// =&gt; [2, 3]</span></pre>
     
   
@@ -4038,7 +4045,8 @@ top(<span class="hljs-number">2</span>)([<span class="hljs-number">1</span>, <sp
   </div>
   
 
-  <p>Test if all elements of array satisfy a function</p>
+  <p>Test if all elements of array satisfy a predicate function or a chain of
+predicates.</p>
 
     <div class='pre p1 fill-light mt0'>all</div>
   
@@ -4052,40 +4060,9 @@ top(<span class="hljs-number">2</span>)([<span class="hljs-number">1</span>, <sp
   
 
   
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>fn</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a> | <a href="#array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>>))</code>
-	    Test function called on each elements
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
-	    Source array to iterate over
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
 
   
 
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
-        True if all elements pass, otherwise false
-
-      
-    
   
 
   
@@ -4114,11 +4091,14 @@ top(<span class="hljs-number">2</span>)([<span class="hljs-number">1</span>, <sp
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>all(isNumber)([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">all</span>(isNumber)([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
 <span class="hljs-comment">// =&gt; true</span>
 
-all(is, [<span class="hljs-number">1</span>, <span class="hljs-string">&quot;asd&quot;</span>, <span class="hljs-literal">null</span>])
-<span class="hljs-comment">// =&gt; false</span></pre>
+<span class="hljs-title function_">all</span>(is, [<span class="hljs-number">1</span>, <span class="hljs-string">&quot;asd&quot;</span>, <span class="hljs-literal">null</span>])
+<span class="hljs-comment">// =&gt; false</span>
+
+<span class="hljs-title function_">all</span>([<span class="hljs-title function_">read</span>(<span class="hljs-string">&quot;id&quot;</span>), isNumber], [{ <span class="hljs-attr">id</span>: <span class="hljs-number">0</span> }, { <span class="hljs-attr">id</span>: <span class="hljs-number">1</span> }, { <span class="hljs-attr">id</span>: <span class="hljs-number">2</span> }])
+<span class="hljs-comment">// =&gt; true</span></pre>
     
   
 
@@ -4166,18 +4146,16 @@ all(is, [<span class="hljs-number">1</span>, <span class="hljs-string">&quot;asd
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>subset</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
-	    Match object
-
+            <span class='code bold'>match</span> <code class='quiet'>(Matcher&#x3C;T>)</code>
+	    
           </div>
           
         </div>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>source</span> <code class='quiet'>(<a href="#array">Array</a>)</code>
-	    Source array to iterate over
-
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#array">Array</a>&#x3C;T>)</code>
+	    
           </div>
           
         </div>
@@ -4228,10 +4206,10 @@ all(is, [<span class="hljs-number">1</span>, <span class="hljs-string">&quot;asd
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>allWith(isNumber)([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">allWith</span>(isNumber)([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
 <span class="hljs-comment">// =&gt; true</span>
 
-allWith(is, [<span class="hljs-number">1</span>, <span class="hljs-string">&quot;asd&quot;</span>, <span class="hljs-literal">null</span>])
+<span class="hljs-title function_">allWith</span>(is, [<span class="hljs-number">1</span>, <span class="hljs-string">&quot;asd&quot;</span>, <span class="hljs-literal">null</span>])
 <span class="hljs-comment">// =&gt; false</span></pre>
     
   
@@ -4337,10 +4315,10 @@ allWith(is, [<span class="hljs-number">1</span>, <span class="hljs-string">&quot
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>any(isNumber)([<span class="hljs-number">1</span>, <span class="hljs-string">&quot;string&quot;</span>, <span class="hljs-literal">NaN</span>])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">any</span>(isNumber)([<span class="hljs-number">1</span>, <span class="hljs-string">&quot;string&quot;</span>, <span class="hljs-title class_">NaN</span>])
 <span class="hljs-comment">// =&gt; true</span>
 
-any([get(<span class="hljs-string">&quot;id&quot;</span>), is], [{<span class="hljs-attr">title</span>: <span class="hljs-string">&quot;&quot;</span>}, {}])
+<span class="hljs-title function_">any</span>([<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;id&quot;</span>), is], [{<span class="hljs-attr">title</span>: <span class="hljs-string">&quot;&quot;</span>}, {}])
 <span class="hljs-comment">// =&gt; false</span></pre>
     
   
@@ -4451,10 +4429,10 @@ any([get(<span class="hljs-string">&quot;id&quot;</span>), is], [{<span class="h
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>anyWith({ <span class="hljs-attr">comments</span>: is })([{<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>}, {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">comments</span>: []}])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">anyWith</span>({ <span class="hljs-attr">comments</span>: is })([{<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>}, {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">comments</span>: []}])
 <span class="hljs-comment">// =&gt; true</span>
 
-anyWith({ <span class="hljs-attr">tags</span>: is })([{<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>}, {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">comments</span>: []}])
+<span class="hljs-title function_">anyWith</span>({ <span class="hljs-attr">tags</span>: is })([{<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>}, {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">comments</span>: []}])
 <span class="hljs-comment">// =&gt; false</span></pre>
     
   
@@ -4532,12 +4510,12 @@ anyWith({ <span class="hljs-attr">tags</span>: is })([{<span class="hljs-attr">i
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>is(<span class="hljs-literal">null</span>)      <span class="hljs-comment">// =&gt; false</span>
-is(<span class="hljs-number">0</span>)         <span class="hljs-comment">// =&gt; true</span>
-is(<span class="hljs-literal">undefined</span>) <span class="hljs-comment">// =&gt; false</span>
-is(<span class="hljs-string">&quot;&quot;</span>)        <span class="hljs-comment">// =&gt; true</span>
-is(<span class="hljs-literal">false</span>)     <span class="hljs-comment">// =&gt; true</span>
-is(<span class="hljs-literal">NaN</span>)       <span class="hljs-comment">// =&gt; false</span></pre>
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">is</span>(<span class="hljs-literal">null</span>)      <span class="hljs-comment">// =&gt; false</span>
+<span class="hljs-title function_">is</span>(<span class="hljs-number">0</span>)         <span class="hljs-comment">// =&gt; true</span>
+<span class="hljs-title function_">is</span>(<span class="hljs-literal">undefined</span>) <span class="hljs-comment">// =&gt; false</span>
+<span class="hljs-title function_">is</span>(<span class="hljs-string">&quot;&quot;</span>)        <span class="hljs-comment">// =&gt; true</span>
+<span class="hljs-title function_">is</span>(<span class="hljs-literal">false</span>)     <span class="hljs-comment">// =&gt; true</span>
+<span class="hljs-title function_">is</span>(<span class="hljs-title class_">NaN</span>)       <span class="hljs-comment">// =&gt; false</span></pre>
     
   
 
@@ -4660,10 +4638,10 @@ is(<span class="hljs-literal">NaN</span>)       <span class="hljs-comment">// =&
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>between(<span class="hljs-number">2</span>, <span class="hljs-number">5</span>)(<span class="hljs-number">5</span>)
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">between</span>(<span class="hljs-number">2</span>, <span class="hljs-number">5</span>)(<span class="hljs-number">5</span>)
 <span class="hljs-comment">// =&gt; false</span>
 
-between(<span class="hljs-number">2</span>, <span class="hljs-number">5</span>, {<span class="hljs-attr">closed</span>: <span class="hljs-literal">true</span>})(<span class="hljs-number">5</span>)
+<span class="hljs-title function_">between</span>(<span class="hljs-number">2</span>, <span class="hljs-number">5</span>, {<span class="hljs-attr">closed</span>: <span class="hljs-literal">true</span>})(<span class="hljs-number">5</span>)
 <span class="hljs-comment">// =&gt; true</span></pre>
     
   
@@ -4742,18 +4720,18 @@ between(<span class="hljs-number">2</span>, <span class="hljs-number">5</span>, 
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>isEmpty({})                <span class="hljs-comment">// true</span>
-isEmpty(<span class="hljs-number">1</span>)                 <span class="hljs-comment">// false</span>
-isEmpty(<span class="hljs-literal">false</span>)             <span class="hljs-comment">// false</span>
-isEmpty(<span class="hljs-string">&quot;&quot;</span>)                <span class="hljs-comment">// true</span>
-isEmpty(<span class="hljs-literal">null</span>)              <span class="hljs-comment">// true</span>
-isEmpty(<span class="hljs-literal">undefined</span>)         <span class="hljs-comment">// true</span>
-isEmpty([])                <span class="hljs-comment">// true</span>
-isEmpty(<span class="hljs-literal">NaN</span>)               <span class="hljs-comment">// true</span>
-isEmpty(<span class="hljs-regexp">/[A-z]/</span>)           <span class="hljs-comment">// false</span>
-isEmpty(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>())        <span class="hljs-comment">// false</span>
-isEmpty(<span class="hljs-function">() =&gt;</span> {})          <span class="hljs-comment">// false</span>
-isEmpty(<span class="hljs-built_in">Promise</span>.resolve()) <span class="hljs-comment">// false</span></pre>
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">isEmpty</span>({})                <span class="hljs-comment">// true</span>
+<span class="hljs-title function_">isEmpty</span>(<span class="hljs-number">1</span>)                 <span class="hljs-comment">// false</span>
+<span class="hljs-title function_">isEmpty</span>(<span class="hljs-literal">false</span>)             <span class="hljs-comment">// false</span>
+<span class="hljs-title function_">isEmpty</span>(<span class="hljs-string">&quot;&quot;</span>)                <span class="hljs-comment">// true</span>
+<span class="hljs-title function_">isEmpty</span>(<span class="hljs-literal">null</span>)              <span class="hljs-comment">// true</span>
+<span class="hljs-title function_">isEmpty</span>(<span class="hljs-literal">undefined</span>)         <span class="hljs-comment">// true</span>
+<span class="hljs-title function_">isEmpty</span>([])                <span class="hljs-comment">// true</span>
+<span class="hljs-title function_">isEmpty</span>(<span class="hljs-title class_">NaN</span>)               <span class="hljs-comment">// true</span>
+<span class="hljs-title function_">isEmpty</span>(<span class="hljs-regexp">/[A-z]/</span>)           <span class="hljs-comment">// false</span>
+<span class="hljs-title function_">isEmpty</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>())        <span class="hljs-comment">// false</span>
+<span class="hljs-title function_">isEmpty</span>(<span class="hljs-function">() =&gt;</span> {})          <span class="hljs-comment">// false</span>
+<span class="hljs-title function_">isEmpty</span>(<span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>()) <span class="hljs-comment">// false</span></pre>
     
   
 
@@ -4839,16 +4817,16 @@ isEmpty(<span class="hljs-built_in">Promise</span>.resolve()) <span class="hljs-
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>equal(<span class="hljs-number">2</span>)(<span class="hljs-number">2</span>)
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">equal</span>(<span class="hljs-number">2</span>)(<span class="hljs-number">2</span>)
 <span class="hljs-comment">// =&gt; true</span>
 
-equal(<span class="hljs-string">&quot;2&quot;</span>)(<span class="hljs-number">2</span>)
+<span class="hljs-title function_">equal</span>(<span class="hljs-string">&quot;2&quot;</span>)(<span class="hljs-number">2</span>)
 <span class="hljs-comment">// =&gt; false</span>
 
-equal(<span class="hljs-literal">NaN</span>)(<span class="hljs-literal">NaN</span>)
+<span class="hljs-title function_">equal</span>(<span class="hljs-title class_">NaN</span>)(<span class="hljs-title class_">NaN</span>)
 <span class="hljs-comment">// =&gt; true</span>
 
-equal([<span class="hljs-number">1</span>])([<span class="hljs-number">1</span>])
+<span class="hljs-title function_">equal</span>([<span class="hljs-number">1</span>])([<span class="hljs-number">1</span>])
 <span class="hljs-comment">// =&gt; false</span></pre>
     
   
@@ -4937,7 +4915,7 @@ compare) value to properties in "source" object, otherwise false
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>isMatch({
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">isMatch</span>({
  <span class="hljs-attr">id</span>: <span class="hljs-number">2</span>,
  <span class="hljs-attr">parentId</span>: <span class="hljs-literal">null</span>,
 })({
@@ -4947,7 +4925,7 @@ compare) value to properties in "source" object, otherwise false
 })
 <span class="hljs-comment">// true</span>
 
-isMatch({
+<span class="hljs-title function_">isMatch</span>({
  <span class="hljs-string">&quot;!parentId&quot;</span>: <span class="hljs-literal">null</span>,
  <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;John&quot;</span>,
 })({
@@ -5064,10 +5042,10 @@ isMatch({
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>when(isEven, increment, decrement)(<span class="hljs-number">5</span>)
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">when</span>(isEven, increment, decrement)(<span class="hljs-number">5</span>)
 <span class="hljs-comment">// =&gt; 6</span>
 
-when(isOdd, increment)(<span class="hljs-number">6</span>)
+<span class="hljs-title function_">when</span>(isOdd, increment)(<span class="hljs-number">6</span>)
 <span class="hljs-comment">// =&gt; 6</span></pre>
     
   
@@ -5159,13 +5137,13 @@ when(isOdd, increment)(<span class="hljs-number">6</span>)
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>keys([<span class="hljs-string">&quot;lorem&quot;</span>, <span class="hljs-string">&quot;ipsum&quot;</span>])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">keys</span>([<span class="hljs-string">&quot;lorem&quot;</span>, <span class="hljs-string">&quot;ipsum&quot;</span>])
 <span class="hljs-comment">// =&gt; [&quot;0&quot;, &quot;1&quot;]</span>
 
-keys({ <span class="hljs-attr">foo</span>: <span class="hljs-string">&quot;bar&quot;</span>, <span class="hljs-attr">lorem</span>: <span class="hljs-string">&quot;ipsum&quot;</span>})
+<span class="hljs-title function_">keys</span>({ <span class="hljs-attr">foo</span>: <span class="hljs-string">&quot;bar&quot;</span>, <span class="hljs-attr">lorem</span>: <span class="hljs-string">&quot;ipsum&quot;</span>})
 <span class="hljs-comment">// =&gt; [&quot;foo&quot;, &quot;lorem&quot;]</span>
 
-keys(<span class="hljs-string">&quot;foo&quot;</span>), keys(<span class="hljs-number">12</span>), keys(<span class="hljs-literal">null</span>), etc
+<span class="hljs-title function_">keys</span>(<span class="hljs-string">&quot;foo&quot;</span>), <span class="hljs-title function_">keys</span>(<span class="hljs-number">12</span>), <span class="hljs-title function_">keys</span>(<span class="hljs-literal">null</span>), etc
 <span class="hljs-comment">// =&gt; []</span></pre>
     
   
@@ -5254,7 +5232,7 @@ overwriten by right most object.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>merge({<span class="hljs-attr">a</span>: <span class="hljs-string">&quot;lorem&quot;</span>}, {<span class="hljs-attr">b</span>: <span class="hljs-string">&quot;ipsum&quot;</span>, <span class="hljs-attr">c</span>: <span class="hljs-number">41</span>}, {<span class="hljs-attr">c</span>: <span class="hljs-number">42</span>, <span class="hljs-attr">b</span>: <span class="hljs-literal">undefined</span>})
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">merge</span>({<span class="hljs-attr">a</span>: <span class="hljs-string">&quot;lorem&quot;</span>}, {<span class="hljs-attr">b</span>: <span class="hljs-string">&quot;ipsum&quot;</span>, <span class="hljs-attr">c</span>: <span class="hljs-number">41</span>}, {<span class="hljs-attr">c</span>: <span class="hljs-number">42</span>, <span class="hljs-attr">b</span>: <span class="hljs-literal">undefined</span>})
 <span class="hljs-comment">// =&gt; { a: &quot;lorem&quot;, b: &quot;ipsum&quot;, c: 42 }</span></pre>
     
   
@@ -5332,7 +5310,7 @@ the source list</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>pick(<span class="hljs-string">&quot;position&quot;</span>)([{<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">position</span>: <span class="hljs-number">3</span>}, {<span class="hljs-attr">id</span>:<span class="hljs-number">2</span>, <span class="hljs-attr">position</span>: -<span class="hljs-number">1</span>}])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">pick</span>(<span class="hljs-string">&quot;position&quot;</span>)([{<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">position</span>: <span class="hljs-number">3</span>}, {<span class="hljs-attr">id</span>:<span class="hljs-number">2</span>, <span class="hljs-attr">position</span>: -<span class="hljs-number">1</span>}])
 <span class="hljs-comment">// =&gt; [3, -1]</span></pre>
     
   
@@ -5418,8 +5396,8 @@ Both arrays will be trimmed to the smallest length.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>zipToObject([a, b])([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]) <span class="hljs-comment">// =&gt; { a: 1, b: 2 }</span>
-zipToObject([a], [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]) <span class="hljs-comment">// =&gt; { a: 1 }</span></pre>
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">zipToObject</span>([a, b])([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]) <span class="hljs-comment">// =&gt; { a: 1, b: 2 }</span>
+<span class="hljs-title function_">zipToObject</span>([a], [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]) <span class="hljs-comment">// =&gt; { a: 1 }</span></pre>
     
   
 
@@ -5522,14 +5500,14 @@ zipToObject([a], [<span class="hljs-number">1</span>, <span class="hljs-number">
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>deepEqual(
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">deepEqual</span>(
 {<span class="hljs-attr">b</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">a</span>: <span class="hljs-number">2</span>},
 {<span class="hljs-attr">a</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">b</span>: <span class="hljs-number">3</span>}
 )
 <span class="hljs-comment">// =&gt; true</span>
 
-deepEqual(
-{<span class="hljs-attr">a</span> :[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]}
+<span class="hljs-title function_">deepEqual</span>(
+{a :[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]}
 )(
 {<span class="hljs-attr">a</span>: [<span class="hljs-number">2</span>, <span class="hljs-number">1</span>]}
 )
@@ -5619,9 +5597,9 @@ deepEqual(
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>elapsedTime(
-  <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">&quot;June 1, 2018 00:00:00&quot;</span>),
-  <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">&quot;June 1, 2018 03:24:00&quot;</span>)
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">elapsedTime</span>(
+  <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-string">&quot;June 1, 2018 00:00:00&quot;</span>),
+  <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-string">&quot;June 1, 2018 03:24:00&quot;</span>)
 )
 <span class="hljs-comment">// =&gt; { days: 0, hours: 3, minutes: 24, seconds: 0 }</span></pre>
     
@@ -5709,7 +5687,7 @@ deepEqual(
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>groupBy(<span class="hljs-string">&quot;user_id&quot;</span>)([
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">groupBy</span>(<span class="hljs-string">&quot;user_id&quot;</span>)([
   {<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">user_id</span>: <span class="hljs-number">2</span>},
   {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">user_id</span>: <span class="hljs-number">3</span>},
   {<span class="hljs-attr">id</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">user_id</span>: <span class="hljs-number">2</span>},
@@ -5805,7 +5783,7 @@ deepEqual(
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>indexBy(<span class="hljs-string">&quot;id&quot;</span>)([
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">indexBy</span>(<span class="hljs-string">&quot;id&quot;</span>)([
   {<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">user_id</span>: <span class="hljs-number">2</span>},
   {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">user_id</span>: <span class="hljs-number">3</span>},
 ])
@@ -6042,20 +6020,20 @@ deepEqual(
     
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> scores = [{
- <span class="hljs-attr">name</span>   : <span class="hljs-string">&quot;Bob&quot;</span>,
- <span class="hljs-attr">score</span>  : <span class="hljs-number">1</span>,
+ name   : <span class="hljs-string">&quot;Bob&quot;</span>,
+ score  : <span class="hljs-number">1</span>,
  <span class="hljs-attr">subject</span>: <span class="hljs-string">&quot;Math&quot;</span>
 }, {
- <span class="hljs-attr">name</span>   : <span class="hljs-string">&quot;Alice&quot;</span>,
- <span class="hljs-attr">score</span>  : <span class="hljs-number">10</span>,
+ name   : <span class="hljs-string">&quot;Alice&quot;</span>,
+ score  : <span class="hljs-number">10</span>,
  <span class="hljs-attr">subject</span>: <span class="hljs-string">&quot;Math&quot;</span>
 }, {
- <span class="hljs-attr">name</span>   : <span class="hljs-string">&quot;Hatter&quot;</span>,
- <span class="hljs-attr">score</span>  : <span class="hljs-number">10</span>,
+ name   : <span class="hljs-string">&quot;Hatter&quot;</span>,
+ score  : <span class="hljs-number">10</span>,
  <span class="hljs-attr">subject</span>: <span class="hljs-string">&quot;Math&quot;</span>
 }]
 
-hist( <span class="hljs-string">&quot;score&quot;</span> )( scores )
+<span class="hljs-title function_">hist</span>( <span class="hljs-string">&quot;score&quot;</span> )( scores )
 <span class="hljs-comment">// =&gt; { &quot;1&quot;: 1, &quot;10&quot;: 2 }</span></pre>
     
   
@@ -6223,12 +6201,12 @@ hist( <span class="hljs-string">&quot;score&quot;</span> )( scores )
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>tryCatch(inc)(<span class="hljs-number">10</span>)
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">tryCatch</span>(inc)(<span class="hljs-number">10</span>)
 <span class="hljs-comment">// =&gt; 11</span>
 
-tryCatch(
-  <span class="hljs-function">() =&gt;</span> { <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&quot;Tryer error&quot;</span>) },
-  <span class="hljs-function">(<span class="hljs-params">error, source</span>) =&gt;</span> inc(source)
+<span class="hljs-title function_">tryCatch</span>(
+  <span class="hljs-function">() =&gt;</span> { <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;Tryer error&quot;</span>) },
+  <span class="hljs-function">(<span class="hljs-params">error, source</span>) =&gt;</span> <span class="hljs-title function_">inc</span>(source)
 )(<span class="hljs-number">10</span>)
 <span class="hljs-comment">// =&gt; 11</span></pre>
     
@@ -6310,17 +6288,17 @@ them all as "Object".</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>type({})                <span class="hljs-comment">// &quot;Object&quot;</span>
-type(<span class="hljs-number">1</span>)                 <span class="hljs-comment">// &quot;Number&quot;</span>
-type(<span class="hljs-literal">false</span>)             <span class="hljs-comment">// &quot;Boolean&quot;</span>
-type(<span class="hljs-string">&quot;s&quot;</span>)               <span class="hljs-comment">// &quot;String&quot;</span>
-type(<span class="hljs-literal">null</span>)              <span class="hljs-comment">// &quot;Null&quot;</span>
-type(<span class="hljs-literal">undefined</span>)         <span class="hljs-comment">// &quot;Undefined&quot;</span>
-type([])                <span class="hljs-comment">// &quot;Array&quot;</span>
-type(<span class="hljs-regexp">/[A-z]/</span>)           <span class="hljs-comment">// &quot;RegExp&quot;</span>
-type(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>())        <span class="hljs-comment">// &quot;Date&quot;</span>
-type(<span class="hljs-function">() =&gt;</span> {})          <span class="hljs-comment">// &quot;Function&quot;</span>
-type(<span class="hljs-built_in">Promise</span>.resolve()) <span class="hljs-comment">// &quot;Promise&quot;</span></pre>
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">type</span>({})                <span class="hljs-comment">// &quot;Object&quot;</span>
+<span class="hljs-title function_">type</span>(<span class="hljs-number">1</span>)                 <span class="hljs-comment">// &quot;Number&quot;</span>
+<span class="hljs-title function_">type</span>(<span class="hljs-literal">false</span>)             <span class="hljs-comment">// &quot;Boolean&quot;</span>
+<span class="hljs-title function_">type</span>(<span class="hljs-string">&quot;s&quot;</span>)               <span class="hljs-comment">// &quot;String&quot;</span>
+<span class="hljs-title function_">type</span>(<span class="hljs-literal">null</span>)              <span class="hljs-comment">// &quot;Null&quot;</span>
+<span class="hljs-title function_">type</span>(<span class="hljs-literal">undefined</span>)         <span class="hljs-comment">// &quot;Undefined&quot;</span>
+<span class="hljs-title function_">type</span>([])                <span class="hljs-comment">// &quot;Array&quot;</span>
+<span class="hljs-title function_">type</span>(<span class="hljs-regexp">/[A-z]/</span>)           <span class="hljs-comment">// &quot;RegExp&quot;</span>
+<span class="hljs-title function_">type</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>())        <span class="hljs-comment">// &quot;Date&quot;</span>
+<span class="hljs-title function_">type</span>(<span class="hljs-function">() =&gt;</span> {})          <span class="hljs-comment">// &quot;Function&quot;</span>
+<span class="hljs-title function_">type</span>(<span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>()) <span class="hljs-comment">// &quot;Promise&quot;</span></pre>
     
   
 
@@ -6443,7 +6421,7 @@ of how many times is called.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> thottledMouseMove = throttle(mouseMove, { <span class="hljs-attr">wait</span>: <span class="hljs-number">100</span> })
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> thottledMouseMove = <span class="hljs-title function_">throttle</span>(mouseMove, { <span class="hljs-attr">wait</span>: <span class="hljs-number">100</span> })
 
 <span class="hljs-comment">// render</span>
 &lt;input onMouseMove={thottledMouseMove} ... /&gt;</pre>
@@ -6562,7 +6540,7 @@ of how many times is called.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> debouncedAutocomplete = debounce(autocompleteFromAPI, { <span class="hljs-attr">wait</span>: <span class="hljs-number">100</span> })
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> debouncedAutocomplete = <span class="hljs-title function_">debounce</span>(autocompleteFromAPI, { <span class="hljs-attr">wait</span>: <span class="hljs-number">100</span> })
 
 <span class="hljs-comment">// render</span>
 &lt;input onChange={debouncedAutocomplete} ... /&gt;</pre>
@@ -6641,10 +6619,10 @@ of how many times is called.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>isURI(<span class="hljs-string">&quot;lorem&quot;</span>)
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">isURI</span>(<span class="hljs-string">&quot;lorem&quot;</span>)
 <span class="hljs-comment">// false</span>
 
-isURI(<span class="hljs-string">&quot;http://www.ietf.org/rfc/rfc2396.txt&quot;</span>)
+<span class="hljs-title function_">isURI</span>(<span class="hljs-string">&quot;http://www.ietf.org/rfc/rfc2396.txt&quot;</span>)
 <span class="hljs-comment">// true</span></pre>
     
   
@@ -6828,10 +6806,10 @@ any arity, the remaining functions must be unary.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> inc = <span class="hljs-function"><span class="hljs-params">input</span> =&gt;</span> input + <span class="hljs-number">1</span>
-<span class="hljs-keyword">const</span> incP = <span class="hljs-function"><span class="hljs-params">input</span> =&gt;</span> <span class="hljs-built_in">Promise</span>.resolve(input + <span class="hljs-number">1</span>)
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> <span class="hljs-title function_">inc</span> = input =&gt; input + <span class="hljs-number">1</span>
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">incP</span> = input =&gt; <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>(input + <span class="hljs-number">1</span>)
 
-pipeP(incP, inc)(<span class="hljs-number">2</span>).then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> {
+<span class="hljs-title function_">pipeP</span>(incP, inc)(<span class="hljs-number">2</span>).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> {
   <span class="hljs-comment">// =&gt; result = 4</span>
 })</pre>
     
@@ -6922,10 +6900,10 @@ Will not inherit prototype, only own enumerable properties.</p>
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">let</span> x = {<span class="hljs-attr">a</span>: [<span class="hljs-number">1</span>]}
 
-clone(x)
+<span class="hljs-title function_">clone</span>(x)
 <span class="hljs-comment">// =&gt; {a: [1]}</span>
 
-close(x) === x
+<span class="hljs-title function_">close</span>(x) === x
 <span class="hljs-comment">// =&gt; false</span></pre>
     
   
@@ -7021,10 +6999,10 @@ close(x) === x
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>repeat(<span class="hljs-number">2</span>)(<span class="hljs-number">3</span>)
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">repeat</span>(<span class="hljs-number">2</span>)(<span class="hljs-number">3</span>)
 <span class="hljs-comment">// =&gt; [2, 2, 2]</span>
 
-repeat(<span class="hljs-function"><span class="hljs-params">index</span> =&gt;</span> index + <span class="hljs-number">1</span>, <span class="hljs-number">3</span>)
+<span class="hljs-title function_">repeat</span>(<span class="hljs-function"><span class="hljs-params">index</span> =&gt;</span> index + <span class="hljs-number">1</span>, <span class="hljs-number">3</span>)
 <span class="hljs-comment">// =&gt; [1, 2, 3]</span></pre>
     
   
@@ -7117,9 +7095,9 @@ of calling
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> sum = <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a + b
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> <span class="hljs-title function_">sum</span> = (<span class="hljs-params">a, b</span>) =&gt; a + b
 
-curry(sum)(<span class="hljs-number">1</span>)(<span class="hljs-number">2</span>) = <span class="hljs-number">3</span></pre>
+<span class="hljs-title function_">curry</span>(sum)(<span class="hljs-number">1</span>)(<span class="hljs-number">2</span>) = <span class="hljs-number">3</span></pre>
     
   
 
@@ -7209,10 +7187,10 @@ removed.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>compact([<span class="hljs-number">1</span>, <span class="hljs-literal">null</span>, <span class="hljs-literal">undefined</span>, {}])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">compact</span>([<span class="hljs-number">1</span>, <span class="hljs-literal">null</span>, <span class="hljs-literal">undefined</span>, {}])
 <span class="hljs-comment">// =&gt; [1, {}]</span>
 
-compact({
+<span class="hljs-title function_">compact</span>({
   <span class="hljs-attr">a</span>: <span class="hljs-string">&quot;Lorem Ipsum&quot;</span>,
   <span class="hljs-attr">b</span>: <span class="hljs-literal">null</span>,
   <span class="hljs-attr">c</span>: <span class="hljs-literal">undefined</span>,
@@ -7225,6 +7203,351 @@ compact({
 <span class="hljs-comment">//  f: lambda</span>
 <span class="hljs-comment">// }</span></pre>
     
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='isnothing'>
+      isNothing
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>isNothing</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#any">any</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='isobject'>
+      isObject
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>isObject</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#any">any</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='istrue'>
+      isTrue
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>isTrue</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#any">any</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='isfalse'>
+      isFalse
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>isFalse</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#any">any</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='not'>
+      not
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>not</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>input</span> <code class='quiet'>(<a href="#any">any</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        
+      
+    
+  
+
+  
+
+  
+
   
 
   
@@ -7329,7 +7652,7 @@ otherwise function on the input.
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>cases([
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">cases</span>([
  [x === <span class="hljs-number">0</span>, <span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x * <span class="hljs-number">2</span>],
  [x === <span class="hljs-number">1</span>, <span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x],
 ], <span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x + <span class="hljs-number">1</span>)(<span class="hljs-number">2</span>)
@@ -7646,13 +7969,13 @@ otherwise function on the input.
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>values([<span class="hljs-string">&quot;lorem&quot;</span>, <span class="hljs-string">&quot;ipsum&quot;</span>])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">values</span>([<span class="hljs-string">&quot;lorem&quot;</span>, <span class="hljs-string">&quot;ipsum&quot;</span>])
 <span class="hljs-comment">// =&gt; [&quot;lorem&quot;, &quot;ipsum&quot;]</span>
 
-values({ <span class="hljs-attr">foo</span>: <span class="hljs-string">&quot;bar&quot;</span>, <span class="hljs-attr">lorem</span>: <span class="hljs-string">&quot;ipsum&quot;</span>})
+<span class="hljs-title function_">values</span>({ <span class="hljs-attr">foo</span>: <span class="hljs-string">&quot;bar&quot;</span>, <span class="hljs-attr">lorem</span>: <span class="hljs-string">&quot;ipsum&quot;</span>})
 <span class="hljs-comment">// =&gt; [&quot;bar&quot;, &quot;ipsum&quot;]</span>
 
-values(<span class="hljs-string">&quot;foo&quot;</span>), values(<span class="hljs-number">12</span>), values(<span class="hljs-literal">null</span>), etc
+<span class="hljs-title function_">values</span>(<span class="hljs-string">&quot;foo&quot;</span>), <span class="hljs-title function_">values</span>(<span class="hljs-number">12</span>), <span class="hljs-title function_">values</span>(<span class="hljs-literal">null</span>), etc
 <span class="hljs-comment">// =&gt; []</span></pre>
     
   
@@ -7883,10 +8206,10 @@ values(<span class="hljs-string">&quot;foo&quot;</span>), values(<span class="hl
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>rename({ <span class="hljs-attr">old</span>: <span class="hljs-string">&quot;new&quot;</span> }, { <span class="hljs-attr">old</span>: <span class="hljs-number">42</span> })
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">rename</span>({ <span class="hljs-attr">old</span>: <span class="hljs-string">&quot;new&quot;</span> }, { <span class="hljs-attr">old</span>: <span class="hljs-number">42</span> })
 <span class="hljs-comment">// =&gt; { new: 42 }</span>
 
-rename({ <span class="hljs-attr">old</span>: <span class="hljs-string">&quot;new&quot;</span> }, [{ <span class="hljs-attr">old</span>: <span class="hljs-number">42</span> }, { <span class="hljs-attr">old</span>: <span class="hljs-number">41</span> }])
+<span class="hljs-title function_">rename</span>({ <span class="hljs-attr">old</span>: <span class="hljs-string">&quot;new&quot;</span> }, [{ <span class="hljs-attr">old</span>: <span class="hljs-number">42</span> }, { <span class="hljs-attr">old</span>: <span class="hljs-number">41</span> }])
 <span class="hljs-comment">// =&gt; [{ new: 42 }, { new: 41 }]</span></pre>
     
   
@@ -8048,7 +8371,7 @@ rename({ <span class="hljs-attr">old</span>: <span class="hljs-string">&quot;new
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>page({
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">page</span>({
   <span class="hljs-attr">offset</span>: <span class="hljs-number">1</span>,
   <span class="hljs-attr">limit</span>: <span class="hljs-number">5</span>
 })([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>])
@@ -8136,8 +8459,8 @@ rename({ <span class="hljs-attr">old</span>: <span class="hljs-string">&quot;new
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>push(<span class="hljs-number">2</span>)([<span class="hljs-number">1</span>]) <span class="hljs-comment">// =&gt; [1, 2]</span>
-push(<span class="hljs-number">2</span>, <span class="hljs-number">4</span>)([<span class="hljs-number">1</span>]) <span class="hljs-comment">// =&gt; [1, 2, 4]</span></pre>
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">push</span>(<span class="hljs-number">2</span>)([<span class="hljs-number">1</span>]) <span class="hljs-comment">// =&gt; [1, 2]</span>
+<span class="hljs-title function_">push</span>(<span class="hljs-number">2</span>, <span class="hljs-number">4</span>)([<span class="hljs-number">1</span>]) <span class="hljs-comment">// =&gt; [1, 2, 4]</span></pre>
     
   
 
@@ -8214,16 +8537,16 @@ push(<span class="hljs-number">2</span>, <span class="hljs-number">4</span>)([<s
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>max([-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">3</span>])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">max</span>([-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">3</span>])
 <span class="hljs-comment">// =&gt; 10</span>
 
-<span class="hljs-keyword">const</span> fn = <span class="hljs-function"><span class="hljs-params">element</span> =&gt;</span> (<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(element.time))
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">fn</span> = element =&gt; (<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(element.<span class="hljs-property">time</span>))
 <span class="hljs-keyword">const</span> input = [
   { <span class="hljs-attr">time</span>: <span class="hljs-string">&quot;2018-05-15T11:20:07.754110Z&quot;</span> },
   { <span class="hljs-attr">time</span>: <span class="hljs-string">&quot;2018-06-11T09:01:54.337344Z&quot;</span> },
   { <span class="hljs-attr">time</span>: <span class="hljs-string">&quot;2018-06-08T08:26:12.711071Z&quot;</span> },
 ]
-max(fn, input)
+<span class="hljs-title function_">max</span>(fn, input)
 <span class="hljs-comment">// =&gt; {time: &quot;2018-06-11T09:01:54.337344Z&quot;}</span></pre>
     
   
@@ -8301,16 +8624,16 @@ max(fn, input)
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>min([-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">3</span>])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">min</span>([-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">3</span>])
 <span class="hljs-comment">// =&gt; -1</span>
 
-<span class="hljs-keyword">const</span> fn = <span class="hljs-function"><span class="hljs-params">element</span> =&gt;</span> ( <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>( element.time ) )
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">fn</span> = element =&gt; ( <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>( element.<span class="hljs-property">time</span> ) )
 <span class="hljs-keyword">const</span> input = [
   { <span class="hljs-attr">time</span>: <span class="hljs-string">&quot;2018-05-15T11:20:07.754110Z&quot;</span> },
   { <span class="hljs-attr">time</span>: <span class="hljs-string">&quot;2018-06-11T09:01:54.337344Z&quot;</span> },
   { <span class="hljs-attr">time</span>: <span class="hljs-string">&quot;2018-06-08T08:26:12.711071Z&quot;</span> },
 ]
-min(fn)(input)
+<span class="hljs-title function_">min</span>(fn)(input)
 <span class="hljs-comment">// =&gt; {time: &quot;2018-05-15T11:20:07.754110Z&quot;}</span></pre>
     
   
@@ -8472,7 +8795,7 @@ min(fn)(input)
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>move(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">move</span>(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])
 <span class="hljs-comment">// =&gt; [2, 1]</span></pre>
     
   
@@ -8647,7 +8970,7 @@ min(fn)(input)
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>append([<span class="hljs-number">1</span>])([<span class="hljs-number">4</span>, <span class="hljs-number">5</span>])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">append</span>([<span class="hljs-number">1</span>])([<span class="hljs-number">4</span>, <span class="hljs-number">5</span>])
 <span class="hljs-comment">// =&gt; [1, 4, 5]</span></pre>
     
   
@@ -8734,7 +9057,7 @@ min(fn)(input)
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>prepend([<span class="hljs-number">1</span>])([<span class="hljs-number">4</span>, <span class="hljs-number">5</span>])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">prepend</span>([<span class="hljs-number">1</span>])([<span class="hljs-number">4</span>, <span class="hljs-number">5</span>])
 <span class="hljs-comment">// =&gt; [1, 4, 5]</span></pre>
     
   
@@ -8819,10 +9142,10 @@ min(fn)(input)
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>toggle(<span class="hljs-number">1</span>)([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">toggle</span>(<span class="hljs-number">1</span>)([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])
 <span class="hljs-comment">// =&gt; [2]</span>
 
-toggle(<span class="hljs-number">1</span>, [<span class="hljs-number">2</span>])
+<span class="hljs-title function_">toggle</span>(<span class="hljs-number">1</span>, [<span class="hljs-number">2</span>])
 <span class="hljs-comment">// =&gt; [1, 2]</span></pre>
     
   
@@ -9162,7 +9485,7 @@ source is Array</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>replaceWith(
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">replaceWith</span>(
  {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>},
  {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;boss&quot;</span>, <span class="hljs-attr">isBoss</span>: <span class="hljs-literal">true</span>}
  )([
@@ -9174,7 +9497,7 @@ source is Array</p>
 <span class="hljs-comment">//   {id: 3, title:&quot;minion&quot;}</span>
 <span class="hljs-comment">// ]</span>
 
-replaceWith({ <span class="hljs-attr">id</span>: <span class="hljs-number">2</span> }, <span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> ({
+<span class="hljs-title function_">replaceWith</span>({ <span class="hljs-attr">id</span>: <span class="hljs-number">2</span> }, <span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> ({
   ...item,
   <span class="hljs-attr">content</span>: [<span class="hljs-string">&quot;new&quot;</span>, <span class="hljs-string">&quot;updated&quot;</span>, <span class="hljs-string">&quot;field&quot;</span>],
 }))([
@@ -9273,10 +9596,10 @@ replaceWith({ <span class="hljs-attr">id</span>: <span class="hljs-number">2</sp
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> comments = [{<span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">body</span>: <span class="hljs-string">&quot;&quot;</span>}, {<span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">body</span>: <span class="hljs-string">&quot;dolor&quot;</span>}]
 
-findIndex(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> item.body === <span class="hljs-string">&quot;lorem&quot;</span>)(comments)
+<span class="hljs-title function_">findIndex</span>(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> item.<span class="hljs-property">body</span> === <span class="hljs-string">&quot;lorem&quot;</span>)(comments)
 <span class="hljs-comment">// =&gt; -1</span>
 
-findIndex([get(<span class="hljs-string">&quot;body&quot;</span>), equals(<span class="hljs-string">&quot;dolor&quot;</span>)], <span class="hljs-literal">null</span>, comments)
+<span class="hljs-title function_">findIndex</span>([<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;body&quot;</span>), <span class="hljs-title function_">equals</span>(<span class="hljs-string">&quot;dolor&quot;</span>)], <span class="hljs-literal">null</span>, comments)
 <span class="hljs-comment">// =&gt; 1</span></pre>
     
   
@@ -9382,7 +9705,7 @@ will be searched using a shallow equal. If found, it will be discarded.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>join([<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">join</span>([<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>])
 <span class="hljs-comment">// =&gt; [1, 2, 3, 4, 5]</span></pre>
     
   
@@ -9489,7 +9812,7 @@ if it has not been already added.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>intersect([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">intersect</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>])
 <span class="hljs-comment">// =&gt; [3]</span></pre>
     
   
@@ -9612,8 +9935,8 @@ if it has not been already added.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>intersectBy(
-  <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.id === b.id,
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">intersectBy</span>(
+  <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.<span class="hljs-property">id</span> === b.<span class="hljs-property">id</span>,
   <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> ({ ...a, ...b }),
   [
     { <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">lorem</span>: <span class="hljs-string">&quot;ipsum&quot;</span> },
@@ -9702,7 +10025,7 @@ if it has not been already added.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>dec(<span class="hljs-number">2</span>)
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">dec</span>(<span class="hljs-number">2</span>)
 <span class="hljs-comment">// =&gt; 1</span></pre>
     
   
@@ -9780,7 +10103,7 @@ if it has not been already added.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>inc(<span class="hljs-number">2</span>)
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">inc</span>(<span class="hljs-number">2</span>)
 <span class="hljs-comment">// =&gt; 3</span></pre>
     
   
@@ -9867,10 +10190,10 @@ if it has not been already added.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>gt(<span class="hljs-number">10</span>)(<span class="hljs-number">4</span>)
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">gt</span>(<span class="hljs-number">10</span>)(<span class="hljs-number">4</span>)
 <span class="hljs-comment">// =&gt; false</span>
 
-gt(<span class="hljs-number">10</span>, <span class="hljs-number">14</span>)
+<span class="hljs-title function_">gt</span>(<span class="hljs-number">10</span>, <span class="hljs-number">14</span>)
 <span class="hljs-comment">// =&gt; true</span></pre>
     
   
@@ -9959,10 +10282,10 @@ is the second operand.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>lt(<span class="hljs-number">10</span>)(<span class="hljs-number">4</span>)
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">lt</span>(<span class="hljs-number">10</span>)(<span class="hljs-number">4</span>)
 <span class="hljs-comment">// =&gt; true</span>
 
-lt(<span class="hljs-number">10</span>)(<span class="hljs-number">14</span>)
+<span class="hljs-title function_">lt</span>(<span class="hljs-number">10</span>)(<span class="hljs-number">14</span>)
 <span class="hljs-comment">// =&gt; false</span></pre>
     
   
@@ -10157,7 +10480,7 @@ make each split.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>split(<span class="hljs-string">&quot;,&quot;</span>, <span class="hljs-string">&quot;lorem,ipsum&quot;</span>)
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">split</span>(<span class="hljs-string">&quot;,&quot;</span>, <span class="hljs-string">&quot;lorem,ipsum&quot;</span>)
 <span class="hljs-comment">// [&quot;lorem&quot;, &quot;ipsum&quot;]</span></pre>
     
   
@@ -10266,7 +10589,7 @@ make each split.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>split(<span class="hljs-number">2</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">split</span>(<span class="hljs-number">2</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>])
 <span class="hljs-comment">// [[1, 2], [3, 4]]</span></pre>
     
   
@@ -10351,13 +10674,13 @@ make each split.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>startsWith(<span class="hljs-string">&quot;lorem&quot;</span>, <span class="hljs-string">&quot;lorem ipsum&quot;</span>)
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">startsWith</span>(<span class="hljs-string">&quot;lorem&quot;</span>, <span class="hljs-string">&quot;lorem ipsum&quot;</span>)
 <span class="hljs-comment">// =&gt; true</span>
 
-startsWith(<span class="hljs-string">&quot;lorem&quot;</span>, [<span class="hljs-string">&quot;lorem&quot;</span>, <span class="hljs-string">&quot;ipsum&quot;</span>])
+<span class="hljs-title function_">startsWith</span>(<span class="hljs-string">&quot;lorem&quot;</span>, [<span class="hljs-string">&quot;lorem&quot;</span>, <span class="hljs-string">&quot;ipsum&quot;</span>])
 <span class="hljs-comment">// =&gt; true</span>
 
-startsWith(<span class="hljs-string">&quot;dolor&quot;</span>)(<span class="hljs-string">&quot;lorem ipsum&quot;</span>)
+<span class="hljs-title function_">startsWith</span>(<span class="hljs-string">&quot;dolor&quot;</span>)(<span class="hljs-string">&quot;lorem ipsum&quot;</span>)
 <span class="hljs-comment">// false</span></pre>
     
   
@@ -10444,7 +10767,7 @@ startsWith(<span class="hljs-string">&quot;dolor&quot;</span>)(<span class="hljs
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>endWith(<span class="hljs-string">&quot;ipsum&quot;</span>, <span class="hljs-string">&quot;lorem ipsum&quot;</span>)
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">endWith</span>(<span class="hljs-string">&quot;ipsum&quot;</span>, <span class="hljs-string">&quot;lorem ipsum&quot;</span>)
 <span class="hljs-comment">// =&gt; true</span></pre>
     
   
@@ -10529,7 +10852,7 @@ startsWith(<span class="hljs-string">&quot;dolor&quot;</span>)(<span class="hljs
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>toLower(<span class="hljs-string">&quot;Lorem Ipsum&quot;</span>)
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">toLower</span>(<span class="hljs-string">&quot;Lorem Ipsum&quot;</span>)
 <span class="hljs-comment">// &quot;lorem ipsum&quot;</span></pre>
     
   
@@ -10614,7 +10937,7 @@ startsWith(<span class="hljs-string">&quot;dolor&quot;</span>)(<span class="hljs
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>toUpper(<span class="hljs-string">&quot;Lorem Ipsum&quot;</span>)
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">toUpper</span>(<span class="hljs-string">&quot;Lorem Ipsum&quot;</span>)
 <span class="hljs-comment">// &quot;LOREM IPSUM&quot;</span></pre>
     
   
@@ -10709,10 +11032,10 @@ startsWith(<span class="hljs-string">&quot;dolor&quot;</span>)(<span class="hljs
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>trim()(<span class="hljs-string">&quot; lorem  &quot;</span>)
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">trim</span>()(<span class="hljs-string">&quot; lorem  &quot;</span>)
 <span class="hljs-comment">// =&gt; &quot;lorem&quot;</span>
 
-trim(<span class="hljs-string">&quot;-&quot;</span>, <span class="hljs-string">&quot;-- lorem  -&quot;</span>)
+<span class="hljs-title function_">trim</span>(<span class="hljs-string">&quot;-&quot;</span>, <span class="hljs-string">&quot;-- lorem  -&quot;</span>)
 <span class="hljs-comment">// =&gt; &quot; lorem  &quot;</span></pre>
     
   
@@ -10799,7 +11122,7 @@ trim(<span class="hljs-string">&quot;-&quot;</span>, <span class="hljs-string">&
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>contains(<span class="hljs-string">&quot;ipsum&quot;</span>)(<span class="hljs-string">&quot;lorem ipsum&quot;</span>)
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">contains</span>(<span class="hljs-string">&quot;ipsum&quot;</span>)(<span class="hljs-string">&quot;lorem ipsum&quot;</span>)
 <span class="hljs-comment">// =&gt; true</span></pre>
     
   
@@ -10886,7 +11209,7 @@ trim(<span class="hljs-string">&quot;-&quot;</span>, <span class="hljs-string">&
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>unite(<span class="hljs-string">&quot;,&quot;</span>, [<span class="hljs-string">&quot;lorem&quot;</span>, <span class="hljs-string">&quot;ipsum&quot;</span>])
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-title function_">unite</span>(<span class="hljs-string">&quot;,&quot;</span>, [<span class="hljs-string">&quot;lorem&quot;</span>, <span class="hljs-string">&quot;ipsum&quot;</span>])
 <span class="hljs-comment">// =&gt; &quot;lorem,ipsum&quot;</span></pre>
     
   
