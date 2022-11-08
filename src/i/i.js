@@ -1,8 +1,15 @@
 /**
  * Identity function
  *
- * @param {any} input Source input
+ * @name i
+ * @alias identity
+ * @tag Core
+ * @signature <T>(input: T): T
  *
- * @returns {any}
+ * @example
+ * identity(1)
+ * // => 1
  */
 export const i = input => input
+
+export { i as identity }

@@ -1,17 +1,4 @@
 import { pipe } from "../pipe/pipe.js"
-import { curry } from "../curry/curry.js"
-
-const _map = (_fn, _input) => {
-  const result = []
-  const input = Array.isArray(_input) ? _input : [_input]
-  const fn = Array.isArray(_fn) ? pipe(..._fn) : _fn
-
-  for (let i = 0, valuesCount = input.length; i < valuesCount; ++i) {
-    result.push(fn(input[i], i, input))
-  }
-
-  return result
-}
 
 /**
  * Iterates over an array and applies a function on each element, returning a
@@ -37,4 +24,20 @@ const _map = (_fn, _input) => {
  * map([inc, inc], [1, 2])
  * // => [3, 4]
  */
-export const map = curry(_map)
+
+export const map = (...params) => {
+  if (params.length <= 1) {
+    return input => map(params[0], input)
+  }
+
+  const [_fn, _input] = params
+  const input = Array.isArray(_input) ? _input : [_input]
+  const fn = Array.isArray(_fn) ? pipe(..._fn) : _fn
+  const result = []
+
+  for (let i = 0, valuesCount = input.length; i < valuesCount; ++i) {
+    result.push(fn(input[i], i, input))
+  }
+
+  return result
+}
