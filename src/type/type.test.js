@@ -15,6 +15,7 @@ test("type", t => {
   t.equal(type({}), "Object", "{} should equal Object")
   t.equal(type(new Date()), "Date", "new Date() should equal Date")
   t.equal(
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     type(() => {}),
     "Function",
     "() => {} should equal Function"

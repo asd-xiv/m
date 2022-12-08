@@ -9,6 +9,7 @@ test("first", t => {
   t.equal(first(2), undefined, "From number should return undefined")
   t.equal(first({}), undefined, "From object should return undefined")
   t.equal(
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     first(() => {}),
     undefined,
     "From function should return undefined"
