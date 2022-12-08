@@ -16,6 +16,7 @@ test("isEmpty", t => {
   t.equal(isEmpty(null), true, "null should equal true")
   t.equal(isEmpty(), true, "undefined should equal true")
   t.equal(
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     isEmpty(() => {}),
     false,
     "() => {} should equal false"

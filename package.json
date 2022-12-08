@@ -52,6 +52,7 @@
     "build.docs": "documentation build src/index.js --project-name m -f html -o docs -c documentation.yml",
     "build.js": "swc src -d 'dist/src'",
     "build.types": "cp --parents src/index.d.ts dist && cp -r --parents src/**/*.d.ts dist && cp -r --parents types dist",
+    "build.types.mac": "mkdir -p dist && cp src/index.d.ts dist/src/ && rsync -R types/** dist && rsync -R src/**/*.d.ts dist",
     "prebuild": "rm -rf dist && mkdir -p dist",
     "build": "npm run build.js && npm run build.types && npm run build.docs",
     "----LINT": "",
@@ -69,7 +70,6 @@
     "release": "semantic-release"
   },
   "dependencies": {
-    "@swc/helpers": "^0.4.12",
     "fast-deep-equal": "^3.1.3",
     "rfc-3986": "^1.0.1"
   },
@@ -82,7 +82,8 @@
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
     "@swc/cli": "^0.1.57",
-    "@swc/core": "^1.3.14",
+    "@swc/core": "^1.3.21",
+    "@swc/helpers": "^0.4.14",
     "@types/ramda": "^0.28.19",
     "@types/tape": "^4.13.2",
     "benchmark": "^2.1.4",

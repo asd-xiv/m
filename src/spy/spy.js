@@ -13,6 +13,8 @@ import { is } from "../is/is.js"
  * @signature (...props: any) => (source: any): any
  *
  * @example
+ * spy()([1, 2, 3])
+ * // prints [1, 2, 3] in the console output
  */
 export const spy =
   (props = {}) =>

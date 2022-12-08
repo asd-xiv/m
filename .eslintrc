@@ -1,18 +1,31 @@
 {
   "root": true,
-  "extends": [ "@asd14/eslint-config/targets/node-ts" ],
+  "extends": [
+    "@asd14/eslint-config/targets/node-ts"
+  ],
   "rules": {
-    "jsdoc/require-example": ["error", { "exemptedBy": ["internal"] }],
-
+    "jsdoc/require-example": [
+      "error",
+      {
+        "exemptedBy": [
+          "internal"
+        ]
+      }
+    ],
     // disable until upstream issues fixed
     "jsdoc/check-line-alignment": "off",
-
     // "jsdoc/check-line-alignment": ["error", "always", {
     //   "tags": ["tags"]
     // }],
-    "jsdoc/check-tag-names": ["warn", {
-      "definedTags": ["tag", "signature"]
-    }]
+    "jsdoc/check-tag-names": [
+      "warn",
+      {
+        "definedTags": [
+          "tag",
+          "signature"
+        ]
+      }
+    ]
   },
   "settings": {
     "import/cache": {

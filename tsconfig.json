@@ -1,6 +1,6 @@
 {
   "include": ["src", "types"],
-  "exclude": ["**/node_modules", "src/**/*.test-d.ts"],
+  "exclude": ["**/node_modules", "src/**/*.test-d.ts", "dist"],
   "compilerOptions": {
     "module": "node16",
     "moduleResolution": "node16",
@@ -8,6 +8,7 @@
     "declaration": false,
     "allowJs": true,
     "checkJs": false,
+    "outDir": "dist",
 
     "strict": true,
 		"noImplicitReturns": true,

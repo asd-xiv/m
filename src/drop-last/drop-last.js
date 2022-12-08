@@ -8,13 +8,15 @@ const _dropLast = curry((count, input) =>
  * Remove elements from end of array
  *
  * @param {number} count Number of element to remove (default 1)
- * @param {Array}  input Source array
  *
- * @returns {Array}
+ * @returns {function(Array): Array}
  *
  * @tag Array
  * @signature (count: number, input: Array): Array
  * @signature (input: Array): Array
+ * @example
+ * dropLast(1, [1, 2, 3])
+ * // => [1, 2]
  */
 export const dropLast = count => {
   if (Array.isArray(count)) {

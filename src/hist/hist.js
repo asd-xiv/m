@@ -2,11 +2,19 @@ import { type } from "../type/type.js"
 import { is } from "../is/is.js"
 
 /**
+ * @callback HistByArray
  * Count the number of occurances of each element
  *
  * @param {Array} input Source input
  *
- * @returns {Object}
+ * @returns {function(Array): Object}
+ */
+
+/**
+ * @type {HistByArray}
+ *
+ * @example
+ * byArray([1, 2, 3, 2, 3, 3]) // => { "1": 1, "2": 2, "3": 3 }
  */
 const byArray = input => {
   const result = {}
@@ -19,11 +27,16 @@ const byArray = input => {
 }
 
 /**
+ * @callback HistByKey
  * Count the number of occurances of each object by a field
- *
  * @param {string} field The field
- *
- * @returns {Object}
+ * @returns {function(Object[]): Object}
+ */
+
+/**
+ * @type {HistByKey}
+ * @example
+ * byKey("name")([{ name: "Bob" }, { name: "Alice" }, { name: "Bob" }]) // => { "Bob": 2, "Alice": 1 }
  */
 const byKey = field => input => {
   const result = {}
@@ -52,9 +65,8 @@ const byType = {
  * @signature (field: string)(source: Object[]): Object
  *
  * @param {string}   field  Field name to count
- * @param {Object[]} source Array of objects
  *
- * @returns {Object}
+ * @returns {HistByArray|HistByKey} a function of an Array
  *
  * @example
  *

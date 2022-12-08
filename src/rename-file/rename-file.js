@@ -16,9 +16,12 @@ const removeTrailingSlash = input =>
  * Rename a file
  *
  * @param {string} newName New file name
- * @param {string} input   Absolute file path
  *
- * @returns {string}
+ * @returns {function(string): string } a function of the absolute file path
+ *
+ * @example
+ * renameFile("new-name.js", "/path/to/old-name.js")
+ * // => "/path/to/new-name.js"
  */
 const renameFile = newName =>
   pipe(

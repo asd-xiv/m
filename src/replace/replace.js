@@ -5,23 +5,25 @@ import { type } from "../type/type.js"
 /**
  * Replace substring in string
  *
+ * @internal
  * @param {string} oldString The old string
  * @param {string} newString The new string
  *
- * @returns {string}
+ * @returns {function(string): string}
  */
-const replaceString = (oldString, newString) => input =>
+const _replaceString = (oldString, newString) => input =>
   String.prototype.replace.call(input, oldString, newString)
 
 /**
  * Replace element in array (shallow equal)
  *
+ * @internal
  * @param {any} oldElm
  * @param {any} newElm
  *
- * @returns {Array}
+ * @returns {function(Array): Array}
  */
-const replaceArray = (oldElm, newElm) => input => {
+const _replaceArray = (oldElm, newElm) => input => {
   const result = []
 
   for (let i = 0, length = input.length - 1; i <= length; i++) {
@@ -41,19 +43,24 @@ const replaceArray = (oldElm, newElm) => input => {
  *
  * @param {string|any}   oldElm
  * @param {string|any}   newElm
- * @param {string|Array} source
  *
- * @returns {string|Array}
+ * @returns {function(any): string|Array}
  *
  * @tag String,Array
  * @signature (oldElm: string|any, newElm: string|any) => (source: Array): Array
  *
+ * @example
+ * replace("foo", "bar")("foo bar baz")
+ * // => "bar bar baz"
+ *
+ * replace("foo", "wow")(["foo", "bar", "baz"])
+ * // => ["wow", "bar", "baz"]
  */
 const replace = (oldElm, newElm) => input => {
   const inputType = type(input)
   const byType = {
-    String: replaceString,
-    Array: replaceArray,
+    String: _replaceString,
+    Array: _replaceArray,
   }
 
   return byType[inputType](oldElm, newElm)(input)
@@ -67,9 +74,8 @@ const replace = (oldElm, newElm) => input => {
  *
  * @param {Object}   filter   Filter object to match against each element
  * @param {Object}   newValue Object to replace matching elements
- * @param {Object[]} source
  *
- * @returns {Array}
+ * @returns {function(Array): Array}
  *
  * @example
  * replaceWith(
