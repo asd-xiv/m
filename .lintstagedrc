@@ -1,5 +1,5 @@
 {
-  "*.{js,json}": "eslint --quiet",
+  "*.{js,json}": "eslint --quiet src",
   "*.md": "markdownlint --ignore CHANGELOG.md",
   ".circleci/config.yml": "circleci config validate"
 }
