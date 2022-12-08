@@ -52,6 +52,7 @@
     "build.docs": "documentation build src/index.js --project-name m -f html -o docs -c documentation.yml",
     "build.js": "swc src -d 'dist/src'",
     "build.types": "cp --parents src/index.d.ts dist && cp -r --parents src/**/*.d.ts dist && cp -r --parents types dist",
+    "build.types.mac": "mkdir -p dist && cp src/index.d.ts dist/src/ && rsync -R types/** dist && rsync -R src/**/*.d.ts dist",
     "prebuild": "rm -rf dist && mkdir -p dist",
     "build": "npm run build.js && npm run build.types && npm run build.docs",
     "----LINT": "",
