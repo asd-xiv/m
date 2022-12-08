@@ -1,6 +1,7 @@
 import { map } from "../map/map.js"
 
 /**
+ * @internal
  * @param {string[]} keys  The properties to be filtered out
  * @param {Object}   input The source object
  *
@@ -22,6 +23,7 @@ const _pluckOne = (keys, input) => {
 }
 
 /**
+ * @internal
  * @param {string[]}          keys
  * @param {Object | Object[]} input
  *

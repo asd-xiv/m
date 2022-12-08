@@ -1,4 +1,5 @@
 /**
+ * @internal
  * @param {number} from
  * @param {number} to
  * @param {Array}  input

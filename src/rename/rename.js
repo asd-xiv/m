@@ -1,6 +1,7 @@
 import { map } from "../map/map.js"
 
 /**
+ * @internal
  * @param {Object} mappings
  * @param {Object} input
  *
@@ -23,6 +24,7 @@ const _renameOne = (mappings, input) => {
 }
 
 /**
+ * @internal
  * @param {Object}            mappings
  * @param {Object | Object[]} input
  *

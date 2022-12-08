@@ -8,6 +8,9 @@
  *
  * @tag Core
  * @signature (input: Object, acc: string[]): string[]
+ *
+ * @example
+ * protoChain({}) // => ["Object"]
  */
 const protoChain = (input, acc = []) => {
   const proto = Object.getPrototypeOf(input)

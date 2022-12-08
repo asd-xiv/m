@@ -1,4 +1,5 @@
 /**
+ * @internal
  * @param {string}   key   Field name to extract values from
  * @param {Object[]} input Array of objects
  *
