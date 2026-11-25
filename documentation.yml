@@ -42,6 +42,7 @@ toc:
   - mapIndexed
   - mapMatrix
   - maxBy
+  - minBy
   - partition
   - partitionWith
   - push
@@ -83,6 +84,7 @@ toc:
   - dec
   - inc
   - max
+  - min
   - sum
   - name: "Type guard"
   - isArray
