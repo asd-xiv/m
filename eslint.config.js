@@ -36,15 +36,15 @@ export default [
             checks: [
               {
                 pattern:
-                  "^@asd14/m/\\w+: expected '[\\w.[\\]]+' to be '\\w+' or '\\w+', got '\\w+'",
+                  "^@asd14/m/\\w+: expected '[\\w.[\\]()]+' to be '\\w+' or '\\w+', got '\\w+'",
                 message:
-                  "Format: @asd14/m/<fn>: expected '<param>' to be '<Type>' or '<Type>', got '<Actual>'. A param may be a path, eg. 'fns[0]' or 'patcher.tags'",
+                  "Format: @asd14/m/<fn>: expected '<param>' to be '<Type>' or '<Type>', got '<Actual>'. A param may be a path, eg. 'fns[0]', 'patcher.tags' or 'fn(input[0])'",
               },
               {
                 pattern:
-                  "^@asd14/m/\\w+: expected '[\\w.[\\]]+' to be '\\w+', got '\\w+'",
+                  "^@asd14/m/\\w+: expected '[\\w.[\\]()]+' to be '\\w+', got '\\w+'",
                 message:
-                  "Format: @asd14/m/<fn>: expected '<param>' to be '<Type>', got '<Actual>'. A param may be a path, eg. 'fns[0]' or 'patcher.tags'",
+                  "Format: @asd14/m/<fn>: expected '<param>' to be '<Type>', got '<Actual>'. A param may be a path, eg. 'fns[0]', 'patcher.tags' or 'fn(input[0])'",
               },
             ],
           },

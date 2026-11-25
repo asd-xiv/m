@@ -182,7 +182,8 @@ isPlainObject([])
 ### An error names the function and the path
 
 A `TypeError` names the public function, and the path to the bad part, eg. an
-item of a pipe array or a key of a patcher.
+item of a pipe array or a key of a patcher. A callback's result is named as its
+call, eg. `'fn(input[0])'`.
 
 ```ts
 // Bad: the engine's error, from inside the pipe
