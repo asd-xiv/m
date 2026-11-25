@@ -1,13 +1,26 @@
-<!-- markdownlint-disable first-line-h1 line-length -->
-
-[![CircleCI](https://circleci.com/gh/asd-xiv/m.svg?style=svg)](https://circleci.com/gh/asd-xiv/m)
 [![npm version](https://badge.fury.io/js/%40asd14%2Fm.svg)](https://badge.fury.io/js/%40asd14%2Fm)
-[![Coverage Status](https://coveralls.io/repos/github/asd-xiv/m/badge.svg)](https://coveralls.io/github/asd-xiv/m)
+![coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)
 
-# m
+# @asd14/m
 
 > [Point free](https://en.wikipedia.org/wiki/Tacit_programming) style,
-> functional library for Javascript with focus on object arrays.
+> functional library for JavaScript, with native TypeScript support and focus on
+> object arrays.
+
+- :evergreen_tree: **Immutable** - functions return new data, input is never
+  mutated
+- :link: **Dual signature** - `sort("desc", items)` (uncurried) or
+  `sort("desc")(items)` (curried)
+- :brain: **TypeScript** - smart sounding names like `UnaryMorphism` and
+  other-worldly psychedelic types like
+  [`ConvergeFn`](src/converge/converge.ts#L5)
+- :shield: **100% test code coverage + type tests** via
+  [tstyche](https://github.com/tstyche/tstyche)
+- :boom: **Runtime validation** - Broken pipes say
+  `@asd14/m/sort: expected 'input' to be 'Array', got 'Undefined'` instead of
+  `cannot read property of undefined`
+- :book: **Intuition driven** - `first` works on arrays and strings because both
+  are ordered sequences
 
 ---
 
@@ -17,6 +30,7 @@
 - [Use](#use)
 - ["With" pattern](#with-pattern)
 - [|> pipe](#-pipe)
+  - [An array is a pipe](#an-array-is-a-pipe)
 - [Develop](#develop)
 - [Contributors](#contributors)
 - [Changelog](#changelog)
@@ -26,12 +40,19 @@
 ## Install
 
 ```bash
+# humans
 npm install @asd14/m
+```
+
+```sh
+# ai
+npx skills add asd-xiv/m/.ai
 ```
 
 ## Use
 
 ```js
+import { sep } from "node:path"
 import { pipe, trim, split, dropLast, push, join } from "@asd14/m"
 
 const removeTrailingSlash = source =>
@@ -42,7 +63,7 @@ const renameFile = newName =>
     removeTrailingSlash,
     split(sep),
     dropLast,
-    push(trim(sep, newName)),
+    push(trim({ chars: sep }, newName)),
     join(sep)
   )
 ```
@@ -54,12 +75,12 @@ Some functions have a `*With` variant. `find` has `findWith`, `filter` has
 handling object arrays.
 
 ```js
-import { find, findWith, filterWith, not, is } from "@asd14/m"
+import { find, findWith, filterWith, isSomething } from "@asd14/m"
 
 const todos = [
   { id: 1, name: "lorem", tagId: 2 },
   { id: 2, name: "ipsum", tagId: null },
-  { id: 3, name: "dolor", tagId: null },
+  { id: 3, name: "dolor", tagId: null }
 ]
 ```
 
@@ -69,27 +90,22 @@ find(item => item.id === 1, todos)
 // => {id: 1, name: "lorem", tagId: 2}
 
 /* Matching object */
-findWith(
-  {
-    id: 1,
-  },
-  todos
-)
+findWith({ id: 1 }, todos)
 // => {id: 1, name: "lorem", tagId: 2}
 
 /* Matching object & predicate fn */
 filterWith(
   {
-    tagId: is, // same as `tagId: source => is(source)`
+    tagId: isSomething // same as `tagId: source => isSomething(source)`
   },
   todos
 )
 // => [{id: 1, name: "lorem", tagId: 2}]
 
-/* Syntactic sugar */
+/* More syntactic sugar */
 filterWith(
   {
-    "!tagId": is, // same as `tagId: not(is)`
+    "!tagId": isSomething // same as `tagId: source => !isSomething(source)`
   },
   todos
 )
@@ -113,9 +129,9 @@ Given that:
 
 - we read from left to right
 - [left/back is in the past, right/front is the future](https://medium.com/@cwodtke/the-intuitive-and-the-unlearnable-cccffd9a762)
-- a lot of piping going on in your terminal
+- a lot of piping going on in your terminal or your CI _pipelines_
 
-it makes sense to choose the _syntax_ more aligned with our intuition and
+It makes sense to choose the _syntax_ more aligned with our intuition and
 context. The transformations are applied in a certain order with time as a
 medium - `input -> t0 -> t1 -> tn -> output`.
 
@@ -136,18 +152,47 @@ const renameFile = newName => filePath =>
   filePath |> split(sep) |> dropLast |> push(newName) |> join(sep)
 ```
 
+### An array is a pipe
+
+Where a function takes a function param, it also takes an array of functions and
+pipes them. TypeScript types each step from the input, which an inline `pipe()`
+cannot do:
+
+```js
+filter([read("id"), isEqual(1)], [{ id: 1 }, { id: 2 }])
+// => [{ id: 1 }]
+```
+
+Why, and what it costs a patcher or a matcher:
+[pipe arrays](docs/how-to/pipe-arrays.md).
+
 ## Develop
 
+**Rules**:
+
+- Each function in its own folder: `src/<function-name>/`
+- Export from `src/index.ts`
+- Test code `tape` in collocated `*.test.ts` files
+- Test types `tstyche` in collocated `*.tst.ts` files
+- 100% coverage enforced via `c8 --100`
+
+**Tools**:
+
 ```bash
-git clone git@github.com:asd14-xyz/m.git && \
-  cd m && \
-  npm run setup
+npm run unit-test       # runtime tests (tape)
+npm run type-test       # type tests (tstyche)
+npm run typecheck:code  # tsc --noEmit
+npm run lint            # eslint
+npm run tdd             # watch mode
+```
 
-# run tests (any `*.test.js`) once
-npm test
+Or targeted:
 
-# watch `src` folder for changes and run test automatically
-npm run tdd
+```bash
+npx tsx src/all/all.test.ts      # runtime test
+npx tstyche src/all/all.tst.ts   # type test
+npx eslint src/all/all.ts        # lint
+npx tsc --noEmit src/all/all.ts  # typecheck
 ```
 
 ## Contributors
@@ -158,4 +203,4 @@ Thank you for contributing your time and knowledge:
 
 ## Changelog
 
-See the [releases section](https://github.com/asd14-xyz/m/releases) for details.
+See the [releases section](https://github.com/asd-xiv/m/releases) for details.
