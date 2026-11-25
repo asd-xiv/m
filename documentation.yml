@@ -66,6 +66,7 @@ toc:
   - read
   - unflatten
   - update
+  - values
   - name: "String"
   - escape
   - escapeHTML
