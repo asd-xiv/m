@@ -23,6 +23,7 @@ toc:
   - countWith
   - distinct
   - distinctBy
+  - drop
   - dropLast
   - evolveMany
   - evolveWith
