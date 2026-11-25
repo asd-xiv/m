@@ -1,5 +1,23 @@
 import { Property } from "./basic.js"
 
+/**
+ * Widen a literal type, as a `let` does: `"done"` to `string`, `0` to
+ * `number`, `true` to `boolean`. Any other type stays as it is.
+ */
+type Widen<V> = V extends string
+  ? string
+  : V extends number
+    ? number
+    : V extends boolean
+      ? boolean
+      : V
+
+/**
+ * The type a written value gives its field: the field's own type when the
+ * value fits it, else the value's widened type.
+ */
+type Fit<Current, V> = [V] extends [Current] ? Current : Widen<V>
+
 export type PlainObject = Record<string, unknown>
 
 /**
@@ -68,6 +86,78 @@ export type DeepValue<
       : T[First]
     : undefined
   : T
+
+/**
+ * Resolve the type of T after writing V at a given path. A missing step
+ * becomes an array before an index segment, and an object before any other.
+ * An index on an array widens its items to the old item or the written one.
+ *
+ * @example
+ * DeepWrite<{ id: number; status: "todo" | "done" }, ["status"], "done">
+ * // => { id: number; status: "todo" | "done" }, the value fits the field
+ *
+ * DeepWrite<{ id: number; name: string }, ["name"], boolean>
+ * // => { id: number; name: boolean }, it does not
+ *
+ * DeepWrite<{ id: number }, ["tag"], "x">
+ * // => { id: number; tag: string }, a new key widens the literal
+ *
+ * DeepWrite<{ a: { b: number; c: string } }, ["a", "b"], string>
+ * // => { a: { b: string; c: string } }
+ *
+ * DeepWrite<{}, ["tags", 0], string>
+ * // => { tags: string[] }
+ *
+ * DeepWrite<number[], [0], string>
+ * // => (number | string)[]
+ */
+export type DeepWrite<
+  T,
+  Path extends readonly Property[],
+  V,
+> = Path extends readonly [
+  infer First extends Property,
+  ...infer Rest extends readonly Property[],
+]
+  ? T extends readonly (infer Item)[]
+    ? First extends number
+      ? Rest extends readonly []
+        ? [V] extends [Item]
+          ? Item[]
+          : (Item | Widen<V>)[]
+        : (Item | DeepWrite<Item, Rest, V>)[]
+      : unknown
+    : {
+          [
+            K in keyof T as [K] extends [First]
+              ? [First] extends [K]
+                ? never
+                : K
+              : K
+          ]: T[K]
+        } & {
+          [K in First]: Rest extends readonly []
+            ? First extends keyof T
+              ? Fit<T[First], V>
+              : Widen<V>
+            : DeepWrite<
+                First extends keyof T
+                  ? | Exclude<T[First], undefined>
+                    | (undefined extends T[First]
+                        ? Rest extends readonly [number, ...unknown[]]
+                          ? []
+                          : object
+                        : never)
+                  : Rest extends readonly [number, ...unknown[]]
+                    ? []
+                    : object,
+                Rest,
+                V
+              >
+        } extends infer O
+      ? { [K in keyof O]: O[K] }
+      : never
+  : unknown
 
 /**
  * Resolve the type of all values of an object (union)

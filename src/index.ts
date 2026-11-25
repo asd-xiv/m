@@ -77,6 +77,7 @@ export * from "./read/read.js"
 export * from "./unflatten/unflatten.js"
 export * from "./update/update.js"
 export * from "./values/values.js"
+export * from "./write/write.js"
 
 // String
 export * from "./escape/escape.js"

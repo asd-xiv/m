@@ -114,6 +114,7 @@ const _read = (
  *
  * @see {@link pick}
  * @see {@link update}
+ * @see {@link write}
  */
 const read = ((...params: unknown[]) => {
   const path = params[0]

@@ -75,6 +75,7 @@ toc:
   - unflatten
   - update
   - values
+  - write
   - name: "String"
   - escape
   - escapeHTML
