@@ -9,7 +9,7 @@ type GroupByFn = {
     fns: [
       UnaryMorphism<T1, T2>,
       UnaryMorphism<T2, T3>,
-      UnaryMorphism<T3, string>,
+      UnaryMorphism<T3, string | number>,
     ],
     input: readonly T1[]
   ): Record<string, T1[]>
@@ -17,21 +17,26 @@ type GroupByFn = {
     fns: [
       UnaryMorphism<T1, T2>,
       UnaryMorphism<T2, T3>,
-      UnaryMorphism<T3, string>,
+      UnaryMorphism<T3, string | number>,
     ]
   ): (input: readonly T1[]) => Record<string, T1[]>
 
   // Pipe of 2 functions, the last one returns the key
   <T1, T2>(
-    fns: [UnaryMorphism<T1, T2>, UnaryMorphism<T2, string>],
+    fns: [UnaryMorphism<T1, T2>, UnaryMorphism<T2, string | number>],
     input: readonly T1[]
   ): Record<string, T1[]>
   <T1, T2>(
-    fns: [UnaryMorphism<T1, T2>, UnaryMorphism<T2, string>]
+    fns: [UnaryMorphism<T1, T2>, UnaryMorphism<T2, string | number>]
   ): (input: readonly T1[]) => Record<string, T1[]>
 
-  <T>(fn: (item: T) => string, input: readonly T[]): Record<string, T[]>
-  <T>(fn: (item: T) => string): (input: readonly T[]) => Record<string, T[]>
+  <T>(
+    fn: (item: T) => string | number,
+    input: readonly T[]
+  ): Record<string, T[]>
+  <T>(
+    fn: (item: T) => string | number
+  ): (input: readonly T[]) => Record<string, T[]>
 }
 
 const _groupBy = (
@@ -63,7 +68,7 @@ const _groupBy = (
 /**
  * Group the items of an array by the key a function returns for each. Returns
  * an object where each key holds the array of its items, in input order. The
- * key is the result as a string.
+ * function returns a string or a number, and the key is its string form.
  *
  * Only own keys count, so `"constructor"`, `"toString"` and `"__proto__"` work
  * as group keys.
@@ -88,6 +93,15 @@ const _groupBy = (
  *
  * groupBy(n => n % 2 === 0 ? "even" : "odd")([1, 2, 3, 4, 5])
  * // => { odd: [1, 3, 5], even: [2, 4] }
+ *
+ * groupBy(read("level"), [{ level: 1 }, { level: 2 }, { level: 1 }])
+ * // => { "1": [{ level: 1 }, { level: 1 }], "2": [{ level: 2 }] }
+ *
+ * // A String step turns any key into a string. To split by a boolean,
+ * // `partition(read("active"))` is the intended tool: it returns both
+ * // groups as a pair
+ * groupBy([read("active"), String], [{ active: true }, { active: false }])
+ * // => { true: [{ active: true }], false: [{ active: false }] }
  *
  * // A pipe array builds the key in steps
  * groupBy([read("role"), role => role.toUpperCase()], users)

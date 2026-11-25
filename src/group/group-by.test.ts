@@ -1,6 +1,7 @@
 import test from "tape"
 
 import { groupBy } from "./group-by.js"
+import { read } from "../read/read.js"
 
 type Item = { name: string; role: string }
 
@@ -24,12 +25,34 @@ test("groupBy - uncurried", t => {
   )
 
   t.deepEqual(
-    groupBy(item => String(item % 2 === 0), [1, 2, 3, 4, 5]),
+    groupBy(item => item % 3, [1, 2, 3, 4, 5, 6]),
     {
-      false: [1, 3, 5],
-      true: [2, 4],
+      0: [3, 6],
+      1: [1, 4],
+      2: [2, 5],
     },
-    "given [numeric key fn] should [group by stringified result]"
+    "given [a number key] should [group under the number as a string]"
+  )
+
+  // To split by a boolean, `partition(read("active"))` is the intended
+  // tool: it returns both groups as a pair, `[pass, fail]`
+  t.deepEqual(
+    groupBy(
+      [read("active"), String],
+      [
+        { name: "alice", active: true },
+        { name: "bob", active: false },
+        { name: "carol", active: true },
+      ]
+    ),
+    {
+      true: [
+        { name: "alice", active: true },
+        { name: "carol", active: true },
+      ],
+      false: [{ name: "bob", active: false }],
+    },
+    "given [a boolean key turned into a string by a String step] should [group under true and false]"
   )
 
   t.deepEqual(

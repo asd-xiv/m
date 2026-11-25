@@ -1,6 +1,7 @@
 import { expect, test, describe } from "tstyche"
 
 import { groupBy } from "./group-by.js"
+import { read } from "../read/read.js"
 
 type Item = { name: string; role: string }
 
@@ -26,10 +27,26 @@ describe("groupBy", () => {
     expect(fn).type.toBe<(input: readonly Item[]) => Record<string, Item[]>>()
   })
 
-  test("groupBy - invalid input", () => {
+  test("groupBy - a number key", () => {
     const items: Item[] = []
 
-    // @ts-expect-error Type 'number' is not assignable to type 'string'.
-    groupBy((item: Item) => item.name.length, items)
+    expect(groupBy((item: Item) => item.name.length, items)).type.toBe<
+      Record<string, Item[]>
+    >()
+    expect(groupBy(read("level"), [{ level: 1 }])).type.toBe<
+      Record<string, { level: number }[]>
+    >()
+  })
+
+  test("groupBy - a key that is not a string or a number", () => {
+    const users = [{ name: "alice", active: true }]
+
+    // To split by a boolean, `partition(read("active"))` is the intended
+    // tool: it returns both groups as a pair, `[pass, fail]`
+    expect(groupBy([read("active"), String], users)).type.toBe<
+      Record<string, { name: string; active: boolean }[]>
+    >()
+    // @ts-expect-error No overload matches this call.
+    groupBy(read("active"), users)
   })
 })
