@@ -13,7 +13,7 @@ jobs:
       cache-key: ${{ steps.cache-key.outputs.hash }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Generate cache key
         id: cache-key
@@ -22,14 +22,14 @@ jobs:
           >> $GITHUB_OUTPUT
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ vars.NODE_VERSION }}
           cache: "npm"
 
       - name: Cache node_modules
         id: cache-node-modules
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: node_modules
           key: node-modules-${{ steps.cache-key.outputs.hash }}
