@@ -79,6 +79,14 @@ export default [
     },
   },
   {
+    files: EXAMPLE_FILES,
+    rules: {
+      // An example imports m by its name, as a reader does. The rule crashes
+      // on a project that imports its own name
+      "@nx/enforce-module-boundaries": "off",
+    },
+  },
+  {
     files: [...TEST_FILES],
     rules: {
       "@asd14/call-argument-format": [

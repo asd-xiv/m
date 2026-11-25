@@ -8,7 +8,7 @@ import {
   read,
   sum,
   when,
-} from "../../dist/src/index.js"
+} from "@asd14/m"
 
 const NEIGHBOUR_OFFSETS: [number, number][] = [
   [-1, 1],
