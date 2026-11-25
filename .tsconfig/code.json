@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@asd14/ts-config/targets/node",
+  "compilerOptions": {
+    "rootDir": "../",
+    "outDir": "../dist",
+    "tsBuildInfoFile": "../node_modules/.tmp/tsconfig.code.tsbuildinfo",
+    // engines.node in package.json promises Node 22, which has ES2024. A newer
+    // built-in fails to type-check here
+    "lib": ["es2024"]
+  },
+  "include": ["../src", "../types"],
+  "exclude": [
+    "../src/**/*.test.ts",
+    "../src/**/*.tst.ts",
+    "../types/**/*.tst.ts",
+    "../node_modules",
+    "../dist"
+  ]
+}

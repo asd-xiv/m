@@ -1,7 +1,0 @@
-{
-  "default": true,
-  "line-length": false,
-  "no-duplicate-heading": {
-    "allow_different_nesting": true
-  }
-}

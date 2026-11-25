@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Dont run when in CI environment.
+# For ex. when pushing changelogs via "semantic-release".
+[ -n "$CI" ] && exit 0
+
+grep -v "^#" "$1" | npx --no-install --no-workspaces commitlint

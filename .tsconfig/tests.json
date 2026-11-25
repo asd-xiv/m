@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@asd14/ts-config/targets/node",
+  "compilerOptions": {
+    "rootDir": "../",
+    "noEmit": true,
+    "tsBuildInfoFile": "../node_modules/.tmp/tsconfig.tests.tsbuildinfo"
+  },
+  "include": ["../src/**/*.test.ts", "../types"],
+  "exclude": ["../types/**/*.tst.ts"]
+}
