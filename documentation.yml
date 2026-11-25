@@ -36,6 +36,7 @@ toc:
   - flatten
   - forEach
   - groupBy
+  - indexBy
   - last
   - map
   - mapIndexed
