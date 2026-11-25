@@ -80,6 +80,8 @@ jobs:
         run: npx semantic-release
 
       # Build with the new version semantic-release bumped
+      # documentation.js reads the version from package.json and ignores
+      # --project-version, so the site must build after the release
       - name: Build the API site
         run: npm run build:docs
 
