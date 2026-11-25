@@ -37,6 +37,8 @@ toc:
   - forEach
   - groupBy
   - indexBy
+  - intersect
+  - intersectBy
   - last
   - map
   - mapIndexed
