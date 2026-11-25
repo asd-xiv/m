@@ -1,51 +1,93 @@
 toc:
-  - name: "Core"
+  - name: "Function"
   - converge
-  - find
-  - findWith
-  - forEach
-  - i
-  - map
-  - mapMatrix
+  - curry
+  - debounce
   - pipe
-  - read
-  - reduce
-  - same
-  - write
+  - pipeP
+  - throttle
+  - when
+  - name: "Any value"
+  - defaultTo
+  - i
+  - isDeepEqual
+  - isEqual
+  - type
   - name: "Array"
-  - bottom
+  - all
+  - allWith
+  - any
+  - anyWith
   - count
+  - countBy
   - countWith
   - distinct
+  - distinctBy
+  - dropLast
+  - evolveMany
+  - evolveWith
   - filter
   - filterWith
   - find
+  - findIndex
+  - findIndexWith
   - findWith
   - first
   - flatten
+  - forEach
+  - groupBy
   - last
+  - map
+  - mapIndexed
+  - mapMatrix
   - partition
   - partitionWith
-  - pluck
+  - push
+  - reduce
   - remove
   - removeWith
   - sort
   - sortBy
   - sortWith
-  - top
-  - name: "Boolean"
-  - all
-  - allWith
-  - any
-  - anyWith
-  - is
-  - isBetween
-  - isEmpty
-  - isEqual
-  - isMatch
-  - when
+  - splitInGroupsOf
+  - unite
+  - uniteBy
+  - updateWith
+  - upsertWith
+  - zipToObject
   - name: "Object"
+  - evolve
+  - evolveDeepBy
+  - isMatch
   - keys
   - merge
+  - mergeBy
   - pick
-  - zipToObject
+  - read
+  - unflatten
+  - update
+  - name: "String"
+  - escape
+  - escapeHTML
+  - escapeRegExp
+  - fuzzyMatch
+  - isURI
+  - join
+  - split
+  - toString
+  - trim
+  - name: "Number"
+  - dec
+  - inc
+  - sum
+  - name: "Type guard"
+  - isArray
+  - isBoolean
+  - isFalse
+  - isFunction
+  - isNothing
+  - isNumber
+  - isPlainObject
+  - isSomething
+  - isString
+  - isTrue
