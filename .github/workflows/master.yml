@@ -30,46 +30,17 @@ jobs:
     with:
       cache-key: ${{ needs.install-dependencies.outputs.cache-key }}
 
-  pages:
-    name: Deploy the API site
-    needs: [build, code-qa]
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-    # Let a running deploy finish, a newer one waits for it
-    concurrency:
-      group: pages
-      cancel-in-progress: false
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Download dist
-        uses: actions/download-artifact@v8
-        with:
-          name: dist
-          path: dist
-
-      - name: Configure Pages
-        uses: actions/configure-pages@v6
-
-      - name: Upload the API site
-        uses: actions/upload-pages-artifact@v5
-        with:
-          path: dist/docs
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5
-
   release:
     name: Release
     needs: [install-dependencies, build, code-qa]
     runs-on: ubuntu-latest
     permissions:
       id-token: write
+      pages: write
+    # Let a running release finish, a newer one waits for it
+    concurrency:
+      group: release
+      cancel-in-progress: false
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -107,3 +78,19 @@ jobs:
           # prettier-ignore
           GIT_COMMITTER_EMAIL: ${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com
         run: npx semantic-release
+
+      # Build with the new version semantic-release bumped
+      - name: Build the API site
+        run: npm run build:docs
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v6
+
+      - name: Upload the API site
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist/docs
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

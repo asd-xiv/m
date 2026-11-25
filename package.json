@@ -66,7 +66,7 @@
     "build:types": "tsc --declaration --emitDeclarationOnly --project ./.tsconfig/code.json",
     "build:docs": "documentation build dist/src/index.js --project-name '@asd14/m' -f html -o dist/docs -c documentation.yml --infer-private '^_'",
     "prebuild": "rm -rf dist/* node_modules/.tmp/tsconfig.*.tsbuildinfo",
-    "build": "npm run build:code && npm run build:types && npm run build:docs",
+    "build": "npm run build:code && npm run build:types",
     "----LINT": "",
     "lint": "eslint --quiet .",
     "typecheck:code": "tsc --noEmit --project ./.tsconfig/code.json",

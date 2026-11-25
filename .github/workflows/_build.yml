@@ -31,8 +31,8 @@ jobs:
       - name: Build
         run: npm run build
 
-      # Every later job of the run downloads this build, so lint, the API site
-      # and npm get the same files
+      # Every later job of the run downloads this build, so lint and npm get
+      # the same files
       - name: Upload dist
         uses: actions/upload-artifact@v7
         with:
