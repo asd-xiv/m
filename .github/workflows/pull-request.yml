@@ -39,9 +39,16 @@ jobs:
           PR_TITLE: ${{ github.event.pull_request.title }}
         run: echo "$PR_TITLE" | npx commitlint
 
+  build:
+    name: Build
+    needs: [install-dependencies]
+    uses: ./.github/workflows/_build.yml
+    with:
+      cache-key: ${{ needs.install-dependencies.outputs.cache-key }}
+
   code-qa:
     name: Code QA
-    needs: [detect-secrets, install-dependencies]
+    needs: [detect-secrets, install-dependencies, build]
     uses: ./.github/workflows/_code-qa.yml
     with:
       cache-key: ${{ needs.install-dependencies.outputs.cache-key }}

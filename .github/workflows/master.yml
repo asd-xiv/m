@@ -16,16 +16,23 @@ jobs:
     name: Install Dependencies
     uses: ./.github/workflows/_install-dependencies.yml
 
+  build:
+    name: Build
+    needs: [install-dependencies]
+    uses: ./.github/workflows/_build.yml
+    with:
+      cache-key: ${{ needs.install-dependencies.outputs.cache-key }}
+
   code-qa:
     name: Code QA
-    needs: [detect-secrets, install-dependencies]
+    needs: [detect-secrets, install-dependencies, build]
     uses: ./.github/workflows/_code-qa.yml
     with:
       cache-key: ${{ needs.install-dependencies.outputs.cache-key }}
 
   pages:
     name: Deploy the API site
-    needs: [code-qa]
+    needs: [build, code-qa]
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -39,22 +46,11 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
+      - name: Download dist
+        uses: actions/download-artifact@v8
         with:
-          node-version: ${{ vars.NODE_VERSION }}
-
-      - name: Restore node_modules
-        uses: actions/cache@v5
-        with:
-          path: node_modules
-          key: node-modules-${{ needs.install-dependencies.outputs.cache-key }}
-
-      - name: Build
-        run: npm run build
+          name: dist
+          path: dist
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -70,7 +66,7 @@ jobs:
 
   release:
     name: Release
-    needs: [install-dependencies, code-qa]
+    needs: [install-dependencies, build, code-qa]
     runs-on: ubuntu-latest
     permissions:
       id-token: write
@@ -93,8 +89,11 @@ jobs:
           path: node_modules
           key: node-modules-${{ needs.install-dependencies.outputs.cache-key }}
 
-      - name: Build
-        run: npm run build
+      - name: Download dist
+        uses: actions/download-artifact@v8
+        with:
+          name: dist
+          path: dist
 
       - name: Release
         env:

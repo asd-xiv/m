@@ -28,6 +28,13 @@ jobs:
           path: node_modules
           key: node-modules-${{ inputs.cache-key }}
 
+      # examples/ imports @asd14/m, which resolves to dist/
+      - name: Download dist
+        uses: actions/download-artifact@v8
+        with:
+          name: dist
+          path: dist
+
       - name: Run linting
         run: npm run lint
 
