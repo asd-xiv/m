@@ -11,9 +11,8 @@ Thank you for taking the time to suggest a new feature.
 
 Please fill in as much of the template below as possible.
 
-If possible, please provide code, images or gifs that demonstrates what you
-want to achieve. Keep it as simple and free of external dependencies as you are
-able.
+Try to provide code, images or gifs that demonstrates what you want to achieve.
+Keep it as simple and free of external dependencies as you are able.
 -->
 
 ## Is your feature request related to a problem?
@@ -33,6 +32,12 @@ considered.
 ## Additional context
 
 Add any other context or screenshots about the feature request here.
+
+## Rules
+
+Check the request against the rules in
+[`docs/SPEC.md`](https://github.com/asd-xiv/m/blob/master/docs/SPEC.md), eg.
+every function is a pipe step.
 
 ## Acceptance criteria
 

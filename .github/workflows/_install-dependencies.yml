@@ -1,0 +1,39 @@
+name: Install dependencies
+on:
+  workflow_call:
+    outputs:
+      cache-key:
+        value: ${{ jobs.setup.outputs.cache-key }}
+
+jobs:
+  setup:
+    name: NPM node_modules
+    runs-on: ubuntu-latest
+    outputs:
+      cache-key: ${{ steps.cache-key.outputs.hash }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Generate cache key
+        id: cache-key
+        run:
+          echo "hash=$(cat package-lock.json | shasum -a 256 | cut -d ' ' -f 1)"
+          >> $GITHUB_OUTPUT
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ vars.NODE_VERSION }}
+          cache: "npm"
+
+      - name: Cache node_modules
+        id: cache-node-modules
+        uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: node-modules-${{ steps.cache-key.outputs.hash }}
+
+      - name: Install dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: npm clean-install
