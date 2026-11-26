@@ -65,7 +65,6 @@ toc:
   - zipToObject
   - name: "Object"
   - evolve
-  - evolveDeepBy
   - isMatch
   - keys
   - merge
