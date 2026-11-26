@@ -1,6 +1,12 @@
 import { describe, expect, test } from "tstyche"
 
-import type { DeepPartial, DeepValue, Merge, PlainObject } from "./object.js"
+import type {
+  DeepPartial,
+  DeepValue,
+  DeepValues,
+  Merge,
+  PlainObject,
+} from "./object.js"
 
 describe("PlainObject", () => {
   test("PlainObject - valid input", () => {
@@ -79,5 +85,32 @@ describe("DeepValue", () => {
 
   test("DeepValue - empty path", () => {
     expect<DeepValue<{ a: string }, []>>().type.toBe<{ a: string }>()
+  })
+})
+
+describe("DeepValues", () => {
+  test("DeepValues - objects", () => {
+    expect<DeepValues<{ a: number; b: string }>>().type.toBe<number | string>()
+    expect<DeepValues<{ a: number; b: { c: boolean } }>>().type.toBe<
+      number | boolean
+    >()
+    expect<DeepValues<{ a: Date }>>().type.toBe<Date>()
+  })
+
+  test("DeepValues - arrays", () => {
+    // An array is not a leaf: its items are, at any depth
+    expect<DeepValues<{ tags: string[] }>>().type.toBe<string>()
+    expect<DeepValues<{ cells: number[][] }>>().type.toBe<number>()
+    expect<DeepValues<{ users: { name: string }[] }>>().type.toBe<string>()
+    expect<DeepValues<{ empty: never[] }>>().type.toBe<never>()
+  })
+
+  test("DeepValues - recursive types", () => {
+    // A tree refers to itself through an array, a peer through an object
+    type Tree = { name: string; children: Tree[] }
+    type Peer = { id: number; peer?: Peer }
+
+    expect<DeepValues<Tree>>().type.toBe<string>()
+    expect<DeepValues<Peer>>().type.toBe<number | undefined>()
   })
 })

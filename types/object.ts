@@ -160,15 +160,32 @@ export type DeepWrite<
   : unknown
 
 /**
- * Resolve the type of all values of an object (union)
+ * Resolve the type of all leaf values of an object (union). An array is not a
+ * leaf: its items are. A recursive type, eg. a tree, stops after 10 levels,
+ * which loses no leaf type, since each level adds the same ones
  *
  * @example
  * DeepValues<{ a: number, b: string }>
  * // => number | string
  *
  * DeepValues<{ a: number, b: { c: string[] } }>
- * // => number | string[]
+ * // => number | string
  */
-export type DeepValues<T extends PlainObject> = {
-  [K in keyof T]: T[K] extends PlainObject ? DeepValues<T[K]> : T[K]
-}[keyof T]
+export type DeepValues<
+  T extends PlainObject,
+  Depth extends unknown[] = [],
+> = Depth["length"] extends 10
+  ? never
+  : {
+      // `infer` checks each member of a union on its own, so an optional
+      // object, eg. `Peer | undefined`, is walked, not kept as a leaf. An array
+      // goes back in as the one key of an object, so the items of a nested
+      // array resolve the same way
+      [K in keyof T]: T[K] extends infer Value
+        ? Value extends readonly unknown[]
+          ? DeepValues<{ item: Value[number] }, [...Depth, unknown]>
+          : Value extends PlainObject
+            ? DeepValues<Value, [...Depth, unknown]>
+            : Value
+        : never
+    }[keyof T]
