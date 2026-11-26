@@ -13,8 +13,11 @@ describe("isURI", () => {
   })
 
   test("isURI - invalid input", () => {
-    expect(isURI).type.not.toBeCallableWith(42)
-    expect(isURI).type.not.toBeCallableWith("a", "b")
-    expect(isURI).type.not.toBeCallableWith()
+    // @ts-expect-error ... type 'number' is not assignable to ... type 'string'
+    isURI(42)
+    // @ts-expect-error Expected 1 arguments, but got 2
+    isURI("a", "b")
+    // @ts-expect-error Expected 1 arguments, but got 0
+    isURI()
   })
 })
