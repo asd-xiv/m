@@ -60,7 +60,7 @@ const _flattenArray = (
 }
 
 // `ancestors` holds the objects above `input`: an object that contains itself
-// is kept as a leaf, as in `evolveDeepBy`
+// is kept as a leaf
 const _flattenObject = (
   input: PlainObject,
   separator: string,
@@ -85,6 +85,15 @@ const _flattenObject = (
     ) {
       _flattenObject(value, separator, fullKey, result, ancestors)
     } else {
+      // A key that contains the separator lands on the key of a nested path,
+      // eg. "user.role" and { user: { role } }. Throw, as unflatten does,
+      // rather than let the last one win
+      if (Object.hasOwn(result, fullKey)) {
+        throw new TypeError(
+          `@asd14/m/flatten: expected '${fullKey}' to be 'Unique', got 'Duplicate'`
+        )
+      }
+
       _setOwn(result, fullKey, value)
     }
   }
@@ -114,6 +123,10 @@ const _flatten = (
  * For arrays, concatenates all nested arrays into a single flat array.
  * For objects, joins nested keys with a separator into a flat structure.
  *
+ * It recurses, so the stack limits the depth: an object nested a few thousand
+ * levels deep throws a `RangeError`. `JSON.parse` accepts any depth, so check
+ * the depth of untrusted input first, if it can be that deep.
+ *
  * Input is never mutated - always returns a new array or object.
  *
  * Only a plain object is flattened. An empty object, a `Date`, a `Map` and a
@@ -127,6 +140,9 @@ const _flatten = (
  * @param {Array|Object} input - Array or object to flatten
  *
  * @returns {Array|Object} Flattened result
+ *
+ * @throws {TypeError} When two entries flatten to the same key, eg. the key
+ * `"user.role"` next to `{ user: { role } }`
  *
  * @example
  * flatten([1, [2], [3, [4]]])

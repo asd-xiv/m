@@ -1,8 +1,8 @@
 import test from "tape"
 
-import { flatten } from "./flatten.js"
+import { flatten } from "../flatten.js"
 
-test("flatten - uncurried", t => {
+test("flatten - valid", t => {
   t.deepEqual(
     flatten([]),
     [],
@@ -141,66 +141,6 @@ test("flatten - uncurried", t => {
     flatten({ level: 0 }, [1, [2]]),
     [1, [2]],
     "given [level 0] should [flatten nothing]"
-  )
-
-  t.end()
-})
-
-test("flatten - invalid input", t => {
-  t.throws(
-    // @ts-expect-error -- intentionally testing wrong input type
-    () => flatten(42),
-    /expected 'input' to be 'Array' or 'Object', got 'Number'/,
-    "given [a number] should [throw TypeError]"
-  )
-
-  t.throws(
-    // @ts-expect-error -- intentionally testing wrong input type
-    () => flatten("foo"),
-    /expected 'input' to be 'Array' or 'Object', got 'String'/,
-    "given [a string] should [throw TypeError]"
-  )
-
-  t.throws(
-    // @ts-expect-error -- intentionally testing wrong input type
-    () => flatten(null),
-    /expected 'input' to be 'Array' or 'Object', got 'Null'/,
-    "given [null] should [throw TypeError]"
-  )
-
-  t.throws(
-    // @ts-expect-error -- intentionally testing wrong options type
-    () => flatten("level", [1, [2]]),
-    /expected 'options' to be 'Object', got 'String'/,
-    "given [a string as options] should [throw TypeError]"
-  )
-
-  t.throws(
-    // @ts-expect-error -- intentionally testing wrong input type
-    () => flatten({ level: 1 }, 42),
-    /expected 'input' to be 'Array' or 'Object', got 'Number'/,
-    "given [options and a number] should [throw TypeError]"
-  )
-
-  t.throws(
-    // @ts-expect-error -- intentionally testing wrong input type
-    () => flatten(new Date(0)),
-    /expected 'input' to be 'Array' or 'Object', got 'Date'/,
-    "given [a Date] should [throw TypeError]"
-  )
-
-  t.throws(
-    // @ts-expect-error -- intentionally testing wrong level type
-    () => flatten({ level: "1" }, [1, [2]]),
-    /expected 'level' to be 'Number', got 'String'/,
-    "given [a string level] should [throw TypeError]"
-  )
-
-  t.throws(
-    // @ts-expect-error -- intentionally testing wrong separator type
-    () => flatten({ separator: 1 }, { a: { b: 1 } }),
-    /expected 'separator' to be 'String', got 'Number'/,
-    "given [a number separator] should [throw TypeError]"
   )
 
   t.end()
