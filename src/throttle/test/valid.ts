@@ -1,9 +1,9 @@
 import { mock } from "node:test"
 import test from "tape"
 
-import { throttle } from "./throttle.js"
+import { throttle } from "../throttle.js"
 
-test("throttle - uncurried", t => {
+test("throttle - valid", t => {
   mock.timers.enable({ apis: ["setTimeout", "Date"] })
 
   {
@@ -114,54 +114,44 @@ test("throttle - uncurried", t => {
     )
   }
 
+  // Abort with a signal: the call waiting for the window end never runs, and
+  // later calls do nothing
+  {
+    const calls: number[] = []
+    const controller = new AbortController()
+    const throttled = throttle(
+      { wait: 50, hasLastCall: true, signal: controller.signal },
+      (input: number) => calls.push(input)
+    )
+
+    throttled(1)
+    throttled(2)
+    controller.abort()
+    mock.timers.tick(50)
+    throttled(3)
+    mock.timers.tick(50)
+    t.deepEqual(
+      calls,
+      [1],
+      "given [an abort inside the window] should [drop the last call and every later one]"
+    )
+  }
+
+  {
+    const calls: number[] = []
+    const throttled = throttle(
+      { signal: AbortSignal.abort() },
+      (input: number) => calls.push(input)
+    )
+
+    throttled(1)
+    t.deepEqual(
+      calls,
+      [],
+      "given [a signal that is already aborted] should [never run fn]"
+    )
+  }
+
   mock.timers.reset()
-  t.end()
-})
-
-test("throttle - invalid input", t => {
-  t.throws(
-    () => {
-      // @ts-expect-error -- testing runtime validation
-      throttle(42)
-    },
-    /@asd14\/m\/throttle: expected 'fn' to be 'Function', got 'Number'/,
-    "given [a number as fn] should [throw TypeError]"
-  )
-
-  t.throws(
-    () => {
-      // @ts-expect-error -- testing runtime validation
-      throttle(null, () => undefined)
-    },
-    /expected 'options' to be 'Object', got 'Null'/,
-    "given [null as options] should [throw TypeError]"
-  )
-
-  t.throws(
-    () => {
-      // @ts-expect-error -- testing runtime validation
-      throttle({ wait: "10" }, () => undefined)
-    },
-    /expected 'wait' to be 'Number', got 'String'/,
-    "given [a string as wait] should [throw TypeError]"
-  )
-
-  t.throws(
-    () => {
-      throttle({ wait: -5 }, () => undefined)
-    },
-    /expected 'wait' to be 'NonNegative', got '-5'/,
-    "given [a negative wait] should [throw TypeError]"
-  )
-
-  t.throws(
-    () => {
-      // @ts-expect-error -- testing runtime validation
-      throttle({ hasLastCall: "yes" }, () => undefined)
-    },
-    /expected 'hasLastCall' to be 'Boolean', got 'String'/,
-    "given [a string as hasLastCall] should [throw TypeError]"
-  )
-
   t.end()
 })

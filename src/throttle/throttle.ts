@@ -1,9 +1,11 @@
-import { isPlainObject } from "../is/is.js"
 import { type } from "../type/type.js"
+import { _parseTimerOptions } from "../utils/parse-timer-options.js"
 
 type ThrottleOptions = {
-  /** Milliseconds between runs of `fn`, default `50` */
+  /** Milliseconds between runs of `fn`, at most 2,147,483,647, default `50` */
   wait?: number
+  /** Drops the call waiting for the window end when aborted, and makes later calls do nothing */
+  signal?: AbortSignal
   /** Run `fn` once more at the end of the window for a dropped call, default `false` */
   hasLastCall?: boolean
 }
@@ -19,35 +21,53 @@ type ThrottleFn = {
 const _throttle = (
   fn: (...params: unknown[]) => unknown,
   wait: number,
-  hasLastCall: boolean
+  hasLastCall: boolean,
+  signal: AbortSignal | undefined
 ): ((...params: unknown[]) => void) => {
-  let lastExecution = Date.now() - wait
-  let timer: ReturnType<typeof setTimeout> | undefined
+  // The window opens when fn runs, and closes when its timer fires. No clock
+  // is read, so a wall clock that steps back cannot stretch the window
+  let windowTimer: ReturnType<typeof setTimeout> | undefined
+  // The last call the window dropped, run when the window closes
+  let lastParams: unknown[] | undefined
+
+  const run = (params: unknown[]): void => {
+    fn(...params)
+
+    // With no wait, every call runs: a 0 ms window would still drop the
+    // calls made before the next task
+    if (wait > 0) {
+      windowTimer = setTimeout(() => {
+        windowTimer = undefined
+
+        if (lastParams) {
+          const params = lastParams
+
+          lastParams = undefined
+          run(params)
+        }
+      }, wait)
+    }
+  }
+
+  signal?.addEventListener(
+    "abort",
+    () => {
+      clearTimeout(windowTimer)
+      windowTimer = undefined
+      lastParams = undefined
+    },
+    { once: true }
+  )
 
   return (...params: unknown[]) => {
-    const now = Date.now()
-
-    if (lastExecution + wait <= now) {
-      clearTimeout(timer)
-      timer = undefined
-      lastExecution = now
-      fn(...params)
-
+    if (signal?.aborted) {
       return
     }
 
-    // The window dropped this call: run it at the end of the window
-    if (hasLastCall) {
-      clearTimeout(timer)
-
-      timer = setTimeout(
-        () => {
-          timer = undefined
-          lastExecution = Date.now()
-          fn(...params)
-        },
-        lastExecution + wait - now
-      )
+    if (windowTimer === undefined) {
+      run(params)
+    } else if (hasLastCall) {
+      lastParams = params
     }
   }
 }
@@ -80,6 +100,14 @@ const _throttle = (
  * onScroll(2)
  * // update(1) runs now, update(2) runs 100 ms later
  *
+ * // Abort with a signal: the call waiting for the window end never runs, and
+ * // later calls do nothing. The same signal removes the listener
+ * const controller = new AbortController()
+ * const onResize = throttle({ wait: 100, signal: controller.signal }, layout)
+ *
+ * window.addEventListener("resize", onResize, { signal: controller.signal })
+ * controller.abort()
+ *
  * @name throttle
  * @tag Function
  *
@@ -87,46 +115,16 @@ const _throttle = (
  */
 const throttle = ((...params: unknown[]) => {
   const fn = params[params.length - 1]
-  let wait = 50
-  let hasLastCall = false
+  const { options, wait, signal } = _parseTimerOptions(
+    params.length > 1 ? params[0] : undefined,
+    { fnName: "throttle" }
+  )
+  const { hasLastCall = false } = options
 
-  if (params.length > 1) {
-    const options = params[0]
-
-    if (!isPlainObject(options)) {
-      throw new TypeError(
-        `@asd14/m/throttle: expected 'options' to be 'Object', got '${type(options)}'`
-      )
-    }
-
-    const optionWait = options["wait"]
-    const optionHasLastCall = options["hasLastCall"]
-
-    if (optionWait !== undefined) {
-      if (typeof optionWait !== "number") {
-        throw new TypeError(
-          `@asd14/m/throttle: expected 'wait' to be 'Number', got '${type(optionWait)}'`
-        )
-      }
-
-      if (!(optionWait >= 0)) {
-        throw new TypeError(
-          `@asd14/m/throttle: expected 'wait' to be 'NonNegative', got '${String(optionWait)}'`
-        )
-      }
-
-      wait = optionWait
-    }
-
-    if (optionHasLastCall !== undefined) {
-      if (typeof optionHasLastCall !== "boolean") {
-        throw new TypeError(
-          `@asd14/m/throttle: expected 'hasLastCall' to be 'Boolean', got '${type(optionHasLastCall)}'`
-        )
-      }
-
-      hasLastCall = optionHasLastCall
-    }
+  if (typeof hasLastCall !== "boolean") {
+    throw new TypeError(
+      `@asd14/m/throttle: expected 'hasLastCall' to be 'Boolean', got '${type(hasLastCall)}'`
+    )
   }
 
   if (typeof fn !== "function") {
@@ -135,7 +133,12 @@ const throttle = ((...params: unknown[]) => {
     )
   }
 
-  return _throttle(fn as (...params: unknown[]) => unknown, wait, hasLastCall)
+  return _throttle(
+    fn as (...params: unknown[]) => unknown,
+    wait,
+    hasLastCall,
+    signal
+  )
 }) as ThrottleFn
 
 export { throttle }
