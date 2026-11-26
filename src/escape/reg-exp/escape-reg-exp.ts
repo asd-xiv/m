@@ -2,12 +2,22 @@ import { type } from "../../type/type.js"
 
 type EscapeRegExpFn = (input: string) => string
 
-const REG_EXP_SPECIAL = /[$()*+\-.?[\\\]^{|}]/g
+const REG_EXP_SPECIAL = /[$()*+.?[\\\]^{|}]/g
+
+// With the `v` flag, a doubled one of these is an operator inside a character
+// class, eg. `&&`, and `\-` is valid only inside one. A backslash escape of
+// them is invalid outside a class with `u`, so they get `\xNN`, which is valid
+// in every mode
+const V_FLAG_RESERVED = /[!#%&,\-/:;<=>@`~]/g
+
+const _toHex = (char: string): string =>
+  `\\x${char.charCodeAt(0).toString(16).padStart(2, "0")}`
 
 /**
  * Escape regular expression special characters in a string so it can be
- * safely used inside a `RegExp` constructor, also in a character class
- * and with the `u` flag.
+ * safely used inside a `RegExp` constructor: in a character class or outside
+ * one, with no flag, the `u` flag or the `v` flag. The characters the `v` flag
+ * reserves, eg. `&` and `,`, come back as `\xNN`.
  *
  * Input is never mutated - always returns a new string.
  *
@@ -37,7 +47,7 @@ const escapeRegExp: EscapeRegExpFn = (input: string): string => {
     )
   }
 
-  return input.replace(REG_EXP_SPECIAL, "\\$&")
+  return input.replace(REG_EXP_SPECIAL, "\\$&").replace(V_FLAG_RESERVED, _toHex)
 }
 
 export { escapeRegExp }
