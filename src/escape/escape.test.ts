@@ -31,6 +31,29 @@ test("escape - uncurried", t => {
 })
 
 test("escape - curried", t => {
+  {
+    // A sticky regex keeps its lastIndex between calls. Each call must start
+    // at the beginning, and leave the caller's regex as it was
+    const sticky = /'/y
+    const quote = escape(sticky)
+
+    t.equal(
+      quote("'a"),
+      "\\'a",
+      "given [a sticky regex] should [escape at the start]"
+    )
+    t.equal(
+      quote("'b"),
+      "\\'b",
+      "given [a sticky regex, called again] should [escape at the start again]"
+    )
+    t.equal(
+      sticky.lastIndex,
+      0,
+      "given [a sticky regex] should [leave its lastIndex alone]"
+    )
+  }
+
   t.equal(
     escape(/[*+]/g)("1+2*3"),
     "1\\+2\\*3",
