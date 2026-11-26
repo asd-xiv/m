@@ -111,16 +111,13 @@ describe("write", () => {
   })
 
   test("write - invalid input", () => {
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type 'object'.
+    // @ts-expect-error ... type 'number' is not assignable to ... type 'object'
     write("name", "bob", 42)
-
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type ...
+    // @ts-expect-error ... type 'number' is not assignable to ... type 'string'
     write(42, "bob", {})
-
-    // @ts-expect-error Argument of type '[]' is not assignable to parameter of type ...
+    // @ts-expect-error ... type '[]' is not assignable to ... type 'WritePath'
     write([], "bob", {})
-
-    // @ts-expect-error Expected 2-3 arguments, but got 1.
+    // @ts-expect-error Expected 2-3 arguments, but got 1
     write("name")
   })
 })
