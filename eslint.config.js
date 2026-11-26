@@ -9,9 +9,9 @@ const GIT_IGNORE_PATTERNS = getIgnorePatterns(
 
 const SRC_FILES = ["src/**/*.ts", "types/**/*.ts"]
 const EXAMPLE_FILES = ["examples/**/*.ts"]
-const TEST_FILES = ["src/**/*.test.ts"]
+const TEST_FILES = ["src/**/*.test.ts", "src/**/test/*.ts"]
 const TYPE_TEST_FILES = ["src/**/*.tst.ts"]
-const DEV_FILES = ["eslint.config.js"]
+const DEV_FILES = ["eslint.config.js", "src/**/bench/*.ts"]
 
 /** @type {import("eslint").Linter.Config[]} */
 export default [

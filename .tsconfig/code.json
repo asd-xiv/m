@@ -12,6 +12,8 @@
   "include": ["../src", "../types"],
   "exclude": [
     "../src/**/*.test.ts",
+    "../src/**/test/**",
+    "../src/**/bench/**",
     "../src/**/*.tst.ts",
     "../types/**/*.tst.ts",
     "../node_modules",
