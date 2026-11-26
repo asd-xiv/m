@@ -89,7 +89,14 @@ const _buildPatch = (
       _setOwn(
         result,
         key,
-        isFunction ? (value as AnyMorphism)(input[key], input) : value
+        // An own value only: a key the input lacks, eg. toString, gives
+        // undefined, not the value Object.prototype has
+        isFunction
+          ? (value as AnyMorphism)(
+              Object.hasOwn(input, key) ? input[key] : undefined,
+              input
+            )
+          : value
       )
     }
 

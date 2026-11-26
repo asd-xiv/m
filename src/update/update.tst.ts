@@ -1,6 +1,6 @@
 import { describe, expect, test } from "tstyche"
 
-import { update } from "./update.js"
+import { update } from "./update.ts"
 
 describe("update", () => {
   test("update - uncurried", () => {
