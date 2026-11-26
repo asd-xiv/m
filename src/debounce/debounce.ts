@@ -1,9 +1,11 @@
-import { isPlainObject } from "../is/is.js"
 import { type } from "../type/type.js"
+import { _parseTimerOptions } from "../utils/parse-timer-options.js"
 
 type DebounceOptions = {
-  /** Milliseconds to wait after the last call, default `50` */
+  /** Milliseconds to wait after the last call, at most 2,147,483,647, default `50` */
   wait?: number
+  /** Drops the pending call when aborted, and makes later calls do nothing */
+  signal?: AbortSignal
 }
 
 type DebounceFn = {
@@ -16,14 +18,29 @@ type DebounceFn = {
 
 const _debounce = (
   fn: (...params: unknown[]) => unknown,
-  wait: number
+  wait: number,
+  signal: AbortSignal | undefined
 ): ((...params: unknown[]) => void) => {
   let timer: ReturnType<typeof setTimeout> | undefined
 
-  return (...params: unknown[]) => {
-    clearTimeout(timer)
+  signal?.addEventListener(
+    "abort",
+    () => {
+      clearTimeout(timer)
+      timer = undefined
+    },
+    { once: true }
+  )
 
+  return (...params: unknown[]) => {
+    if (signal?.aborted) {
+      return
+    }
+
+    clearTimeout(timer)
     timer = setTimeout(() => {
+      // Let go of the timer, and with it of `params`, once fn runs
+      timer = undefined
       fn(...params)
     }, wait)
   }
@@ -52,6 +69,16 @@ const _debounce = (
  * save(draft)
  * // 100 ms later: saveDraft(draft) runs
  *
+ * // Abort with a signal, eg. when a React component unmounts: the pending
+ * // call never runs, and later calls do nothing
+ * useEffect(() => {
+ *   const controller = new AbortController()
+ *   const save = debounce({ wait: 300, signal: controller.signal }, saveDraft)
+ *
+ *   editor.on("change", save)
+ *   return () => controller.abort()
+ * }, [])
+ *
  * @name debounce
  * @tag Function
  *
@@ -59,35 +86,10 @@ const _debounce = (
  */
 const debounce = ((...params: unknown[]) => {
   const fn = params[params.length - 1]
-  let wait = 50
-
-  if (params.length > 1) {
-    const options = params[0]
-
-    if (!isPlainObject(options)) {
-      throw new TypeError(
-        `@asd14/m/debounce: expected 'options' to be 'Object', got '${type(options)}'`
-      )
-    }
-
-    const optionWait = options["wait"]
-
-    if (optionWait !== undefined) {
-      if (typeof optionWait !== "number") {
-        throw new TypeError(
-          `@asd14/m/debounce: expected 'wait' to be 'Number', got '${type(optionWait)}'`
-        )
-      }
-
-      if (!(optionWait >= 0)) {
-        throw new TypeError(
-          `@asd14/m/debounce: expected 'wait' to be 'NonNegative', got '${String(optionWait)}'`
-        )
-      }
-
-      wait = optionWait
-    }
-  }
+  const { wait, signal } = _parseTimerOptions(
+    params.length > 1 ? params[0] : undefined,
+    { fnName: "debounce" }
+  )
 
   if (typeof fn !== "function") {
     throw new TypeError(
@@ -95,7 +97,7 @@ const debounce = ((...params: unknown[]) => {
     )
   }
 
-  return _debounce(fn as (...params: unknown[]) => unknown, wait)
+  return _debounce(fn as (...params: unknown[]) => unknown, wait, signal)
 }) as DebounceFn
 
 export { debounce }
