@@ -42,7 +42,6 @@ describe("minBy", () => {
   test("minBy - invalid input", () => {
     const labels = ["a", "b"]
 
-    // @ts-expect-error No overload matches this call.
-    minBy((label: string) => label, labels)
+    expect(minBy).type.not.toBeCallableWith((label: string) => label, labels)
   })
 })

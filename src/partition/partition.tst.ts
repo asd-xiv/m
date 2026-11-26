@@ -37,10 +37,8 @@ describe("partition", () => {
   })
 
   test("partition - invalid input", () => {
-    // @ts-expect-error Type 'string' is not assignable to type 'number'.
-    partition(isEven, [1, "2", 3])
+    expect(partition).type.not.toBeCallableWith(isEven, [1, "2", 3])
 
-    // @ts-expect-error Type 'string' is not assignable to type 'number'.
-    partition(isEven)([1, "2", 3])
+    expect(partition(isEven)).type.not.toBeCallableWith([1, "2", 3])
   })
 })

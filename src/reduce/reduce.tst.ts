@@ -72,22 +72,18 @@ describe("reduce", () => {
     {
       const input = ["a", "b"]
 
-      // @ts-expect-error Type 'string' is not assignable to type 'number'.
-      reduce(sum, 0, input)
+      expect(reduce).type.not.toBeCallableWith(sum, 0, input)
     }
 
     {
       const sumAll = reduce(sum, 0)
       const input = ["a", "b"]
 
-      // @ts-expect-error Type 'string' is not assignable to type 'number'.
-      sumAll(input)
+      expect(sumAll).type.not.toBeCallableWith(input)
     }
 
-    // @ts-expect-error Argument of type 'string' is not assignable to parameter of type 'number'.
-    reduce(sum, "not a number", [1, 2, 3])
+    expect(reduce).type.not.toBeCallableWith(sum, "not a number", [1, 2, 3])
 
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type 'readonly number[]'.
-    reduce(sum, 0)(42)
+    expect(reduce(sum, 0)).type.not.toBeCallableWith(42)
   })
 })

@@ -65,15 +65,12 @@ describe("all", () => {
   test("all - invalid input", () => {
     const input = [1, "2", 3]
 
-    // @ts-expect-error Argument of type ... is not assignable to parameter of type 'readonly number[]'.
-    all(isEven, input)
+    expect(all).type.not.toBeCallableWith(isEven, input)
 
     const allIsEven = all(isEven)
 
-    // @ts-expect-error Argument of type ... is not assignable to parameter of type 'readonly number[]'.
-    allIsEven(input)
+    expect(allIsEven).type.not.toBeCallableWith(input)
 
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type 'readonly number[]'.
-    all(isEven, 42)
+    expect(all).type.not.toBeCallableWith(isEven, 42)
   })
 })

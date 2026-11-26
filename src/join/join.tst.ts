@@ -21,13 +21,10 @@ describe("join", () => {
   })
 
   test("join - invalid input", () => {
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type 'string'.
-    join(42, ["a", "b"])
+    expect(join).type.not.toBeCallableWith(42, ["a", "b"])
 
-    // @ts-expect-error Type 'number' is not assignable to type 'string'.
-    join(",", ["a", 1])
+    expect(join).type.not.toBeCallableWith(",", ["a", 1])
 
-    // @ts-expect-error Type 'number' is not assignable to type 'string'.
-    join(",")(["a", 1])
+    expect(join(",")).type.not.toBeCallableWith(["a", 1])
   })
 })

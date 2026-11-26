@@ -8,7 +8,6 @@ describe("inc", () => {
   })
 
   test("inc - invalid input", () => {
-    // @ts-expect-error Argument of type 'string' is not assignable to parameter of type 'number'.
-    inc("1")
+    expect(inc).type.not.toBeCallableWith("1")
   })
 })

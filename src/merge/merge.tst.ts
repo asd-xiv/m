@@ -34,7 +34,6 @@ describe("merge", () => {
   })
 
   test("merge - invalid input", () => {
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type 'PlainObject'.
-    merge(42, { a: 1 })
+    expect(merge).type.not.toBeCallableWith(42, { a: 1 })
   })
 })

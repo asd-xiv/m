@@ -42,7 +42,6 @@ describe("maxBy", () => {
   test("maxBy - invalid input", () => {
     const labels = ["a", "b"]
 
-    // @ts-expect-error No overload matches this call.
-    maxBy((label: string) => label, labels)
+    expect(maxBy).type.not.toBeCallableWith((label: string) => label, labels)
   })
 })

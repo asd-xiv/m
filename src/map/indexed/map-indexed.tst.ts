@@ -23,10 +23,13 @@ describe("mapIndexed", () => {
   })
 
   test("mapIndexed - invalid input", () => {
-    // @ts-expect-error Type 'string' is not assignable to type 'number'.
-    mapIndexed((x: number, i: number) => x + i, [1, "2"])
+    expect(mapIndexed).type.not.toBeCallableWith(
+      (x: number, i: number) => x + i,
+      [1, "2"]
+    )
 
-    // @ts-expect-error Type 'string' is not assignable to type 'number'.
-    mapIndexed((x: number, i: number) => x + i)([1, "2"])
+    expect(
+      mapIndexed((x: number, i: number) => x + i)
+    ).type.not.toBeCallableWith([1, "2"])
   })
 })

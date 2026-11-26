@@ -72,16 +72,14 @@ describe("find", () => {
     {
       const input = [1, "2", 3]
 
-      // @ts-expect-error Type 'string' is not assignable to type 'number'.
-      find(isEven, input)
+      expect(find).type.not.toBeCallableWith(isEven, input)
     }
 
     {
       const input = [1, "2", 3]
       const findEven = find(isEven)
 
-      // @ts-expect-error Type 'string' is not assignable to type 'number'.
-      findEven(input)
+      expect(findEven).type.not.toBeCallableWith(input)
     }
   })
 })

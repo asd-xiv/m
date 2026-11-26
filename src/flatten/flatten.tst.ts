@@ -38,13 +38,10 @@ describe("flatten", () => {
   })
 
   test("flatten - invalid input", () => {
-    // @ts-expect-error No overload matches this call.
-    flatten(42)
+    expect(flatten).type.not.toBeCallableWith(42)
 
-    // @ts-expect-error No overload matches this call.
-    flatten("abc")
+    expect(flatten).type.not.toBeCallableWith("abc")
 
-    // @ts-expect-error No overload matches this call.
-    flatten({ level: "1" }, [1, [2]])
+    expect(flatten).type.not.toBeCallableWith({ level: "1" }, [1, [2]])
   })
 })

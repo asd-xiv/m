@@ -21,10 +21,8 @@ describe("splitInGroupsOf", () => {
   })
 
   test("splitInGroupsOf - invalid input", () => {
-    // @ts-expect-error Argument of type ... is not assignable to parameter of type 'number'.
-    splitInGroupsOf("2", [1, 2])
+    expect(splitInGroupsOf).type.not.toBeCallableWith("2", [1, 2])
 
-    // @ts-expect-error Argument of type ... is not assignable to parameter of type ...
-    splitInGroupsOf(2, "not-array")
+    expect(splitInGroupsOf).type.not.toBeCallableWith(2, "not-array")
   })
 })

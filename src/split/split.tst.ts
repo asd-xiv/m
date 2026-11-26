@@ -17,10 +17,8 @@ describe("split", () => {
   })
 
   test("split - invalid input", () => {
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type 'string | RegExp'.
-    split(42, "a,b")
+    expect(split).type.not.toBeCallableWith(42, "a,b")
 
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type 'string'.
-    split(",", 42)
+    expect(split).type.not.toBeCallableWith(",", 42)
   })
 })

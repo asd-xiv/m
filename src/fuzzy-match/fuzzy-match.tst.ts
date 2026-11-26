@@ -19,10 +19,8 @@ describe("fuzzyMatch", () => {
   })
 
   test("fuzzyMatch - invalid input", () => {
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type 'string'.
-    fuzzyMatch(1, "text")
+    expect(fuzzyMatch).type.not.toBeCallableWith(1, "text")
 
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type 'string'.
-    fuzzyMatch("a")(1)
+    expect(fuzzyMatch("a")).type.not.toBeCallableWith(1)
   })
 })

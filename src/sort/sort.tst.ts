@@ -28,7 +28,6 @@ describe("sort", () => {
   })
 
   test("sort - invalid input", () => {
-    // @ts-expect-error Argument of type '"up"' is not assignable to parameter of type 'SortDirection'
-    sort("up", [1, 2, 3])
+    expect(sort).type.not.toBeCallableWith("up", [1, 2, 3])
   })
 })

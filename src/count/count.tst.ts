@@ -15,11 +15,9 @@ describe("count", () => {
   })
 
   test("count - invalid input", () => {
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type ...
-    count(42)
+    expect(count).type.not.toBeCallableWith(42)
 
-    // @ts-expect-error Argument of type '{ a: number; }' is not assignable to parameter of type ...
-    count({ a: 1 })
+    expect(count).type.not.toBeCallableWith({ a: 1 })
   })
 
   test("count - aliases", () => {

@@ -31,7 +31,6 @@ describe("sortBy", () => {
   test("sortBy - invalid input", () => {
     const compareFn = (a: number, b: number) => a - b
 
-    // @ts-expect-error Type 'string' is not assignable to type 'number'
-    sortBy(compareFn, ["a"])
+    expect(sortBy).type.not.toBeCallableWith(compareFn, ["a"])
   })
 })

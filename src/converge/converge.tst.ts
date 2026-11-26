@@ -80,10 +80,8 @@ describe("converge", () => {
   })
 
   test("converge - invalid input", () => {
-    // @ts-expect-error No overload matches this call.
-    converge(42, [double], 5)
+    expect(converge).type.not.toBeCallableWith(42, [double], 5)
 
-    // @ts-expect-error No overload matches this call.
-    converge("foo", [double], 5)
+    expect(converge).type.not.toBeCallableWith("foo", [double], 5)
   })
 })

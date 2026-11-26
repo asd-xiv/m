@@ -14,7 +14,6 @@ describe("push", () => {
   })
 
   test("push - invalid input", () => {
-    // @ts-expect-error Argument of type ... is not assignable to parameter of type 'readonly unknown[]'.
-    push(4)("not-an-array")
+    expect(push(4)).type.not.toBeCallableWith("not-an-array")
   })
 })

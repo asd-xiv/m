@@ -72,21 +72,17 @@ describe("update", () => {
   test("update - invalid input", () => {
     const input = { id: 1, name: "foo" }
 
-    // @ts-expect-error Type 'number' is not assignable to type 'string'.
-    update({ name: () => 42 }, input)
+    expect(update).type.not.toBeCallableWith({ name: () => 42 }, input)
 
-    // @ts-expect-error Type 'number' is not assignable to type 'KeyPatcher<string, { id: number; name: string; }> | undefined'.
-    update({ name: 42 }, input)
+    expect(update).type.not.toBeCallableWith({ name: 42 }, input)
 
-    // @ts-expect-error Object literal may only specify known properties, and 'notAKey' does not exist in type 'Patcher<{ id: number; name: string; }>'.
-    update({ notAKey: "x" }, input)
+    expect(update).type.not.toBeCallableWith({ notAKey: "x" }, input)
 
     // A plain value is never an array: m reads an array as a pipe
     {
       const withTags: { tags: string[] } = { tags: [] }
 
-      // @ts-expect-error Type '[string]' is not assignable to type 'KeyPatcher<string[], { tags: string[]; }> | undefined'.
-      update({ tags: ["x"] }, withTags)
+      expect(update).type.not.toBeCallableWith({ tags: ["x"] }, withTags)
     }
   })
 })

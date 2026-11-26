@@ -73,12 +73,10 @@ describe("filter", () => {
   test("filter - invalid input", () => {
     const input = [1, "2", 3]
 
-    // @ts-expect-error Type 'string' is not assignable to type 'number'.
-    filter(isEven, input)
+    expect(filter).type.not.toBeCallableWith(isEven, input)
 
     const filterEven = filter(isEven)
 
-    // @ts-expect-error Type 'string' is not assignable to type 'number'.
-    filterEven(input)
+    expect(filterEven).type.not.toBeCallableWith(input)
   })
 })

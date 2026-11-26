@@ -27,16 +27,12 @@ describe("when", () => {
   })
 
   test("when - invalid input", () => {
-    // @ts-expect-error Argument of type ... is not assignable to parameter of type ...
-    when(() => 1, "yes", "no", 5)
+    expect(when).type.not.toBeCallableWith(() => 1, "yes", "no", 5)
 
-    // @ts-expect-error Expected 2-4 arguments, but got 1.
-    when(isOdd)
+    expect(when).type.not.toBeCallableWith(isOdd)
 
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type ...
-    when(42, inc, dec, 5)
+    expect(when).type.not.toBeCallableWith(42, inc, dec, 5)
 
-    // @ts-expect-error Argument of type 'string' is not assignable to parameter of type ...
-    when("foo", inc, dec, 5)
+    expect(when).type.not.toBeCallableWith("foo", inc, dec, 5)
   })
 })

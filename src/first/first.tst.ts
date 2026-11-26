@@ -22,10 +22,8 @@ describe("first", () => {
   })
 
   test("first - invalid input", () => {
-    // @ts-expect-error Argument of type ... is not assignable to parameter of type ...
-    first(42)
-    // @ts-expect-error Argument of type ... is not assignable to parameter of type ...
-    first({ a: 1 })
+    expect(first).type.not.toBeCallableWith(42)
+    expect(first).type.not.toBeCallableWith({ a: 1 })
   })
 
   test("first - aliases", () => {

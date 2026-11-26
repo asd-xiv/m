@@ -41,7 +41,6 @@ describe("defaultTo", () => {
   })
 
   test("defaultTo - invalid input", () => {
-    // @ts-expect-error Argument of type '"x"' is not assignable to parameter of type '0'.
-    defaultTo(0, "x")
+    expect(defaultTo).type.not.toBeCallableWith(0, "x")
   })
 })

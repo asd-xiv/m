@@ -23,10 +23,14 @@ describe("evolveDeepBy", () => {
   })
 
   test("evolveDeepBy - invalid input", () => {
-    // @ts-expect-error Argument of type 'string' is not assignable to parameter of type 'PlainObject'.
-    evolveDeepBy((_key, value) => value, "foo")
+    expect(evolveDeepBy).type.not.toBeCallableWith(
+      (_key: string, value: unknown) => value,
+      "foo"
+    )
 
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type 'PlainObject'.
-    evolveDeepBy((_key, value) => value, 42)
+    expect(evolveDeepBy).type.not.toBeCallableWith(
+      (_key: string, value: unknown) => value,
+      42
+    )
   })
 })

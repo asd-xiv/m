@@ -22,7 +22,6 @@ describe("intersect", () => {
   })
 
   test("intersect - invalid input", () => {
-    // @ts-expect-error Type 'string' is not assignable to type 'number'
-    intersect([1, 2], ["a"])
+    expect(intersect).type.not.toBeCallableWith([1, 2], ["a"])
   })
 })

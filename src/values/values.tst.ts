@@ -14,10 +14,8 @@ describe("values", () => {
   })
 
   test("values - invalid input", () => {
-    // @ts-expect-error Argument of type 'string' is not assignable to parameter of type 'readonly unknown[]'.
-    values("foo")
+    expect(values).type.not.toBeCallableWith("foo")
 
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type 'readonly unknown[]'.
-    values(42)
+    expect(values).type.not.toBeCallableWith(42)
   })
 })

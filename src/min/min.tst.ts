@@ -12,7 +12,6 @@ describe("min", () => {
   })
 
   test("min - invalid input", () => {
-    // @ts-expect-error Type 'string' is not assignable to type 'number'.
-    min([1, "2"])
+    expect(min).type.not.toBeCallableWith([1, "2"])
   })
 })

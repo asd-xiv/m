@@ -58,12 +58,10 @@ describe("curry", () => {
   })
 
   test("curry - invalid input", () => {
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type ...
-    curry(2)
+    expect(curry).type.not.toBeCallableWith(2)
 
     const fn = curry((a: number, b: number): number => a + b)
 
-    // @ts-expect-error Argument of type 'string' is not assignable to parameter of type 'number'.
-    fn("not a number")
+    expect(fn).type.not.toBeCallableWith("not a number")
   })
 })

@@ -41,10 +41,10 @@ describe("findIndexWith", () => {
   test("findIndexWith - invalid input", () => {
     const input = [{ id: 1 }, { id: 2 }, { id: 3 }]
 
-    // @ts-expect-error Type 'string' is not assignable to type
-    findIndexWith({ id: "uuid" }, input)
+    expect(findIndexWith).type.not.toBeCallableWith({ id: "uuid" }, input)
 
-    // @ts-expect-error Type '[string]' is not assignable to type 'KeyMatcher<string[]> | undefined'.
-    findIndexWith({ tags: ["a"] }, [{ tags: ["a"] }])
+    expect(findIndexWith).type.not.toBeCallableWith({ tags: ["a"] }, [
+      { tags: ["a"] },
+    ])
   })
 })

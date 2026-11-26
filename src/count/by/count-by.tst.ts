@@ -65,12 +65,10 @@ describe("countBy", () => {
   test("countBy - invalid input", () => {
     const input = [1, "2", 3]
 
-    // @ts-expect-error Argument of type ... is not assignable to parameter of type 'readonly number[]'.
-    countBy(isPositive, input)
+    expect(countBy).type.not.toBeCallableWith(isPositive, input)
 
     const countPositive = countBy(isPositive)
 
-    // @ts-expect-error Argument of type ... is not assignable to parameter of type 'readonly number[]'.
-    countPositive(input)
+    expect(countPositive).type.not.toBeCallableWith(input)
   })
 })

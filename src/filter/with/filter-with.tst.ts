@@ -58,10 +58,10 @@ describe("filterWith", () => {
   test("filterWith - invalid input", () => {
     const input = [{ id: 1 }, { id: 2 }, { id: 3 }]
 
-    // @ts-expect-error Type 'string' is not assignable to type
-    filterWith({ id: "uuid" }, input)
+    expect(filterWith).type.not.toBeCallableWith({ id: "uuid" }, input)
 
-    // @ts-expect-error Type '[string]' is not assignable to type 'KeyMatcher<string[]> | undefined'.
-    filterWith({ tags: ["a"] }, [{ tags: ["a"] }])
+    expect(filterWith).type.not.toBeCallableWith({ tags: ["a"] }, [
+      { tags: ["a"] },
+    ])
   })
 })

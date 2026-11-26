@@ -79,25 +79,28 @@ describe("updateWith", () => {
   test("updateWith - invalid input", () => {
     const input = [{ id: 1 }, { id: 2 }]
 
-    // @ts-expect-error ...'string' is not assignable to type...
-    updateWith({ id: "uuid" }, { id: 1 }, input)
+    expect(updateWith).type.not.toBeCallableWith(
+      { id: "uuid" },
+      { id: 1 },
+      input
+    )
 
     // A match value is never an array, m reads it as a pipe
-    // @ts-expect-error Type '[number]' is not assignable to type 'KeyMatcher<number> | undefined'.
-    updateWith({ id: [1] }, { id: 2 }, input)
+    expect(updateWith).type.not.toBeCallableWith({ id: [1] }, { id: 2 }, input)
 
-    // @ts-expect-error Type '[]' is not assignable to type 'string | number | ...'.
-    updateWith({ id: 1 }, { tags: [] })
+    expect(updateWith).type.not.toBeCallableWith({ id: 1 }, { tags: [] })
 
-    // @ts-expect-error Type '[string]' is not assignable to type 'string | number | ...'.
-    updateWith({ id: 1 }, { tags: ["a"] })
+    expect(updateWith).type.not.toBeCallableWith({ id: 1 }, { tags: ["a"] })
 
     {
       const withTags: { tags: string[] }[] = [{ tags: [] }]
 
       // A patcher value is never an array either
-      // @ts-expect-error Type '[string]' is not assignable to type 'KeyPatcher<string[], { tags: string[]; }> | undefined'.
-      updateWith({ tags: () => true }, { tags: ["x"] }, withTags)
+      expect(updateWith).type.not.toBeCallableWith(
+        { tags: () => true },
+        { tags: ["x"] },
+        withTags
+      )
     }
   })
 })

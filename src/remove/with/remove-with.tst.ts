@@ -51,15 +51,12 @@ describe("removeWith", () => {
   })
 
   test("removeWith - invalid input", () => {
-    // @ts-expect-error Object literal may only specify known properties, and 'id' does not exist in type 'readonly { id: unknown; }[]'.
-    removeWith({ id: isSomething }, { id: 1 })
+    expect(removeWith).type.not.toBeCallableWith({ id: isSomething }, { id: 1 })
 
     const input = [{ id: 1 }, { id: 2 }, { id: 3 }]
 
-    // @ts-expect-error Type 'string' is not assignable to type 'KeyMatcher<number> | undefined'.
-    removeWith({ id: "uuid" }, input)
+    expect(removeWith).type.not.toBeCallableWith({ id: "uuid" }, input)
 
-    // @ts-expect-error Type '[number, number]' is not assignable to type 'KeyMatcher<number> | undefined'.
-    removeWith({ id: [1, 2] }, input)
+    expect(removeWith).type.not.toBeCallableWith({ id: [1, 2] }, input)
   })
 })

@@ -12,10 +12,8 @@ describe("keys", () => {
   })
 
   test("keys - invalid input", () => {
-    // @ts-expect-error Argument of type 'string' is not assignable to parameter of type 'readonly unknown[] | Record<string, unknown>'.
-    keys("foo")
+    expect(keys).type.not.toBeCallableWith("foo")
 
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type 'readonly unknown[] | Record<string, unknown>'.
-    keys(42)
+    expect(keys).type.not.toBeCallableWith(42)
   })
 })

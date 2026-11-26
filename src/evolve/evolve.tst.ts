@@ -60,13 +60,10 @@ describe("evolve", () => {
   test("evolve - invalid input", () => {
     const input = { id: 1, name: "foo" }
 
-    // @ts-expect-error Type 'string' is not assignable to type 'KeyEvolver<string, { id: number; name: string; }> | undefined'.
-    evolve({ name: "bar" }, input)
+    expect(evolve).type.not.toBeCallableWith({ name: "bar" }, input)
 
-    // @ts-expect-error Type '[string]' is not assignable to type 'KeyEvolver<string, { id: number; name: string; }> | undefined'.
-    evolve({ name: ["bar"] }, input)
+    expect(evolve).type.not.toBeCallableWith({ name: ["bar"] }, input)
 
-    // @ts-expect-error Object literal may only specify known properties, and 'notAKey' does not exist in type 'Evolver<{ id: number; name: string; }>'.
-    evolve({ notAKey: () => "x" }, input)
+    expect(evolve).type.not.toBeCallableWith({ notAKey: () => "x" }, input)
   })
 })

@@ -41,13 +41,15 @@ describe("allWith", () => {
   test("allWith - invalid input", () => {
     const input = [{ id: 1 }, { id: 2 }, { id: 3 }]
 
-    // @ts-expect-error Type 'string' is not assignable to type 'KeyMatcher<number> | undefined'.
-    allWith({ id: "uuid" }, input)
+    expect(allWith).type.not.toBeCallableWith({ id: "uuid" }, input)
 
-    // @ts-expect-error Object literal may only specify known properties, and 'id' does not exist in type 'readonly { id: unknown; }[]'.
-    allWith({ id: isSomething }, { id: 1, name: "test" })
+    expect(allWith).type.not.toBeCallableWith(
+      { id: isSomething },
+      { id: 1, name: "test" }
+    )
 
-    // @ts-expect-error Type '[string]' is not assignable to type 'KeyMatcher<string[]> | undefined'.
-    allWith({ tags: ["a"] }, [{ tags: ["a"] }])
+    expect(allWith).type.not.toBeCallableWith({ tags: ["a"] }, [
+      { tags: ["a"] },
+    ])
   })
 })

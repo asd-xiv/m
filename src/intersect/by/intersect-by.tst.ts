@@ -28,7 +28,6 @@ describe("intersectBy", () => {
   })
 
   test("intersectBy - invalid input", () => {
-    // @ts-expect-error Expected 2-3 arguments, but got 1.
-    intersectBy(byId)
+    expect(intersectBy).type.not.toBeCallableWith(byId)
   })
 })

@@ -24,12 +24,10 @@ describe("isEqual", () => {
   })
 
   test("isEqual - invalid input", () => {
-    // @ts-expect-error Argument of type 'string' is not assignable to parameter of type 'number'
-    isEqual(1, "2")
+    expect(isEqual).type.not.toBeCallableWith(1, "2")
 
     const isEqualTo1 = isEqual(1)
 
-    // @ts-expect-error Argument of type 'string' is not assignable to parameter of type 'number'
-    isEqualTo1("2")
+    expect(isEqualTo1).type.not.toBeCallableWith("2")
   })
 })

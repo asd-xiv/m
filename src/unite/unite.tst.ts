@@ -22,7 +22,6 @@ describe("unite", () => {
   })
 
   test("unite - invalid input", () => {
-    // @ts-expect-error Type 'string' is not assignable to type 'number'
-    unite([1, 2], ["a"])
+    expect(unite).type.not.toBeCallableWith([1, 2], ["a"])
   })
 })
