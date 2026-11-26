@@ -29,6 +29,9 @@ const _uniteBy = (
  * array of the items of both arrays, where the first of each group of equal
  * items wins. Order is preserved - items from the first array appear first.
  *
+ * Compares each item with each kept item, so the time grows with the square
+ * of the input. To compare with SameValueZero, use `unite`, which is linear.
+ *
  * Input is never mutated - always returns a new array.
  *
  * @param {Function} fn - `(newItem, keptItem) => boolean`, true when equal
