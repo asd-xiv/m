@@ -51,6 +51,9 @@ const _intersectBy = (
  * second array, where the first of each group of equal items wins. Order is
  * preserved - items appear in the order of the first array.
  *
+ * Compares each item with each kept item, so the time grows with the square
+ * of the input. To compare with SameValueZero, use `intersect`, which is linear.
+ *
  * Input is never mutated - always returns a new array.
  *
  * @param {Function} fn - `(item, other) => boolean`, true when equal. A pair
