@@ -93,6 +93,18 @@ jobs:
         with:
           path: dist/docs
 
+  # A job of its own, so a failed deploy re-runs without the release
+  deploy-site:
+    name: Deploy the API site
+    needs: [release]
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      pages: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
