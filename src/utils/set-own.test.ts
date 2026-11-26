@@ -1,7 +1,7 @@
 import test from "tape"
 
-import { _setOwn } from "./set-own.js"
-import type { PlainObject } from "../../types/object.js"
+import { _setOwn } from "./set-own.ts"
+import type { PlainObject } from "../../types/object.ts"
 
 test("_setOwn - valid", t => {
   {

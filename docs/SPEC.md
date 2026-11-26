@@ -106,12 +106,12 @@ update({ tags: () => [] }, todo)
 
 Each concept follows the same rule in every function:
 
-| Concept              | Rule                                                        |
-| -------------------- | ----------------------------------------------------------- |
-| A predicate passes   | when it returns `=== true`                                  |
-| Two values are equal | SameValueZero, as `Array.prototype.includes`                |
-| A key                | an own key, read with `Object.hasOwn`                       |
-| An object            | a plain object: its prototype is `Object.prototype` or null |
+| Concept              | Rule                                                                                |
+| -------------------- | ----------------------------------------------------------------------------------- |
+| A predicate passes   | when it returns `=== true`                                                          |
+| Two values are equal | SameValueZero, as `Array.prototype.includes`                                        |
+| A key                | an own key, read with `Object.hasOwn`, `__proto__` too. The prototype never changes |
+| An object            | a plain object: its prototype is `Object.prototype` or null                         |
 
 ```ts
 // Bad: remove compares with `===`, while distinct uses SameValueZero
