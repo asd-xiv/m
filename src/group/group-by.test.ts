@@ -156,6 +156,15 @@ test("groupBy - curried", t => {
 })
 
 test("groupBy - invalid input", t => {
+  // A missing key would group the item under the text "undefined"
+  t.throws(
+    () =>
+      // @ts-expect-error -- testing runtime validation
+      groupBy(read("team"), [{ name: "alice", team: "core" }, { name: "bob" }]),
+    /@asd14\/m\/groupBy: expected 'fn\(input\[1\]\)' to be 'String' or 'Number', got 'Undefined'/,
+    "given [a key that is neither a string nor a number] should [throw TypeError]"
+  )
+
   t.throws(
     () => {
       // @ts-expect-error -- testing runtime validation

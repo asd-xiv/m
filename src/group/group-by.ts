@@ -53,7 +53,17 @@ const _groupBy = (
 
   for (let i = 0, length = input.length; i < length; i++) {
     const item: unknown = input[i]
-    const key = String(fn(item))
+    const rawKey: unknown = fn(item)
+
+    // The types allow a string or a number. Anything else would turn into a
+    // string that can match another item's key, eg. ["admin"] into "admin"
+    if (typeof rawKey !== "string" && typeof rawKey !== "number") {
+      throw new TypeError(
+        `@asd14/m/groupBy: expected 'fn(input[${i}])' to be 'String' or 'Number', got '${type(rawKey)}'`
+      )
+    }
+
+    const key = String(rawKey)
 
     if (Object.hasOwn(result, key)) {
       result[key]!.push(item)
@@ -79,6 +89,9 @@ const _groupBy = (
  * @param {Array} [input] - Array to group
  *
  * @returns {Object} Object of arrays, one for each key
+ *
+ * @throws {TypeError} When `fn` returns neither a string nor a number, eg.
+ * `expected 'fn(input[1])' to be 'String' or 'Number', got 'Undefined'`
  *
  * @example
  * groupBy(user => user.role, [
