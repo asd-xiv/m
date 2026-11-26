@@ -46,6 +46,9 @@ const _distinctBy = (
  * Remove duplicate values from an array using a custom equality function.
  * Order is preserved - first occurrence wins.
  *
+ * Compares each item with each kept item, so the time grows with the square
+ * of the input. To compare with SameValueZero, use `distinct`, which is linear.
+ *
  * Input is never mutated - always returns a new array.
  *
  * @param {Function} fn - Equality function `(newItem, keptItem) => boolean`,
