@@ -24,7 +24,7 @@ describe("map", () => {
 
       expect(
         map(item => {
-          expect(item).type.toBeAssignableTo<number>()
+          expect(item).type.toBe<1 | 2 | 3>()
 
           return item * 2
         }, input)

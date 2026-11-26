@@ -10,12 +10,12 @@ import type {
 
 describe("PlainObject", () => {
   test("PlainObject - valid input", () => {
-    expect<{ name: string }>().type.toBeAssignableTo<PlainObject>()
-    expect<{
+    expect<PlainObject>().type.toBeAssignableFrom<{ name: string }>()
+    expect<PlainObject>().type.toBeAssignableFrom<{
       id: number
       nested: { a: 1 }
-    }>().type.toBeAssignableTo<PlainObject>()
-    expect<Record<string, number>>().type.toBeAssignableTo<PlainObject>()
+    }>()
+    expect<PlainObject>().type.toBeAssignableFrom<Record<string, number>>()
   })
 })
 
