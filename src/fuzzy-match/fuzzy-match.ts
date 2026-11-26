@@ -53,19 +53,133 @@ const scoreBonus = (text: string, index: number): number => {
     : 0
 }
 
-const pickBest = (
-  a: FuzzyMatch | undefined,
-  b: FuzzyMatch | undefined
-): FuzzyMatch | undefined => {
-  if (a === undefined) {
-    return b
+/*
+ * fuzzyMatch fills a table: a row per query letter, a cell per text index. A
+ * cell holds the best placement of the query up to its letter, with that
+ * letter on its index. The best cell of the last row is the answer, and the
+ * links back through the rows give its indexes
+ */
+
+// A matched letter: its score so far, its index in the text, and the cell of
+// the letter before it. A link, not a copy of the indexes before it
+type Cell = {
+  score: number
+  index: number
+  previous: Cell | undefined
+}
+
+type Row = (Cell | undefined)[]
+
+// The best cell of the row before that a gap can start from, and its score
+// minus the penalty of the gap so far. One per row, updated as the scan moves
+// right, so the scan builds no object per text index
+type Gap = {
+  cell: Cell | undefined
+  score: number
+}
+
+const widenGap = (gap: Gap, opening: Cell | undefined): void => {
+  // Each index the gap already spans costs a little more
+  if (gap.cell) {
+    gap.score -= PENALTY_GAP_EXTENSION
   }
 
-  if (b === undefined) {
-    return a
+  // A cell two indexes back can start a new gap. On a tie, the open gap stays
+  if (opening && (!gap.cell || opening.score - PENALTY_GAP_START > gap.score)) {
+    gap.cell = opening
+    gap.score = opening.score - PENALTY_GAP_START
+  }
+}
+
+// The first query letter: no letter before it to link to
+const startCell = (text: string, index: number): Cell => ({
+  score: SCORE_MATCH + scoreBonus(text, index) * FIRST_LETTER_MULTIPLIER,
+  index,
+  previous: undefined,
+})
+
+// A later query letter links to the letter before it: right before this
+// index, or across the gap. On a tie, the consecutive letter wins
+const extendCell = (
+  text: string,
+  index: number,
+  consecutive: Cell | undefined,
+  gap: Gap
+): Cell | undefined => {
+  if (!consecutive && !gap.cell) {
+    return undefined
   }
 
-  return b.score > a.score ? b : a
+  const bonus = scoreBonus(text, index)
+  const consecutiveScore = consecutive
+    ? consecutive.score + Math.max(bonus, BONUS_CONSECUTIVE)
+    : Number.NEGATIVE_INFINITY
+  const gapScore = gap.cell ? gap.score + bonus : Number.NEGATIVE_INFINITY
+  const isGapBetter = gapScore > consecutiveScore
+
+  return {
+    score: (isGapBetter ? gapScore : consecutiveScore) + SCORE_MATCH,
+    index,
+    previous: isGapBetter ? gap.cell : consecutive,
+  }
+}
+
+// The row of one query letter, from the row of the letter before it. Returns
+// undefined when the letter matches nowhere. `lowerText` is the text in lower
+// case, when lowering kept its length
+const matchLetter = (
+  letter: string,
+  text: string,
+  lowerText: string | undefined,
+  previousRow: Row,
+  isFirstLetter: boolean
+): Row | undefined => {
+  const row: Row = []
+  const gap: Gap = { cell: undefined, score: 0 }
+  // A letter whose lower case is 2 code units, eg. "İ", cannot equal one
+  // character of a text that kept its length in lower case
+  const letterCode = letter.length === 1 ? letter.charCodeAt(0) : -1
+  let hasCell = false
+
+  for (let index = 0, length = text.length; index < length; index++) {
+    widenGap(gap, previousRow[index - 2])
+
+    const isMatch = lowerText
+      ? lowerText.charCodeAt(index) === letterCode
+      : text.charAt(index).toLowerCase() === letter
+
+    if (!isMatch) {
+      continue
+    }
+
+    const cell = isFirstLetter
+      ? startCell(text, index)
+      : extendCell(text, index, previousRow[index - 1], gap)
+
+    if (cell) {
+      row[index] = cell
+      hasCell = true
+    }
+  }
+
+  return hasCell ? row : undefined
+}
+
+// On a tie, keeps `a`: the placement found first
+const pickBest = (a: Cell | undefined, b: Cell | undefined) =>
+  !a || (b && b.score > a.score) ? b : a
+
+// The text index of each letter, following the links back from `cell`
+const toIndexes = (cell: Cell): number[] => {
+  const indexes: number[] = []
+  let current: Cell | undefined = cell
+
+  while (current) {
+    indexes.push(current.index)
+    current = current.previous
+  }
+
+  return indexes.reverse()
 }
 
 const _fuzzyMatch = (query: string, text: string): FuzzyMatch | undefined => {
@@ -79,75 +193,42 @@ const _fuzzyMatch = (query: string, text: string): FuzzyMatch | undefined => {
     return { score: 0, indexes: [] }
   }
 
-  /*
-   * A row per query letter, a cell per text index. A cell contains the best
-   * match of the query up to this letter, with this letter on this index
-   */
-  let row: (FuzzyMatch | undefined)[] = []
+  // Each query letter needs its own index in the text
+  if (query.length > text.length) {
+    return undefined
+  }
+
+  // Lower the text once and compare character codes: about a quarter faster
+  // for a short query over many texts. A text whose lower case has another
+  // length, eg. one with "İ", compares letter by letter, so each index still
+  // points into the text
+  const lowered = text.toLowerCase()
+  const lowerText = lowered.length === text.length ? lowered : undefined
+
+  let row: Row = []
 
   for (let queryIndex = 0; queryIndex < query.length; queryIndex++) {
     const letter = query.charAt(queryIndex).toLowerCase()
-    const previousRow = row
-    // The best cell of the previous row that leaves a gap before this index,
-    // its score minus the penalty of that gap
-    let gap: FuzzyMatch | undefined
+    const nextRow = matchLetter(letter, text, lowerText, row, queryIndex === 0)
 
-    row = []
-
-    for (let textIndex = 0; textIndex < text.length; textIndex++) {
-      const opening = previousRow[textIndex - 2]
-
-      gap = pickBest(
-        gap && {
-          score: gap.score - PENALTY_GAP_EXTENSION,
-          indexes: gap.indexes,
-        },
-        opening && {
-          score: opening.score - PENALTY_GAP_START,
-          indexes: opening.indexes,
-        }
-      )
-
-      if (text.charAt(textIndex).toLowerCase() !== letter) {
-        continue
-      }
-
-      const bonus = scoreBonus(text, textIndex)
-
-      if (queryIndex === 0) {
-        row[textIndex] = {
-          score: SCORE_MATCH + bonus * FIRST_LETTER_MULTIPLIER,
-          indexes: [textIndex],
-        }
-        continue
-      }
-
-      const consecutive = previousRow[textIndex - 1]
-      const best = pickBest(
-        consecutive && {
-          score: consecutive.score + Math.max(bonus, BONUS_CONSECUTIVE),
-          indexes: consecutive.indexes,
-        },
-        gap && { score: gap.score + bonus, indexes: gap.indexes }
-      )
-
-      row[textIndex] = best && {
-        score: best.score + SCORE_MATCH,
-        indexes: [...best.indexes, textIndex],
-      }
+    // This letter matched nowhere, so the rest of the query cannot match
+    if (!nextRow) {
+      return undefined
     }
+
+    row = nextRow
   }
 
-  let best: FuzzyMatch | undefined
+  let best: Cell | undefined
 
-  for (let index = 0, length = row.length; index < length; index++) {
-    best = pickBest(best, row[index])
+  for (const cell of row) {
+    best = pickBest(best, cell)
   }
 
   return (
     best && {
       score: best.score - text.length * PENALTY_TEXT_LENGTH,
-      indexes: best.indexes,
+      indexes: toIndexes(best),
     }
   )
 }
@@ -161,6 +242,9 @@ const _fuzzyMatch = (query: string, text: string): FuzzyMatch | undefined => {
  * Scores higher: consecutive letters, a letter at the start of the text, at a
  * word start or at a camelCase hump, and a shorter text. Scores lower: each
  * gap between two letters.
+ *
+ * The time grows with the query length times the text length: cap a query
+ * from untrusted input, eg. at 100 letters.
  *
  * Input is never mutated.
  *
