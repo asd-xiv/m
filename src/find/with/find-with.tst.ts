@@ -41,10 +41,10 @@ describe("findWith", () => {
   test("findWith - invalid input", () => {
     const input = [{ id: 1 }, { id: 2 }, { id: 3 }]
 
-    // @ts-expect-error Type 'string' is not assignable to type
-    findWith({ id: "uuid" }, input)
+    expect(findWith).type.not.toBeCallableWith({ id: "uuid" }, input)
 
-    // @ts-expect-error Type '[string]' is not assignable to type 'KeyMatcher<string[]> | undefined'.
-    findWith({ tags: ["a"] }, [{ tags: ["a"] }])
+    expect(findWith).type.not.toBeCallableWith({ tags: ["a"] }, [
+      { tags: ["a"] },
+    ])
   })
 })

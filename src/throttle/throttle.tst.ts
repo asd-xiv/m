@@ -14,15 +14,13 @@ describe("throttle", () => {
   })
 
   test("throttle - invalid input", () => {
-    // @ts-expect-error Type 'string' is not assignable to type 'boolean
-    throttle({ hasLastCall: "yes" }, () => undefined)
-
-    // @ts-expect-error Argument of type 'number' is not assignable
-    throttle(42)
-
-    throttle((a: number) => a)(
-      // @ts-expect-error Argument of type 'string' is not assignable to parameter of type 'number'
-      "1"
+    expect(throttle).type.not.toBeCallableWith(
+      { hasLastCall: "yes" },
+      () => undefined
     )
+
+    expect(throttle).type.not.toBeCallableWith(42)
+
+    expect(throttle((a: number) => a)).type.not.toBeCallableWith("1")
   })
 })

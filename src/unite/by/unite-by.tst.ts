@@ -28,7 +28,6 @@ describe("uniteBy", () => {
   })
 
   test("uniteBy - invalid input", () => {
-    // @ts-expect-error Expected 2-3 arguments, but got 1.
-    uniteBy(byId)
+    expect(uniteBy).type.not.toBeCallableWith(byId)
   })
 })

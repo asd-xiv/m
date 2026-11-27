@@ -64,7 +64,6 @@ describe("sortWith", () => {
   })
 
   test("sortWith - invalid input", () => {
-    // @ts-expect-error Type 'number' is not assignable to type 'FieldSorter<number> | undefined'
-    sortWith({ position: 42 }, [] as Item[])
+    expect(sortWith).type.not.toBeCallableWith({ position: 42 }, [] as Item[])
   })
 })

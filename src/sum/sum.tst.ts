@@ -14,10 +14,8 @@ describe("sum", () => {
   })
 
   test("sum - invalid input", () => {
-    // @ts-expect-error Argument of type 'string' is not assignable to parameter of type 'number'.
-    sum(1, "2")
+    expect(sum).type.not.toBeCallableWith(1, "2")
 
-    // @ts-expect-error No overload matches this call.
-    sum([1, "2"])
+    expect(sum).type.not.toBeCallableWith([1, "2"])
   })
 })

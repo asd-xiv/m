@@ -14,15 +14,10 @@ describe("debounce", () => {
   })
 
   test("debounce - invalid input", () => {
-    // @ts-expect-error Type 'string' is not assignable to type 'number'.
-    debounce({ wait: "100" }, () => undefined)
+    expect(debounce).type.not.toBeCallableWith({ wait: "100" }, () => undefined)
 
-    // @ts-expect-error Argument of type 'number' is not assignable
-    debounce(42)
+    expect(debounce).type.not.toBeCallableWith(42)
 
-    debounce((a: number) => a)(
-      // @ts-expect-error Argument of type 'string' is not assignable to parameter of type 'number'
-      "1"
-    )
+    expect(debounce((a: number) => a)).type.not.toBeCallableWith("1")
   })
 })

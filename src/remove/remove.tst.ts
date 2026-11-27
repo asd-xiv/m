@@ -25,10 +25,8 @@ describe("remove", () => {
   })
 
   test("remove - invalid input", () => {
-    // @ts-expect-error Argument of type 'string' is not assignable to parameter of type 'number'.
-    remove("a", [1])
+    expect(remove).type.not.toBeCallableWith("a", [1])
 
-    // @ts-expect-error Type 'number' is not assignable to type 'string'.
-    remove("a")([1])
+    expect(remove("a")).type.not.toBeCallableWith([1])
   })
 })

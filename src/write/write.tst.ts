@@ -111,13 +111,12 @@ describe("write", () => {
   })
 
   test("write - invalid input", () => {
-    // @ts-expect-error ... type 'number' is not assignable to ... type 'object'
-    write("name", "bob", 42)
-    // @ts-expect-error ... type 'number' is not assignable to ... type 'string'
-    write(42, "bob", {})
-    // @ts-expect-error ... type '[]' is not assignable to ... type 'WritePath'
-    write([], "bob", {})
-    // @ts-expect-error Expected 2-3 arguments, but got 1
-    write("name")
+    expect(write).type.not.toBeCallableWith("name", "bob", 42)
+
+    expect(write).type.not.toBeCallableWith(42, "bob", {})
+
+    expect(write).type.not.toBeCallableWith([], "bob", {})
+
+    expect(write).type.not.toBeCallableWith("name")
   })
 })

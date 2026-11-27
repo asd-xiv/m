@@ -23,7 +23,6 @@ describe("distinctBy", () => {
   })
 
   test("distinctBy - invalid input", () => {
-    // @ts-expect-error Property 'name' is missing
-    distinctBy(byId, [{ id: 1 }])
+    expect(distinctBy).type.not.toBeCallableWith(byId, [{ id: 1 }])
   })
 })

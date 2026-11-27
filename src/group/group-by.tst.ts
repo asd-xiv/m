@@ -46,7 +46,6 @@ describe("groupBy", () => {
     expect(groupBy([read("active"), String], users)).type.toBe<
       Record<string, { name: string; active: boolean }[]>
     >()
-    // @ts-expect-error No overload matches this call.
-    groupBy(read("active"), users)
+    expect(groupBy).type.not.toBeCallableWith(read("active"), users)
   })
 })

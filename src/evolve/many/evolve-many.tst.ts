@@ -38,13 +38,10 @@ describe("evolveMany", () => {
   test("evolveMany - invalid input", () => {
     const input = [{ id: 1 }, { id: 2 }]
 
-    // @ts-expect-error 'notAKey' does not exist in type ...
-    evolveMany({ notAKey: () => "x" }, input)
+    expect(evolveMany).type.not.toBeCallableWith({ notAKey: () => "x" }, input)
 
-    // @ts-expect-error Type 'number' is not assignable to type 'KeyEvolver<number, { id: number; }> | undefined'.
-    evolveMany({ id: 1 }, input)
+    expect(evolveMany).type.not.toBeCallableWith({ id: 1 }, input)
 
-    // @ts-expect-error Type '[string]' is not assignable to type 'KeyEvolver<number, { id: number; }> | undefined'.
-    evolveMany({ id: ["x"] }, input)
+    expect(evolveMany).type.not.toBeCallableWith({ id: ["x"] }, input)
   })
 })

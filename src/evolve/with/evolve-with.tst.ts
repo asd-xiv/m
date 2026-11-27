@@ -42,20 +42,27 @@ describe("evolveWith", () => {
   test("evolveWith - invalid input", () => {
     const input = [{ id: 1 }, { id: 2 }]
 
-    // @ts-expect-error Argument of type 'string' is not assignable to parameter of type 'Matcher<{ id: number; }>'.
-    evolveWith("42", { id: () => 1 }, input)
+    expect(evolveWith).type.not.toBeCallableWith("42", { id: () => 1 }, input)
 
-    // @ts-expect-error Type 'string' is not assignable to type 'KeyMatcher<number> | undefined'.
-    evolveWith({ id: "uuid" }, { id: () => 1 }, input)
+    expect(evolveWith).type.not.toBeCallableWith(
+      { id: "uuid" },
+      { id: () => 1 },
+      input
+    )
 
     // A match value is never an array, m reads it as a pipe
-    // @ts-expect-error Type '[number]' is not assignable to type 'KeyMatcher<number> | undefined'.
-    evolveWith({ id: [1] }, { id: () => 1 }, input)
+    expect(evolveWith).type.not.toBeCallableWith(
+      { id: [1] },
+      { id: () => 1 },
+      input
+    )
 
-    // @ts-expect-error Type 'number' is not assignable to type 'KeyEvolver<number, { id: number; }> | undefined'.
-    evolveWith({ id: 1 }, { id: 1 }, input)
+    expect(evolveWith).type.not.toBeCallableWith({ id: 1 }, { id: 1 }, input)
 
-    // @ts-expect-error Type '[string]' is not assignable to type 'KeyEvolver<number, { id: number; }> | undefined'.
-    evolveWith({ id: 1 }, { id: ["x"] }, input)
+    expect(evolveWith).type.not.toBeCallableWith(
+      { id: 1 },
+      { id: ["x"] },
+      input
+    )
   })
 })

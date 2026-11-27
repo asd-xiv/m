@@ -72,16 +72,14 @@ describe("findIndex", () => {
     {
       const input = [1, "2", 3]
 
-      // @ts-expect-error Type 'string' is not assignable to type 'number'.
-      findIndex(isEven, input)
+      expect(findIndex).type.not.toBeCallableWith(isEven, input)
     }
 
     {
       const input = [1, "2", 3]
       const findEvenIndex = findIndex(isEven)
 
-      // @ts-expect-error Type 'string' is not assignable to type 'number'.
-      findEvenIndex(input)
+      expect(findEvenIndex).type.not.toBeCallableWith(input)
     }
   })
 })

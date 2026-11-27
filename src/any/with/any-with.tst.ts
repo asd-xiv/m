@@ -41,14 +41,16 @@ describe("anyWith", () => {
   test("anyWith - invalid input", () => {
     const input = [{ id: 1 }, { id: 2 }, { id: 3 }]
 
-    // @ts-expect-error Type 'string' is not assignable to type 'KeyMatcher<number> | undefined'.
-    anyWith({ id: "uuid" }, input)
+    expect(anyWith).type.not.toBeCallableWith({ id: "uuid" }, input)
 
-    // @ts-expect-error Object literal may only specify known properties, and 'id' does not exist in type 'readonly { id: unknown; }[]'.
-    anyWith({ id: isSomething }, { id: 1, name: "test" })
+    expect(anyWith).type.not.toBeCallableWith(
+      { id: isSomething },
+      { id: 1, name: "test" }
+    )
 
-    // @ts-expect-error Type '[string]' is not assignable to type 'KeyMatcher<string[]> | undefined'.
-    anyWith({ tags: ["a"] }, [{ tags: ["a"] }])
+    expect(anyWith).type.not.toBeCallableWith({ tags: ["a"] }, [
+      { tags: ["a"] },
+    ])
   })
 
   test("anyWith - aliases", () => {

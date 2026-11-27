@@ -68,15 +68,12 @@ describe("read", () => {
 
   test("read - invalid input", () => {
     // Mismatched default type (uncurried) - default is number, value is string
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type ...
-    read("name", 42, { name: "alice" })
+    expect(read).type.not.toBeCallableWith("name", 42, { name: "alice" })
 
     // Invalid path types
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type ...
-    read(42)
+    expect(read).type.not.toBeCallableWith(42)
 
-    // @ts-expect-error Argument of type 'null' is not assignable to parameter of type ...
-    read(null)
+    expect(read).type.not.toBeCallableWith(null)
   })
 
   test("read - aliases", () => {

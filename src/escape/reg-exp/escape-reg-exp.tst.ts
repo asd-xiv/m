@@ -8,7 +8,6 @@ describe("escapeRegExp", () => {
   })
 
   test("escapeRegExp - invalid input", () => {
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type 'string'.
-    escapeRegExp(42)
+    expect(escapeRegExp).type.not.toBeCallableWith(42)
   })
 })

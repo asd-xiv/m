@@ -33,10 +33,10 @@ describe("partitionWith", () => {
   })
 
   test("partitionWith - invalid input", () => {
-    // @ts-expect-error Type 'string' is not assignable to type 'KeyMatcher<number> | undefined'.
-    partitionWith({ id: "uuid" }, [{ id: 1 }])
+    expect(partitionWith).type.not.toBeCallableWith({ id: "uuid" }, [{ id: 1 }])
 
-    // @ts-expect-error Type '[string]' is not assignable to type 'KeyMatcher<string[]> | undefined'.
-    partitionWith({ tags: ["a"] }, [{ tags: ["a"] }])
+    expect(partitionWith).type.not.toBeCallableWith({ tags: ["a"] }, [
+      { tags: ["a"] },
+    ])
   })
 })

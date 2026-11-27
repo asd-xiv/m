@@ -16,7 +16,6 @@ describe("isDeepEqual", () => {
   })
 
   test("isDeepEqual - invalid input", () => {
-    // @ts-expect-error Expected 1-2 arguments, but got 3.
-    isDeepEqual(1, 2, 3)
+    expect(isDeepEqual).type.not.toBeCallableWith(1, 2, 3)
   })
 })

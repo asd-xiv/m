@@ -35,14 +35,11 @@ describe("zipToObject", () => {
   })
 
   test("zipToObject - invalid input", () => {
-    // @ts-expect-error Argument of type 'string' is not assignable to parameter of type 'readonly string[]'
-    zipToObject("a", [1])
+    expect(zipToObject).type.not.toBeCallableWith("a", [1])
 
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type 'readonly string[]'
-    zipToObject(42, [1])
+    expect(zipToObject).type.not.toBeCallableWith(42, [1])
 
-    // @ts-expect-error Type 'number' is not assignable to type 'string'
-    zipToObject([1], [1])
+    expect(zipToObject).type.not.toBeCallableWith([1], [1])
   })
 
   test("zipToObject - aliases", () => {

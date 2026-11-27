@@ -55,7 +55,6 @@ describe("mapMatrix", () => {
       [3, 4],
     ]
 
-    // @ts-expect-error Type 'string' is not assignable to type 'number'.
-    mapMatrix(double, input)
+    expect(mapMatrix).type.not.toBeCallableWith(double, input)
   })
 })

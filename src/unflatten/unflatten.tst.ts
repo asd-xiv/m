@@ -16,10 +16,8 @@ describe("unflatten", () => {
   })
 
   test("unflatten - invalid input", () => {
-    // @ts-expect-error No overload matches this call.
-    unflatten(42)
+    expect(unflatten).type.not.toBeCallableWith(42)
 
-    // @ts-expect-error No overload matches this call.
-    unflatten(null)
+    expect(unflatten).type.not.toBeCallableWith(null)
   })
 })

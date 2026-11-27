@@ -41,10 +41,10 @@ describe("countWith", () => {
   test("countWith - invalid input", () => {
     const input = [{ id: 1 }, { id: 2 }, { id: 3 }]
 
-    // @ts-expect-error Type 'string' is not assignable to type 'KeyMatcher<number> | undefined'.
-    countWith({ id: "uuid" }, input)
+    expect(countWith).type.not.toBeCallableWith({ id: "uuid" }, input)
 
-    // @ts-expect-error Type '[string]' is not assignable to type 'KeyMatcher<string[]> | undefined'.
-    countWith({ tags: ["a"] }, [{ tags: ["a"] }])
+    expect(countWith).type.not.toBeCallableWith({ tags: ["a"] }, [
+      { tags: ["a"] },
+    ])
   })
 })

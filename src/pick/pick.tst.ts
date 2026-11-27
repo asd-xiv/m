@@ -39,10 +39,8 @@ describe("pick", () => {
   })
 
   test("pick - invalid input", () => {
-    // @ts-expect-error Argument of type 'string' is not assignable to parameter of type 'readonly "name"[]'.
-    pick("name", { name: "Alice" })
+    expect(pick).type.not.toBeCallableWith("name", { name: "Alice" })
 
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type 'readonly "name"[]'.
-    pick(42, { name: "Alice" })
+    expect(pick).type.not.toBeCallableWith(42, { name: "Alice" })
   })
 })

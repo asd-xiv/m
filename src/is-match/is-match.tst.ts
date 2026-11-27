@@ -68,17 +68,13 @@ describe("isMatch", () => {
   test("isMatch - invalid input", () => {
     const input = { id: 1, name: "John" }
 
-    // @ts-expect-error Type 'string' is not assignable to type 'KeyMatcher<number> | undefined'.
-    isMatch({ id: "uuid" }, input)
+    expect(isMatch).type.not.toBeCallableWith({ id: "uuid" }, input)
 
     // an array is read as a pipe, never as a value: match it with a predicate
-    // @ts-expect-error Type '[string]' is not assignable to type 'KeyMatcher<string[]> | undefined'.
-    isMatch({ tags: ["a"] }, { tags: ["a"] })
+    expect(isMatch).type.not.toBeCallableWith({ tags: ["a"] }, { tags: ["a"] })
 
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type 'Matcher<...>'.
-    isMatch(42, input)
+    expect(isMatch).type.not.toBeCallableWith(42, input)
 
-    // @ts-expect-error Argument of type 'null' is not assignable to parameter of type 'Matcher<...>'.
-    isMatch(null, input)
+    expect(isMatch).type.not.toBeCallableWith(null, input)
   })
 })

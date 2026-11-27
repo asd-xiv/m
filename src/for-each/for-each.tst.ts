@@ -73,8 +73,7 @@ describe("forEach", () => {
         console.log(item)
       }
 
-      // @ts-expect-error Type 'string' is not assignable to type 'number'.
-      forEach(logNumber, input)
+      expect(forEach).type.not.toBeCallableWith(logNumber, input)
     }
 
     {
@@ -84,8 +83,7 @@ describe("forEach", () => {
       }
       const forEachLogNumber = forEach(logNumber)
 
-      // @ts-expect-error Type 'string' is not assignable to type 'number'.
-      forEachLogNumber(input)
+      expect(forEachLogNumber).type.not.toBeCallableWith(input)
     }
   })
 })

@@ -16,10 +16,8 @@ describe("escape", () => {
   })
 
   test("escape - invalid input", () => {
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type 'string | RegExp'.
-    escape(42, "foo")
+    expect(escape).type.not.toBeCallableWith(42, "foo")
 
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type 'string'.
-    escape(/\./g, 42)
+    expect(escape).type.not.toBeCallableWith(/\./g, 42)
   })
 })

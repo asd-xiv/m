@@ -17,16 +17,12 @@ describe("trim", () => {
   })
 
   test("trim - invalid input", () => {
-    // @ts-expect-error Argument of type 'number' is not assignable to ...
-    trim(123)
+    expect(trim).type.not.toBeCallableWith(123)
 
-    // @ts-expect-error Type '"-"' has no properties in common with type 'TrimOptions'.
-    trim("-", "hello")
+    expect(trim).type.not.toBeCallableWith("-", "hello")
 
-    // @ts-expect-error Type 'number' is not assignable to type 'string'.
-    trim({ chars: 1 }, "hello")
+    expect(trim).type.not.toBeCallableWith({ chars: 1 }, "hello")
 
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type 'string'.
-    trim({}, 123)
+    expect(trim).type.not.toBeCallableWith({}, 123)
   })
 })

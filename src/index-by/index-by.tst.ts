@@ -32,12 +32,16 @@ describe("indexBy", () => {
     expect(indexBy([(item: Item) => item.id > 1, String], items)).type.toBe<
       Record<string, Item>
     >()
-    // @ts-expect-error No overload matches this call.
-    indexBy((item: Item) => item.id > 1, items)
+    expect(indexBy).type.not.toBeCallableWith(
+      (item: Item) => item.id > 1,
+      items
+    )
   })
 
   test("indexBy - invalid input", () => {
-    // @ts-expect-error Argument of type 'string' is not assignable to parameter of type 'readonly Item[]'.
-    indexBy((item: Item) => item.id, "not-an-array")
+    expect(indexBy).type.not.toBeCallableWith(
+      (item: Item) => item.id,
+      "not-an-array"
+    )
   })
 })

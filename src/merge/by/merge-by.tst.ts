@@ -20,10 +20,8 @@ describe("mergeBy", () => {
   })
 
   test("mergeBy - invalid input", () => {
-    // @ts-expect-error Expected 2-3 arguments, but got 1.
-    mergeBy(definedWins)
+    expect(mergeBy).type.not.toBeCallableWith(definedWins)
 
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type 'MergeStrategy'.
-    mergeBy(42, { a: 1 }, { a: 2 })
+    expect(mergeBy).type.not.toBeCallableWith(42, { a: 1 }, { a: 2 })
   })
 })

@@ -8,7 +8,6 @@ describe("escapeHTML", () => {
   })
 
   test("escapeHTML - invalid input", () => {
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type 'string'.
-    escapeHTML(42)
+    expect(escapeHTML).type.not.toBeCallableWith(42)
   })
 })

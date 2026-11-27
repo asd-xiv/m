@@ -18,7 +18,6 @@ describe("pipe", () => {
   })
 
   test("pipe - invalid input", () => {
-    // @ts-expect-error Argument of type ... is not assignable to parameter of type ...
-    pipe(toString, inc)
+    expect(pipe).type.not.toBeCallableWith(toString, inc)
   })
 })

@@ -12,7 +12,6 @@ describe("max", () => {
   })
 
   test("max - invalid input", () => {
-    // @ts-expect-error Type 'string' is not assignable to type 'number'.
-    max([1, "2"])
+    expect(max).type.not.toBeCallableWith([1, "2"])
   })
 })

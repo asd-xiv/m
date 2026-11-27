@@ -20,10 +20,8 @@ describe("last", () => {
   })
 
   test("last - invalid input", () => {
-    // @ts-expect-error Argument of type ... is not assignable to parameter of type ...
-    last(42)
-    // @ts-expect-error Argument of type ... is not assignable to parameter of type ...
-    last({ a: 1 })
+    expect(last).type.not.toBeCallableWith(42)
+    expect(last).type.not.toBeCallableWith({ a: 1 })
   })
 
   test("last - aliases", () => {

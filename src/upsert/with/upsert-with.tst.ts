@@ -40,15 +40,20 @@ describe("upsertWith", () => {
   test("upsertWith - invalid input", () => {
     const input = [{ id: 1, name: "a" }]
 
-    // @ts-expect-error Object literal may only specify known properties, and 'missing' does not exist in type 'Matcher<{ id: number; name: string; }>'.
-    upsertWith({ missing: 1 }, { id: 1, name: "b" }, input)
+    expect(upsertWith).type.not.toBeCallableWith(
+      { missing: 1 },
+      { id: 1, name: "b" },
+      input
+    )
 
     // An item is a full T, a missing key is an error
-    // @ts-expect-error Property 'name' is missing in type '{ id: number; }' but required in type '{ id: number; name: string; }'.
-    upsertWith({ id: 1 }, { id: 1 }, input)
+    expect(upsertWith).type.not.toBeCallableWith({ id: 1 }, { id: 1 }, input)
 
     // A match value is never an array, m reads it as a pipe
-    // @ts-expect-error Type '[number]' is not assignable to type 'KeyMatcher<number> | undefined'.
-    upsertWith({ id: [1] }, { id: 1, name: "b" }, input)
+    expect(upsertWith).type.not.toBeCallableWith(
+      { id: [1] },
+      { id: 1, name: "b" },
+      input
+    )
   })
 })

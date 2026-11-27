@@ -67,20 +67,16 @@ describe("any", () => {
   test("any - invalid input", () => {
     const input = [1, "2", 3]
 
-    // @ts-expect-error Argument of type ... is not assignable to parameter of type ...
-    any(isEven, input)
+    expect(any).type.not.toBeCallableWith(isEven, input)
 
     const anyIsEven = any(isEven)
 
-    // @ts-expect-error Argument of type ... is not assignable to parameter of type 'readonly number[]'.
-    anyIsEven(input)
+    expect(anyIsEven).type.not.toBeCallableWith(input)
 
-    // @ts-expect-error Argument of type 'number' is not assignable to parameter of type ...
-    any(isEven, 42)
+    expect(any).type.not.toBeCallableWith(isEven, 42)
 
     // an array in the first slot is a pipe, not a value
-    // @ts-expect-error Argument of type ... is not assignable to parameter of type ...
-    any([1, 2], [[1, 2]])
+    expect(any).type.not.toBeCallableWith([1, 2], [[1, 2]])
   })
 
   test("any - aliases", () => {

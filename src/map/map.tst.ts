@@ -75,22 +75,22 @@ describe("map", () => {
   })
 
   test("map - invalid input", () => {
-    // @ts-expect-error Argument of type ... is not assignable to parameter of type ...
-    map((item: number, index: number) => item + index, [1, 2])
+    expect(map).type.not.toBeCallableWith(
+      (item: number, index: number) => item + index,
+      [1, 2]
+    )
 
     {
       const input = [1, "2", 3]
 
-      // @ts-expect-error Type 'string' is not assignable to type 'number'.
-      map(square, input)
+      expect(map).type.not.toBeCallableWith(square, input)
     }
 
     {
       const input = [1, "2", 3]
       const doubleAll = map(square)
 
-      // @ts-expect-error Type 'string' is not assignable to type 'number'.
-      doubleAll(input)
+      expect(doubleAll).type.not.toBeCallableWith(input)
     }
   })
 })
