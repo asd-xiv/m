@@ -11,14 +11,65 @@ test("escapeRegExp - uncurried", t => {
 
   t.equal(
     escapeRegExp("Alice + Bob = $orry | A < B | f* => {}"),
-    "Alice \\+ Bob = \\$orry \\| A < B \\| f\\* => \\{\\}",
-    "given [string with +, $, |, <, >, *, {, } chars] should [escape each special char]"
+    "Alice \\+ Bob \\x3d \\$orry \\| A \\x3c B \\| f\\* \\x3d\\x3e \\{\\}",
+    "given [string with +, $, |, *, {, } and =, <, > chars] should [escape each, the v flag's reserved ones as \\xNN]"
   )
 
   t.equal(
     escapeRegExp("a-z"),
-    "a\\-z",
-    "given [a string with a dash] should [escape -]"
+    "a\\x2dz",
+    "given [a string with a dash] should [escape - as \\x2d]"
+  )
+
+  // The input classes of Test262's RegExp.escape tests. Each must match itself
+  // with no flag, the u flag and the v flag, inside a character class and
+  // outside. With the v flag, a doubled & or ! is an operator inside a class,
+  // and an escaped dash outside one used to throw "Invalid escape"
+  {
+    const punctuation: string[] = []
+
+    for (let code = 0x21; code <= 0x7e; code++) {
+      const char = String.fromCharCode(code)
+
+      if (!/[\dA-Za-z]/.test(char)) {
+        punctuation.push(char, `${char}${char}`, `a${char}${char}b`)
+      }
+    }
+
+    const texts = [
+      ...punctuation,
+      "a\tb\nc\rd",
+      "a\u00A0b\uFEFFc",
+      "a\u2028b\u2029c",
+      "a\uD83Db",
+      "안녕 Γειά",
+      "😀",
+    ]
+    const failures: string[] = []
+
+    for (const text of texts) {
+      for (const flags of ["", "u", "v"]) {
+        const escaped = escapeRegExp(text)
+        const outside = new RegExp(`^${escaped}$`, flags)
+        const inside = new RegExp(`^[${escaped}]+$`, flags)
+
+        if (!outside.test(text) || !inside.test(text) || inside.test("z")) {
+          failures.push(`${JSON.stringify(text)} with flags "${flags}"`)
+        }
+      }
+    }
+
+    t.deepEqual(
+      failures,
+      [],
+      "given [punctuation alone or doubled, whitespace, line terminators, a lone surrogate or non-ASCII text, in any mode] should [match itself inside and outside a character class]"
+    )
+  }
+
+  t.equal(
+    escapeRegExp(""),
+    "",
+    "given [an empty string] should [return an empty string]"
   )
 
   t.true(

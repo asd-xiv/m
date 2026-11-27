@@ -1,6 +1,7 @@
 import test from "tape"
 
 import { indexBy } from "./index-by.js"
+import { read } from "../read/read.js"
 
 type Item = { id: number; name: string }
 
@@ -114,6 +115,19 @@ test("indexBy - curried", t => {
 })
 
 test("indexBy - invalid input", t => {
+  // String(["admin"]) is "admin", so an array id would take the key of the
+  // item with the id "admin"
+  t.throws(
+    () =>
+      // @ts-expect-error -- testing runtime validation
+      indexBy(read("id"), [
+        { id: "admin", by: "system" },
+        { id: ["admin"], by: "attacker" },
+      ]),
+    /@asd14\/m\/indexBy: expected 'fn\(input\[1\]\)' to be 'String' or 'Number', got 'Array'/,
+    "given [a key that is neither a string nor a number] should [throw TypeError]"
+  )
+
   t.throws(
     () => {
       // @ts-expect-error -- testing runtime validation

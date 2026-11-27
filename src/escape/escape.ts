@@ -12,7 +12,14 @@ const _escape = (match: unknown, input: unknown): string => {
     )
   }
 
-  return input.replace(match as RegExp, "\\$&")
+  // A sticky (y) regex matches from its lastIndex, and replace leaves that
+  // where the last match ended. A copy starts each call at 0, and keeps the
+  // caller's regex as it was. A g regex is reset by replace, and a regex with
+  // neither flag ignores lastIndex, so both are used as they are
+  const pattern =
+    match instanceof RegExp && match.sticky ? new RegExp(match) : match
+
+  return input.replace(pattern as RegExp, "\\$&")
 }
 
 /**

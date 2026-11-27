@@ -1,6 +1,6 @@
-import type { PlainObject } from "../../types/object.js"
-import type { Patcher } from "../../types/object.patcher.js"
-import { _buildPatch } from "../utils/build-patch.js"
+import type { Patcher } from "../../types/object.patcher.ts"
+import type { PlainObject } from "../../types/object.ts"
+import { _buildPatch } from "../utils/build-patch.ts"
 
 type UpdateFn = {
   <T extends PlainObject>(patcher: Patcher<T>, input: T): T

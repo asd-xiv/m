@@ -1,6 +1,7 @@
 import type { Merge, PlainObject } from "../../types/object.js"
 import { isPlainObject } from "../is/is.js"
 import { type } from "../type/type.js"
+import { _setOwn } from "../utils/set-own.js"
 
 type MergeAll<T extends readonly PlainObject[]> = T extends readonly [
   infer Head extends PlainObject,
@@ -27,10 +28,14 @@ type MergeFn = {
 }
 
 const _merge = (objects: readonly PlainObject[]): PlainObject => {
-  let result: PlainObject = {}
+  // One result, written key by key: a spread of the result for each object
+  // copies it again each time, which grows with the square of the input
+  const result: PlainObject = {}
 
   for (const object of objects) {
-    result = { ...result, ...object }
+    for (const key of Object.keys(object)) {
+      _setOwn(result, key, object[key])
+    }
   }
 
   return result
@@ -38,7 +43,11 @@ const _merge = (objects: readonly PlainObject[]): PlainObject => {
 
 /**
  * Shallow-merge objects left-to-right. Right-most properties win. Every item
- * must be a plain object, and a `"__proto__"` key stays an own key.
+ * must be a plain object. Copies own string keys: a symbol key is left out.
+ *
+ * A `"__proto__"` key stays an own key, and the prototype never changes.
+ * `Object.assign` differs here: it assigns each key, so an own `"__proto__"`
+ * key from `JSON.parse` replaces the prototype of its target.
  *
  * Accepts variadic objects, an array of objects, or a single object
  * (curried, returns a function expecting the second object).

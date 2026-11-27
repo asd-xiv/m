@@ -47,8 +47,17 @@ const _indexBy = (fn: AnyMorphism, input: unknown): Record<string, unknown> => {
 
   for (let i = 0, length = input.length; i < length; i++) {
     const item: unknown = input[i]
+    const key: unknown = fn(item)
 
-    _setOwn(result, String(fn(item)), item)
+    // The types allow a string or a number. Anything else would turn into a
+    // string that can match another item's key, eg. ["admin"] into "admin"
+    if (typeof key !== "string" && typeof key !== "number") {
+      throw new TypeError(
+        `@asd14/m/indexBy: expected 'fn(input[${i}])' to be 'String' or 'Number', got '${type(key)}'`
+      )
+    }
+
+    _setOwn(result, String(key), item)
   }
 
   return result
@@ -70,6 +79,9 @@ const _indexBy = (fn: AnyMorphism, input: unknown): Record<string, unknown> => {
  * @param {Array} [input] - Array to index
  *
  * @returns {Object} Object of items, one for each key
+ *
+ * @throws {TypeError} When `fn` returns neither a string nor a number, eg.
+ * `expected 'fn(input[1])' to be 'String' or 'Number', got 'Array'`
  *
  * @example
  * indexBy(user => user.id, [

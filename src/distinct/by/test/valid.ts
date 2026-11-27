@@ -1,8 +1,8 @@
 import test from "tape"
 
-import { distinctBy } from "./distinct-by.js"
+import { distinctBy } from "../distinct-by.js"
 
-test("distinctBy - uncurried", t => {
+test("distinctBy - valid", t => {
   t.deepEqual(
     distinctBy(
       (a: { id: number }, b: { id: number }) => a.id === b.id,
@@ -57,10 +57,7 @@ test("distinctBy - uncurried", t => {
     )
   }
 
-  t.end()
-})
-
-test("distinctBy - curried", t => {
+  // Curried
   const byId = (
     a: { id: number; name: string },
     b: { id: number; name: string }
@@ -73,28 +70,6 @@ test("distinctBy - curried", t => {
     ]),
     [{ id: 1, name: "x" }],
     "given [equality by id, curried] should [keep first occurrence]"
-  )
-
-  t.end()
-})
-
-test("distinctBy - invalid input", t => {
-  t.throws(
-    () => {
-      // @ts-expect-error -- testing runtime validation
-      distinctBy(42, [1, 2])
-    },
-    /expected 'fn' to be 'Function', got 'Number'/,
-    "given [a number as fn] should [throw TypeError]"
-  )
-
-  t.throws(
-    () => {
-      // @ts-expect-error -- testing runtime validation
-      distinctBy((a: number, b: number) => a === b, "not-an-array")
-    },
-    /expected 'input' to be 'Array', got 'String'/,
-    "given [a string as input] should [throw TypeError]"
   )
 
   t.end()

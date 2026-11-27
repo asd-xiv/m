@@ -89,6 +89,15 @@ test("pick - curried", t => {
 })
 
 test("pick - invalid input", t => {
+  // A key from parsed JSON can be an array. The assignment would turn
+  // ["__proto__"] into "__proto__" and replace the prototype
+  t.throws(
+    // @ts-expect-error -- testing runtime validation
+    () => pick([["__proto__"]], { name: "Alice" }),
+    /expected 'keys\[0\]' to be 'String', got 'Array'/,
+    "given [a key that is not a string] should [throw TypeError]"
+  )
+
   t.throws(
     // @ts-expect-error -- intentionally testing wrong input type
     () => pick("name", { name: "Alice" }),

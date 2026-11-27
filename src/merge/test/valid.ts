@@ -1,8 +1,8 @@
 import test from "tape"
 
-import { merge } from "./merge.js"
+import { merge } from "../merge.js"
 
-test("merge - uncurried", t => {
+test("merge - valid", t => {
   const object1 = { a: undefined }
   const object2 = { a: "lorem", b: "ipsum", c: 41 }
   const object3 = { c: 42, b: undefined }
@@ -78,67 +78,31 @@ test("merge - uncurried", t => {
     )
   }
 
-  t.end()
-})
+  {
+    // One result, written key by key. A spread of the result for each object
+    // took 10 s for 8,000 objects
+    const objects = Array.from({ length: 20_000 }, (_, index) => ({
+      [`key${index % 10_000}`]: index,
+    }))
+    const result = merge(objects)
 
-test("merge - curried", t => {
+    t.equal(
+      Object.keys(result).length,
+      10_000,
+      "given [20,000 objects over 10,000 keys] should [merge them in one pass]"
+    )
+    t.equal(
+      result["key0"],
+      10_000,
+      "given [20,000 objects over 10,000 keys] should [keep the last value of each key]"
+    )
+  }
+
+  // Curried
   t.deepEqual(
     merge({ a: undefined })({ a: "lorem", b: "ipsum", c: 41 }),
     { a: "lorem", b: "ipsum", c: 41 },
     "given [curried with 1 arg] should [return function that merges second object]"
-  )
-
-  t.end()
-})
-
-test("merge - invalid input", t => {
-  t.throws(
-    // @ts-expect-error -- testing runtime validation
-    () => merge(),
-    /expected 'first' to be 'Object' or 'Array', got 'Undefined'/,
-    "given [no argument] should [throw TypeError]"
-  )
-
-  t.throws(
-    // @ts-expect-error -- testing runtime validation
-    () => merge(42),
-    /expected 'first' to be 'Object' or 'Array', got 'Number'/,
-    "given [a number as first] should [throw TypeError]"
-  )
-
-  t.throws(
-    // @ts-expect-error -- testing runtime validation
-    () => merge({ a: 1 })("lorem"),
-    /expected 'second' to be 'Object', got 'String'/,
-    "given [a string as curried second] should [throw TypeError]"
-  )
-
-  t.throws(
-    // @ts-expect-error -- testing runtime validation
-    () => merge({ a: 1 }, { b: 2 }, null),
-    /expected 'objects\[2\]' to be 'Object', got 'Null'/,
-    "given [null among variadic objects] should [throw TypeError]"
-  )
-
-  t.throws(
-    // @ts-expect-error -- testing runtime validation
-    () => merge([1, "a", null]),
-    /expected 'objects\[0\]' to be 'Object', got 'Number'/,
-    "given [an array with non-object items] should [throw TypeError]"
-  )
-
-  t.throws(
-    // @ts-expect-error -- testing runtime validation
-    () => merge([{ a: 1 }, new Date()]),
-    /expected 'objects\[1\]' to be 'Object', got 'Date'/,
-    "given [an array with a Date] should [throw TypeError, a Date is not plain]"
-  )
-
-  t.throws(
-    // @ts-expect-error -- testing runtime validation
-    () => merge(new Map(), { a: 1 }),
-    /expected 'first' to be 'Object' or 'Array', got 'Map'/,
-    "given [a Map as first] should [throw TypeError, a Map is not plain]"
   )
 
   t.end()

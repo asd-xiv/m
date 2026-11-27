@@ -1,7 +1,7 @@
 # Runtime tests (Tape)
 
 Tests are the primary way users learn how a function works. Before reading JSDoc
-or source code, they look at `*.test.ts` files to understand calling
+or source code, they look at the files in `test/` folders to understand calling
 conventions, edge cases, and how primitives compose together.
 
 Write every test as if it's a usage example in a tutorial. The reader should
@@ -16,16 +16,18 @@ walk away knowing:
 
 ## Full example
 
+A function's tests live in `src/partition/test/`, one file per group:
+
 ```ts
-// partition.test.ts
+// src/partition/test/valid.ts
 import test from "tape"
 
-import { partition } from "./partition.js"
-import { isSomething } from "../is/is.js"
+import { isSomething } from "../../is/is.js"
+import { partition } from "../partition.js"
 
 const isEven = (input: number): boolean => input % 2 === 0
 
-test("partition - uncurried", t => {
+test("partition - valid", t => {
   t.deepEqual(
     partition(isEven, [1, 2, 3, 4, 5]),
     [
@@ -54,10 +56,7 @@ test("partition - uncurried", t => {
     )
   }
 
-  t.end()
-})
-
-test("partition - curried", t => {
+  // Curried
   t.deepEqual(
     partition(isEven)([1, 2, 3, 4, 5]),
     [
@@ -69,8 +68,15 @@ test("partition - curried", t => {
 
   t.end()
 })
+```
 
-test("partition - invalid input", t => {
+```ts
+// src/partition/test/invalid.ts
+import test from "tape"
+
+import { partition } from "../partition.js"
+
+test("partition - invalid", t => {
   t.throws(
     () => {
       // @ts-expect-error -- testing runtime validation
@@ -97,17 +103,20 @@ test("partition - invalid input", t => {
 
 ### Grouping
 
-Each group is a top-level `test("fn - group")`:
+A function's tests live in `test/valid.ts`, `test/edge.ts` and
+`test/invalid.ts`, without `.test` in the name. Each file holds one top-level
+`test("fn - group")`:
 
-| Group                | When to include                                                         |
-| -------------------- | ----------------------------------------------------------------------- |
-| `fn - uncurried`     | Always — this is the first thing a user reads, show the simplest call   |
-| `fn - curried`       | When function supports curried form — show how it fits in `pipe` chains |
-| `fn - invalid input` | Always — covers both `fn` and `input` validation                        |
-| `fn - aliases`       | When the function has aliases (`zipToObj`, `size`, etc.)                |
+| Group          | When to include                                                                                                  |
+| -------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `fn - valid`   | Always — every call with input of the right type: uncurried calls first, then curried ones and calls in a `pipe` |
+| `fn - edge`    | When the function has edge cases worth their own group                                                           |
+| `fn - invalid` | Always — every call that throws, with its message. Covers both `fn` and `input` validation                       |
+| `fn - aliases` | When the function has aliases (`zipToObj`, `size`, etc.)                                                         |
 
-Order matters: uncurried first (simplest mental model), curried second
-(composition pattern), invalid last (error contract).
+Order matters: valid first (simplest call first, then composition), edge second,
+invalid last (error contract). Mark the part of a group that comes from another
+form with a one-line comment, eg. `// Curried` or `// In a pipe`.
 
 ### Description format
 
@@ -125,7 +134,7 @@ block. This avoids polluting the outer `test()` scope and lets you reuse
 variable names like `items` across blocks:
 
 ```ts
-test("partition - uncurried", t => {
+test("partition - valid", t => {
   // simple assertions go directly — the reader sees the basic usage first
   t.deepEqual(partition(isEven, [1, 2, 3]), [[2], [1, 3]], "...")
 
@@ -157,7 +166,7 @@ Do NOT use `{}` blocks for simple one-liner assertions.
 
 ### `@ts-expect-error` only for invalid input
 
-Use `@ts-expect-error` exclusively in the "invalid input" group, where the test
+Use `@ts-expect-error` exclusively in the `invalid` group, where the test
 intentionally passes wrong types to verify runtime validation. Never use it to
 work around type inference issues — if a test needs a cast, the API needs
 fixing.

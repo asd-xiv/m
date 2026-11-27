@@ -70,6 +70,16 @@ const zipToObject = ((...params: unknown[]) => {
     )
   }
 
+  // A key that is not a string passes the check of _setOwn, then the
+  // assignment turns it into one, eg. ["__proto__"] into "__proto__"
+  for (let i = 0, length = keys.length; i < length; i++) {
+    if (typeof keys[i] !== "string") {
+      throw new TypeError(
+        `@asd14/m/zipToObject: expected 'keys[${i}]' to be 'String', got '${type(keys[i])}'`
+      )
+    }
+  }
+
   // @signature (keys) => (values)
   if (params.length === 1) {
     return <V>(values: readonly V[]) => _zipToObject(keys as string[], values)

@@ -13,6 +13,34 @@ type IndexedView = ArrayLike<unknown>
 
 type Stringable = { toString: () => string }
 
+type Binary = ArrayBuffer | SharedArrayBuffer | DataView
+
+// A browser defines SharedArrayBuffer only on a cross-origin isolated page
+const _isBinary = (input: object): input is Binary =>
+  input instanceof ArrayBuffer ||
+  input instanceof DataView ||
+  (typeof SharedArrayBuffer === "function" &&
+    input instanceof SharedArrayBuffer)
+
+const _toBytes = (input: Binary): Uint8Array =>
+  input instanceof DataView
+    ? new Uint8Array(input.buffer, input.byteOffset, input.byteLength)
+    : new Uint8Array(input)
+
+const _isBytesEqual = (left: Uint8Array, right: Uint8Array): boolean => {
+  if (left.length !== right.length) {
+    return false
+  }
+
+  for (let index = 0, length = left.length; index < length; index++) {
+    if (left[index] !== right[index]) {
+      return false
+    }
+  }
+
+  return true
+}
+
 const _isDeepEqual = (left: unknown, right: unknown): boolean => {
   if (left === right) {
     return true
@@ -82,6 +110,13 @@ const _isDeepEqual = (left: unknown, right: unknown): boolean => {
     return true
   }
 
+  // A buffer and a DataView have no keys and no length, so compare their
+  // bytes. fast-deep-equal 3.1.3 calls two different buffers equal, and loops
+  // forever on a DataView. The constructors match, so `right` has the same type
+  if (_isBinary(left)) {
+    return _isBytesEqual(_toBytes(left), _toBytes(right as Binary))
+  }
+
   if (ArrayBuffer.isView(left) && ArrayBuffer.isView(right)) {
     const leftView = left as unknown as IndexedView
     const rightView = right as unknown as IndexedView
@@ -128,7 +163,10 @@ const _isDeepEqual = (left: unknown, right: unknown): boolean => {
 
   const leftRecord = left as Record<string, unknown>
   const rightRecord = right as Record<string, unknown>
-  const isReactElement = "$$typeof" in left
+  // React marks an element with a symbol, which JSON cannot produce. A JSON
+  // object with a `$$typeof` key keeps its `_owner` in the comparison
+  const isReactElement =
+    typeof (left as { $$typeof?: unknown }).$$typeof === "symbol"
 
   for (let index = 0, length = keys.length; index < length; index++) {
     const key = keys[index] as string
@@ -151,11 +189,26 @@ const _isDeepEqual = (left: unknown, right: unknown): boolean => {
 }
 
 /**
- * Check two values for deep equality: arrays and typed arrays by items, `Map`
- * by entries, `Set` by keys, `RegExp` by source and flags, a `Date` or any
- * object with its own `valueOf` or `toString` by that result, other objects by
- * own enumerable keys. Objects of different constructors are never equal. A
- * React element skips its `_owner`, which is circular. Two `NaN` are equal.
+ * Check two values for deep equality: arrays and typed arrays by items, an
+ * `ArrayBuffer`, `SharedArrayBuffer` or `DataView` by bytes, `Map` by entries,
+ * `Set` by keys, `RegExp` by source and flags, a `Date` or any object with its
+ * own `valueOf` or `toString` by that result, other objects by own enumerable
+ * keys. Objects of different constructors are never equal. A React element
+ * skips its `_owner`, which is circular. Two `NaN` are equal.
+ *
+ * State a JS program cannot read is not compared, eg. the contents of a `Blob`,
+ * the value of a `Promise` or a `#private` field.
+ *
+ * To compare secrets, eg. two signatures, use `crypto.timingSafeEqual`:
+ * `isDeepEqual` returns at the first difference, so its time leaks where the
+ * values differ.
+ *
+ * It recurses, so the stack limits the depth: deeply nested input throws a
+ * `RangeError`. The limit depends on V8's stack size and on whether V8 has
+ * optimized the function yet. Run `src/is-deep-equal/bench/depth.ts` to find
+ * it on your machine, next to Node's, lodash's and underscore's. `JSON.parse`
+ * accepts any depth, so check the depth of untrusted input first, if it can
+ * be that deep.
  *
  * Input is never mutated.
  *

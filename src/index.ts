@@ -66,7 +66,6 @@ export * from "./upsert/with/upsert-with.js"
 export * from "./zip-to-object/zip-to-object.js"
 
 // Object
-export * from "./evolve/deep-by/evolve-deep-by.js"
 export * from "./evolve/evolve.js"
 export * from "./is-match/is-match.js"
 export * from "./keys/keys.js"

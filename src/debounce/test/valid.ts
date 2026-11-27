@@ -1,9 +1,9 @@
 import { mock } from "node:test"
 import test from "tape"
 
-import { debounce } from "./debounce.js"
+import { debounce } from "../debounce.js"
 
-test("debounce - uncurried", t => {
+test("debounce - valid", t => {
   mock.timers.enable({ apis: ["setTimeout", "Date"] })
 
   {
@@ -58,45 +58,44 @@ test("debounce - uncurried", t => {
     t.deepEqual(calls, [1], "given [empty options] should [wait 50 ms]")
   }
 
+  // Abort with a signal, eg. when a React component unmounts: the pending call
+  // never runs, and later calls do nothing
+  {
+    const calls: number[] = []
+    const controller = new AbortController()
+    const debounced = debounce(
+      { wait: 50, signal: controller.signal },
+      (input: number) => calls.push(input)
+    )
+
+    debounced(1)
+    controller.abort()
+    mock.timers.tick(50)
+    debounced(2)
+    mock.timers.tick(50)
+    t.deepEqual(
+      calls,
+      [],
+      "given [an abort before the wait ends] should [drop the pending call and every later one]"
+    )
+  }
+
+  {
+    const calls: number[] = []
+    const debounced = debounce(
+      { signal: AbortSignal.abort() },
+      (input: number) => calls.push(input)
+    )
+
+    debounced(1)
+    mock.timers.tick(50)
+    t.deepEqual(
+      calls,
+      [],
+      "given [a signal that is already aborted] should [never run fn]"
+    )
+  }
+
   mock.timers.reset()
-  t.end()
-})
-
-test("debounce - invalid input", t => {
-  t.throws(
-    () => {
-      // @ts-expect-error -- testing runtime validation
-      debounce("nope")
-    },
-    /@asd14\/m\/debounce: expected 'fn' to be 'Function', got 'String'/,
-    "given [a string as fn] should [throw TypeError]"
-  )
-
-  t.throws(
-    () => {
-      // @ts-expect-error -- testing runtime validation
-      debounce("nope", () => undefined)
-    },
-    /@asd14\/m\/debounce: expected 'options' to be 'Object', got 'String'/,
-    "given [a string as options] should [throw TypeError]"
-  )
-
-  t.throws(
-    () => {
-      // @ts-expect-error -- testing runtime validation
-      debounce({ wait: "10" }, () => undefined)
-    },
-    /expected 'wait' to be 'Number', got 'String'/,
-    "given [a string as wait] should [throw TypeError]"
-  )
-
-  t.throws(
-    () => {
-      debounce({ wait: -1 }, () => undefined)
-    },
-    /expected 'wait' to be 'NonNegative', got '-1'/,
-    "given [a negative wait] should [throw TypeError]"
-  )
-
   t.end()
 })

@@ -1,7 +1,7 @@
 import test from "tape"
 
-import { fuzzyMatch } from "./fuzzy-match.js"
-import type { FuzzyMatch } from "./fuzzy-match.js"
+import { fuzzyMatch } from "../fuzzy-match.js"
+import type { FuzzyMatch } from "../fuzzy-match.js"
 
 /** The page names of the docs sandbox, in its order */
 const SANDBOX_PAGES = [
@@ -52,7 +52,7 @@ const rank = (query: string, texts: readonly string[]): string[] => {
     .map(entry => entry.text)
 }
 
-test("fuzzyMatch - uncurried", t => {
+test("fuzzyMatch - valid", t => {
   t.deepEqual(
     fuzzyMatch("cb", "CodeBlock")?.indexes,
     [0, 4],
@@ -125,38 +125,7 @@ test("fuzzyMatch - uncurried", t => {
     "given [chk and the sandbox pages] should [rank Checkbox first]"
   )
 
-  t.end()
-})
-
-test("fuzzyMatch - edge", t => {
-  t.deepEqual(
-    fuzzyMatch("", "CodeBlock"),
-    { score: 0, indexes: [] },
-    "given [an empty query] should [match with score 0 and no indexes]"
-  )
-
-  t.deepEqual(
-    fuzzyMatch("", ""),
-    { score: 0, indexes: [] },
-    "given [an empty query and an empty text] should [match with score 0 and no indexes]"
-  )
-
-  t.deepEqual(
-    fuzzyMatch("Tag", "Tag")?.indexes,
-    [0, 1, 2],
-    "given [a query equal to the text] should [return every index]"
-  )
-
-  t.deepEqual(
-    fuzzyMatch("oo", "Octicons")?.indexes,
-    [0, 5],
-    "given [a repeated letter] should [match each on its own index]"
-  )
-
-  t.end()
-})
-
-test("fuzzyMatch - no match", t => {
+  // No match
   t.equal(
     fuzzyMatch("xz", "CodeBlock"),
     undefined,
@@ -181,9 +150,7 @@ test("fuzzyMatch - no match", t => {
     "given [an empty text] should [return undefined]"
   )
 
-  t.end()
-})
-test("fuzzyMatch - curried", t => {
+  // Curried
   t.deepEqual(
     fuzzyMatch("cb")("CodeBlock"),
     { score: 51.75, indexes: [0, 4] },
@@ -199,37 +166,6 @@ test("fuzzyMatch - curried", t => {
       "given [a curried query in map] should [match each text]"
     )
   }
-
-  t.end()
-})
-
-test("fuzzyMatch - invalid input", t => {
-  t.throws(
-    () => {
-      // @ts-expect-error -- testing runtime validation
-      fuzzyMatch(1, "text")
-    },
-    /expected 'query' to be 'String', got 'Number'/,
-    "given [a number as query] should [throw TypeError]"
-  )
-
-  t.throws(
-    () => {
-      // @ts-expect-error -- testing runtime validation
-      fuzzyMatch("a", null)
-    },
-    /expected 'text' to be 'String', got 'Null'/,
-    "given [null as text] should [throw TypeError]"
-  )
-
-  t.throws(
-    () => {
-      // @ts-expect-error -- testing runtime validation
-      fuzzyMatch("a")(1)
-    },
-    /expected 'text' to be 'String', got 'Number'/,
-    "given [a number as text, curried] should [throw TypeError]"
-  )
 
   t.end()
 })

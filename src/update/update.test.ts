@@ -1,6 +1,6 @@
 import test from "tape"
 
-import { update } from "./update.js"
+import { update } from "./update.ts"
 
 test("update - uncurried", t => {
   t.deepEqual(
@@ -107,6 +107,12 @@ test("update - uncurried", t => {
       "given [an own '__proto__' key on the patcher] should [leave the prototype alone]"
     )
   }
+
+  t.deepEqual(
+    update({ toString: value => typeof value }, {}),
+    { toString: "undefined" },
+    "given [a key the input lacks but its prototype has] should [pass undefined to the patch function]"
+  )
 
   t.end()
 })

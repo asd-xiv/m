@@ -1,12 +1,12 @@
 import test from "tape"
 
-import { intersectBy } from "./intersect-by.js"
+import { intersectBy } from "../intersect-by.js"
 
 type Item = { id: number; v: string }
 
 const byId = (a: Item, b: Item) => a.id === b.id
 
-test("intersectBy - uncurried", t => {
+test("intersectBy - valid", t => {
   t.deepEqual(
     intersectBy(
       byId,
@@ -64,10 +64,7 @@ test("intersectBy - uncurried", t => {
     "given [an equality function that returns a truthy non-boolean] should [not match]"
   )
 
-  t.end()
-})
-
-test("intersectBy - curried", t => {
+  // Curried
   t.deepEqual(
     intersectBy(byId, [
       { id: 1, v: "a" },
@@ -75,38 +72,6 @@ test("intersectBy - curried", t => {
     ])([{ id: 2, v: "c" }]),
     [{ id: 2, v: "b" }],
     "given [equality by id, curried with first array] should [intersect]"
-  )
-
-  t.end()
-})
-
-test("intersectBy - invalid input", t => {
-  t.throws(
-    // @ts-expect-error -- testing runtime validation
-    () => intersectBy(byId),
-    /expected 'a' to be 'Array', got 'Undefined'/,
-    "given [only the equality function] should [throw TypeError]"
-  )
-
-  t.throws(
-    // @ts-expect-error -- testing runtime validation
-    () => intersectBy("not a function", [], []),
-    /expected 'fn' to be 'Function', got 'String'/,
-    "given [a string as equality function] should [throw TypeError]"
-  )
-
-  t.throws(
-    // @ts-expect-error -- testing runtime validation
-    () => intersectBy(byId, 42, []),
-    /expected 'a' to be 'Array', got 'Number'/,
-    "given [a number as first array] should [throw TypeError]"
-  )
-
-  t.throws(
-    // @ts-expect-error -- testing runtime validation
-    () => intersectBy(byId, [], "abc"),
-    /expected 'b' to be 'Array', got 'String'/,
-    "given [a string as second array] should [throw TypeError]"
   )
 
   t.end()

@@ -51,10 +51,10 @@ describe("partition", () => {
   })
 
   test("partition - invalid input", () => {
-    // @ts-expect-error Type 'string' is not assignable to type 'number'.
+    // @ts-expect-error Type 'string' is not assignable to type 'number'
     partition(isEven, [1, "2", 3])
 
-    // @ts-expect-error Type 'string' is not assignable to type 'number'.
+    // @ts-expect-error Type 'string' is not assignable to type 'number'
     partition(isEven)([1, "2", 3])
   })
 })
@@ -104,28 +104,43 @@ The comment `// you only need to type the 1st function...` is intentional — it
 teaches the user the minimal annotation strategy instead of letting them guess
 or over-annotate.
 
+### The type under test goes in `expect()`
+
+Read an assertion left to right: expect this type to be, or to accept, that one.
+Use `toBe` for an exact type, and `toBeAssignableFrom` for what a type accepts:
+
+```ts
+// Good — the test is about PlainObject, so it comes first
+expect<PlainObject>().type.toBeAssignableFrom<{ name: string }>()
+
+// Bad — the reader must turn the sentence around to find the subject
+expect<{ name: string }>().type.toBeAssignableTo<PlainObject>()
+```
+
 ### `@ts-expect-error` must include the error message
 
 Put `// @ts-expect-error` on the line above the call that fails, followed by the
-expected TypeScript error. TSTyche matches the whole message, and `...` in the
-middle skips a part. This ensures the test breaks if the error changes, and it
-tells the user exactly what error to expect when they misuse the API:
+expected TypeScript error. TSTyche matches it from the start of the message, and
+`...` skips any part. Keep the types and the counts, they say what went wrong.
+Skip the words around them, eg. `Argument of` and `parameter of`. The test
+breaks if the error changes, and it tells the user what error to expect when
+they misuse the API:
 
 ```ts
-// Good — user sees the exact error they'll get
-// @ts-expect-error Type 'string' is not assignable to type 'number'.
-partition(isEven, [1, "2"])
-
-// Good — `...` skips the part of a long message the user does not need
-// @ts-expect-error Argument of type ... is not assignable to parameter of type 'number'.
-inc("1")
+// Good — the types and the count, nothing else
+// @ts-expect-error ... type 'number' is not assignable to ... type 'object'
+write("name", "bob", 42)
+// @ts-expect-error Expected 2-3 arguments, but got 1
+write("name")
 
 // Bad — passes for any error, user learns nothing about what went wrong
 // @ts-expect-error
-partition(isEven, [1, "2"])
+write("name", "bob", 42)
 ```
 
-`toRaiseError()` is deprecated in TSTyche 7, use the directive instead.
+`toRaiseError()` is deprecated in TSTyche 7, use the directive instead. Prefer
+it over `.not.toBeCallableWith()` too: that one passes for any reason the call
+fails, eg. a missing argument.
 
 ### Tests mirror realistic usage
 

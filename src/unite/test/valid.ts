@@ -1,8 +1,8 @@
 import test from "tape"
 
-import { unite } from "./unite.js"
+import { unite } from "../unite.js"
 
-test("unite - uncurried", t => {
+test("unite - valid", t => {
   t.deepEqual(
     unite([1, 2, 3], [2, 3, 4, 5]),
     [1, 2, 3, 4, 5],
@@ -50,39 +50,22 @@ test("unite - uncurried", t => {
     )
   }
 
-  t.end()
-})
+  {
+    const a = Array.from({ length: 25_000 }, (_, index) => index)
+    const b = Array.from({ length: 25_000 }, (_, index) => index + 12_500)
 
-test("unite - curried", t => {
+    t.equal(
+      unite(a, b).length,
+      37_500,
+      "given [two arrays of 25,000 that overlap by half] should [return 37,500, in one pass]"
+    )
+  }
+
+  // Curried
   t.deepEqual(
     unite([1, 1, 2])([2, 3]),
     [1, 2, 3],
     "given [arrays with internal duplicates, curried] should [deduplicate all]"
-  )
-
-  t.end()
-})
-
-test("unite - invalid input", t => {
-  t.throws(
-    // @ts-expect-error -- testing runtime validation
-    () => unite(42, [1]),
-    /expected 'a' to be 'Array', got 'Number'/,
-    "given [a number as first array] should [throw TypeError]"
-  )
-
-  t.throws(
-    // @ts-expect-error -- testing runtime validation
-    () => unite([1], "abc"),
-    /expected 'b' to be 'Array', got 'String'/,
-    "given [a string as second array] should [throw TypeError]"
-  )
-
-  t.throws(
-    // @ts-expect-error -- testing runtime validation
-    () => unite([1])(null),
-    /expected 'b' to be 'Array', got 'Null'/,
-    "given [null as second array, curried] should [throw TypeError]"
   )
 
   t.end()

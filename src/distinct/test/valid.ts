@@ -1,8 +1,8 @@
 import test from "tape"
 
-import { distinct } from "./distinct.js"
+import { distinct } from "../distinct.js"
 
-test("distinct - uncurried", t => {
+test("distinct - valid", t => {
   t.deepEqual(
     distinct([1, 2, 2, 3, 1, 3]),
     [1, 2, 3],
@@ -44,18 +44,17 @@ test("distinct - uncurried", t => {
     "given [array with duplicate NaN] should [treat NaN as equal]"
   )
 
-  t.end()
-})
+  {
+    // One pass with a Set. Comparing each item with each kept one took 34 s
+    // for 80,000 items
+    const input = Array.from({ length: 50_000 }, (_, index) => index % 25_000)
 
-test("distinct - invalid input", t => {
-  t.throws(
-    () => {
-      // @ts-expect-error -- testing runtime validation
-      distinct(42)
-    },
-    /expected 'input' to be 'Array', got 'Number'/,
-    "given [a number as input] should [throw TypeError]"
-  )
+    t.equal(
+      distinct(input).length,
+      25_000,
+      "given [50,000 items with 25,000 distinct] should [return the 25,000, in one pass]"
+    )
+  }
 
   t.end()
 })

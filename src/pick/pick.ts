@@ -77,6 +77,16 @@ const pick = ((...params: unknown[]) => {
     )
   }
 
+  // A key that is not a string passes the check of _setOwn, then the
+  // assignment turns it into one, eg. ["__proto__"] into "__proto__"
+  for (let i = 0, length = keys.length; i < length; i++) {
+    if (typeof keys[i] !== "string") {
+      throw new TypeError(
+        `@asd14/m/pick: expected 'keys[${i}]' to be 'String', got '${type(keys[i])}'`
+      )
+    }
+  }
+
   // @signature (keys) => (input)
   if (params.length === 1) {
     return (input: unknown) => _pick(keys as string[], input as PlainObject)

@@ -97,6 +97,15 @@ test("zipToObject - curried", t => {
 })
 
 test("zipToObject - invalid input", t => {
+  // A key from parsed JSON can be an array. The assignment would turn
+  // ["__proto__"] into "__proto__" and replace the prototype
+  t.throws(
+    // @ts-expect-error -- testing runtime validation
+    () => zipToObject([["__proto__"]], [{ isAdmin: true }]),
+    /expected 'keys\[0\]' to be 'String', got 'Array'/,
+    "given [a key that is not a string] should [throw TypeError]"
+  )
+
   t.throws(
     // @ts-expect-error -- intentionally testing wrong input type
     () => zipToObject("a", [1]),

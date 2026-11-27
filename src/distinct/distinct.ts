@@ -1,6 +1,4 @@
-import { isEqual } from "../is-equal/is-equal.js"
 import { type } from "../type/type.js"
-import { distinctBy } from "./by/distinct-by.js"
 
 /**
  * Remove duplicate values from an array. Compares with SameValueZero, as
@@ -39,7 +37,21 @@ const distinct = <T>(input: readonly T[]): T[] => {
     )
   }
 
-  return distinctBy<T>(isEqual, input)
+  // A Set compares with SameValueZero, as isEqual does, so one pass does it.
+  // distinctBy compares each item with each kept one, for its own equality
+  const seen = new Set<T>()
+  const result: T[] = []
+
+  for (let index = 0, length = input.length; index < length; index++) {
+    const item = input[index] as T
+
+    if (!seen.has(item)) {
+      seen.add(item)
+      result.push(item)
+    }
+  }
+
+  return result
 }
 
 export { distinct }

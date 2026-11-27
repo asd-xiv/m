@@ -6,8 +6,6 @@
 
 import { type } from "../type/type.js"
 
-type IsURIFn = (input: string) => boolean
-
 // --- Regular expression, built once at module load ---
 
 const _buildURIRegExp = (): RegExp => {
@@ -18,9 +16,11 @@ const _buildURIRegExp = (): RegExp => {
   const hexDigitOnly = `[${hexDigit}]`
   const unreserved = `${alpha}${digit}-\\._~`
   const subDelims = "!\\$&'\\(\\)\\*\\+,;="
-  const pctEncoded = `%${hexDigit}`
-  const pchar = `${unreserved}${pctEncoded}${subDelims}:@`
-  const pcharOnly = `[${pchar}]`
+  // RFC 3986: pct-encoded = "%" HEXDIG HEXDIG, never a lone "%". It goes next
+  // to a character class as an alternative, since "%" is not in the class, so
+  // each character matches one way only and the regex cannot backtrack
+  const pctEncoded = `%${hexDigitOnly}{2}`
+  const pcharOnly = `(?:[${unreserved}${subDelims}:@]|${pctEncoded})`
 
   // dec-octet, with zero-padded addresses accepted
   const decOctet =
@@ -43,10 +43,12 @@ const _buildURIRegExp = (): RegExp => {
   ].join("|")})`
   const ipFuture = `v${hexDigitOnly}+\\.[${unreserved}${subDelims}:]+`
 
-  const scheme = `[${alpha}][${alpha}${digit}+-\\.]*`
-  const userinfo = `[${unreserved}${pctEncoded}${subDelims}:]*`
+  // `+.\-`, not `+-.`: inside a class, `+-.` is the range from + to ., which
+  // also covers the comma
+  const scheme = `[${alpha}][${alpha}${digit}+.\\-]*`
+  const userinfo = `(?:[${unreserved}${subDelims}:]|${pctEncoded})*`
   const ipLiteral = `\\[(?:${ipv6}|${ipFuture})\\]`
-  const regName = `[${unreserved}${pctEncoded}${subDelims}]{0,255}`
+  const regName = `(?:[${unreserved}${subDelims}]|${pctEncoded}){0,255}`
   const host = `(?:${ipLiteral}|${ipv4}|${regName})`
   const authority = `(?:${userinfo}@)?${host}(?::${digitOnly}*)?`
 
@@ -58,8 +60,8 @@ const _buildURIRegExp = (): RegExp => {
   const hierPart = `(?:(?:\\/\\/${authority}${pathAbEmpty})|${pathAbsolute}|${pathRootless})`
 
   // The query ends at the fragment or at the end of the input
-  const query = `[${pchar}\\/\\?]*(?=#|$)`
-  const fragment = `[${pchar}\\/\\?]*`
+  const query = `(?:${pcharOnly}|[\\/\\?])*(?=#|$)`
+  const fragment = `(?:${pcharOnly}|[\\/\\?])*`
 
   return new RegExp(
     `^(?:${scheme}:${hierPart})(?:\\?${query})?(?:#${fragment})?$`
@@ -69,6 +71,8 @@ const _buildURIRegExp = (): RegExp => {
 const URI_REG_EXP = _buildURIRegExp()
 
 // --- Public function ---
+
+type IsURIFn = (input: string) => boolean
 
 /**
  * Check that a string is a URI, as [RFC 3986](https://www.rfc-editor.org/rfc/rfc3986)

@@ -160,6 +160,36 @@ test("write - copies", t => {
   }
 
   {
+    // A key the prototype has is an ordinary own key: read gets back what
+    // write wrote, and the prototype stays Object.prototype
+    const result = write("constructor", 2, {})
+
+    t.equal(
+      result.constructor,
+      2,
+      "given [the key constructor] should [read back the written value with a dot]"
+    )
+
+    t.equal(
+      result["constructor"],
+      2,
+      "given [the key constructor] should [read back the written value with brackets]"
+    )
+
+    t.equal(
+      read("constructor")(result),
+      2,
+      "given [the key constructor] should [read back the written value with read]"
+    )
+
+    t.equal(
+      Object.getPrototypeOf(result),
+      Object.prototype,
+      "given [the key constructor] should [keep the prototype]"
+    )
+  }
+
+  {
     const input = Object.create(null) as Record<string, unknown>
     input["a"] = 1
 
